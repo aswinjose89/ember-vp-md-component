@@ -1,0 +1,8 @@
+.global-snackbar__links-element {
+    color: $baseLinkColor;
+    display: block;
+}
+.global-snackbar__links-element ~ .global-snackbar__links-element {
+    margin-left: 20px;
+}
+@import "_color/global-snackbar__links-element_color";

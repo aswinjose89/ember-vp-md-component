@@ -1,0 +1,43 @@
+<div class="dropdown-multi__row{{if (is-selected-item record selectedItems optionValuePath didSelectionChange) ' dropdown-multi__row_active'}}{{if record.isHighLight ' dropdown-multi__row_highlight'}}"
+     id={{dropItemId record}}
+    {{action 'setSelectedItem' record}}
+    onmouseenter={{action 'setDropItemHighLight' record}}
+    onmouseleave={{action 'unSetDropItemHighLight' record}}
+>
+    <div class="dropdown-multi__avatar">
+        {{#if (get record resultConfig.avatar)}}
+            <img src="{{get record resultConfig.avatar}}">
+        {{else}}
+            <div class="dropdown-multi__user-icon{{if (get record resultConfig.isClient) ' dropdown-multi__user-icon_color_client'}}">
+                {{avatar-initial (get record resultConfig.label)}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="dropdown-multi__content">
+        <div class="dropdown-multi__content-main">
+            <div class="dropdown-multi__name">
+                {{#if (get record resultConfig.enableMemberAction)}}
+                    <a href {{action 'triggerWBSendAction' resultConfig.memberAction record bubbles=false}}>{{get record resultConfig.label}}</a>
+                {{else}}
+                    {{get record resultConfig.label}}
+                {{/if}}
+            </div>
+            <div class="dropdown-multi__info">
+                {{#each (get record resultConfig.additonalInfoItems) as | addtionalInfo |}}
+                    <div class="dropdown-multi__info-element">
+                        {{#if addtionalInfo.email}}
+                            <a href="{{addtionalInfo.email}}" {{action 'triggerWBSendAction' resultConfig.emailAction record bubbles=false}}>{{addtionalInfo.email}}</a>
+                        {{else}}
+                            {{addtionalInfo.label}}
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+        {{#if (get record resultConfig.enableRowAction)}}
+            <div class="dropdown-multi__actions">
+                <a href='#' class="link_uppercase" {{action 'memberDropDownRowAction' resultConfig.rowAction.action record bubbles=false}}>{{resultConfig.rowAction.label}}</a>
+            </div>
+        {{/if}}
+    </div>
+</div>

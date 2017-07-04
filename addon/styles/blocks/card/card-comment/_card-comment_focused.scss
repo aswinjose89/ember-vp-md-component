@@ -1,0 +1,10 @@
+.card-comment_focused {
+    .content-toolbar {
+        &:before {
+            left: 0;
+            right: 0;
+            content: '';
+            z-index: 1;
+        }
+    }
+}

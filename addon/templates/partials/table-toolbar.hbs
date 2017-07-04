@@ -1,0 +1,59 @@
+{{#if showGlobalTableSearch}}
+    <div class="global-table__search">
+        {{wb-md-input type="search" color="white" value=searchKey clearIcon=true isShadowed=false onClear=(action 'closeSearchBar') onInput=(action 'triggerSearchTable' searchKey)}}
+    </div>
+{{else}}
+    {{#wb-md-content-toolbar pad="full" border=(unless noBorder 'bottom') color=tableToolbarColor}}
+        {{#if showMultiSelectActions}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-icon iconName="close" click=(action 'handleSelectAllToggle' false)}}
+                </div>
+                <div class="content-toolbar__element">
+                    {{selectionCount}} {{headerSelectedItemActions.selectionText}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                {{#each headerSelectedItemActions.items as | headerAction| }}
+                    <div class="content-toolbar__element">
+                        {{wb-md-button type='link' label=headerAction.label action=(action "triggerSendAction" headerAction.action) size="small"}}
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">
+                        {{config.tableHeading}}
+                    </div>
+                </div>
+            </div>
+            {{#if (and headerToolBar (not loading) (not hideTableOnOnEmptyState))}}
+                <div class="content-toolbar__row">
+                    {{#each headerToolBar.dropdowns as | dropdown |}}
+                        <div class="content-toolbar__element">
+                            {{wb-md-input-table
+                                placeholder=dropdown.placeholder
+                                onChange=(action 'triggerSendAction' dropdown.action)
+                                items=dropdown.content
+                                iconName=dropdown.iconName
+                                optionLabelPath=dropdown.optionLabelPath
+                                optionValuePathConfig=dropdown.optionValuePath
+                                disableResetSelection=dropdown.disableResetSelection
+                                isSelect=true
+                                isInHeader= true
+                                multiSelect=dropdown.multiSelect
+                                isDisabled=dropdown.isDisabled
+                                value=dropdown.value
+                                clearSelectedItemsOnContentChange=dropdown.clearSelectedItemsOnContentChange
+                            }}
+                        </div>
+                    {{/each}}
+                    <div class="content-toolbar__element">
+                        {{wb-md-icon-toolbar config=tableToolbarIconToolbarConfig}}
+                    </div>
+                </div>
+            {{/if}}
+        {{/if}}
+    {{/wb-md-content-toolbar}}
+{{/if}}

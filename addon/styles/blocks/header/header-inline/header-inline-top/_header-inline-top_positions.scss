@@ -1,0 +1,13 @@
+.header-inline-top {
+    height: 80px;
+    &__left,
+    &__right {
+        @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    }
+    &_left {
+        order: 0;
+    }
+    &_right {
+        order: 1;
+    }
+}

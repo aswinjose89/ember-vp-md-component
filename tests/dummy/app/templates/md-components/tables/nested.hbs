@@ -1,0 +1,120 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Nested Table</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                <ul>
+                    <li><code><span>isNestingTable :default false</span></code> - Enables nesting behaviour</li>
+                    <li><code><span>enableMultipleNestedTableRows :default false</span></code> - This will enable user to open multiple nested table at a time</li>
+                    <li><code><span>rowExpandAction</span></code> - The actionName passed to this property will be invoked when row is expanded</li>
+                    <li><code><span>nestedTableConfig</span></code> - Config for the nested table</li>
+                    <li><code><span>iconToolbarConfig</span></code> - config for the icon toolbar at each row</li>
+                    <li><code><span>rowHeaderField</span></code> - Specify the filed to refer for row level header</li>
+                    <li><code><span>entityConfigField</span></code> - Specify the filed in which the enity icon config is passed</li>
+                    <li><code><span>isToggleDisabled</span></code> - Disable the table row expansion icon</li>
+                    <li><code><span>disableNestedTableAutoCollapse</span></code> - On table rerender the nested rows will be auto closed, set true to disable this feature</li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                isNestingTable: true,
+                rowExpandAction: "rowExpandCollapseAction",
+                content: tableContentFromEmberModel,
+                nestedTableConfig: childTableConfig,
+                rowHeaderField: 'idType',
+                entityConfigField: 'enityConfig',
+                iconToolbarConfig: Ember.Object.create({
+                    visibleItems: '0',
+                    ...
+                }),
+                rowAction: { iconName: "remove_circle", action: 'deleteAction' },
+                columns: [
+                    { field: 'idType', type: 'text', title: 'ID Type' },
+                    { field: 'idNumber', type: 'text', title: 'ID Number' },
+                    { field: 'country', type: 'text', title: 'Country' },
+                    { field: 'comments', type: 'text', title: 'Comments' }
+                    ]
+                }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    {{nested-table selectableNestedTableConfig=selectableNestedTableConfig simpleNestedTableConfig=simpleNestedTableConfig selectedItems=(mut multiSelectItems)}}
+{{/wb-md-card}}
+{{#wb-md-card}}
+    {{multilevel-nested-table}}
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Table With Nested Card</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                <ul>
+                    <li><code><span>isNestedCard :default false</span></code> - Enables nested card behaviour</li>
+                    <li><code><span>nestedCardConfig</span></code> - This will enable user to open multiple nested table at a time
+                        <ul>
+                            <li><code><span>componentName</span></code> - Set the component name to render inside the table</li>
+                            <li><code><span>componentConfigField</span></code> - Set model reference field which need to be passed as a config to the component</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                rowExpandAction: "rowExpandCollapseAction",
+                content: tableContentFromEmberModel,
+                isNestedCard: true,
+                nestedCardConfig: {
+                    componentName: 'nested-card-table-row',
+                    componentConfigField: 'componentConfig'
+                },
+                columns: [
+                    { field: 'idType', type: 'text', title: 'ID Type' },
+                    { field: 'idNumber', type: 'text', title: 'ID Number' },
+                    { field: 'country', type: 'text', title: 'Country' },
+                    { field: 'comments', type: 'text', title: 'Comments' }
+                ]
+                ...
+            }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{nested-card-table}}
+{{/wb-md-card}}

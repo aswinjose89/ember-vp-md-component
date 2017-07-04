@@ -1,0 +1,7 @@
+.sidebar-nav-form-sections__element_error {
+    color: $red_500;
+    background: none;
+    &:before {
+        color: $red_500;
+    }
+}

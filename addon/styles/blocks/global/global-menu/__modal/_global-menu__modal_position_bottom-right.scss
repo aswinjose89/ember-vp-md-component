@@ -1,0 +1,5 @@
+.global-menu__modal_position_bottom-right {
+  top: calc(100% + 12px);
+  right: 0;
+  @extend  %global-effect_position_top_right;
+}

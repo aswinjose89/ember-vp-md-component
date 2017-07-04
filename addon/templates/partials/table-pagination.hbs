@@ -1,0 +1,25 @@
+{{#if (is-equal pageType 'default')}}
+    <div class="pagination">
+        <div class="pagination__element">
+            Rows per page:
+        </div>
+        <div class="pagination__element">
+            {{wb-md-input type='select' onChange="pageSelectionChanged" value=pageSize content=rowsPerPageDropDown}}
+        </div>
+        <div class="pagination__information">
+            {{startingRecordNumber}}-{{endingRecordNumber}} of {{totalRecords}}
+        </div>
+        <div class="pagination__controls">
+            {{wb-md-icon iconName="keyboard_arrow_left" isDisabled=disablePrevPage click=(action 'triggerPrevPage')}}
+            {{wb-md-icon iconName="keyboard_arrow_right" isDisabled=disableNextPage click=(action 'triggerNextPage')}}
+        </div>
+    </div>
+{{else if showLoadMore}}
+    <div class="content-toolbar content-toolbar_position_center content-toolbar_color_gray">
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button type='link' action='loadMore' disabled=loading size="small" label='Load More'}}
+            </div>
+        </div>
+    </div>
+{{/if}}

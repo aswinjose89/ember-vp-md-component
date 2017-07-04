@@ -1,0 +1,7 @@
+.global-datepicker__month-list {
+    @include flex(flex, row, wrap, flex-start, flex-start, flex-start);
+    > div {
+        width: 33.3%;
+        text-align: center;
+    }
+}

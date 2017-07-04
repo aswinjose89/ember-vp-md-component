@@ -1,0 +1,5 @@
+.card-question__tools-element {
+  & ~ .card-question__tools-element {
+    margin-left: 24px;
+  }
+}

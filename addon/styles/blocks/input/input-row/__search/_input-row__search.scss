@@ -1,0 +1,17 @@
+.input-row__search {
+    @include flex(flex, row, wrap, flex-start, flex-start, flex-start);
+    margin: -5px;
+    position: relative;
+    z-index: 1;
+    min-height: 35px;
+    padding-right: 34px;
+    overflow: hidden;
+    &:after {
+        content: 'search';
+        @extend %material-icons;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        color: $iconColorDefault;
+    }
+}

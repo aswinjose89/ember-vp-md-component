@@ -1,0 +1,160 @@
+{{#wb-md-flyout showModal=showAttachmentFlyout overPopup=overPopup}}
+    <div class="global-file-upload">
+        <!--Header Starts -->
+        {{#if showAttachFilesSectionFlag}}
+            {{#wb-md-content-toolbar  border="bottom" pad="full"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-icon iconName="clear" onClickAction=(action "cancelAction")}}
+                    </div>
+                </div>
+                <div class="content-toolbar__row">
+                    {{#if isLinkFilesButtonDisplayed}}
+                        <div class="content-toolbar__element">
+                            {{wb-md-button label="Link Files" color="link"  click=(action "openLinkFiles")
+                                           disabled=attachFilesDisabledFlag }}
+                        </div>
+                    {{/if}}
+                    <div class="content-toolbar__element">
+                        {{wb-md-button label="Done" type='primary' color="blue"  click=(action "attachAndLinkFiles" )
+                                       disabled=isDoneDisabled}}
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+            <!-- Body Starts -->
+            <div class="global-file-upload__content">
+                {{#if attachedFile}}
+                    <div class="global-file-upload__form">
+
+                        {{#if errorMessage}}
+                            {{#wb-md-card-message type="error" iconName='info_outline' iconColor='white'}}
+                                {{errorMessage}}
+                            {{/wb-md-card-message}}
+                        {{/if}}
+                        {{#unless attachedFile.markedForDeletion  }}
+                            <div class="global-file-upload__form-info {{unless  attachedFile 'hide'}}">
+                                Uploaded by {{attachedFile.uploadedBy}} on {{format-date attachedFile.uploadedDate}}
+                            </div>
+                            {{wb-md-file-uploaded-file
+                                file=attachedFile
+                                isEditable=isEditable
+                                isDeletable=isDeletable
+                                deleteFileAction="deleteFile"
+                                displayPercentComplete=true
+                                excludedType=excludedType
+                            }}
+                        {{/unless}}
+                        {{#if isDescriptionDisplayed}}
+                            {{#if (and (is-equal attachedFile.attachmentType "FILE") isEditable)}}
+                                <div style="margin-top: 20px;">
+                                    {{  wb-md-input label=fileDescriptionLabel maxLength=fileDescriptionMaxLength
+                                                    multiline=true
+                                                    value=attachedFile.description
+                                                    disabled=false required=isFileDescriptionMandatory
+                                    }}
+                                </div>
+                            {{else}}
+                                <div class="input-result">
+                                    <div class="input-result__label">{{fileDescriptionLabel}}</div>
+                                    <div class="input-result__content">{{attachedFile.description}}</div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+
+                        {{#if isCategoryDisplayed}}
+                            {{#if (and (is-equal attachedFile.attachmentType "FILE") isEditable)}}
+                                {{wb-md-input type='select'
+                                              label=fileCategoryLabel
+                                              required=isFileCategoryMandatory
+                                              isEditable=true
+                                              content=fileCategoryValues
+                                              selectedItem=attachedFile.fileCategory
+                                              optionLabelPath='description'
+                                              optionValuePath='categoryType'
+                                }}
+                            {{else}}
+                                <div class="input-result">
+                                    <div class="input-result__label">{{fileCategoryLabel}}</div>
+                                    <div class="input-result__content">{{attachedFile.fileCategory.description}}</div>
+                                </div>
+                            {{/if}}
+                        {{/if}}
+
+                        {{#if isPrivateFileFlagDisplayed}}
+                            {{#wb-md-content-toolbar pad="full"}}
+                                <div class="content-toolbar__row">
+                                    <div class="content-toolbar__element">
+                                        {{privateFileFlagLabel}}
+                                    </div>
+                                </div>
+                                <div class="content-toolbar__row">
+                                    <div class="content-toolbar__element">
+                                        {{wb-md-switch value=attachedFile.isPrivateFile disabled=(not isEditable)}}
+                                    </div>
+                                </div>
+
+                            {{/wb-md-content-toolbar}}
+                        {{/if}}
+
+                    </div>
+                {{else}}
+                    {{#if errorMessage}}
+                        {{#wb-md-card-message type="error" iconName='info_outline' iconColor='white'}}
+                            {{errorMessage }}
+                        {{/wb-md-card-message}}
+                    {{/if}}
+                    <div class="global-file-upload__tutorial">
+                        {{#if isEditable}}
+                            <h3>{{instructionTitle}}</h3>
+                            <div class="icon"></div>
+                            <p>{{{instructionMessage}}}</p>
+                        {{else}}
+                            <h3>No attachments found</h3>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
+            <!-- Footer Starts-->
+            {{#if  showFileUploadBtn}}
+                <div class="global-file-upload__footer {{unless isEditable 'hide'}}">
+                    {{ wb-md-file-upload placeHolder=fileInputPlaceHolder
+                                         maxSize=fileMaxSize afterFileSelect="uploadFile"
+                                         disabled=false maxSizeText=fileMaxSizeText
+                                         acceptedType=acceptedType
+                                         excludedType=excludedType
+                    }}
+                </div>
+            {{/if}}
+        {{else}}
+            <!-- Link Files Starts-->
+            {{#wb-md-content-toolbar border="bottom"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-icon iconName="arrow_back" onClickAction=(action "cancelLinkFileAction")}}
+                        <span class="{{unless showSelectedLinkFileCount 'hide'}}">({{selectedFileCount}})</span>
+                    </div>
+                </div>
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-button label="done" type='primary' color="blue" click=(action "attachAndLinkFiles")
+                                       disabled=isDoneDisabled}}
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+            <div class="global-file-upload__content">
+                {{#if fileList}}
+                    {{#each fileList as |file fileIndex|}}
+                        {{wb-md-file-link-card file=file showLength=descriptionShowLength readOnly=isLinkFilesReadOnly}}
+                    {{/each}}
+                {{else}}
+                    <div class="global-file-upload__content">
+                        <div class="global-file-upload__tutorial">
+                            <h3>No files found</h3>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+            <!-- Link Files Ends-->
+        {{/if}}
+    </div>
+{{/wb-md-flyout}}

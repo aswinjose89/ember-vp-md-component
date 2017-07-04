@@ -1,0 +1,223 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Multi Select Table</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-table config=tableConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>multiSelect :default false</span></code> - Enables the multiSelect table behaviour</li>
+                        <li><code><span>multiSelectAction</span></code> - The actionName passed to this property will be invoked when selection changes in each row</li>
+                        <li><code><span>disableSelectField</span></code> - Set the model reference field with which the selection checkbox can be disabled</li>
+                        <li><code><span>disableRowActionField</span></code> - Set the model reference field with which the rowAction or rowActions can be disabled</li>
+                        <li><code><span>selectAllAction</span></code> - The actionName passed to this property will be invoked when select all checkbox changes</li>
+                        <li><code><span>disableSelectAll</span></code> - Disables the select all checkbox</li>
+                        <li>
+                            <code><span>headerSelectedItemActions</span></code> - Display Selection count and action buttons
+                            <ul>
+                                <li><code><span>selectionText</span></code> - Text to be shown when items are selected</li>
+                                <li><code><span>items</span></code> - Array of <code>label</code> and <code>action</code> for the action buttons</li>
+                            </ul>
+                        </li>
+                        <li><code><span>selectedItems</span></code> - Holds the list of items selected in the table</li>
+                        <li><code><span>disableAddRow</span></code> - Disables the add new row button</li>
+                        <li>
+                            <code><span>uniqueColumn default:id</span></code> - If Id is not present in the records, specify this property
+                            to uniquely identify the record
+                        </li>
+                        <li>
+                            <code><span>columns</span></code> - List of columns to map for the content array
+                            <ul>
+                                <li><code><span>isReadOnly</span></code> - Show the column in a readonly mode</li>
+                                <li><code><span>placeholder</span></code> - Placeholder to disaplay if no content is present</li>
+                                <li><code><span>isSelect :default false</span></code> - Sets true enables the Select box in the table cell</li>
+                                <li><code><span>action</span></code> - The given action is triggered when select value changes</li>
+                                <li><code><span>content</span></code> - If <code>isSelect:true</code> takes the content to be displayed in Select box</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                tableHeading: 'Selectable User Table',
+                multiSelect: true,
+                multiSelectAction: 'rowSelected',
+                selectAllAction: 'selectAllCheckboxAction',
+                ...
+                headerSelectedItemActions: {
+                    selectionText: 'Items Selected',
+                    items: [{
+                        label: 'Edit',
+                        action: 'editAction'
+                    }, {
+                        label: 'Export',
+                        action: 'exportAction'
+                    }]
+                },
+                content: this.getTableData(),
+                columns: [...]
+            }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=multiSelectDataConfig selectedItems=(mut multiSelectItems)}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Multiselect values managed via records</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-table config=tableConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Additonal Settings</h3>
+                    <ul>
+                        <li>
+                            <code><span>enableModelSelection defualt:false</span></code> - Setting <code>true</code> will
+                            enable table selection managed via records
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Model Configuration</h3>
+                    <p>
+                        These two properties in the record will hold the selection status and disabled status
+                    </p>
+                    <ul>
+                        <li><code><span>isChecked</span></code> - Model property on which the selected items will managed.
+                            If <code>true</code> the checkbox will be selected, if <code>false</code> it will be unselected
+                        </li>
+                        <li><code><span>isDisabled</span></code> - Model property which will disable/enable the checkbox on each record</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+        {
+            tableHeading: 'Selectable User Table',
+            multiSelect: true,
+            enableModelSelection: true,
+            ...
+            content: contentArray,
+            columns: [...]
+        }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=multiSelectModelSelectionConfig}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Selection with Menu</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-table config=tableConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Additonal Settings</h3>
+                    <ul>
+                        <li>
+                            <code><span>checkboxSelectionMenu</span></code> -Holds the config for the checkbox menu
+                            <li>
+                                <code><span>action</span></code> - The passed action will be invoked when checkbox selection changes
+                            </li>
+                            <li>
+                                <code><span>items</span></code> - Holds the list of menu items for the checkbox menu
+                                <ul>
+                                    <li><code><span>deafultSelection default:false</span></code> - This property will set the item to be default action when
+                                        clicking directly on the checkbox instead of menu</li>
+                                    <li><code><span>label</span></code> - Default label shown in the menu</li>
+                                    <li><code><span>selectionLabel</span></code> - This property's value will be shown when the item is selected in the checkbox menu</li>
+                                    <li><code><span>isSelected default:false</span></code> - If the item is selected in the menu, <code>isSelected</code> will be <code>true</code></li>
+                                </ul>
+                            </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+        {
+            checkboxSelectionMenu: {
+                action: 'checkboxMenuSelection',
+                items: [{
+                    deafultSelection: true,
+                    label: 'Select view',
+                    isSelected: false,
+                    selectionLabel: 'Deselect View'
+                },{
+                    label: 'Select all page',
+                    isSelected: false,
+                    selectionLabel: 'Deselect Page Selection'
+                }]
+            },
+            enableModelSelection: true,
+            columns: [...]
+        }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=selectionMenuConfig}}
+{{/wb-md-card}}

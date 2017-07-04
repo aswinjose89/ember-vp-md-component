@@ -1,0 +1,14 @@
+.page__main {
+    max-width: 940px;
+    overflow: visible;
+    transition: transform .4s ease, width .4s ease;
+    margin: 0 auto;
+    transform: translateX(160px);
+    will-change: all;
+    min-height: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+@import "page__main_fluid";
+@import "page__main_full";

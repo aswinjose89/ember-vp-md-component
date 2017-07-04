@@ -1,0 +1,4 @@
+.discussion__body {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    padding-bottom: 10px;
+}

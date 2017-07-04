@@ -1,0 +1,36 @@
+body {
+    font: normal $baseFontSize $baseFont;
+    color: $baseColor;
+    background: $baseBackground;
+    overflow: hidden;
+    height: 100%;
+    min-height: 100%;
+    // font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: $baseLinkColor;
+    transition: color .4s ease;
+    font-weight: 500;
+    &:hover {
+        text-decoration: none;
+    }
+    &.link_disabled {
+        opacity: $disabledStateOpacity;
+        pointer-events: none;
+    }
+    &.link_uppercase {
+        text-transform: uppercase;
+    }
+    &.link_error {
+        color: $red_500;
+    }
+}
+
+.text_uppercase {
+    text-transform: uppercase;
+}
+
+//typo
+//typo

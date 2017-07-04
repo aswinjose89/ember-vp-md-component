@@ -1,0 +1,8 @@
+.button_color_raised-blue {
+    background: $indigo_500;
+    color: $white;
+    &:hover,
+    &.button_status_active {
+        background: $indigo_500;
+    }
+}

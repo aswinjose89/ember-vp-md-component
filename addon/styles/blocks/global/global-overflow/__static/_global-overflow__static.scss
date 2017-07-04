@@ -1,0 +1,7 @@
+.global-overflow__static {
+    flex-shrink: 0;
+}
+
+.global-overflow__fluid+.global-overflow__static {
+    margin-left: 8px;
+}

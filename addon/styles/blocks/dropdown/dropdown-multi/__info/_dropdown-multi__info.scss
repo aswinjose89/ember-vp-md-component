@@ -1,0 +1,4 @@
+.dropdown-multi__info {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    margin-top: 4px;
+}

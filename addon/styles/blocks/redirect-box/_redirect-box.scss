@@ -1,0 +1,19 @@
+.redirect-box {
+    position: fixed;
+    z-index: 999;
+    background: $white;
+    border-radius: $baseBorderRadius;
+    box-shadow: 0 5px 11px 0 change-color($black, $alpha: .2);
+    width: 340px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@import "__wrapper/redirect-box__wrapper";
+@import "__icons/redirect-box__icons";
+@import "__content/redirect-box__content";
+@import "__content/__content-logo/redirect-box__content-logo";
+@import "__content/__content-text/redirect-box__content-text";
+@import "__content/__content-time/redirect-box__content-time";
+@import "__content/__content-icon/redirect-box__content-icon";

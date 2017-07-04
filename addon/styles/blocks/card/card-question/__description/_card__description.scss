@@ -1,0 +1,6 @@
+.card-question__description {
+  font-size: $smallFontSize;
+  line-height: $smallLineHeight;
+  color: change-color($baseColor, $alpha: .7);
+  padding: 10px 20px 20px 20px;
+}

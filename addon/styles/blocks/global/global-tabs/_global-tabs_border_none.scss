@@ -1,0 +1,17 @@
+.global-tabs_border_none {
+    &:before {
+       display: none;
+    }
+}
+
+@import "__value/global-tabs__value";
+@import "__element/global-tabs__element";
+@import "__label/global-tabs__label";
+@import "__list/global-tabs__list";
+@import "__list-wrapper/global-tabs__list-wrapper";
+@import "__slide-line/global-tabs__slide-line";
+@import "__remove/global-tabs__remove";
+@import "__control/global-tabs__control";
+@import "global-tabs_slider";
+
+@import "global-tabs_color_light";

@@ -1,0 +1,56 @@
+.guideline-block__description {
+    margin-bottom: -10px;
+    h3 {
+        font-size: 15px;
+    }
+    p,
+    ul,
+    ol {
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    table {
+        border-spacing: 0;
+        margin-bottom: 10px;
+        td,
+        th {
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            //color: #c92c2c;
+            border-bottom: 1px solid #ebebeb;
+            border-left: 1px solid #ebebeb;
+            &:first-child {
+                border-left-color: transparent;
+            }
+        }
+        td {
+            border-left: 1px solid $white;
+            &:first-child {
+                border-left-color: transparent;
+            }
+        }
+    }
+    code {
+        color: black;
+        font-weight: 500;
+        span {
+            color: #c92c2c;
+        }
+    }
+    li {
+        position: relative;
+        z-index: 1;
+        padding-left: 10px;
+        &:before {
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            left: 0;
+            top: 8px;
+            content: '';
+            background-color: $indigo_500;
+        }
+    }
+}

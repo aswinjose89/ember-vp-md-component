@@ -1,0 +1,264 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tabs</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-tabs selectedIndex=buttonTabsContentIndex config=buttonTabsConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>selectedIndex :default 0</span> - Optional, set the tab index to show on page
+                            load.</code></li>
+                        <li><code><span>isButton :default false</span> - Optional, set <span>true</span> to display tabs
+                            as button.</code></li>
+                        <li><code><span>isLite :default false</span> - Optional, set <span>true</span> to display tabs
+                            with blue background.</code></li>
+                        <li><code><span>isStatic :default false</span> - Optional, set <span>true</span> to display tabs
+                            without prev/nav controls.</code></li>
+                        <li><code><span>isDeletable :default false</span> - Optional, set <span>true</span> to enable
+                            delete icon next to each tab. </code></li>
+                        <li><code><span>isLastTabDeletable :default false</span> - Optional, set <span>true</span> to show
+                            delete icon in the last tab. By default delete icon will not be shown if there is only one tab left in the tab list</code></li>
+                        <li><code><span>isRoutable :default false</span> - Optional, set <span>true</span> to use
+                            routable tabs</code></li>
+                        <li><code><span>route</span> - Mandatory, when isRoutable is true.</code></li>
+                        <li><code><span>onDelete</span> - Closure action, action name inside angular brackets will get
+                            triggered with tab index when deleting a tab. Additional params can set along with action
+                            name.</code></li>
+                        <li><code><span>onClick</span> - Closure action, action name inside angular brackets will get
+                            triggered and show the content based on index passed as a param when clicking a tab.
+                            Additional params can set along with action name.</code></li>
+                        <li><code><span>isTriggerClickOnLoad :default true</span> - set false for not triggering click event on component load.</code></li>
+                        <li>
+                            <code>
+                                <ul>
+                                    <li><code><span>label</span> - Mandatory, label of the tab.</code></li>
+                                    <li><code><span>value</span> - Optional, extra text of the tab.</code></li>
+                                    <li><code><span>disabled :default false</span> - Optional, set <span>true</span> to
+                                        disable the tab.</code></li>
+                                    <li><code><span>id</span> - Optional. (route) property from root config object and
+                                        (id) property combinedly would make route of the tab.</code></li>
+                                    <li><code><span>subRoute</span> - Optional, value get appended to route in parent </code></li>
+                                </ul>
+                            </code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__chapter">
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{#wb-md-tabs-content selectedIndex=buttonTabsContentIndex}} &#123;{#each tabContent as |tab
+                index|}} &#123;{wb-md-tab-content config=tab}} ...
+                <h3>&#123;{tab.title}}</h3> ... &#123;{tab.content}} ... &#123;{/each}} &#123;{/wb-md-tabs-content}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>selectedIndex :default 0</span> - Mandatory, manage the tab content to show
+                            based on the click event triggered from tab.</code></li>
+                        <li>
+                            <code>
+                                <span>&#123;{wb-md-tab-content}}</span> Nested tab component
+                            </code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tabs with delete option</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-tabs selectedIndex=1 config=classicTabsConfig onDelete=(action "deleteAction")}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            classicTabsConfig: {
+                isDeletable: true,
+                tabs: Ember.A([
+                    Ember.Object.create({label: "Tab 1"}),
+                    ...
+                    Ember.Object.create({label:"Tab 4"}),
+                ]) ,
+                confirmationConfig: {
+                    cancelButtonLabel: 'No',
+                    confirmButonLabel: 'Yes',
+                    title: 'Delete Custom Title',
+                    message: '<p>Custom Information</p><p>Are you sure to perform the action?</p>'
+                },
+            };
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">{{wb-md-button label='+ ADD' size="small" click=(action "addTab") type='link'
+                                                 color="blue"}}</div>
+        </div>
+        {{wb-md-button type="primary" label='Manage SCB Network Countries' color="blue" action="changeDeaultTab"}}
+        {{wb-md-tabs selectedIndex=defaultTab onClick='clicked' config=classicTabsConfig onDelete=(action "deleteAction")}}
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tabs with blue background
+                    </div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-tabs selectedIndex=1 config=liteTabsConfig}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            liteTabsConfig: { "isLite": true, "tabs": Ember.A([{ "label": "Some extremely long description", "id": 1 },
+            { "label": "GROUPS", "id": 2 } ... , { "label": "Individual1", "id": 10 }, { "label": "Last Tab", "value":
+            "10,003", "id": 11 }]) }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+        {{wb-md-tabs config=liteTabsConfig}}
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Button Tabs</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-tabs selectedIndex=1 config=buttonTabsConfig}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            buttonTabsConfig: { "isButton": true, "isDeletable": true, "tabs": Ember.A([ { title: "First tab", content:
+            "First tab content" }, { title: "Second tab", content: "Second tab content" }, ... ]) };
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+        {{wb-md-tabs selectedIndex=buttonTabsContentIndex config=buttonTabsConfig onClick=(action 'buttonTabClickHandler')}}
+
+        {{#wb-md-tabs-content selectedIndex=buttonTabsContentIndex}}
+            {{#each tabContent as |tab index|}}
+                {{#wb-md-tab-content}}
+                    {{#wb-md-card}}
+                        <div class="card-question">
+                            <div class="card-question__content">
+                                <div class="card-question__title">
+                                    <h3>{{tab.title}}</h3>
+                                </div>
+                                <div class="card-question__description">
+                                    {{tab.content}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/wb-md-card}}
+                {{/wb-md-tab-content}}
+            {{/each}}
+        {{/wb-md-tabs-content}}
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Routable Tabs</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-tabs config=routableTabConfig onDelete=(action "deleteRoutableTab")}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            routableTabConfig: { "routable": true, "route": "tabs.tab", "tabs": Ember.A([{ "label": "Some extremely long
+            description", "id": 1 }, ... { "label": "SELECTED", "id": 4 }]) }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+        {{wb-md-tabs config=routableTabConfig onDelete=(action "deleteRoutableTab")}}
+        {{#wb-md-card}}
+            {{outlet}}
+        {{/wb-md-card}}
+    </div>
+{{/wb-md-card}}

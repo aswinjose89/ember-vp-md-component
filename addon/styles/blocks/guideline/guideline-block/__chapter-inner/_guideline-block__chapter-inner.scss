@@ -1,0 +1,12 @@
+.guideline-block__chapter-inner {
+  padding: 5px 0 5px 25px;
+  position: relative;
+  z-index: 1;
+  &:before {
+    @extend %material-icons;
+    content: 'subdirectory_arrow_right';
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

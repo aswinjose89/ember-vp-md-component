@@ -1,0 +1,10 @@
+{{wb-md-input type='select'
+    searchable=true
+    onOpen='openAction'
+    loading=isLoading
+    content=resultContent
+    searchAction=(action 'userQueryAction')
+    selectedItem=selectedUser config=userSearchConfig
+    optionValuePath="psId"
+    optionLabelPath="userCountry"
+}}

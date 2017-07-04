@@ -1,0 +1,1 @@
+export { default } from 'wb-ui-md-components/services/attachment-service';

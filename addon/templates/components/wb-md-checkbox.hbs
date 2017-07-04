@@ -1,0 +1,12 @@
+<input type="checkbox"  name={{name}} disabled={{disabled}} tabindex={{tabindex}} checked={{checked}} autofocus={{autofocus}} form={{form}}>
+
+<div class="input-checkbox__icon">
+    {{#unless indeterminate}}
+        {{wb-md-icon iconName=(if checked "check_box" "check_box_outline_blank") color=(if isError 'red-500' (if iconColor iconColor (if checked "blue" "gray")))}}
+    {{else}}
+        {{wb-md-icon iconName="indeterminate_check_box" color=(if isError 'red-500' (if iconColor iconColor "blue"))}}
+{{/unless}}
+</div>
+{{#if fieldLabel}}
+    <label>{{fieldLabel}}</label>
+{{/if}}

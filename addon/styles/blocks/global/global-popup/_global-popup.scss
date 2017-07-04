@@ -1,0 +1,27 @@
+.global-popup {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 901;
+    background: rgba(0, 0, 0, .5);
+    overflow: hidden;
+    @include flex(flex, column, nowrap, center, center, center);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.global-popup_height_full {
+    height: 100%;
+}
+
+// import parts
+@import "__content/global-popup__content";
+@import "__title/global-popup__title";
+@import "__wrapper/global-popup__wrapper";
+@import "__text/global-popup__text";
+@import "__header/global-popup__header";
+@import "__shadow/global-popup__shadow";
+// import mods
+@import "_type/global-popup_type";

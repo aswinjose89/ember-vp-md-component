@@ -1,0 +1,22 @@
+.input-list__title {
+    line-height: 1.5;
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    padding-bottom: 2px;
+    span {
+        margin-right: 4px;
+        flex-shrink: 0;
+    }
+    h3 {
+        font-weight: 500;
+        font-size: $baseFontSize;
+        color: $baseColor;
+    }
+    .global-icon {
+        transform: translateY(-2px);
+    }
+    sup {
+        transform: translateY(4px);
+        color: $red_500;
+        display: inline-block;
+    }
+}

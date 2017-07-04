@@ -1,0 +1,13 @@
+.global-tag {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: $baseBorderRadius;
+    height: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+@import "__icon/global-tag__icon";
+@import "__value/global-tag__value";
+@import "__circle/global-tag__circle";

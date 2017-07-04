@@ -1,0 +1,9 @@
+.card-message_type_warning {
+    background-color: $orange-50;
+    .card-message__actions {
+        color: $orange-500;
+        a {
+            color: $orange_500;
+        }
+    }
+}

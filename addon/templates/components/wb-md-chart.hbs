@@ -1,0 +1,22 @@
+{{#if (is-equal chartType "timeline")}}
+    <div class="contact-360-info">
+        {{#if chartOptions.isShowTotal}}
+            <div class="contact-360-info__total">Total: {{total}}</div>
+        {{/if}}
+        <div class="contact-360-info__line">
+            {{#each series as |item|}}
+                <div class="contact-360-info__line-element" style="background-color: {{item.color}}; width: {{item.width}}%" {{action 'barClick' item}}></div>
+            {{/each}}
+        </div>
+    </div>
+    {{#if chartOptions.legend.isShow}}
+        <div class="contact-360-info__legend">
+            {{#each series as |item|}}
+                <div class="contact-360-info__legend-element" style="color: {{item.color}}" {{action 'legendClick' item}}>
+                    <label>{{item.name}}</label>
+                    <div class="contact-360-info__legend-element-value">{{item.data}}</div>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+{{/if}}

@@ -1,0 +1,13 @@
+.global-table__row_type_total {
+    font-weight: 500;
+    background: #E0F2F1;
+    color: #00796B;
+    & > td {
+        background: #E0F2F1;
+    }
+    &:hover {
+        & > td {
+            background: #E0F2F1;
+        }
+    }
+}

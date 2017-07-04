@@ -1,0 +1,31 @@
+.global-datepicker__day {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    &:before {
+        width: 100%;
+        height: 100%;
+        transform: scale(0);
+        will-change: transform;
+        transition: transform 0.25s $baseTransition;
+        position: absolute;
+        z-index: -1;
+        background: $indigo_500;
+        content: '';
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+    }
+    &:hover {
+        color: $white;
+        &:before {
+            transform: scale(1);
+        }
+    }
+}
+@import "_status/global-datepicker__day_status";

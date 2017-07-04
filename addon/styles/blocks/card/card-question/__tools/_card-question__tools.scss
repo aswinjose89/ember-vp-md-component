@@ -1,0 +1,6 @@
+.card-question__tools {
+  flex-shrink: 0;
+  @include flex(flex, row, nowrap, flex-end, flex-start, flex-start);
+}
+
+@import "card-question__tools_standalone";

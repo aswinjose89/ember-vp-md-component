@@ -1,0 +1,16 @@
+.card-attachment-list__element-type {
+  border-radius: $baseBorderRadius;
+  font-weight: 700;
+  font-size: 8px;
+  color: $white;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 6px 0 5px 0;
+  line-height: 9px;
+  margin-right: 5px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+@import "card-attachment-list__element-type_pdf";
+@import "card-attachment-list__element-type_xls";

@@ -1,0 +1,28 @@
+.page__container {
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    @include flex(flex, row, nowrap, center, stretch, stretch);
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.page__container-scroll {
+    flex-shrink: 1;
+    flex-grow: 1;
+    max-height: 100%;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.page__container-limiter {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.page__container-limiter_hidden {
+    overflow-x: hidden;
+    overflow-y: visible;
+}

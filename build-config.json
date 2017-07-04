@@ -1,0 +1,16 @@
+{
+    "production": {
+        "fingerprint": {
+            "customHash": "1.0.0"
+        },
+        "autoRun": false,
+        "storeConfigInMeta": false,
+        "minifyCSS": {
+            "enabled": true
+        },
+        "minifyJS": {
+            "enabled": true
+        }
+    },
+    "toolingBranch": "feature/material-design"
+}

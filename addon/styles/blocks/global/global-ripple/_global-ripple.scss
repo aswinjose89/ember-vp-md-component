@@ -1,0 +1,44 @@
+.button-ripple, .icon-ripple {
+  position: relative;
+  z-index: 1;
+}
+
+.global-ripple {
+  display: block;
+  position: absolute;
+  background: rgba(0, 0, 0, .1);
+  border-radius: 100%;
+  transform: scale(0);
+  z-index: -1;
+  will-change: transform;
+  &_icon {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: -6px;
+    top: -6px;
+    transform-origin: center center 0px;
+  }
+  &__wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+}
+
+
+.global-ripple_animate {
+  animation: ripple 0.6s linear;
+  animation-fill-mode:forwards;
+}
+.global-ripple_icon.global-ripple_animate {
+  animation: ripple-icon .4s $baseTransition;
+  animation-fill-mode:forwards;
+}

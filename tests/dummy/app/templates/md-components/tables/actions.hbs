@@ -1,0 +1,225 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Table with Actions</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-table config=tableConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Additonal Settings</h3>
+                    <ul>
+                        <li>
+                            <code>
+                                <span>rowAction</span></code> - Allows single row action for each row
+                            <ul>
+                                <li><code><span>iconName</span></code> - The icon to be displayed for the row action</li>
+                                <li><code><span>action</span></code> - The action to be invoked when the icon is cliked</li>
+                                <li><code><span>isHiddenField</span></code> - A reference field from the model. If the referenced value is true, the rowAction will be hidden</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <code>
+                                <span>columns</span></code> - List of columns to map for the content array
+                            <ul>
+                                <li><code><span>field</span></code> - The property name to map from the Ember Model</li>
+                                <li><code><span>type</span></code> - set <code>type:array</code> to display first item and hide the remaining items</li>
+                                <li><code><span>isReadOnly</span></code> - Set isReadOnly to items to display as static label instead of links</li>
+                                <li><code><span>arrayLabelPath</span></code> - If type is array specify this property to fetach the label</li>
+                                <li><code><span>hideIconField</span></code> - Set the filed name which will handle show/hide of the icon in the table cell</li>
+                                <li><code><span>leftIconName</span></code> - Sets left icon in the cell content</li>
+                                <li><code><span>leftIconColor</span></code> - Sets the color to the left icon</li>
+                                <li><code><span>leftIconAction</span></code> - Sets the action to be invoked on icon click</li>
+                                <li><code><span>leftIconHelpText</span></code> - Sets the help text for the left icon</li>
+                                <li><code><span>rightIconName</span></code> - Sets right icon in the cell content</li>
+                                <li><code><span>rightIconColor</span></code> -  Sets the color to the right icon</li>
+                                <li><code><span>rightIconAction</span></code> - Sets the action to be invoked on icon click</li>
+                                <li><code><span>rightIconHelpText</span></code> - Sets the help text for the right icon</li>
+                                <li><code><span>disableLink</span></code> - Remove links for filed type array and enityLink</li>
+                                <li>
+                                    <code>
+                                        <span>toggleAction</span></code> - Add this property if column should have a toggle action with icon. The type should be boolean
+                                    <ul>
+                                        <li><code><span>iconName</span></code> - The icon to be shown for the toggel action</li>
+                                        <li><code><span>action</span></code> - The action to invoke when the filed is toggled</li>
+                                        <li><code><span>color</span></code> - The color of icon on the toggled state</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                ...
+                content: modelArray,
+                rowAction: {
+                    iconName: "remove_circle",
+                    action: 'deleteAction'
+                },
+                columns: [{
+                    field: 'idType',
+                    type: 'text',
+                    title: 'ID Type',
+                    leftIconName: 'description',
+                    leftIconColor: 'blue',
+                    leftIconAction: 'userClickAction',
+                },
+                ...
+                {
+                    field: 'isValid',
+                    type: 'boolean',
+                    toggleAction: {
+                        iconName: "star",
+                        action: 'togglePropertyChanged',
+                        color: 'orange-400'
+                    }
+                },
+                ...
+                {
+                    field: 'countries',
+                    type: 'array',
+                    arrayLabelPath: 'name',
+                    title: 'Countries'
+                }]
+            }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=rowActionTableConfig}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Table with Multiple Row Actions</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Additonal Settings</h3>
+                    <ul>
+                        <li>
+                            <code>
+                                <span>columns</span></code> - List of columns to map for the content array
+                            <ul>
+                                <li><code><span>vCardField</span></code> - Takes the vCard data from the provided filed</li>
+                                <li><code><span>type</span></code> - Specifies the type of the column
+                                    <ul>
+                                        <li><code><span>link</span></code> - Displays the column as link</li>
+                                        <li><code><span>entityLink</span></code> - Display column data with Enity Icon</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <code><span>rowActions</span></code> - Enables list of actions to the each row in the table
+                            <ul>
+                                <li>
+                                    <code><span>items</span></code> - Array of objects containing <span>label</span> Menu label,
+                                    <span>action</span> Action to be invoked, <span>icon</span> The icon to be displayed
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p>
+            Read more about {{#link-to 'md-components.tooltips'}}vCard here{{/link-to}}
+        </p>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                ...
+                content: [{
+                    idType: 'Passport',
+                    id: 11,
+                    idNumber: 'XYZKJH',
+                    customVCardField: vCardData,
+                    enityName: 'D',
+                    enityColor: '',
+                    isValid: true,
+                    country: 'India',
+                    comments: 'N/A'
+                },
+                ...],
+                rowActions: {
+                    items: [{
+                        label: "Delete",
+                        action: "deleteAction",
+                        iconName: "remove_circle",
+                        disabled: true
+                    }, {
+                        label: "View",
+                        action: "viewAction",
+                        iconName: "info"
+                    }, {
+                        label: "New",
+                        action: "newAction",
+                        iconName: "add_circle"
+                    }],
+                    position: "right"
+                },
+                columns: [{
+                    field: 'idType',
+                    type: 'link',
+                    vCardField: 'customVCardField',
+                    action: 'linkAction',
+                    title: 'ID Type'
+                }, {
+                    field: 'idNumber',
+                    type: 'entityLink',
+                    enityIconFiled: 'enityName',
+                    entityColorField: 'enityColor',
+                    action: 'linkAction',
+                    title: 'ID Number'
+                }, {
+                    field: 'isValid',
+                    type: 'boolean',
+                    title: 'Valid'
+                },{
+                    field: 'isValidStatus',
+                    type: 'component',
+                    componentName: 'wb-md-tag',
+                    title: 'Status'
+                },
+                ...]
+            }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=actionMenuTableConfig}}
+{{/wb-md-card}}

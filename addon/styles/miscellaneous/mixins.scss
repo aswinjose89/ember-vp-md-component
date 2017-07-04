@@ -1,0 +1,40 @@
+@mixin ie {
+    @media screen and (min-width: 0 \0
+    ) and (min-resolution: +72dpi) {
+        @content;
+    }
+}
+
+@mixin flex($display, $direction, $wrap, $justify, $align-items, $aligncontent ) {
+    display: $display;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-content: $aligncontent;
+    align-items: $align-items;
+    > * {
+        min-width: 0;
+
+    }
+}
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+    &:-moz-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &:-ms-input-placeholder {
+        @content
+    }
+}

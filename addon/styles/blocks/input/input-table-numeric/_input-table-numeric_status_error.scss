@@ -1,0 +1,9 @@
+.input-table-numeric_status_error {
+    input {
+        border-color: $red_500;
+        &:focus {
+            border-color: $red_500;
+            box-shadow: none;
+        }
+    }
+}

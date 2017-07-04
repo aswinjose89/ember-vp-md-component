@@ -1,0 +1,127 @@
+{{#if isMultiSelect}}
+    <th class="global-table__cell global-table__cell_type_header{{if isNestedChildTable ' global-table__cell_pad_x-null'}}">
+        {{#if hideSelectAll}}
+            {{!-- hide the select all checkbox --}}
+        {{else if checkboxSelectionMenu}}
+            {{wb-md-checkbox-menu disabled=(if (get parentRecord disableSelectAllField) (get parentRecord disableSelectAllField) disableSelectAll) parentRecord=parentRecord  config=checkboxSelectionMenu selectAction=(action 'triggerSendAction')}}
+        {{else}}
+            {{wb-md-checkbox disabled=(if (get parentRecord disableSelectAllField) (get parentRecord disableSelectAllField) disableSelectAll) indeterminate=isIndeterminate checked=isAllRecordSelected onChange=(action 'handleSelectAllToggle')}}
+        {{/if}}
+    </th>
+{{/if}}
+{{#each columns as |column|}}
+    {{#if (and column.toggleAction (not column.isHidden))}}
+        <th class="global-table__cell global-table__cell_type_header global-table__cell_pad_x-null"></th>
+    {{else if (or sortable filterable)}}
+        {{#unless column.isHidden}}
+            <th {{action 'sortColumn' column on='click'}} class="global-table__cell global-table__cell_type_header {{if column.isSortable ' global-table__cell_status_sortable'}}{{if column.isPriorityWidth ' global-table__cell_status_priority'}}{{if column.isSorted ' global-table__cell_status_sorted'}}{{if column.showFilters ' global-table__cell_status_filter'}}">
+                {{column.title}}
+                {{#if column.isMandatory}}<sup>*</sup>{{/if}}
+                <div class="global-table__sort{{unless column.isSortedAsc ' global-table__sort_down'}}">
+                    {{wb-md-icon size="medium" iconName="arrow_back" ripple=false}}
+                </div>
+                {{#if (and filterable column.isFilterable)}}
+                    <div class="global-table__filter">
+                        <div class="global-table__filter-trigger trigger-filter" onclick={{action 'showFilters' column}}></div>
+                        {{#if column.showFilters}}
+                            <div class="global-table__filter-modal{{if showFilterOnTop ' global-table__filter-modal_position_top'}}{{if showFilterOnRight ' global-table__filter-modal_position_right'}}">
+                                {{#table.column-filter
+                                     isOpen=column.showFilters
+                                }}
+                                {{#if (is-equal column.filterType 'dropdown')}}
+                                    <div class="dropdown-list">
+                                        {{#each (get column.filterConfig 'content') as |item|}}
+                                            <div class="dropdown-list__row  button-ripple" {{action 'handleDropdownFilter' item column}}>
+                                                <div class="dropdown-list__element">
+                                                    <div class="dropdown-list__icon dropdown-list__icon_readonly">
+                                                        {{#if item.isSelected}}
+                                                            {{wb-md-icon iconName="check" ripple=false}}
+                                                        {{/if}}
+                                                    </div>
+                                                    {{get item (get column.filterConfig 'optionLabelPath')}}
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{else}}
+                                    {{wb-md-spacer}}
+                                    {{#if (is-equal column.filterType 'custom')}}
+                                        {{#each column.filterConfig.items as |item|}}
+                                            {{wb-md-input value=(mut (get item column.filterConfig.filterValuePath)) config=item modalInside=true}}
+                                        {{/each}}
+                                    {{else}}
+                                        {{wb-md-input
+                                            type='select'
+                                            content=filtersDropDown
+                                            selectedItem=column.selectedFilter
+                                            label="Select Filter"
+                                            modalInside=true
+                                            required=true
+                                        }}
+                                        {{wb-md-input
+                                            label="Value"
+                                            value=column.filterValue
+                                            required=true
+                                        }}
+                                    {{/if}}
+                                    {{#wb-md-content-toolbar position="right" }}
+                                        <div class="content-toolbar__row">
+                                            <div class="content-toolbar__element">
+                                                {{wb-md-button label="CLEAR" click=(action 'removeFilter' column)}}
+                                            </div>
+                                            <div class="content-toolbar__element">
+                                                {{wb-md-button
+                                                    disabled=column.isApplyButtonEnabled
+                                                    label="APPLY"
+                                                    color="link"
+                                                    click=(action 'addFilter' column)
+                                                }}
+                                            </div>
+                                        </div>
+                                    {{/wb-md-content-toolbar}}
+                                {{/if}}
+                                {{/table.column-filter}}
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </th>
+        {{/unless}}
+    {{else}}
+        {{#unless column.isHidden}}
+            <th class="global-table__cell global-table__cell_type_header{{if column.isPriorityWidth ' global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell__align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                {{#if (is-equal column.headerType 'dropdown')}}
+                    {{wb-md-input-table placeholder=column.title
+                        onChange=(action 'triggerSendAction' column.headerConfig.action)
+                        items=(get column 'headerConfig.content')
+                        iconName=column.headerConfig.iconName
+                        optionLabelPath=column.headerConfig.optionLabelPath
+                        optionValuePath=column.headerConfig.optionValuePath
+                        isSelect=true
+                        multiSelect=column.headerConfig.multiSelect
+                        isDisabled=(get filteredItem isDisabled)
+                        value=(mut column.headerConfig.value)
+                        isInHeader= true
+                    }}
+                {{else}}
+                    {{column.title}}
+                    {{#if column.isMandatory}}<sup>*</sup>{{/if}}
+                    {{#if column.helpText}}
+                    {{wb-md-icon
+                        iconName="help_text"
+                        helpText=column.helpText
+                        click=(action 'triggerSendAction' column.helpTextAction column)
+                        class="global-icon_margin_left"
+                    }}
+                    {{/if}}
+                {{/if}}
+            </th>
+        {{/unless}}
+    {{/if}}
+{{/each}}
+{{#if (or rowAction rowActions)}}
+    <th class="global-table__cell global-table__cell_type_header"></th>
+{{/if}}
+{{#if hasNesting}}
+    <th class="global-table__cell global-table__cell_type_header"></th>
+{{/if}}

@@ -1,0 +1,33 @@
+.header {
+    flex-shrink: 0;
+    width: 100%;
+    align-self: flex-start;
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+    transition: all 0.4s $baseTransition;
+    will-change: margin;
+    &:before {
+        background: $indigo_500;
+        width: 10000px;
+        position: absolute;
+        content: '';
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: translateX(-50%);
+    }
+    //mods for block positions
+    .entity-header-tag {
+        margin-left: 40px;
+    }
+    .entity-name {
+        margin-left: 20px;
+    }
+    .header-actions {
+        align-self: flex-end;
+    }
+}
+
+@import "header_short";

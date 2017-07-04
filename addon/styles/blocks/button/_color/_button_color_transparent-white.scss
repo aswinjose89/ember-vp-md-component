@@ -1,0 +1,9 @@
+.button_color_transparent-white {
+    color: $white;
+    border: 1px solid change-color($white, $alpha: .4);
+    &:hover,
+    &.button_status_active {
+        background: transparent;
+        border: 1px solid change-color($white, $alpha: .7);
+    }
+}

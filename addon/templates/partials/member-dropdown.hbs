@@ -1,0 +1,23 @@
+
+    {{#if formattedMemberList}}
+    <div class="dropdown-multi">
+    {{#each formattedMemberList as | record index|}}
+    {{#if record.isGroupHeader}}
+    <div class="dropdown-multi__header">
+        <h2 class="dropdown-multi__header-title">{{record.groupName}}</h2>
+        {{#if (is-equal index 0)}}
+        <div class="dropdown-multi__actions">
+            <a href="#" {{action 'triggerHeaderAction' bubbles=false}}>{{headerActionLabel}}{{wb-md-icon class="global-icon_margin_left" ripple=false iconName="open_in_new" size="medium"}}</a>
+        </div>
+        {{/if}}
+    </div>
+    {{else}}
+    {{partial 'partials/member-dropdown-row'}}
+    {{/if}}
+    {{/each}}
+    </div>
+    {{else}}
+    <div class="dropdown-list">
+    {{partial 'partials/dropdown-no-data'}}
+    </div>
+    {{/if}}

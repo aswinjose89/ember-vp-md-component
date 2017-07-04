@@ -1,0 +1,8 @@
+<div class="global-table__overflow-element{{if isDisabled ' global-table__text_status_disabled'}}">
+    {{yield}}
+</div>
+{{#if (and isOverflowed (not showEdit))}}
+    <a href="#" class="global-table__overflow-static"{{action 'showFullText' content}}>more</a>
+{{else if showEdit}}
+    <a href="#" class="global-table__overflow-static"{{action 'showFullText' content}}>edit</a>
+{{/if}}

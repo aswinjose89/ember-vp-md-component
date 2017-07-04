@@ -1,0 +1,265 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Atachment Flyout</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+
+        {{wb-md-button type='primary' color="blue" label="Open Flyout" rightIconName="arrow_forward" action="openAttachmentFlyout"}}
+    </div>
+    {{#if attachmentList}}
+    {{wb-md-attachment-list-slider
+        fileList=attachmentList
+        openAttachmentAction="openAttachmentFlyout"
+        readonly=readOnly
+        deleteFileAction="deleteFileAction"
+    }}
+    {{/if}}
+    <div class="guideline-block">
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember Service - mdAttachmentFlyoutManager : Sample usage code</h3>
+            {{#wb-md-code-highlight type="javascript" }}
+                openAttachmentFlyout(file){
+                    this.get('mdAttachmentFlyoutManager').open({
+                        showAttachmentFlyout:true,
+                        attachAction: function(file){
+                            this.send('attachUploadedFiles', file)
+                        }.bind(this),
+                        cancelAction: function(){
+                            Ember.Logger.log("cancelAction")
+                        }.bind(this),
+                        linkFilesAction: function(files){
+                            this.send('linkSelectedFiles',files)
+                        }.bind(this),
+                        uploadStatusUpdateAction : function(uploadSuccessFlag , selectedFile) {
+                            this.send('updateUploadStatus', uploadSuccessFlag , selectedFile)
+                        }.bind(this),
+                        instructionMessage:"Select file from your computer to instantly add it to Deal Checklist or click "+ "LINK FILES to select from the library",
+                        isEditable:true,
+                        attachedFile : file,
+                        readonly:false,
+                        fileCategoryValues : this.get('attachmentCategories'),
+                        fileUploadServiceUrl:'http://192.168.2.172:4300/api/checklist/uploadFile',
+                        fileDownloadServiceUrl: 'http://192.168.2.172:4300/api/checklist/downloadFile',
+                        isFileDescriptionMandatory : true,
+                        fileDescriptionMaxLength : 4000,
+                        attachFilesDisabledFlag : false,
+                        fileList : this.controller.get('linkFileList')
+                    });
+                }
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>instructionMessage:</span></code> The instruction message to be displayed in attachment flyout    <br/><span>Default Value: </span> Select file from your computer to instantly upload it</li>
+                        <li><code><span>instructionTitle:</span></code> The title of the instruction message to be displayed in attachment flyout    <br/><span>Default Value: </span> Attach File</li>
+                        <li><code><span>fileCategoryLabel:</span></code> Label for file category dropdown    <br/><span>Default Value: </span>  Category</li>
+                        <li><code><span>fileDescriptionLabel:</span></code> Label for file Descriptin text area    <br/><span>Default Value: </span> Description</li>
+                        <li><code><span>privateFileFlagLabel:</span></code> Label For the 'Private' switch    <br/><span>Default Value: </span> Make Private</li>
+                        <li><code><span>isFileDescriptionMandatory:</span></code> To indicate whether file description is Mandatory    <br/><span>Default Value: </span>  false</li>
+                        <li><code><span>fileDescriptionMaxLength:</span></code> File description max length    <br/><span>Default Value: </span> 140</li>
+                        <li><code><span>fileCategoryValues:</span></code> Drop down values for the file category dropdown    <br/><span>Default Value: </span> Empty Array</li>
+                        <li><code><span>isFileCategoryMandatory:</span></code> To indicate whether file category is Mandatory    <br/><span>Default Value: </span> false</li>
+                        <li><code><span>isCategoryDisplayed:</span></code> To indicate whether file category is is displayed    <br/><span>Default Value: </span>  true</li>
+                        <li><code><span>isDescriptionDisplayed:</span></code> To indicate whether file description field is displayed    <br/><span>Default Value: </span> true</li>
+                        <li><code><span>isPrivateFileFlagDisplayed:</span></code> To indicate whether file private switch is displayed    <br/><span>Default Value: </span> true</li>
+                        <li><code><span>isPrivateFileFlagMandatory:</span></code> To indicate whether file private switch is mandatory    <br/><span>Default Value: </span> false</li>
+                        <li><code><span>isLinkFilesButtonDisplayed:</span></code> To show or hide LINK FILES button    <br/><span>Default Value: </span>  true</li>
+                        <li><code><span>fileDownloadServiceUrl:</span></code> File upload service URL    <br/><span>Default Value: </span> Blank</li>
+                        <li><code><span>fileUploadServiceUrl:</span></code> File download service URL    <br/><span>Default Value: </span> Blank</li>
+                        <li><code><span>attachFilesDisabledFlag:</span></code> To Disable The Attach and Link buttons    <br/><span>Default Value: </span> false</li>
+                        <li><code><span>fileInputPlaceHolder:</span></code> The display field on file upload button    <br/><span>Default Value: </span> SELECT FILE</li>
+                        <li><code><span>fileMaxSize:</span></code> Maximum file size support in KB    <br/><span>Default Value: </span> 50000</li>
+                        <li><code><span>fileMaxSizeText:</span></code> The display Text on button inside brackets(50M MB)    <br/><span>Default Value: </span> 50 MB</li>
+                        <li><code><span>fileSizeLimitExceedMessage:</span></code> Error Message to display if attached file size is greater than allowed limit    <br/><span>Default Value: </span> null</li>
+                        <li><code><span>fileTypeText:</span></code> Supported file type text - This text will be displayed along with error message if invalid file type is selected    <br/><span>Default Value: </span> Supported file types - PPT XLS PDF DOC and Images</li>
+                        <li><code><span>showAttachFilesSectionFlag:</span></code> To show Attach File section on opening flyout. If this is set to false then Link File section will be displayed on opening    <br/><span>Default Value: </span> true</li>
+                        <li><code><span>showSelectedLinkFileCount:</span></code> To show Selected File count in header during linking    <br/><span>Default Value: </span>  false</li>
+                        <li><code><span>descriptionShowLength:</span></code> To display length of the file description in link file section. The full description can be seen by using show more link for each file    <br/><span>Default Value: </span> 100</li>
+                        <li><code><span>fileList:</span></code> The Link Files section file list to be listed    <br/><span>Default Value: </span> Empty Array</li>
+                        <li><code><span>isDeletable</span></code> true by default, set false if you whant to remove delete file option, but keep category and description editable</li>
+                        <li><code>overPopup</code> - if true show below popup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Display File </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <br/><br/>
+        <div class="guideline-block__chapter">
+
+
+            {{wb-md-file type="pdf" name="SampleFileName1"  onClickAction="testClick" file="FileObject"}}
+            <br/>
+            <br/> {{wb-md-file type="PPTX" name="SampleFileName2"}}
+            <br/>
+
+            <h3 class="guideline-block__chapter-title">Ember Component : Sample usage code</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-file type="pdf" name="SampleFileName"  onClickAction="testClick" file="FileObject"}}
+            {{/wb-md-code-highlight}}
+            <br/>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>type:</span></code> The File Type. Normally the file extension like ppt, xls,xlsx,doc,png,jpg etc  <br/><span> Default Value: </span> blank</li>
+                        <li><code><span>name:</span></code> The File Name   <br/><span> Default Value: </span>  blank</li>
+                        <li><code><span>file:</span></code> The File Object. This is optional, this object will be passed back on click if onClickAction is configured   <br/><span> Default Value: </span>  null</li>
+                         <li><code><span>onClickAction:</span></code> The callaback action for click event  <br/><span> Default Value: </span>  N/A</li>
+                        <li><code><span>isViewOnly</span></code> - set file to non clickable state, false by default</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">File List </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+
+            {{wb-md-attachment-list-slider fileList = attachmentList openAttachmentAction="openAttachmentFlyout" readonly=false deleteFileAction="deleteFileAction"}}
+
+
+            <h3 class="guideline-block__chapter-title">Ember Component : Sample usage code</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-attachment-list-slider fileList = fileList openAttachmentAction="openAttachmentFlyout" readonly=false deleteFileAction="deleteFileAction"}}
+            {{/wb-md-code-highlight}}
+
+            {{wb-md-attachment-list-slider fileList = attachmentList openAttachmentAction="openAttachmentFlyout" readonly=true }}
+
+
+            <h3 class="guideline-block__chapter-title">Ember Component : Sample usage code</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-attachment-list-slider fileList = fileList openAttachmentAction="openAttachmentFlyout" readonly=true}}
+            {{/wb-md-code-highlight}}
+            <br/>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>fileList :</span></code> The List of files to be displayed</li>
+                        <li><code><span>openAttachmentAction :</span></code> The action to be performed on click of file</li>
+                        <li><code><span>readonly :default false</span></code> This controls the display of delete icon</li>
+                        <li><code><span>deleteFileAction :</span></code> the action hook  for the delete action</li>
+                        <li><code><span>deleteConfirmationMessage :</span></code> Pass the message to be displayed in the delete confirmation popup</li>
+                        <li><code><span>deleteConfirmationMessageTitle :</span></code> Pass the title to be displayed in the delete confirmation popup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">File Upload Queue </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+
+            {{!--     <code><span>Click on the below Icon to Display sample uploadQueue :  </span></code>
+        <div class="card-question__tools-element"  {{action "displayUploadQueue" }}
+            >
+                {{wb-md-icon iconName="attach_file" active=attachUpload}}
+        </div> --}} {{wb-md-button type='primary' color="blue" rightIconName="arrow_forward" label="Show Upload Queue" action="displayUploadQueue"}}
+
+        <br/>
+        <br/>
+        <h3 class="guideline-block__chapter-title">Ember Service - mdFileUploadQueueManager: Sample usage code</h3>
+
+        {{#wb-md-code-highlight type="javascript" }}
+            showFileUploadQueue(fileUploadQueue){ this.get('mdFileUploadQueueManager').open({ displayUploadQueue:true, uploadQueue : fileUploadQueue, cancelUploadAction: function(files){ this.send('cancelFileUpload', files)}.bind(this) }); }
+
+        {{/wb-md-code-highlight}}
+        <br/>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>displayUploadQueue:</span></code> Controls the display of  the upload queue   <br/><span> Default Value: </span>  false</li>
+                    <li><code><span>uploadQueue:</span></code> The list of files in the queue  <br/><span> Default Value: </span>  Empty Array</li>
+                    <li><code><span>cancelUploadAction:</span></code> The hook for the Cancel upload action   <br/><span> Default Value: </span>  NA</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Upload File</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            {{ wb-md-file-upload placeHolder="SELECT FILE" maxSize=20000 afterFileSelect="handleUploadedFile" disabled=false maxSizeText="20 MB"}}
+            <br/><br/>
+            {{ wb-md-file-upload  maxSize=20000 afterFileSelect="handleUploadedFile"  iconName="attach_file"}}
+            <br/>
+            {{#if errorMessage}}
+                <br/>
+                {{#wb-md-card-message type="error" iconName='info_outline' iconColor='white' }}
+                    {{errorMessage}}
+                {{/wb-md-card-message}}
+                <br/>
+            {{/if}}
+            {{#if uploadedFile}}
+                <br/> {{wb-md-file type=uploadedFile.fileExtension name=uploadedFile.fileName}}
+                <br/>
+                <br/>
+            {{/if}}
+            <h3 class="guideline-block__chapter-title">Ember Component : Sample usage code</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{ wb-md-file-upload placeHolder="PLEASE SELECT FILE" maxSize=20000 afterFileSelect="handleUploadedFile" disabled=false maxSizeText="20 MB"}}
+            {{/wb-md-code-highlight}}
+            <br/>
+
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{ wb-md-file-upload  maxSize=20000 afterFileSelect="handleUploadedFile"  iconName="attach_file"}}
+            {{/wb-md-code-highlight}}
+            <br/>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>acceptedType:</span></code> The file types supported    <br/>
+                        <span> Default Value: </span>  image/*,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                            application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</li>
+                        <li><code><span>excludedType</span></code>: By default null, if set as Array. Files type included (mime type and extension) will not be allowed to upload
+                        </li>
+                        <li><code><span>maxSizeText :</span></code> Maximum file size supported in MB. This will be displayed along with button label   <br/><span> Default Value: </span>  blank</li>
+                        <li><code><span>placeHolder :</span></code> The button label    <br/><span> Default Value: </span>  SELECT FILE</li>
+                        <li><code><span>maxSize :</span></code> maximum file size supported in KB   <br/><span> Default Value: </span>  50000</li>
+                        <li><code><span>iconName :</span> </code>If this is passed the icon will be displayed instead of button <br/><span> Default Value: </span> blank</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

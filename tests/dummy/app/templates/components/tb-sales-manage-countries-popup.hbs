@@ -1,0 +1,24 @@
+{{#wb-md-popup size="large"}}
+    {{#wb-md-content-toolbar color="blue" pad="full"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title">
+                    Manage SCB Network Countries
+                </div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="global-popup__content">
+    {{tb-sales-manage-countries model=model}}
+    </div>
+    {{#wb-md-content-toolbar color="gray" pad="full" position="right"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button label="CANCEL" action="closeDialog"}}
+            </div>
+            <div class="content-toolbar__element">
+                {{wb-md-button color="blue" type="primary" label="DONE" action="closeDialog"}}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+{{/wb-md-popup}}

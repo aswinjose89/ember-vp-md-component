@@ -1,0 +1,56 @@
+{{#if showForm}}
+    <div class="card-comment__input-form-wrapper" tabindex="{{tabindex}}">
+        <div class="card-comment__input-form">
+            {{textarea
+                placeholder="Add a comment..."
+                tabindex="-1"
+                value=computedValue
+                input=(action "truncateToMaxLength")
+                rows="1"
+            }}
+        </div>
+    </div>
+    {{#if showTextCounter}}
+        <div class="card-comment__count">{{valueLengthFormatted}} / {{maxLengthFormatted}}</div>
+    {{/if}}
+    {{#wb-md-content-toolbar border="top" position="right"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button
+                    label=computedCancelLabel
+                    size="small"
+                    disabled=disabledCancelButton
+                    action=(action "cancel")
+                }}
+            </div>
+            <div class="content-toolbar__element">
+                {{wb-md-button
+                    label=computedSubmitLabel
+                    size="small"
+                    color="link"
+                    disabled=computedValueEmpty
+                    action=(action "submit")
+                }}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+{{/if}}
+{{#if showComment}}
+    {{#if showActionMenu}}
+        <div class="card-comment__toolbar">
+            {{wb-md-action-menu
+                config=actionMenu
+            }}
+        </div>
+    {{/if}}
+    <div class="card-comment card-comment_read" {{action "edit" preventDefault=false}}>
+        <div class="card-comment__text">
+            {{{readValue}}}
+        </div>
+        {{#if showMore}}
+            <div class="card-comment__length-trigger" {{action toggleProperty 'showFullText' bubbles=false}}>
+                {{showMoreLabel}}
+            </div>
+        {{/if}}
+    </div>
+{{/if}}

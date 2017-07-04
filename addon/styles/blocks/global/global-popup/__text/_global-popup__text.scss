@@ -1,0 +1,8 @@
+.global-popup__text {
+  font-size: $baseFontSize;
+  color: $baseColor;
+  line-height: 22px;
+  padding: 20px;
+}
+@import "global-popup__text_no-pad";
+@import "_pad/global-popup__text_pad";

@@ -1,0 +1,90 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Comment</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-card-comment saveAction='save' value=value openCommentAction="openCommentForm"}}
+            {{/wb-md-code-highlight}}
+        </div>
+    </div>
+    {{wb-md-card-comment saveAction='save' value="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."}}
+{{/wb-md-card}}
+{{#wb-md-card}}
+    {{#wb-md-content-toolbar pad="full"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title content-toolbar__title_color_blue">Comment</div>
+            </div>
+        </div>
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-icon
+                    onClickAction=(action 'openCommentForm')
+                    iconName='chat'
+                }}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    {{#if showComment}}
+    {{wb-md-card-comment
+        saveAction='save'
+        editAction='editAction'
+        deleteAction='deleteAction'
+        value=value
+        openCommentAction=(action 'openCommentForm')
+        autofocus=showComment
+    }}
+    {{/if}}
+{{/wb-md-card}}
+{{#wb-md-card}}
+    {{#wb-md-card type="nested"}}
+        {{#wb-md-card}}
+            {{#wb-md-content-toolbar pad="full"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        <div class="content-toolbar__title content-toolbar__title_color_blue">Scope / Description <sup class="material_color_red-500">*</sup></div>
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+            {{wb-md-card-comment
+                border=false
+            }}
+        {{/wb-md-card}}
+    {{/wb-md-card}}
+    <div class="card-title">
+        <div class="card-title__left">
+            <h2>Priced to Market Comments <sup class="material_color_red-500">*</sup></h2>
+        </div>
+    </div>
+    {{wb-md-card-comment
+        border=false
+    }}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="card-group {{unless editForm 'card-group_color_gray'}}">
+        <div class="card-title">
+            <div class="card-title__left">
+                <h2>Priced to Market Comments <sup class="material_color_red-500">*</sup></h2>
+            </div>
+        </div>
+        {{wb-md-card-comment
+            border=false
+            value=testValue
+            edit=editForm
+        }}
+    </div>
+{{/wb-md-card}}

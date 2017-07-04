@@ -1,0 +1,8 @@
+.global-login__controls {
+    position: absolute;
+    z-index: 5;
+    right: 50%;
+    padding-right: 46px;
+    bottom: 33px;
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+}

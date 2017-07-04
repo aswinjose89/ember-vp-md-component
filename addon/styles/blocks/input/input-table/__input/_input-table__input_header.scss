@@ -1,0 +1,10 @@
+.input-table__input_header {
+    font-size: $smallFontSize;
+    @include placeholder {
+        color: change-color($baseColor, $alpha: .7);
+    }
+    margin-top: 1px;
+    input {
+        font-size: $smallFontSize;
+    }
+}

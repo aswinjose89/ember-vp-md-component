@@ -1,0 +1,224 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Static Table</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-table config=tableConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <p>
+                        <strong>
+                            The following settings are mandatory to render the table.
+                            The table behaviour changes based on the additional settings passed to the table.
+                        </strong>
+                    </p>
+                    <ul>
+                        <li><code><span>tableHeading</span></code> - Sets the table heading</li>
+                        <li><code><span>hideToolbar</span></code> - hides the table heading and toolbar </li>
+                        <li><code><span>content</span></code> - Array of Ember models</li>
+                        <li><code><span>rowHelpText</span></code> - If Object on <strong><span>content</span></strong> array have that property it will be shown on value mouseOver</li>
+                        <li>
+                            <code>
+                                <span>columns</span></code> - List of columns to map for the content array
+                            <ul>
+                                <li><code><span>field</span></code> - The property name to map from the Ember Model</li>
+                                <li><code><span>helpText</span></code> - Sets the help text for the column header</li>
+                                <li><code><span>helpTextAction</span></code> - Sets the action when user clicks on help text for the column header</li>
+                                <li><code><span>type</span></code> - Specify the data type of the column</li>
+                                <li><code><span>title</span></code>- Sets the column level heading</li>
+                                <li><code><span>isPriorityWidth :default false</span></code> - Enables Priority width to the columns</li>
+                                <li><code><span>verticalAlignment</span></code> - Vertically align the values in the cell</li>
+                                <li>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>none</th>
+                                                <th>top</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Default middle alignment</td>
+                                                <td>Align the content to top of the cell</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li><code><span>horizontalAlignment</span></code> - Horizontally align the values in the cell to left, right</li>
+                                <li>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>none</th>
+                                                <th>right</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Default left alignment</td>
+                                                <td>Align the content to right of the cell</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                tableHeading: 'User Table',
+                content: modelArray,
+                columns: [{
+                    field: 'psId',
+                    type:'text',
+                    title: 'PSID',
+                    helpText: "User's ID"
+                }, {
+                    field: 'fullName',
+                    type:'text',
+                    title: 'Computed Full Name',
+                    helpText: "User's computed first and last name"
+                }, {
+                    field: 'lastName',
+                    type:'text',
+                    title: 'Last Name',
+                    helpText: "User's Last Name"
+                },  {
+                    field: 'emailId',
+                    horizontalAlignment: 'right',
+                    type:'text',
+                    title: 'Email Id',
+                    helpText: "User's Email"
+                }, {
+                    field: 'userCountry',
+                    type:'text',
+                    title: 'User Country',
+                    helpText: "User's Country"
+                }]
+            }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+        {{#wb-md-content-toolbar}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type='primary' color='blue' label='Toggle Toolbar' click=(action toggleProperty 'hideToolbar')}}
+                </div>
+                <div class="content-toolbar__element">
+                    {{wb-md-button type='primary' color='blue' label='Toggle Toolbar Border' click=(action toggleProperty 'noBorder')}}
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="row">
+            <div class="col-lg-6">
+                {{wb-md-input config=userSelectionConfig selectedItem=selectedUser}}
+            </div>
+            <div class="col-lg-6">
+                {{wb-md-input label="Edit last Name" value=(mut (get selectedUser 'lastName'))}}
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=staticTableConfig hideToolbar=hideToolbar noBorder=noBorder}}
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Empty Table State</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>tableEmptyMessage</span></code> - Sets the table's empty message</li>
+                </ul>
+            </div>
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=emptyTableConfig}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Empty Table State When No More Record</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <p>The following empty state will appear automatically when the server responded with an empty response. Whwn there is no data on intial load,
+        the default <strong>Empty Table State</strong> will be rendered. If empty table should render with controls refer the <strong>Empty Table State With Controls</strong></p>
+    </div>
+    {{wb-md-table config=emptyPageableTableConfig resolved=true}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Empty Table State With Controls</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>isEmptyTableWithControls</span></code> - Sets true to show controls on empty state</li>
+                </ul>
+            </div>
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{wb-md-table config=emptyPageableTableConfig isEmptyTableWithControls=true}}
+{{/wb-md-card}}

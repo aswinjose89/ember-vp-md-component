@@ -1,0 +1,10 @@
+.global-popup__shadow {
+    box-shadow: $popupShadow;
+    max-height: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    @include flex(flex, column, nowrap, center, center, center);
+    animation-duration: .5s;
+    animation-name: scaleIn;
+    @extend %global-effect;
+}

@@ -1,0 +1,15 @@
+{{#if iconsForToolbar}}
+    {{#each iconsForToolbar as |eachIcon|}}
+        {{wb-md-header-section-toolbar-item elementType=eachIcon.icon type=eachIcon.displayType label=eachIcon.label
+                                            actionName=eachIcon.action ripple=eachIcon.ripple
+                                            isDisable=eachIcon.isDisable clickAction="clickAction"
+                                            color=eachIcon.color}}
+    {{/each}}
+{{/if}}
+{{#if iconsForActionMenu}}
+    <div class="ember-view header-toolbar__element">
+        {{wb-md-action-menu config=iconsForActionMenu menuAction="menuAction" iconColor="white"}}
+    </div>
+{{/if}}
+
+{{yield}}

@@ -1,0 +1,15 @@
+.dropdown-list__header {
+    font-size: $baseFontSize;
+    padding: 0 40px 0 20px;
+    transition: box-shadow .4s $baseTransition, background-color .4s $baseTransition;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+    white-space: nowrap;
+    height: 32px;
+    line-height: 32px;
+    color: $indigo_500;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+}

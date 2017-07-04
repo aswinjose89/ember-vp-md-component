@@ -1,0 +1,4 @@
+.dropdown-list__row_disabled {
+    pointer-events: none;
+    opacity: $disabledStateOpacity;
+}

@@ -1,0 +1,18 @@
+.global-search_color_white {
+  background: $white;
+  &:before {
+    color: $iconColorDefault;
+  }
+  input {
+    height: 24px;
+    font-family: $baseFont;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: $baseColor;
+    width: 100%;
+    @include placeholder {
+      color: $baseColor;
+    }
+  }
+}

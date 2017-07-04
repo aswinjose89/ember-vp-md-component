@@ -1,0 +1,11 @@
+{{wb-md-icon iconName="arrow_back" class="temp_back" click=(action "goBack")  color="white" }}
+<!--<div class="entity-icon">{{!icon}}</div>-->
+<div class="entity-module">{{moduleName}}</div>
+<div class="entity-name" {{action "showToolTip" name on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>{{name}}</div>
+{{#if headerTagName}}
+	{{wb-md-entity-tag value=headerTagName}}
+{{/if}}
+{{#if tags}}
+	{{wb-md-entity-tag tags=tags}}
+{{/if}}
+

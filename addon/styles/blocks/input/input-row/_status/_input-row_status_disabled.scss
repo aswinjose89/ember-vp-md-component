@@ -1,0 +1,32 @@
+.input-row_status_disabled {
+    pointer-events: none;
+    input,
+    textarea,
+    .input-row__icon,
+    .input-row__select,
+    .input-row__label,
+    .input-row__search .input-row__search-input,
+    .input-row__search:after,
+    .input-row__description {
+        opacity: $disabledStateOpacity;
+    }
+    .input-row__search-item {
+        padding-right: 8px;
+        pointer-events: none;
+    }
+    .input-row__element {
+        &:after {
+            background-size: 5px 1px;
+            background-image: linear-gradient( to right, change-color($black, $alpha: .4) 0, change-color($black, $alpha: .4) 20%, white 0, white 80%);
+        }
+    }
+    .input-row__search-input:after {
+        display: none;
+    }
+}
+
+.input-row_status_disabled.input-row_status_filled {
+    .input-row__label {
+        opacity: 1;
+    }
+}

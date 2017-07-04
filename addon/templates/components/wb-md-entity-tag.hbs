@@ -1,0 +1,18 @@
+{{#if tags}}
+    {{#each tags as |tag|}}
+        {{wb-md-entity-tag
+            config=tag
+        }}
+    {{/each}}
+{{else}}
+    {{#if key}}
+    <div class="entity-tag__element {{setBackground}}">
+        {{key}}
+    </div>
+    {{/if}}
+    {{#if value}}
+    <div class="entity-tag__element {{setBackground}}">
+        {{value}}
+    </div>
+     {{/if}}
+{{/if}}

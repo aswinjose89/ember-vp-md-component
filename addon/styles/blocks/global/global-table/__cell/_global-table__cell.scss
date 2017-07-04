@@ -1,0 +1,30 @@
+.global-table__cell {
+    vertical-align: middle;
+    text-align: left;
+    white-space: nowrap;
+    width: 1px;
+    height: 50px;
+    padding: 11px 10px 10px 10px;
+    &:first-child {
+        padding-left: 20px !important;
+    }
+    &:last-child {
+        padding-right: 20px !important;
+    }
+    .global-icon,
+    .entity-icon,
+    .global-tag {
+        vertical-align: middle;
+    }
+    sup {
+        transform: translateY(4px);
+        color: $red_500;
+        display: inline-block;
+    }
+}
+
+@import "_align/global-table__cell_align";
+@import "_pad/global-table__cell_pad";
+@import "_status/global-table__cell_status";
+@import "_type/global-table__cell_type";
+@import "_color/global-table__cell_color";

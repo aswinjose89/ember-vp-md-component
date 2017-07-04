@@ -1,0 +1,5 @@
+.static-info-group {
+    @include flex(flex, row, wrap, flex-start, stretch, flex-start);
+    flex-shrink: 0;
+}
+@import "_color/static-info-group_color";

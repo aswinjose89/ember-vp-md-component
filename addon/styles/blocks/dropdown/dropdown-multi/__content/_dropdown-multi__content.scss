@@ -1,0 +1,8 @@
+.dropdown-multi__content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 10px 20px;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    min-height: 60px;
+}
+@import "dropdown-multi__content-main";

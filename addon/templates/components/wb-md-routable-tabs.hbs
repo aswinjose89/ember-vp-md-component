@@ -1,0 +1,23 @@
+<div class="global-tabs__list">
+    {{#each headerContent as |tab index|}}
+        {{#if isRoutable}}
+            {{#link-to "tabs.tab1"}}
+                <div class="global-tabs__element{{if isButtonType ' global-tabs__element_type_button'}}{{if tab.disabled ' global-tabs__element_status_disabled'}}{{if (eq defaultTab index) ' global-tabs__element_status_active'}}" {{action "activateBar" tab index}}>
+                    <div class="global-tabs__label">{{tab.label}}</div>
+                    {{#if tab.value}}
+                        <div class="global-tabs__value">{{tab.value}}</div>
+                    {{/if}}
+                </div>
+            {{/link-to}}
+        {{else}}
+            <div class="global-tabs__element{{if isButtonType ' global-tabs__element_type_button'}}{{if tab.disabled ' global-tabs__element_status_disabled'}}{{if (eq defaultTab index) ' global-tabs__element_status_active'}}" {{action "activateBar" tab index}}>
+                <div class="global-tabs__label">{{tab.label}}</div>
+                {{#if tab.value}}
+                    <div class="global-tabs__value">{{tab.value}}</div>
+                {{/if}}
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+<div class="global-tabs__slide-line {{slideDirection}} {{if isButtonType 'global-tabs__slide-line_button'}}"></div>
+{{outlet}}

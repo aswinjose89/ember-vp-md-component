@@ -1,0 +1,8 @@
+.global-attachment__name {
+    font-size: $baseFontSize;
+    color: $baseColor;
+    width: 100%;
+    flex-grow: 1;
+    @extend %text-overflow;
+    font-weight: 500;
+}

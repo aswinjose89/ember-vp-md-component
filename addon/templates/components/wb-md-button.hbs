@@ -1,0 +1,11 @@
+{{#if iconName}}
+    {{wb-md-icon iconName=iconName disabled=disabled ripple=false color=iconColor class='button__icon'}}
+{{else}}
+    {{#if leftIconName}}
+        {{wb-md-icon iconName=leftIconName disabled=disabled ripple=false color=iconColor class='button__icon_left'}}
+    {{/if}}
+    {{label}}
+    {{#if rightIconName}}
+        {{wb-md-icon iconName=rightIconName disabled=disabled ripple=false color=iconColor class='button__icon_right'}}
+    {{/if}}
+{{/if}}

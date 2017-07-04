@@ -1,0 +1,62 @@
+@import 'color-map';
+.material {
+    @each $color-name,
+    $color-variants in $material-colors {
+        @each $color-variant,
+        $hex-value in $color-variants {
+            &_color_#{$color-name}-#{$color-variant} {
+                color: #{$hex-value}
+            }
+            &_background_#{$color-name}-#{$color-variant} {
+                background-color: #{$hex-value}
+            }
+            &_border-color_#{$color-name}-#{$color-variant} {
+                border-color: #{$hex-value}
+            }
+        }
+    }
+    &_color_black {
+        color: #000000;
+    }
+    &_background_black {
+        background-color: #000000;
+    }
+    &_border-color_black {
+        border-color: #000000;
+    }
+    &_color_white {
+        color: #ffffff;
+    }
+    &_background_white {
+        background-color: #ffffff;
+    }
+    &_border-color_white {
+        border-color: #ffffff;
+    }
+}
+
+.content-toolbar {
+    @each $color-name,
+    $color-variants in $material-colors {
+        @each $color-variant,
+        $hex-value in $color-variants {
+            &_highlight_#{$color-name}-#{$color-variant} {
+                background-image: linear-gradient(#{$hex-value}, #{$hex-value});
+            }
+        }
+    }
+}
+
+.global-table__inner {
+    @each $color-name,
+    $color-variants in $material-colors {
+        @each $color-variant,
+        $hex-value in $color-variants {
+            &_highlight_#{$color-name}-#{$color-variant} {
+                &:before {
+                    background-color: #{$hex-value}
+                }
+            }
+        }
+    }
+}

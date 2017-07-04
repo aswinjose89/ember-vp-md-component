@@ -1,0 +1,20 @@
+.global-attachment__delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: $white;
+  border: 1px solid rgba(221,221,221,1);
+  box-shadow: $controlShadow;
+  transform: translate3d(50%, -50%, 0) scale(0);
+  padding: 3px 3px 1px 3px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.2s $baseTransition;
+  &:before {
+    @extend %material-icons;
+    content: 'clear';
+    font-size: $baseFontSize;
+    text-align: center;
+    vertical-align: top;
+  }
+}

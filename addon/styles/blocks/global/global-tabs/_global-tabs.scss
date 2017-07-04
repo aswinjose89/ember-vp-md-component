@@ -1,0 +1,34 @@
+.global-tabs {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 60px;
+    //padding: 0 20px;
+    &:before {
+        content: '';
+        height: 1px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        bottom: 0;
+        position: absolute;
+        background: $baseBorderColor;
+    }
+}
+
+.global-tabs_pad_full {
+    padding: 0 10px;
+}
+
+@import "__value/global-tabs__value";
+@import "__element/global-tabs__element";
+@import "__label/global-tabs__label";
+@import "__list/global-tabs__list";
+@import "__list-wrapper/global-tabs__list-wrapper";
+@import "__slide-line/global-tabs__slide-line";
+@import "__remove/global-tabs__remove";
+@import "__control/global-tabs__control";
+@import "global-tabs_slider";
+@import "global-tabs_color_light";
+@import "global-tabs_border_none";

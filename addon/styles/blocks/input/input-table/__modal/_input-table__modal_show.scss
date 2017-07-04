@@ -1,0 +1,7 @@
+.input-table__modal_show {
+    animation-duration: .3s;
+    @extend %global-effect;
+    z-index: 2;
+    pointer-events: all;
+    display: block;
+}

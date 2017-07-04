@@ -1,0 +1,4 @@
+.input-table__inline {
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    cursor: pointer;
+}

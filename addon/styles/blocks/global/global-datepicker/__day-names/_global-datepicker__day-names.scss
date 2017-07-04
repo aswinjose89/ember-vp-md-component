@@ -1,0 +1,3 @@
+.global-datepicker__day-names {
+    @include flex(flex, row, wrap, flex-start, flex-start, flex-start);
+}

@@ -1,0 +1,11 @@
+<div>
+    {{wb-md-checkbox checked=rejectPromise fieldLabel=" Force promise to reject: "}}
+</div>
+{{wb-md-spacer}}
+<h6>Timeout length: {{timeoutLength}}</h6>
+{{input type="range" value=timeoutLength min=0 max=5000 step=100}}
+{{wb-md-spacer}}
+<p>
+    {{wb-md-button type="primary" color="blue" async=true action="save" label='Save'}}
+    {{wb-md-button type="primary" color="blue" async=true action=(action "saveWithClosureAction") label='Save with Closure Action'}}
+</p>

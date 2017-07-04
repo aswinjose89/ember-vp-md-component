@@ -1,0 +1,7 @@
+.checkbox-menu__modal_show {
+    animation-duration: .3s;
+    animation-name: fadeScaleIn;
+    @extend %global-effect;
+    z-index: 2;
+    pointer-events: all;
+}

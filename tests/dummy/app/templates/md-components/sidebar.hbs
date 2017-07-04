@@ -1,0 +1,182 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Sidebar</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Config</h3>
+            {{#wb-md-code-highlight type="js"}}
+                {
+                    title: 'Sidebar Title',
+                    additionalInfo: [
+                        {
+                            label: 'User Status',
+                            componentName: 'wb-md-tag',
+                            componentConfig: {
+                                label: 'Stable',
+                                color: 'green'
+                            }
+                        },
+                        {
+                            label: 'User Id',
+                            infoLabel: '001'
+                        }
+                    ]
+                }
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{#wb-md-sidebar-nav config=defaultSidebar}}
+                    &#123;{#wb-md-sidebar-nav-item 'index'}}
+                        Introduction
+                    &#123;{/wb-md-sidebar-nav-item}}
+                &#123;{/wb-md-sidebar-nav}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>title</span></code> - Title of the sidebar</li>
+                        <li><code><span>additionalInfo</span></code> - Holds array of additional information
+                            <ul>
+                                <li><code><span>label</span></code> - Label for the additional information</li>
+                                <li><code><span>infoLabel</span></code> - The corresponding value for the addtional information</li>
+                                <li><code><span>componentName</span></code> - The component name which has to be rendered. Either component or infoLabel should be provided</li>
+                                <li><code><span>componentConfig</span></code> - The config for the component passed</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Preview</h3>
+                    {{#wb-md-sidebar-nav config=defaultSidebar}}
+                        {{#wb-md-sidebar-nav-item 'index'}}
+                            Introduction
+                        {{/wb-md-sidebar-nav-item}}
+                    {{/wb-md-sidebar-nav}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Sidebar With Progress Tracking</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <p>
+                Pass status with the <code>wb-md-sidebar-nav-menu-item-label</code> component to enable status tracking. Please note this componenet also will be deprecated soon.
+            </p>
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{#wb-md-sidebar-nav config=sideBarNavConfig}}
+                    &#123;{#wb-md-sidebar-nav-item 'index'}}
+                        &#123;{wb-md-sidebar-nav-menu-item-label label='Indroduction' status=null}}
+                    &#123;{/wb-md-sidebar-nav-item}}
+                    &#123;{#wb-md-sidebar-nav-item 'md-components.buttons' isDisabled=true}}
+                        &#123;{wb-md-sidebar-nav-menu-item-label label='Buttons' status='error'}}
+                    &#123;{/wb-md-sidebar-nav-item}}
+                &#123;{/wb-md-sidebar-nav}}
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Config</h3>
+            {{#wb-md-code-highlight type="js"}}
+                {
+                    title: 'Sidebar Title',
+                    action: 'editAction',
+                    actionLabel: 'EDIT'
+                }
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Additonal Settings</h3>
+                    <ul>
+                        <li><code><span>actionLabel</span></code> - The label for the side bar link action</li>
+                        <li><code><span>action</span></code> - The action name which should be invoked on clicking on the <code>actionLabel</code></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Preview</h3>
+                    {{#wb-md-sidebar-nav config=sideBarNavConfig}}
+                        {{#wb-md-sidebar-nav-item 'index'}}
+                            {{wb-md-sidebar-nav-menu-item-label label='Indroduction' status=null}}
+                        {{/wb-md-sidebar-nav-item}}
+                        {{#wb-md-sidebar-nav-item 'md-components.buttons'}}
+                            {{wb-md-sidebar-nav-menu-item-label label='Buttons' status='error'}}
+                        {{/wb-md-sidebar-nav-item}}
+                        {{#wb-md-sidebar-nav-item 'md-components.icons'}}
+                            {{wb-md-sidebar-nav-menu-item-label label='Buttons' status='complete' isDisabled=disableSideBar}}
+                        {{/wb-md-sidebar-nav-item}}
+                    {{/wb-md-sidebar-nav}}
+                    {{wb-md-button label="Enable/Disable Sidebar" type='primary' color='blue' action=(action toggleProperty 'disableSideBar')}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Sidebar With Icons</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{#wb-md-sidebar-nav config=sideBarWithIcons}}
+                    &#123;{#wb-md-sidebar-nav-item 'index' iconName='home' iconColor='green-500'}}
+                        Introduction
+                    &#123;{/wb-md-sidebar-nav-item}}
+                    &#123;{#wb-md-sidebar-nav-item 'md-components.buttons' iconName='radio_button_unchecked' iconColor='blue'}}
+                        Buttons
+                    &#123;{/wb-md-sidebar-nav-item}}
+                &#123;{/wb-md-sidebar-nav}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Preview</h3>
+                    {{#wb-md-sidebar-nav config=sideBarWithIcons}}
+                        {{#wb-md-sidebar-nav-item 'index' iconName='home' iconColor='green-500'}}
+                            Introduction
+                        {{/wb-md-sidebar-nav-item}}
+                        {{#wb-md-sidebar-nav-item 'md-components.buttons' iconName='radio_button_unchecked' iconColor='blue'}}
+                            Buttons
+                        {{/wb-md-sidebar-nav-item}}
+                    {{/wb-md-sidebar-nav}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

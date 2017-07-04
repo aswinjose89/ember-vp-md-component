@@ -1,0 +1,9 @@
+.header-inline-top {
+    @include flex(flex, row, nowrap, space-between, center, flex-start);
+    color: $white;
+    .entity-tags-group {
+        margin-left: 20px;
+    }
+}
+
+@import "header-inline-top_positions";

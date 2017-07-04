@@ -1,0 +1,11 @@
+.global-toolbar-actions {
+  flex-shrink: 0;
+  padding: 8px 0;
+  @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+  margin-left: 57px;
+  > * {
+    & ~ * {
+      margin-left: 20px;
+    }
+  }
+}

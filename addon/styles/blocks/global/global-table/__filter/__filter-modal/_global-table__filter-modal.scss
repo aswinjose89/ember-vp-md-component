@@ -1,0 +1,37 @@
+.global-table__filter-modal {
+    position: absolute;
+    right: 0;
+    left: 0;
+    background: $white;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.16);
+    border-radius: 0 0 $baseBorderRadius $baseBorderRadius;
+    user-select: none;
+    z-index: 2;
+    opacity: 0;
+    animation-duration: .3s;
+    animation-name: scaleYIn;
+    @extend %global-effect;
+    top: 100%;
+    @extend %global-effect_position_top_left;
+    min-width: 235px;
+    font-weight: normal;
+    font-size: $baseFontSize;
+    white-space: normal;
+}
+
+.global-table__filter-modal_position_top {
+    top: auto;
+    bottom: 100%;
+    @extend %global-effect_position_bottom_left;
+}
+
+.global-table__filter-modal_position_right {
+    left: auto;
+    right: 0;
+}
+
+.global-table__filter-modal .dropdown-list {
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

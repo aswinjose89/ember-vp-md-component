@@ -1,0 +1,6 @@
+.global-action {
+  @include flex(flex, row, nowrap, space-between, center, flex-start);
+}
+@import "global-action_position_right";
+@import "global-action_position_left";
+@import "global-action_position_center";

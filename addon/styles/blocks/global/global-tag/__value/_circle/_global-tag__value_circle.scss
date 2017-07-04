@@ -1,0 +1,21 @@
+[class*=global-tag__value_circle] {
+    &:before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        vertical-align: top;
+        z-index: 1;
+        border-radius: 4px;
+        margin-right: 4px;
+        transform: translateY(1px);
+    }
+}
+
+@import "global-tag__value_circle_gray";
+@import "global-tag__value_circle_blue";
+@import "global-tag__value_circle_orange";
+@import "global-tag__value_circle_deep-orange";
+@import "global-tag__value_circle_blue-gray";
+@import "global-tag__value_circle_green";
+@import "global-tag__value_circle_red";

@@ -1,0 +1,132 @@
+<div class="input-{{elementClass}}__inline" {{action 'setOpen' on='click'}}>
+    {{#if leftIconName}}
+        <div class="input-{{elementClass}}__icon input-{{elementClass}}__icon_left">
+            {{wb-md-icon iconName=leftIconName color=leftIconColor}}
+        </div>
+    {{/if}}
+    <div class="input-{{elementClass}}__element">
+        {{#unless block}}
+            <label class="input-{{elementClass}}__label{{if isDatePicker ' input-row__label_readonly'}}">
+                {{label}}
+                {{#if (and required label)}}
+                    <sup>*</sup>
+                {{/if}}
+            </label>
+        {{/unless}}
+        {{#if multiline}}
+            {{#if block}}
+                <label class="input-row__label">
+                    {{label}}
+                    {{#if (and required label)}}
+                        <sup>*</sup>
+                    {{/if}}
+                </label>
+            {{/if}}
+            <div class="input-{{elementClass}}__textarea">
+                {{textarea
+                    placeholder=placeholder
+                    value=value
+                    required=required
+                    enter=(action 'triggerEnterAction')
+                    focusIn=(action 'innerFocusIn')
+                    focusOut=(action 'innerFocusOut')
+                    readonly=(if (and isReadOnly true) 'readonly')
+                    disabled=disabled
+                    name=name
+                    autocomplete=autocomplete
+                }}
+            </div>
+        {{else}}
+            <div class="input-{{elementClass}}__text">
+                {{#if isDatePicker}}
+                    {{input type=type value=dateValue min=min maxlength=maxlength step=step required=required disabled=true}}
+                    <div class="input-{{elementClass}}__text-icon">
+                        {{#if (and dateValue (not required))}}
+                            {{wb-md-icon iconName="bid_clear" click=(action "clearDate" bubbles=false)}}
+                        {{else}}
+                            {{wb-md-icon iconName="arrow_drop_down" ripple=false}}
+                        {{/if}}
+                    </div>
+                {{else if isFormatted}}
+                    {{input
+                        maxlength=maxLength
+                        type=inputType
+                        value=formattedValue
+                        min=min
+                        max=max
+                        placeholder=placeholder
+                        step=step
+                        required=required
+                        disabled=disabled
+                        enter=(action 'triggerEnterAction')
+                        focusIn=(action 'innerFocusIn')
+                        focusOut=(action 'innerFocusOut')
+                        readonly=(if (and isReadOnly true) 'readonly')
+                        name=name
+                        autocomplete=autocomplete
+                    }}
+                {{else}}
+                    {{input
+                        maxlength=maxLength
+                        type=inputType
+                        value=value
+                        min=min
+                        max=max
+                        name=name
+                        placeholder=placeholder
+                        step=step
+                        required=required
+                        disabled=disabled
+                        enter=(action 'triggerEnterAction')
+                        autocomplete=autocomplete
+                        focusIn=(action 'innerFocusIn')
+                        focusOut=(action 'innerFocusOut')
+                        readonly=(if (and isReadOnly true) 'readonly')
+                    }}
+                {{/if}}
+            </div>
+        {{/if}}
+        <div class="input-row__bottom-line"{{action 'bottomLineClick' bubbles=false}}>
+            {{#if isError}}
+                <div class="input-row__error-text">{{computedErrorMessage}}</div>
+            {{else if helpText}}
+                <div class="input-row__description">
+                    <div class="global-overflow">
+                        <div class="global-overflow__fluid">{{helpText}}</div>
+                        {{#if helpTextIsTruncated}}
+                            <div class="global-overflow__static"><a href="" {{action 'triggerWBSendAction' showMoreAction helpText label elementId bubbles=false}}>more</a></div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#unless disabled}}
+                {{#if (and maxLength (not hideTextCount))}}
+                    <div class="input-row__textarea-info">{{textCountFormatted}} / {{maxLengthFormatted}}</div>
+                {{/if}}
+            {{/unless}}
+        </div>
+        {{#if isDatePicker}}
+            {{#if isActive}}
+             {{#if modalInside}}
+             <div class="input-row__modal input-row__modal_inside">
+                 <div class="pickmeup_wrap"></div>
+             </div>
+             {{else}}
+                {{#ember-wormhole to="MDContainer"}}
+                    <div class="input-row__modal input-row__modal_transparent{{if modalAnimationTop " input-row__modal_top-show"}}{{if modalAnimationBottom " input-row__modal_bottom-show"}}" id="{{elementId}}-dropdown">
+                          <div class="pickmeup_wrap"></div>
+                    </div>
+                {{/ember-wormhole}}
+             {{/if}}
+            {{/if}}
+        {{/if}}
+    </div>
+    {{#if rightIconName}}
+        <div class="input-{{elementClass}}__icon input-{{elementClass}}__icon_right">
+            {{wb-md-icon
+                iconName=rightIconName
+                color=rightIconColor
+            }}
+        </div>
+    {{/if}}
+</div>

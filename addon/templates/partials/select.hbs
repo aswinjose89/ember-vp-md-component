@@ -1,0 +1,187 @@
+<div class="input-row__inline" {{action 'triggerDropdown'}}>
+    {{#if leftIconName}}
+        <div class="input-row__icon input-row__icon_left">
+            {{wb-md-icon iconName=leftIconName color=leftIconColor}}
+        </div>
+    {{/if}}
+    <div class="input-row__element">
+        <label class="input-row__label{{unless (or mulitple searchable) ' input-row__label_readonly'}}">
+            {{label}}
+            {{#if (and required label)}}
+                <sup>*</sup>
+            {{/if}}
+         </label>
+        {{#if (or multiple searchable)}}
+            <div class="input-row__search">
+                <div class="input-row__search-input{{if multiple " input-row__search-input_multi"}}">
+                    {{input
+                        type="text"
+                        autocomplete="off"
+                        value=searchKey
+                        maxlength=searchKeyMaxLength
+                        disabled=disabled
+                        readonly=(if (and isReadOnly true) 'readonly')
+                        focusIn=(action 'innerFocusIn')
+                        focusOut=(action 'innerFocusOut')
+                    }}
+                    <div class="input-row__search-hidden"><pre>{{searchKey}}</pre></div>
+                </div>
+                {{#if multiple}}
+                    {{#each (if isSorted (sort-items selectedItems sortBy=optionLabelPath length=selectedItems.length) selectedItems) as | record |}}
+                        <div class="input-row__search-item{{if record.isReadOnly " input-row__search-item_readonly"}}"{{action "showToolTip" (get record optionLabelPath) on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>
+                            {{get record optionLabelPath}}
+                            {{#unless (or isReadOnly disabled record.isReadOnly)}}
+                                <div class="input-row__search-item-close" {{action 'removeSelectedItem' record bubbles=false}}>
+                                    {{wb-md-icon ripple=false class='global-icon_size_8' iconName="close"}}
+                                </div>
+                            {{/unless}}
+                        </div>
+                    {{/each}}
+                    {{#if (and displayShowHideButton (not isCollapsed) (gt hiddenItems 0))}}
+                        <div class="input-row__hidden-count">+{{hiddenItems}} More</div>
+                    {{/if}}
+                {{else}}
+                    {{#if (get selectedItem optionLabelPath)}}
+                        <div class="input-row__search-item{{if selectedItem.isReadOnly " input-row__search-item_readonly"}}"{{action "showToolTip" (get selectedItem optionLabelPath) on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>
+                            {{get selectedItem optionLabelPath}}
+                            {{#unless (or isReadOnly disabled selectedItem.isReadOnly)}}
+                                <div class="input-row__search-item-close" {{action 'setSelectedItem' selectedItem false bubbles=false}}>
+                                    {{wb-md-icon ripple=false class='global-icon_size_8' iconName="close"}}
+                                </div>
+                            {{/unless}}
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+        {{else}}
+            <div class="input-row__select" tabindex="0">{{get selectedItem optionLabelPath}}</div>
+        {{/if}}
+        <div class="input-row__bottom-line"{{action 'bottomLineClick' bubbles=false}}>
+            {{#if isError}}
+                <div class="input-row__error-text">{{computedErrorMessage}}</div>
+            {{else if isMaxSelectionReached}}
+                <div class="input-row__description">{{maxSelectionMessage}}</div>
+            {{else if helpText}}
+                <div class="input-{{elementClass}}__description">
+                    <div class="global-overflow">
+                        <div class="global-overflow__fluid">{{helpText}}</div>
+                        {{#if helpTextIsTruncated}}
+                            <div class="global-overflow__static"><a href="" {{action 'triggerWBSendAction' showMoreAction helpText label elementId bubbles=false}}>more</a></div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+        {{#if (and displayShowHideButton (gt hiddenItems 0))}}
+            <div class="input-row__search-toggle" {{action 'toggleSelectView'}}>{{showHideText}}</div>
+        {{/if}}
+
+        {{#if isOpen}}
+            {{#if modalInside}}
+                <div class="input-row__modal input-row__modal_inside">
+                    {{#if isMemberDropdown}}
+                        {{partial 'partials/member-dropdown'}}
+                    {{else}}
+                        <div class="dropdown-list">
+                            {{#if multiLevel}}
+                                {{partial 'partials/multi-level-select'}}
+                            {{else}}
+                                {{#if promptMessage}}
+                                    <div class="dropdown-list__row" {{action 'setSelectedItem'}}>
+                                        <div class="dropdown-list__element dropdown-list__element_prompt">
+                                            &mdash; {{promptMessage}} &mdash;
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if (and (gt filteredContent.length 0) (is-equal resultType 'table'))}}
+                                    {{wb-md-table selectAllAction='triggerTableSelectAllAction' multiSelectAction='triggerTableResultAction' content=(mut filteredContent) config=tableConfig isDropdownInput=true selectedItem=(mut selectedItem) selectedItems=(mut selectedItems)}}
+                                {{else}}
+                                    {{#each filteredContent as | record index|}}
+                                        {{#if record.isGroupHeader}}
+                                            <div class="dropdown-list__header">
+                                                {{get record optionLabelPath}}
+                                            </div>
+                                        {{else}}
+                                            <div class="dropdown-list__row {{if (is-selected-item record selectedItems optionValuePath didSelectionChange) ' dropdown-list__row_active'}}{{if record.isHighLight ' dropdown-list__row_highlight'}}"
+                                            {{action 'setSelectedItem' record}}
+                                            id={{dropItemId record}}
+                                            onmouseenter={{action 'setDropItemHighLight' record}}
+                                            onmouseleave={{action 'unSetDropItemHighLight' record}}
+                                            >
+                                                <div class="dropdown-list__element">
+                                                    {{#if isCheckBoxSelection}}
+                                                        <div class="dropdown-list__icon">
+                                                            {{wb-md-icon iconName=(if (is-selected-item record selectedItems optionValuePath didSelectionChange) 'check_box' 'check_box_outline_blank') color=(if (is-selected-item record selectedItems optionValuePath didSelectionChange) 'blue' 'gray')}}
+                                                        </div>
+                                                    {{/if}}
+                                                    <div class="dropdown-list__label">{{get record optionLabelPath}}</div>
+                                                </div>
+                                            </div>
+                                        {{/if}}
+                                    {{else}}
+                                        {{partial 'partials/dropdown-no-data'}}
+                                    {{/each}}
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    {{/if}}
+                </div>
+            {{else}}
+                {{#ember-wormhole to="MDContainer"}}
+                    <div class="input-row__modal{{if modalAnimationTop " input-row__modal_top-show"}}{{if modalAnimationBottom " input-row__modal_bottom-show"}}" id="{{elementId}}-dropdown">
+                        {{#if isMemberDropdown}}
+                            {{partial 'partials/member-dropdown'}}
+                        {{else}}
+                            <div class="dropdown-list">
+                                {{#if multiLevel}}
+                                    {{partial 'partials/multi-level-select'}}
+                                {{else}}
+                                    {{#if promptMessage}}
+                                        <div class="dropdown-list__row" {{action 'setSelectedItem'}}>
+                                            <div class="dropdown-list__element dropdown-list__element_prompt">
+                                                &mdash; {{promptMessage}} &mdash;
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                    {{#if (and (gt filteredContent.length 0) (is-equal resultType 'table'))}}
+                                        {{wb-md-table selectAllAction='triggerTableSelectAllAction' multiSelectAction='triggerTableResultAction' content=(mut filteredContent) config=tableConfig isDropdownInput=true selectedItem=(mut selectedItem) selectedItems=(mut selectedItems)}}
+                                    {{else}}
+                                        {{#each filteredContent as | record index|}}
+                                            {{#if record.isGroupHeader}}
+                                                <div class="dropdown-list__header">
+                                                    {{get record optionLabelPath}}
+                                                </div>
+                                            {{else}}
+                                                <div class="dropdown-list__row{{if record.isDisabled " dropdown-list__row_disabled"}}{{if (is-selected-item record selectedItems optionValuePath didSelectionChange) ' dropdown-list__row_active'}}{{if record.isHighLight ' dropdown-list__row_highlight'}}" {{action 'setSelectedItem' record}}
+                                                id={{dropItemId record}}
+                                                onmouseenter={{action 'setDropItemHighLight' record}}
+                                                onmouseleave={{action 'unSetDropItemHighLight' record}}
+                                                >
+                                                    <div class="dropdown-list__element">
+                                                        {{#if isCheckBoxSelection}}
+                                                            <div class="dropdown-list__icon">
+                                                                {{wb-md-icon iconName=(if (is-selected-item record selectedItems optionValuePath didSelectionChange) 'check_box' 'check_box_outline_blank') color=(if (is-selected-item record selectedItems optionValuePath didSelectionChange) 'blue' 'gray')}}
+                                                            </div>
+                                                        {{/if}}
+                                                        <div class="dropdown-list__label">{{get record optionLabelPath}}</div>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+                                        {{else}}
+                                            {{partial 'partials/dropdown-no-data'}}
+                                        {{/each}}
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/ember-wormhole}}
+            {{/if}}
+        {{/if}}
+    </div>
+    {{#if rightIconName}}
+        <div class="input-row__icon input-row__icon_right">
+            {{wb-md-icon iconName=rightIconName color=rightIconColor}}
+        </div>
+    {{/if}}
+</div>

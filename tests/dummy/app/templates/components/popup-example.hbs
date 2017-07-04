@@ -1,0 +1,34 @@
+{{#wb-md-popup size="large" height="full"}}
+    {{#wb-md-content-toolbar border=(if componentConfig.showTopBar "bottom") color='blue' pad="full" }}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title">
+                    Welcome
+                </div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="global-popup__content">
+        <div class="global-popup__text">
+            <p>
+                {{componentConfig.text}}
+            </p>
+            <p>
+                Note that our SettingsModalController is extending from ObjectController and LogoutModalController from Controller,
+                this is just to suit our demo a bit better. You have to decide on your own if Controller, ObjectController or ArrayController suits your
+                modal best.
+            </p>
+            <hr/>
+            {{wb-md-button type='primary' color='blue' label='Open Another Popup' action='openPopup'}}
+        </div>
+        {{wb-md-input label="Comments" value=comments}}
+        {{wb-md-table config=gridConfig}}
+    </div>
+    {{#wb-md-content-toolbar color=(if componentConfig.showActionBar 'gray') position="right" }}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button action='closeDialog' color="blue" type='primary' label='Okay'}}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+{{/wb-md-popup}}

@@ -1,0 +1,9 @@
+.global-table__sort {
+    display: inline-block;
+    vertical-align: middle;
+    transform: rotate(90deg);
+    opacity: 0;
+    pointer-events: none;
+}
+@import "global-table__sort_down";
+

@@ -1,0 +1,11 @@
+.card-question__ext-links {
+    height: 100%;
+    font-size: $smallFontSize;
+    line-height: 18px;
+    flex-grow: 1;
+    a {
+        display: inline-block;
+        @extend %text-overflow;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,4 @@
+.guideline-block__header {
+  @include flex(flex, row, nowrap, flex-start, center, flex-start);
+  margin-bottom: 15px;
+}

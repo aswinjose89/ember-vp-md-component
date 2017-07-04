@@ -1,0 +1,51 @@
+.input-row__search-input {
+    height: 25px;
+    padding: 2px 0;
+    opacity: 0;
+    flex-shrink: 0;
+    //flex-grow: 1;
+    order: 100;
+    margin: 5px;
+    transition: opacity 0.4s ease;
+    will-change: opacity;
+    z-index: 1;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    overflow: hidden;
+    max-width: 100%;
+    position: absolute;
+    input {
+        font-family: $baseFont;
+        font-size: $baseFontSize;
+        background: transparent;
+        border: 0;
+        white-space: nowrap;
+        width: 4px;
+        padding: 0;
+        text-shadow: 0 0 0 change-color($baseColor, $alpha: .7);
+        height: 20px;
+        color: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        max-width: 100%;
+        text-align: left;
+        &::selection {
+            background: transparent;
+        }
+        &:focus {
+            appearance: none;
+        }
+    }
+    &:after {
+        content: '';
+        width: 1px;
+        height: 20px;
+        background-color: #4A90E2;
+        display: block;
+        animation: blink linear .8s;
+        animation-iteration-count: infinite;
+        margin-right: 5px;
+        will-change: opacity;
+        order: 0;
+    }
+}
+
+@import "input-row__search-input_multi";

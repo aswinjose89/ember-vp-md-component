@@ -1,0 +1,31 @@
+.global-login {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-width: 1280px;
+    min-height: 570px;
+}
+
+@import "__form/global-login__form";
+@import "__form/__form-wrapper/global-login__form-wrapper";
+@import "__form/__form-icon/global-login__form-icon";
+@import "__info/global-login__info";
+@import "__logo/global-login__logo";
+@import "__background/global-login__background";
+@import "__actions/global-login__actions";
+@import "__form/__form-title/input-login__form-title";
+@import "__controls/global-login__controls";
+@import "__controls/__controls-element/global-login__controls-element";
+@import "__controls/__controls-button/global-login__controls-button";
+@import "__disclaimer/global-login__disclaimer";
+@import "__links/global-login__links";
+@import "__links/__links-element/global-login__links-element";
+@import "__news/global-login__news";
+@import "__news/__news-content/global-login__news-content";
+@import "__news/__news-icon/global-login__news-icon";
+@import "__news/__news-inline/global-login__news-inline";
+@import "__news/__news-title/global-login__news-title";
+@import "__message/global-login__message";
+@import "__sidebar/global-login__sidebar";

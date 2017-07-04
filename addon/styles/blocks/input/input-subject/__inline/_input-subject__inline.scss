@@ -1,0 +1,3 @@
+.input-subject__inline {
+  @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+}

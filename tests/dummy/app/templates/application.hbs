@@ -1,0 +1,106 @@
+<div class="material-design">
+    <div class="page__wrapper" id="MDContainer">
+        <div class="global-toolbar">
+            <div class="global-toolbar__left">
+                <div class="workbench-back"><a title="MD Components">MD Components</a></div>
+            </div>
+        </div>
+        {{#if displayMdSnackBar}}
+            {{component mdSnackBarComponent config=mdSnackBarConfig}}
+        {{/if}}
+        {{#if mdDialogs}}
+            {{#each mdDialogs as |mdDialog|}}
+                {{component mdDialog.mdDialogComponent config=mdDialog.mdDialogConfig}}
+            {{/each}}
+        {{/if}}
+        {{#if displayMdtooltip}}
+            {{component mdToolTipComponent config=mdToolTipConfig}}
+        {{/if}}
+        {{#if displayMdAttachmentFlyout}}
+            {{component 'wb-md-attachment-flyout' config=mdAttachmentFlyoutConfig}}
+        {{/if}}
+        {{#if displayMdFileUploadQueue}}
+            {{component 'wb-md-file-upload-queue' config=mdFileUploadQueueConfig}}
+        {{/if}}
+        <section class="page__container">
+            <div class="page__container-scroll">
+                <div class="page__container-limiter {{if isMDFluidLayout ' page__container-limiter_hidden'}}">
+                    {{#if isMDFluidLayout}}
+                        <div class="float-icon{{if showMDToggleSideBar " float-icon_full"}}"{{action "floatsidebar"}}>
+                            {{wb-md-icon iconName="sidenav" color="white" ripple=false}}
+                        </div>
+                    {{/if}}
+                    {{#unless isMDLayoutFullWidth}}
+                        <aside class="page__sidebar{{if showMDToggleSideBar ' page__sidebar_hide'}}">
+                            <div class="page__sidebar-scroll">
+                                {{#wb-md-sidebar-nav config=sideBarNavConfig}}
+                                    {{#wb-md-sidebar-nav-item 'index'}}
+                                        Introduction
+                                    {{/wb-md-sidebar-nav-item}}
+                                {{/wb-md-sidebar-nav}}
+                                {{#wb-md-sidebar-nav title='Components Index'}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.buttons'}}
+                                        Buttons
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.card'}}
+                                        Card
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.comment'}}
+                                        Comment
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.attachments'}}
+                                        File Upload Serivces
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.icons'}}
+                                        Icons
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.inputs'}}
+                                        Inputs
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.menus'}}
+                                        Menus
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.notifications'}}
+                                        Notifications
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.other'}}
+                                        Other
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.popup'}}
+                                        Popup
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.sidebar'}}
+                                        Sidebar
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.tabs'}}
+                                        Tabs
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.tags'}}
+                                        Tags
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.tables'}}
+                                        Tables
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.tooltips'}}
+                                        Tooltips
+                                    {{/wb-md-sidebar-nav-item}}
+                                {{/wb-md-sidebar-nav}}
+                                {{#wb-md-sidebar-nav title='Application Reference'}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.ap'}}
+                                        Account Plan
+                                    {{/wb-md-sidebar-nav-item}}
+                                    {{#wb-md-sidebar-nav-item 'md-components.dp'}}
+                                        Deal Pipeline
+                                    {{/wb-md-sidebar-nav-item}}
+                                {{/wb-md-sidebar-nav}}
+                            </div>
+                        </aside>
+                    {{/unless}}
+                    <main class="page__main{{if isMDLayoutFullWidth ' page__main_full'}}{{if isMDFluidLayout ' page__main_fluid'}}{{if showMDToggleSideBar ' page__main_fluid-animate'}}">
+                        {{outlet}}
+                    </main>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

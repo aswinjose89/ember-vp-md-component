@@ -1,0 +1,11 @@
+.global-table__row_status_error {
+    box-shadow: inset 0 -1px 0 0 $red_500;
+}
+.global-table__row_status_error.global-table__row_type_child {
+    box-shadow: none;
+    td:first-child {
+        &:before {
+            background: $red_500;
+        }
+    }
+}

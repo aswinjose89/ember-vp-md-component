@@ -1,0 +1,1 @@
+export { default, isArray } from 'wb-ui-md-components/helpers/is-array';

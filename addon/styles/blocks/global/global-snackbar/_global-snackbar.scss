@@ -1,0 +1,16 @@
+.global-snackbar {
+    position: fixed;
+    z-index: 900;
+    background: $black;
+    height: 50px;
+    border-radius: $baseBorderRadius;
+    @include flex(flex, row, nowrap, center, center, center);
+    padding: 0 20px;
+    color: $white;
+}
+
+@import "__position/global-snackbar__position";
+@import "__close/global-snackbar__close";
+@import "__links/global-snackbar__links";
+@import "__links-element/global-snackbar__links-element";
+@import "__text/global-snackbar__text";

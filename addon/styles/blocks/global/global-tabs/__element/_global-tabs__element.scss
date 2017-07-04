@@ -1,0 +1,17 @@
+.global-tabs__element {
+    font-weight: 500;
+    text-transform: uppercase;
+    user-select: none;
+    cursor: pointer;
+    padding: 0 20px;
+    height: 60px;
+    min-width: 100px !important;
+    max-width: 300px;
+    line-height: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    @include flex(flex, row, nowrap, center, center, flex-start);
+}
+
+@import "_status/global-tabs__element_status";
+@import "_type/global-tabs__element_type";

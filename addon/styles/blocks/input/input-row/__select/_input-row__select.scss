@@ -1,0 +1,21 @@
+.input-row__select {
+    line-height: 22px;
+    font-size: $baseFontSize;
+    font-family: $baseFont;
+    padding: 1px 0;
+    height: 24px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transform: translateY(-2px);
+    @extend %text-overflow;
+    padding-right: 34px;
+    &:after {
+        @extend %material-icons;
+        content: 'arrow_drop_down';
+        color: #6F6F6F;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

@@ -1,0 +1,144 @@
+<tr class="global-table__row global-table__row_color_purple">
+    {{#each columns as | column | }}
+        {{#unless column.isHidden}}
+            {{#if column.toggleAction}}
+                <td class="global-table__cell global-table__cell_type_data global-table__cell_pad_x-null">
+                    {{wb-md-icon disabled=(get filteredItem isDisabled)
+                        isToggle=true toggleValue=(mut (get filteredItem column.field))
+                        onToggle=(action "triggerSendAction" column.toggleAction.action filteredItem)
+                        iconName=column.toggleAction.iconName
+                        color=column.toggleAction.color
+                    }}
+                </td>
+            {{else if (is-equal column.type 'component')}}
+                <td class="global-table__cell global-table__cell_type_data {{if column.isPriorityWidth 'global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell_align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                    {{#if (get filteredItem column.field)}}
+                        {{component column.componentName click=(action 'triggerSendAction' column.action filteredItem) disabled=(get filteredItem isDisabled) config=(get filteredItem column.field)}}
+                    {{/if}}
+                </td>
+            {{else if (is-equal column.type 'date')}}
+            <td class="global-table__cell global-table__cell_type_data {{if column.isPriorityWidth 'global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell_align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                {{format-date (get filteredItem column.field)}}
+            </td>
+            {{else if (is-equal column.type 'array')}}
+                {{wb-md-table-cell-list column=column filteredItem=(mut filteredItem)}}
+            {{else if (or (is-equal column.type 'link') (is-equal column.type 'entityLink'))}}
+                <td class="global-table__cell global-table__cell_type_data {{if column.isPriorityWidth 'global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell_align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                        {{#if (is-equal column.type 'entityLink')}}
+                            {{wb-md-entity-icon class='entity-icon_margin_right-10' value=(get filteredItem column.enityIconFiled) color=(get filteredItem column.entityColorField)}}
+                        {{/if}}
+                    <div class="global-table__text"><a href="" class="{{if (get filteredItem isDisabled) 'link_disabled'}}" {{action 'triggerSendAction' column.action filteredItem}} {{action "showVCard" (get filteredItem column.vCardField) on="mouseEnter"}} {{action "hideToolTip" on="mouseLeave"}}>{{get filteredItem column.field}}</a></div>
+                </td>
+            {{else if (is-equal column.type 'arrayLink')}}
+                <td class="global-table__cell global-table__cell_type_data {{if column.isPriorityWidth 'global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell_align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                    {{#each (get filteredItem column.field) as | link |}}
+                        {{#unless (is-equal index 0)}},{{/unless}}
+                        <div class="global-table__text"><a href="" {{action 'triggerSendAction' column.action link}}>{{formatDate (get link 'callDate')}}</a></div>
+                    {{/each}}
+                </td>
+            {{else if column.isMultiLine}}
+                <td class="global-table__cell global-table__cell_type_data {{if column.isPriorityWidth 'global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell_align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                    {{#wb-md-table-text-more
+                        content=(get filteredItem column.field)
+                        isDisabled=filteredItem.isDisabled
+                        isReadOnly=(or filteredItem.isReadOnly column.isReadOnly)
+                        enableLinkAction=column.isMultiLine
+                        linkAction=(action 'showMultiLinePopup' filteredItem column)
+                        popupHeader=(if column.popupHeader column.popupHeader column.title)
+                    }}
+                        {{#unless (or (get filteredItem column.field) column.isReadOnly filteredItem.isReadOnly)}}
+                            <a href="#"
+                                {{action 'showMultiLinePopup' filteredItem column}}>
+                                {{#if column.linkText}}
+                                    {{column.linkText}}
+                                {{else}}
+                                    Add {{column.title}}
+                                {{/if}}
+                            </a>
+                        {{else}}
+                            {{get filteredItem column.field}}
+                        {{/unless}}
+                    {{/wb-md-table-text-more}}
+                </td>
+            {{else}}
+                <td class="global-table__cell global-table__cell_type_data {{if column.isPriorityWidth 'global-table__cell_status_priority'}}{{if (is-equal column.verticalAlignment 'top') ' global-table__cell_align_top'}}{{if (is-equal column.horizontalAlignment 'right') ' global-table__cell_align_right'}}">
+                    {{#if column.leftIconName}}
+                            {{wb-md-icon disabled=(get filteredItem isDisabled) iconName=column.leftIconName color=column.leftIconColor click=(action 'triggerSendAction' column.leftIconAction filteredItem) size="medium"}}
+                    {{/if}}
+                    {{#if (and isEditable (not column.isReadOnly))}}
+                        {{wb-md-input-table placeholder=column.placeholder
+                          onChange=(action 'triggerSendAction' column.action filteredItem)
+                          items=(if (get filteredItem 'content') (get filteredItem 'content') column.content)
+                          iconName=column.iconName
+                          optionLabelPath=column.optionLabelPath
+                          optionValuePath=column.optionValuePath
+                          isSelect=column.isSelect
+                          multiSelect=column.multiSelect
+                          isDisabled=(get filteredItem isDisabled)
+                          value=(mut (get filteredItem column.field))
+                        }}
+                    {{else}}
+                        <div class="global-table__text{{if (get filteredItem isDisabled)' global-table__text_status_disabled'}}">{{get filteredItem column.field}}</div>
+                    {{/if}}
+                    {{#if column.rightIconName}}
+                            {{wb-md-icon disabled=(get filteredItem isDisabled) iconName=column.rightIconName color=column.rightIconColor click=(action 'triggerSendAction' column.rightIconAction filteredItem) size="medium"}}
+                    {{/if}}
+                </td>
+            {{/if}}
+        {{/unless}}
+    {{/each}}
+    {{#if (or rowAction rowActions)}}
+        <td class="global-table__cell global-table__cell_type_data">
+            {{#if rowAction}}
+                {{wb-md-icon disabled=(get filteredItem isDisabled) iconName=rowAction.iconName click=(action 'triggerSendAction' rowAction.action filteredItem)}}
+            {{else if (get filteredItem 'rowActions')}}
+                {{wb-md-action-menu disabled=(get filteredItem isDisabled) config=(get filteredItem 'rowActions') onClick=(action "handleRowAction" filteredItem)}}
+            {{else if rowActions}}
+                {{wb-md-action-menu disabled=(get filteredItem isDisabled) config=rowActions onClick=(action "handleRowAction" filteredItem)}}
+            {{/if}}
+        </td>
+    {{/if}}
+    <td class="global-table__cell global-table__cell_type_data">
+        {{wb-md-icon-toolbar config=iconToolbarConfig toggledProperty=(mut (get filteredItem 'toggledProperty'))}}
+    </td>
+</tr>
+<tr class="global-table__row global-table__row_type_inner global-table__row_color_purple">
+    <td colspan="10">
+        {{#wb-md-card}}
+            <div class="card__header">
+                {{#wb-md-content-toolbar pad="full"}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <div class="content-toolbar__title content-toolbar__title_color_blue">Centre Contacts</div>
+                        </div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <a href="#" {{action "triggerSendAction" config.childTabConfig.addRowAction filteredItem}}>+ ADD</a>
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+                {{wb-md-tabs
+                    config=config.childTabConfig
+                    selectedIndex=config.childTabConfig.selectedIndex
+                }}
+            </div>
+            {{#wb-md-tabs-content
+                selectedIndex=config.childTabConfig.selectedIndex
+            }}
+                {{#each config.childTabConfig.tabs as |tab|}}
+                {{#wb-md-tab-content}}
+                    {{wb-md-table
+                        config=tab.tabContentConfig
+                        triggerSendAction="triggerSendAction"
+                        handleRowAction="handleRowAction"
+                        handleRowExpandAction="handleRowExpandAction"
+                        isNestedChildTable=true
+                        content=(get (get filteredItem childContentKey) tab.tabContentKey)
+                    }}
+                {{/wb-md-tab-content}}
+                {{/each}}
+            {{/wb-md-tabs-content}}
+        {{/wb-md-card}}
+    </td>
+</tr>

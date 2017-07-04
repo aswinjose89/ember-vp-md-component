@@ -1,0 +1,39 @@
+.input-checkbox {
+    &_check-all {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        &:after {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform-origin: center center 0px;
+            transform: scale(0);
+            z-index: -1;
+            will-change: transform;
+            background-color: $blue_500;
+            pointer-events: none;
+        }
+        &:hover .global-icon {
+            color: $white !important;
+        }
+        &:hover:after {
+            animation: ripple-icon .4s $baseTransition;
+            animation-fill-mode: forwards;
+        }
+    }
+    &_check-all .input-checkbox__icon {
+        position: relative;
+        z-index: 1;
+        transition: color .4s $baseTransition;
+        transform: translate(4px, 4px);
+    }
+}
+
+@import "__icon/input-checkbox__icon";
+@import "__input/input-checkbox__input";
+@import "__label/input-checkbox__label";

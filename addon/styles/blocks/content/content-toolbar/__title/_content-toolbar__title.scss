@@ -1,0 +1,21 @@
+.content-toolbar__title {
+    font-size: 18px;
+    font-weight: 500;
+    .global-icon {
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+    sup {
+        display: inline-block;
+        vertical-align: top;
+        transform: translateY(8px);
+    }
+}
+
+.content-toolbar__title~.content-toolbar__description,
+.content-toolbar__title~.content-toolbar__list {
+    margin-top: 8px;
+}
+
+@import "_color/content-toolbar__title_color";
+@import "_size/content-toolbar__title_size";

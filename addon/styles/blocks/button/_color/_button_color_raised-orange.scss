@@ -1,0 +1,8 @@
+.button_color_raised-orange {
+    background: $deepOrange_500;
+    color: $white;
+    &:hover,
+    &.button_status_active {
+        background: $deepOrange_500;
+    }
+}

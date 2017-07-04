@@ -1,0 +1,11 @@
+.global-file-upload_form-file-name {
+    font-size: $baseFontSize;
+    color: $baseColor;
+    line-height: $baseLineHeight;
+    display: block;
+    @extend %text-overflow;
+
+    span {
+        font-weight: 500;
+    }
+}

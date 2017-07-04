@@ -1,0 +1,21 @@
+<div class="card-attachment-list__slide">
+    {{#each fileList as |file fileIndex|}}
+        {{#unless file.deleted}}
+            <div class="card-attachment-list__element" {{action "openAttachmentFlyout" file readonly}}>
+                <div class="global-attachment {{if file.isFileUploading 'global-attachment_status_disabled'}}" {{action "showToolTip" file.fileName on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>
+                    {{wb-md-file-type type=file.fileExtension file=file}}
+                    <div class="global-attachment__name">
+                       {{file.fileName}}
+                    </div>
+                    {{#unless (or file.isFileUploading file.isReadOnlyFile)}}
+                        <div class="global-attachment__delete {{if readonly 'hide'}}"
+                            {{action  "confirmRemoveFileAction" file bubbles=false}}>
+                        </div>
+                    {{/unless}}
+                </div>
+            </div>
+        {{/unless}}
+    {{/each}}
+</div>
+<div class="card-attachment-list__control card-attachment-list__control_prev"></div>
+<div class="card-attachment-list__control card-attachment-list__control_next"></div>

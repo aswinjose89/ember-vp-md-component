@@ -1,0 +1,7 @@
+{{#if isSelect}}
+    {{partial 'partials/select'}}
+{{else if isSearch}}
+    {{partial 'partials/input-search'}}
+{{else}}
+    {{partial 'partials/input'}}
+{{/if}}

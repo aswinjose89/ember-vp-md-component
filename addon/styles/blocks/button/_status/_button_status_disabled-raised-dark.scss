@@ -1,0 +1,4 @@
+.button_status_disabled-raised-dark {
+    background: change-color($black, $alpha: .05);
+    color: change-color($baseColor, $alpha: .4);
+}

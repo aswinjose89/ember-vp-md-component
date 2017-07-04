@@ -1,0 +1,20 @@
+{{#wb-md-card}}
+    <div class="card-question">
+        <div class="card-question__content">
+            <h4 class="card-question__title">Snack Bar</h4>
+            <div class="card-question__description">
+                <div class="card-question__description">
+
+{{!wb-md-button text='Show/Hide' type='primary' color='blue' click=(action 'showBar')}}
+                    <button {{action "showSnackBar" 'bottom-left'}}>Bottom Left</button>
+                    <button {{action "showSnackBar" 'bottom-center'}}>Bottom Center</button>
+                    <button {{action "showSnackBar" 'bottom-right'}}>Bottom Right</button>
+                    <button {{action "showSnackBar" 'top-left'}}>Top Left</button>
+                    <button {{action "showSnackBar" 'top-center'}}>Top Center</button>
+                    <button {{action "showSnackBar" 'top-right'}}>Top Right</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

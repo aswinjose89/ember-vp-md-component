@@ -1,0 +1,5 @@
+{{#if isShowCheckBox}}
+    {{wb-md-checkbox class="input-checkbox_check-all" mouseLeave=(action "toggleIsShow" false)}}
+{{else}}
+    {{wb-md-entity-icon color="blue-500" size="medium" value="22" mouseEnter=(action "toggleIsShow" true)}}
+{{/if}}

@@ -1,0 +1,16 @@
+.static-list {
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    >table {
+        width: 100%;
+        table-layout: fixed;
+    }
+    .entity-tag {
+        transform: translateY(2px);
+    }
+}
+
+//import addons
+@import "__data/static-list__data";
+@import "__label/static-list__label";
+@import "__row/static-list__row";

@@ -1,0 +1,59 @@
+<div class="{{if file.markedForDeletion 'hide'}}">
+    {{#unless (or file.isFileUploading file.isFileUploadPaused)}}
+        {{#if (and  isEditable (is-equal  file.attachmentType "FILE") isDeletable)}}
+            <a download href="{{file.downloadLinkUrl}}?WB-TOKEN={{session.secure.wbToken}}"
+               class="global-file-upload__form-file global-file-upload__form-file_status_done">
+                {{wb-md-file-type type=file.fileExtension file=file}}
+                <div class="global-file-upload_form-file-fluid">
+                    <div class="global-file-upload_form-file-name">
+                        <span>{{file.fileName}}</span>
+                    </div>
+                    <div class="global-file-upload__form-file-size">
+                        {{#if file.sizeInMb}} ({{file.sizeInMb}} MB){{/if}}
+                    </div>
+                </div>
+                <div class="global-file-upload__icon">
+                    {{wb-md-icon iconName="clear" size="medium"
+                                 click=(action "deleteFile" bubbles=false)}}
+                </div>
+            </a>
+        {{else}}
+            <a href="{{file.downloadLinkUrl}}?WB-TOKEN={{session.secure.wbToken}}"
+               download="" class="global-file-upload__form-file global-file-upload__form-file_status_view">
+                {{wb-md-file-type type=file.fileExtension file=file}}
+                <div class="global-file-upload_form-file-fluid">
+                    <div class="global-file-upload_form-file-name">
+                        <span>{{file.fileName}}</span>
+                    </div>
+                    <div class="global-file-upload__form-file-size">
+                        {{#if file.sizeInMb}} ({{file.sizeInMb}} MB){{/if}}
+                    </div>
+                </div>
+            </a>
+        {{/if}}
+    {{else}}
+        <div class="global-file-upload__form-file">
+            {{wb-md-file-type type=file.fileExtension file=file}}
+            <div class="global-file-upload_form-file-fluid">
+                <div class="global-file-upload_form-file-name">
+                    <span>{{file.fileName}}</span>
+                </div>
+                <div class="global-file-upload__form-file-size">
+                    {{#if file.sizeInMb}} ({{file.sizeInMb}} MB){{/if}}
+                </div>
+            </div>
+            {{#if file.isFileUploadPaused}}
+                <div class="global-file-upload__icon">
+                    {{wb-md-icon iconName="clear" size="medium"
+                                 click=(action "deleteFile" bubbles=false)}}
+                </div>
+            {{else}}
+                    {{#if  displayPercentComplete }}<div class="global-file-upload_form-file-percent">{{file.percentComplete}}</div>{{/if}}
+                <div class="global-file-upload__icon">
+                    <div class="global-spinner"></div>
+                </div>
+            {{/if}}
+        </div>
+    {{/unless}}
+</div>
+

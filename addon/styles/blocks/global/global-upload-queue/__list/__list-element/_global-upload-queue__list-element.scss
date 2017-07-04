@@ -1,0 +1,25 @@
+.global-upload-queue__list-element {
+    padding: 0 54px 0 20px;
+    height: 50px;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    position: relative;
+    z-index: 1;
+    transition: all 0.6s $baseTransition;
+    @extend %text-overflow;
+    & ~ .global-upload-queue__list-element {
+        height: 51px;
+        border-top: 1px solid $baseBorderColor;
+    }
+    &:hover {
+        background-color: #F5F5F5;
+        .global-upload-queue__icon-spinner, .global-upload-queue__icon_done {
+            opacity: 0;
+            z-index: 1;
+        }
+        .global-upload-queue__icon_cancel {
+            opacity: 1;
+            z-index: 2;
+            transform: translateY(-50%) scale(1);
+        }
+    }
+}

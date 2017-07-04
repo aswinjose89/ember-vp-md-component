@@ -1,0 +1,39 @@
+.card-comment {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid transparent;
+    &:hover {
+        z-index: 3;
+        .card-comment__toolbar {
+            transform: scale(1);
+        }
+    }
+    .content-toolbar {
+        position: relative;
+        z-index: 0;
+        &:before {
+            background: $indigo_500;
+            height: 2px;
+            left: 50%;
+            right: 50%;
+            content: '';
+            position: absolute;
+            top: 0;
+            transition: all 0.4s $baseTransition;
+            z-index: -1;
+            will-change: transform;
+        }
+    }
+}
+
+//elements
+@import "__input-form/card-comment__input-form";
+@import "__done/card-comment__done";
+@import "__text/card-comment__text";
+@import "__length-trigger/card-comment__length-trigger";
+@import "__toolbar/card-comment__toolbar";
+@import "__count/card-comment__count";
+//modificator
+@import "card-comment_read";
+@import "card-comment_border";
+@import "card-comment_focused";

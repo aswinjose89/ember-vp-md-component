@@ -1,0 +1,9 @@
+.global-file-upload__content {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}

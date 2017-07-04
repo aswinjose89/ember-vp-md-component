@@ -1,0 +1,15 @@
+.input-row__search-toggle {
+    font-size: $baseFontSize;
+    color: $baseLinkColor;
+    transition: all 0.4s $baseTransition;
+    display: block;
+    z-index: 2;
+    user-select: none;
+    position: absolute;
+    top: 3px;
+    line-height: $baseLineHeight;
+    right: 0;
+    transform: translateY(-17px) scale(.85);
+    cursor: pointer;
+    @extend %global-effect_position_top_left;
+}

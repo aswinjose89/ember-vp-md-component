@@ -1,0 +1,10 @@
+.global-overflow__fluid {
+    flex-grow: 0;
+    flex-shrink: 1;
+    @extend %text-overflow;
+    cursor: default;
+}
+
+a.global-overflow__fluid {
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.entity-tag {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    text-transform: uppercase;
+    font-size: $smallFontSize;
+    font-weight: bold;
+}
+
+.entity-tag~.entity-tag {
+    margin-left: 10px;
+}
+
+@import "__element/entity-tag__element";

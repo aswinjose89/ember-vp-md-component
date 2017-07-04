@@ -1,0 +1,8 @@
+.content-toolbar__element {
+  & ~ .content-toolbar__element {
+    margin-left: 10px;
+  }
+    > strong {
+        font-weight: 500;
+    }
+}

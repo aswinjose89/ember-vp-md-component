@@ -1,0 +1,46 @@
+{{#unless hideToolbar}}
+    {{partial 'partials/table-toolbar'}}
+{{/unless}}
+<div class="global-table__content">
+    {{#if loading}}
+        <div class="global-table__loader"></div>
+    {{/if}}
+    {{#unless hideTableOnOnEmptyState}}
+        <table>
+            <thead>
+                <tr>{{partial 'partials/table-header'}}</tr>
+            </thead>
+            <tbody>
+                {{#each filteredContent as | filteredItem index|}}
+                    {{#if (and config.isNestingTable (get filteredItem 'toggledProperty'))}}
+                        {{partial 'partials/table-nested'}}
+                    {{else if (and config.isMultilevelTable (get filteredItem 'toggledProperty'))}}
+                        {{partial 'partials/table-multilevel'}}
+                    {{else if (and config.isMultilevelTab (get filteredItem 'toggledProperty'))}}
+                        {{partial 'partials/table-multilevel-tab'}}
+                    {{else if (and config.isNestedCard (get filteredItem 'toggledProperty') )}}
+                        {{partial 'partials/table-nested-card'}}
+                    {{else}}
+                        {{partial 'partials/table-row'}}
+                    {{/if}}
+                {{/each}}
+                {{yield}}
+            </tbody>
+        </table>
+    {{/unless}}
+    {{#if showEmptyTableState}}
+        {{partial 'partials/table-empty-message'}}
+    {{/if}}
+</div>
+{{#if (and showPagination filteredContent)}}
+    {{partial 'partials/table-pagination'}}
+{{/if}}
+{{#if enableAddRow}}
+    {{#wb-md-content-toolbar border="top" pad="full" position="right"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <a href="" {{action 'triggerSendAction' addNewRowAction}} class="link_uppercase{{if (or disableAddRow loading)' link_disabled'}}">{{addRowLabel}}</a>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+{{/if}}

@@ -1,0 +1,8 @@
+.global-tag_old {
+    background: change-color($black, $alpha: .1);
+    color: $grayLabel;
+}
+
+@import "__icon/global-tag__icon";
+@import "__value/global-tag__value";
+@import "_color/global-tag_color";

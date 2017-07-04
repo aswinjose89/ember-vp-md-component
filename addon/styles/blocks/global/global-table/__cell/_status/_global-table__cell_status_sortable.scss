@@ -1,0 +1,19 @@
+.global-table__cell_status_sortable {
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    padding-right: 30px !important;
+    &:hover {
+        position: relative;
+        z-index: 3;
+        background-color: $gray_100;
+        .global-table__sort,
+        .global-table__filter-trigger {
+            opacity: 1;
+            transition: opacity 0.25s $baseTransition;
+        }
+        .global-table__filter-trigger {
+            transform: scale(1);
+        }
+    }
+}

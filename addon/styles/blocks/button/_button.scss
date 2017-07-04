@@ -1,0 +1,40 @@
+.button {
+    cursor: pointer;
+    border: none;
+    font-family: $baseFont;
+    transition: all 0.4s ease-in-out;
+    line-height: normal;
+    text-align: center;
+    user-select: none;
+    text-transform: uppercase;
+    height: 40px;
+    font-size: $baseFontSize;
+    border-radius: $baseBorderRadius;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 500;
+    min-width: 60px;
+    color: $baseColor;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    span {
+        opacity: 0.7;
+        margin-left: 8px;
+    }
+    &:not(input):not(button) {
+        @include flex(inline-flex, row, nowrap, center, center, flex-start);
+    }
+    &:hover,
+    &.button_status_active {
+        text-decoration: none;
+        background: change-color($black, $alpha: .05);
+    }
+}
+
+@import "_color/button_color";
+@import "_size/button_size";
+@import "_status/button_status";
+@import "__icon/button__icon";
+@import "button_upload";

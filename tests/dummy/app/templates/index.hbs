@@ -1,0 +1,133 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Introduction</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <p>
+            This application includes every single wb-ui-md-components element so that we can make sure things work together smoothly.
+        </p>
+        {{wb-md-spacer}}
+        <div class="guideline-block__chapter">
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Setting Up</h3>
+                </div>
+            </div>
+            <p>
+                Step 1. Next make sure your module has the dependency for <code>wb-ui-md-components</code> else add the following line to your <code>package.json</code> file.
+            </p>
+            {{#wb-md-code-highlight type="js"}}
+                {
+                    "devDependencies": {
+                        ...
+                        "wb-ui-md-components": "@@wb-ui-md-components_VERSION",
+                        ...
+                    }
+                }
+            {{/wb-md-code-highlight}}
+            <p>
+                Step 2. Add <code>material-layout-handler</code> mixin to the route which is the entry point for your module. This which enable your module to
+                switch to Google Material Design Layout. If your module has multiple entry point add the following config to all those routes
+            </p>
+            {{#wb-md-code-highlight type="js"}}
+                import AuthenticatedRoute from 'wb-ui-core/routes/authenticated-route';
+                import Ember from 'ember';
+                import MaterialLayoutHandler from 'wb-ui-md-components/mixins/material-layout-handler';
+                export default AuthenticatedRoute.extend(MaterialLayoutHandler, {
+                    //hideGlobalToolbar will remove the global toolbar. Use this if your application will be rendered from iframe
+                    hideGlobalToolbar:true,
+                    //applicationModuleName will display module name in the Gloabl Toolbar
+                    applicationModuleName:"Workbench Module Name",
+                    ...
+                }
+            {{/wb-md-code-highlight}}
+        </div>
+        <p>
+            That's it, when you run <code>node setup-project.js</code> you will get the Google Material Design layout for your module.
+        </p>
+        {{wb-md-spacer}}
+        <div class="guideline-block__chapter">
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Layouts settings (don't change dynamically)</h3>
+                    <ol>
+                        <li>
+                            <code><span>isMDLayoutFullWidth</span></code> false by default. This setting hide navbar and set full width to main part
+                            <div class="guideline-block__example">
+                                {{wb-md-button label="trigger full" action="triggerFullLayout" type="primary" color="blue"}}
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>isMDLayoutFullWidth</span></code> false by default. This setting hide navbar and set full width to main part
+                            <div class="guideline-block__example">
+                                {{wb-md-button label="trigger fluid" action="triggerMDFluidLayout" type="primary" color="blue"}}
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        {{wb-md-spacer}}
+        <div class="guideline-block__chapter">
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Recommendations</h3>
+                    <ol>
+                        <li>Since controllers will be removed soon from the Ember.js, please use controllers only for handling query parameters as
+                        recommended by Ember.js</li>
+                        <li>To make the transistion easy always create a component for each page and just invoke the component in the template
+                        with the required route data. By following this approach once the Routable Components arrive in Ember.js it will be easy
+                        refractor</li>
+                        <li>Try to use <strong>Closure Actions</strong> as much as possible and same has been adopted in the wb-ui-md-components</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        {{wb-md-spacer}}
+        <div class="guideline-block__chapter">
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Getting Started</h3>
+                </div>
+            </div>
+            <p>
+                You can pass properties to all the components in two different ways as follows
+            </p>
+            <ol>
+                <li>1. Pass a config object with all the properties (preferred)</li>
+                <li>2. Pass each property as a components attributes</li>
+            </ol>
+            <p>
+                <strong>The properties passed as arguments takes precedence and the same proprty passed in the config will be ignored</strong>
+            </p>
+            {{wb-md-spacer}}
+            <h3 class="guideline-block__chapter-title">Examples</h3>
+            <p>
+                1. Passing properties as a config object
+            </p>
+            {{#wb-md-code-highlight type="js"}}
+                let inputConfig = {
+                    label: 'Name',
+                    required: true,
+                    type: 'text'
+                }
+            {{/wb-md-code-highlight}}
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{input config=inputConfig}}
+            {{/wb-md-code-highlight}}
+            <p>
+                2. Passing properties as a arguments
+            </p>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{input label="Name" required=true type='text'}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <p>
+            <strong>However please not that you have to pass closure actions as the component's argument</strong>
+        </p>
+    </div>
+{{/wb-md-card}}

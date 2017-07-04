@@ -1,0 +1,8 @@
+.card-comment__toolbar {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 4;
+    transform: scale(0);
+    transition: trasform 0.4s $baseTransition;
+}

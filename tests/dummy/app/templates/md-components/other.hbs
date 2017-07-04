@@ -1,0 +1,497 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Content toolbar</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <!--HTML Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">HTML</h3>
+            {{#wb-md-code-highlight}}
+                <div class="content-toolbar">
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">Code place 1.1</div>
+                        <div class="content-toolbar__element">Code place 1.2</div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">Code place 2.1</div>
+                        <div class="content-toolbar__element">Code place 2.2</div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">Code place 3.1</div>
+                        <div class="content-toolbar__element">Code place 3.2</div>
+                    </div>
+                </div>
+            {{/wb-md-code-highlight}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{#wb-md-content-toolbar}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">Code place 1.1</div>
+                        <div class="content-toolbar__element">Code place 1.2</div>
+                        <div class="content-toolbar__element">Code place 1.3</div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">Code place 2.1</div>
+                        <div class="content-toolbar__element">Code place 2.2</div>
+                        <div class="content-toolbar__element">Code place 2.3</div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">Code place 3.1</div>
+                        <div class="content-toolbar__element">Code place 3.2</div>
+                        <div class="content-toolbar__element">Code place 3.3</div>
+                    </div>
+                &#123;{/wb-md-content-toolbar}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li>
+                            <code><span>position</span></code> - Change default (space-between) align of row elements.
+                            Supported values:
+                            <ul>
+                                <li><code><span>default</span></code>
+                                    <div class="guideline-block__example">
+                                        {{#wb-md-content-toolbar color="blue"}}
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">
+                                                    Default
+                                                </div>
+                                            </div>
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">
+                                                    Default</div>
+                                            </div>
+                                        {{/wb-md-content-toolbar}}
+                                    </div>
+                                </li>
+                                <li><code><span>center</span></code>
+                                    <div class="guideline-block__example">
+                                        {{#wb-md-content-toolbar position="center" color="blue"}}
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">Position <strong>center</strong>
+                                                    example
+                                                </div>
+                                            </div>
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">Position <strong>center</strong>
+                                                    example
+                                                </div>
+                                            </div>
+                                        {{/wb-md-content-toolbar}}
+                                    </div>
+                                </li>
+                                <li><code><span>left</span></code>
+                                    <div class="guideline-block__example">
+                                        {{#wb-md-content-toolbar position="left" color="blue"}}
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">Position <strong>left</strong>
+                                                    example
+                                                </div>
+                                            </div>
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">Position <strong>left</strong>
+                                                    example
+                                                </div>
+                                            </div>
+                                        {{/wb-md-content-toolbar}}
+                                    </div>
+                                </li>
+                                <li><code><span>right</span></code>
+                                    <div class="guideline-block__example">
+                                        {{#wb-md-content-toolbar position="right" color="blue"}}
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">Position <strong>right</strong>
+                                                    example
+                                                </div>
+                                            </div>
+                                            <div class="content-toolbar__row">
+                                                <div class="content-toolbar__element">Position <strong>right</strong>
+                                                    example
+                                                </div>
+                                            </div>
+                                        {{/wb-md-content-toolbar}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><code><span>border</span></code> - Set border component border. Have 2 values:
+                            <ul>
+                                <li><code><span>top</span></code></li>
+                                <li><code><span>bottom</span></code></li>
+                                <li><code><span>both</span></code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="guideline-block__example">
+                        {{#wb-md-content-toolbar border="both"}}
+                            <div class="content-toolbar__row">
+                                <div class="content-toolbar__element">
+                                    Border <strong>both</strong> example
+                                </div>
+                            </div>
+                        {{/wb-md-content-toolbar}}
+                    </div>
+                    <ul>
+                        <li><code><span>color</span></code> - Set background color. Supported values:
+                            <ul>
+                                <li><code><span>blue</span></code></li>
+                                <li><code><span>blue-500</span></code></li>
+                                <li><code><span>blue-gray</span></code></li>
+                                <li><code><span>blue-gray</span></code></li>
+                                <li><code><span>gray</span></code></li>
+                                <li><code><span>green</span></code></li>
+                                <li><code><span>light-blue</span></code></li>
+                                <li><code><span>red</span></code></li>
+                                <li><code><span>orange</span></code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="guideline-block__example">
+                        {{#wb-md-content-toolbar color="orange"}}
+                            <div class="content-toolbar__row">
+                                <div class="content-toolbar__element">
+                                    Color <strong>orange</strong>
+                                </div>
+                            </div>
+                        {{/wb-md-content-toolbar}}
+                    </div>
+                    <ul>
+                        <li>
+                            <code><span>height</span></code> Change default 60px height of component .Supported values:
+                            <ul>
+                                <li><code><span>auto</span></code> Remove static height, add 10px padding on top and
+                                    bottom.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="guideline-block__example">
+                        {{#wb-md-content-toolbar color="blue-gray" height="auto"}}
+                            <div class="content-toolbar__row">
+                                <div class="content-toolbar__element">
+                                    Height <strong>auto</strong>
+                                </div>
+                            </div>
+                        {{/wb-md-content-toolbar}}
+                    </div>
+                    <ul>
+                        <li><code><span>pad</span> - Change component default 10px left and right paddings. Supported
+                            values:</code>
+                            <ul>
+                                <li><code><span>full</span> - Set padding to 20px</code></li>
+                                <li><code><span>null</span> - Set padding to 0px</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><code><span>highlight</span></code> set left 5px highlight color</li>
+                    </ul>
+                    <p>
+                       All color's properties present on <a href="//material.io/guidelines/style/color.html#color-color-palette">material color palette</a>.
+                   </p>
+                   <div class="guideline-block__example">
+                        {{#wb-md-content-toolbar highlight="red-500"}}
+                            <div class="content-toolbar__row">
+                                <div class="content-toolbar__element">
+                                    <div class="content-toolbar__title content-toolbar__title_color_blue">Content toolbar highline</div>
+                                </div>
+                            </div>
+                        {{/wb-md-content-toolbar}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Content toolbar title (not component)</h3>
+            {{#wb-md-code-highlight}}
+                <div class="content-toolbar__title">Title</div>
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Additional classes</h3>
+                    <ul>
+                        <li><code><span>Color change</span></code>
+                            <ul>
+                                <li><code><span>content-toolbar__title_color_blue</span></code></li>
+                                <li><code><span>content-toolbar__title_color_white</span></code></li>
+                            </ul>
+                        </li>
+                        <li><code><span>Size change</span></code>
+                            <ul>
+                                <li><code><span>content-toolbar__title_size_16</span></code> - Decrease font-size from
+                                    18px to 16px.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="guideline-block__example">
+                        {{#wb-md-content-toolbar color="blue-gray"}}
+                            <div class="content-toolbar__row">
+                                <div class="content-toolbar__element">
+                                    <div class="content-toolbar__title content-toolbar__title_color_white">Title</div>
+                                </div>
+                            </div>
+                        {{/wb-md-content-toolbar}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Content toolbar description (not component)</h3>
+            {{#wb-md-code-highlight}}
+                <div class="content-toolbar__description">Some small text</div>
+            {{/wb-md-code-highlight}}
+            {{#wb-md-content-toolbar color="blue-500"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        <div class="content-toolbar__description">Some small text</div>
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Rating</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-rating currentRating="0" onChange=(action "ratingChange")}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-rating currentRating="0" onChange=(action "ratingChange")}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li>
+                            <code><span>currentRating</span></code> - Set rating. Default 0.
+                        </li>
+                        <li>
+                            <code><span>maxRating</span></code> - Default 7 (styles supported to 10).
+                        </li>
+                        <li>
+                            <code><span>readOnly</span></code> - Disable rating change functionality.
+                        </li>
+                    </ul>
+                    <h3 class="guideline-block__chapter-title">Action</h3>
+                    <ul>
+                        <li>
+                            <code><span>onChange</span></code> - Call closure action (current "currentRating" provides in arguments).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Static info</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            <h3 class="guideline-block__chapter-title">Example</h3>
+            <div class="static-info-group">
+                {{wb-md-static-info config=staticInfoConfig}}
+                {{wb-md-static-info config=staticInfoComponentConfig}}
+                {{wb-md-static-info config=staticInfoListConfig}}
+            </div>
+            {{wb-md-static-info
+                inline=true
+                config=staticInfoListLimitConfig
+            }}
+            {{wb-md-static-info config=staticInfoLongTextConfig}}
+            {{wb-md-static-info config=staticInfoPreTextConfig}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-static-info label="SCB Participants" config=staticInfoConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <ul>
+                        <li>
+                            <code><span>size</span></code> - By default width not limited
+                            <ul>
+                                <li>
+                                    <code><span>small</span></code> - Width limit 150px
+                                </li>
+                                <li>
+                                    <code><span>medium</span></code> - Width limit 200px
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <code><span>label</span></code> - Set label
+                        </li>
+                        <li>
+                            <code><span>iconName</span></code> - See icon section.
+                        </li>
+                        <li>
+                            <code><span>iconColor</span></code> - See icon section.
+                        </li>
+                        <li>
+                            <code><span>value</span></code> - One line value, show dots on overflow.
+                        </li>
+                        <li>
+                            <code><span>list</span></code> - Array of value. Don't hide on overflow. Each new data, start from new Line.
+                        </li>
+                        <li><code><span>listLimit</span></code> - Limit list and show "+ num" link</li>
+                        <li>
+                            <code><span>content</span></code> - Multiline value
+                        </li>
+                        <li>
+                            <code><span>visibleLines :default 3</span></code> - Set the number of lines to show, if Multiline has a new line character
+                        </li>
+                        <li>
+                            <code><span>showLength</span></code> - Set content length (Multiline only)
+                        </li>
+                        <li>
+                            <code><span>showMore</span></code> - add "show more", "show less" buttons.
+                        </li>
+                        <li>
+                            <code><span>component</span></code> - Render component.
+                            <ul>
+                                <li>
+                                    <code><span>name</span></code> - Set component name.
+                                </li>
+                                <li>
+                                    <code><span>config</span></code> - Set component configuration.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Static List</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Sample Implementation</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="static-list">
+                            <table>
+                                <tr class="static-list__row">
+                                    <td class="static-list__label">
+                                        Label 1
+                                    </td>
+                                    <td class="static-list__data">
+                                        Value 1
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="static-list">
+                            <table>
+                                <tr class="static-list__row">
+                                    <td class="static-list__label">
+                                        Label 2
+                                    </td>
+                                    <td class="static-list__data">
+                                        Value 2
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {{/wb-md-code-highlight}}
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Example</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="static-list">
+                    <table>
+                        <tr class="static-list__row">
+                            <td class="static-list__label">
+                                Label 1
+                            </td>
+                            <td class="static-list__data">
+                                Value 1
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="static-list">
+                    <table>
+                        <tr class="static-list__row">
+                            <td class="static-list__label">
+                                Label 2
+                            </td>
+                            <td class="static-list__data">
+                                Value 2
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

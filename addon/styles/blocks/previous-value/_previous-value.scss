@@ -1,0 +1,6 @@
+.previous-value {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+}
+
+//import mods
+@import "__icon/previous-value__icon";

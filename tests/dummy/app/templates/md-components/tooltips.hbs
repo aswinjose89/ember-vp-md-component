@@ -1,0 +1,95 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tooltips And vCards</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{#wb-md-content-toolbar pad="null"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        <a href="#" {{action "showVCard" vCardConfig on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>Show vCard</a>
+                    </div>
+                </div>
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        <a href="#" {{action "showToolTip" "Some Long Tooltop text" on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>Show Tooltip</a>
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &lt;a href="#" title="Show vCard" &#123;{action "showVCard" vCardConfig on="mouseEnter"}}&#123;{action "hideToolTip" on="mouseLeave"}}>Show vCard&lt;/a>
+                &lt;a href="#" title="Show vCard" &#123;{action "showToolTip" "anyString" on="mouseEnter"}}&#123;{action "hideToolTip" on="mouseLeave"}}>Show vCard&lt;/a>
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Basic parent component/route/controller setup</h3>
+            {{#wb-md-code-highlight type="js"}}
+                actions: {
+                    showToolTip(data){
+                        this.mdTooltipManager.open({
+                            label: data,
+                            shownOnOverflow: false,
+                        });
+                    },
+                    hideToolTip(){
+                        this.mdTooltipManager.close();
+                    },
+                    showVCard(data){
+                        this.mdTooltipManager.open({
+                            vCard: data,
+                            shownOnOverflow: false,
+                        });
+                    }
+                }
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">vCard data</h3>
+            {{#wb-md-code-highlight type="js"}}
+                {
+                    name: 'Troy Tran (Troy)',
+                    avatar: 'img_url',
+                    information: [
+                        'Executive Vice President',
+                        'Singapore',
+                        'AZTA-10094W'
+                    ],
+                    tags: [
+                        {
+                            config: {
+                                label: 'C-SUITE',
+                                color: 'deep-purple'
+                            }
+                        },
+                            {
+                                config: {
+                                label: 'REG',
+                                color: 'cyan'
+                            }
+                        }
+                    ]
+                }
+            {{/wb-md-code-highlight}}
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>label</span></code> - Any string content</li>
+                    <li><code><span>vCard</span></code> - vCard config</li>
+                    <li><code><span>tags</span></code> - tags list array</li>
+                    <li><code><span>shownOnOverflow</span></code> - Show only if string have overflowed content</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

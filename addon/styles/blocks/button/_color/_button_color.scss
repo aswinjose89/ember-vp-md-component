@@ -1,0 +1,35 @@
+// Values of modificator
+// In this section, we modify the graphical representation of the block. Its color, font color.
+@import "button_color_white";
+@import "button_color_orange";
+@import "button_color_raised-blue";
+@import "button_color_raised-blue-500";
+@import "button_color_raised-blue-gray";
+@import "button_color_link";
+@import "button_color_raised-white";
+@import "button_color_raised-green";
+@import "button_color_raised-orange";
+@import "button_color_transparent-white";
+@import "button_color_transparent";
+[class*=button_color_raised] {
+    box-shadow: $raisedButtonShadow;
+    &:before {
+        background: $black;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+    &:hover,
+    &.button_status_active {
+        box-shadow: $raisedButtonShadowClick;
+        &:before {
+            opacity: 0.1;
+        }
+    }
+}

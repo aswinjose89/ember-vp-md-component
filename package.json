@@ -1,0 +1,69 @@
+{
+    "name": "wb-ui-md-components",
+    "version": "1.0.0-beta.31",
+    "description": "This add-on contains the material design components for the workbench platform",
+    "directories": {
+        "doc": "doc",
+        "test": "tests"
+    },
+    "scripts": {
+        "preinstall": "node common-scripts/setup-dependencies-json.js",
+        "build": "ember build",
+        "start": "ember server",
+        "test": "ember try:testall"
+    },
+    "repository": "",
+    "engines": {
+        "node": ">= 0.10.0"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "broccoli-asset-rev": "@@broccoli-asset-rev_VERSION",
+        "broccoli-jscs": "@@broccoli-jscs_VERSION",
+        "ember-cli": "@@ember-cli_VERSION",
+        "ember-cli-app-version": "@@ember-cli-app-version_VERSION",
+        "ember-cli-blanket": "@@ember-cli-blanket_VERSION",
+        "ember-cli-content-security-policy": "@@ember-cli-content-security-policy_VERSION",
+        "ember-cli-dependency-checker": "@@ember-cli-dependency-checker_VERSION",
+        "ember-cli-htmlbars-inline-precompile": "@@ember-cli-htmlbars-inline-precompile_VERSION",
+        "ember-cli-ic-ajax": "@@ember-cli-ic-ajax_VERSION",
+        "ember-cli-inject-live-reload": "@@ember-cli-inject-live-reload_VERSION",
+        "ember-cli-qunit": "@@ember-cli-qunit_VERSION",
+        "ember-cli-release": "@@ember-cli-release_VERSION",
+        "ember-cli-sri": "@@ember-cli-sri_VERSION",
+        "ember-cli-uglify": "@@ember-cli-uglify_VERSION",
+        "ember-cli-autoprefixer": "@@ember-cli-autoprefixer_VERSION",
+        "ember-data": "@@ember-data_VERSION",
+        "ember-disable-prototype-extensions": "@@ember-disable-prototype-extensions_VERSION",
+        "ember-disable-proxy-controllers": "@@ember-disable-proxy-controllers_VERSION",
+        "ember-export-application-global": "@@ember-export-application-global_VERSION",
+        "ember-load-initializers": "@@ember-load-initializers_VERSION",
+        "ember-try": "@@ember-try_VERSION",
+        "esprima-fb": "@@esprima-fb_VERSION",
+        "glob": "@@glob_VERSION",
+        "http-proxy": "@@http-proxy_VERSION",
+        "morgan": "@@morgan_VERSION",
+        "wb-ui-base-app": "@@wb-ui-base-app_VERSION",
+        "wb-ui-components": "@@wb-ui-components_VERSION",
+        "wb-ui-core": "@@wb-ui-core_VERSION",
+        "wb-ui-theme": "@@wb-ui-theme_VERSION",
+        "wb-ui-livefeed": "@@wb-ui-livefeed_VERSION",
+        "loader.js": "@@loader.js_VERSION",
+        "ember-resolver": "@@ember-resolver_VERSION",
+        "ember-cli-mirage": "@@ember-cli-mirage_VERSION",
+        "ember-validations": "@@ember-validations_VERSION"
+    },
+    "keywords": [
+        "ember-addon",
+        "wb-ui-md-components"
+    ],
+    "dependencies": {
+        "ember-cli-babel": "@@ember-cli-babel_VERSION",
+        "ember-cli-htmlbars": "@@ember-cli-htmlbars_VERSION",
+        "ember-cli-sass": "@@ember-cli-sass_VERSION"
+    },
+    "ember-addon": {
+        "configPath": "tests/dummy/config"
+    }
+}

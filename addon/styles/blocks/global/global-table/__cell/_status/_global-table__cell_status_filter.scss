@@ -1,0 +1,10 @@
+.global-table__cell_status_filter {
+    position: relative;
+        z-index: 3;
+        background-color: $gray_100;
+    .global-table__filter-trigger {
+            opacity: 1;
+            transition: opacity 0.25s $baseTransition;
+            transform: scale(1);
+        }
+}

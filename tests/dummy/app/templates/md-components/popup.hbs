@@ -1,0 +1,133 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Popups</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-button label='Open popup' type='primary' color="blue" action="openPopup"}}
+        </div>
+        <p>
+            If you are looking for <strong>Alert &amp; Confirmation</strong> it is explained in {{#link-to 'md-components.notifications'}}Notifications{{/link-to}} page
+        </p>
+
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>size</span></code> - Specify the size of the popup</li>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>none</th>
+                                <th>medium</th>
+                                <th>large</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </ul>
+            </div>
+        </div>
+        <hr/>
+        <h3 class="guideline-block__chapter-title">Component Template</h3>
+        <p>
+            To create a popup, just create a component and in the component's template wrap your content with <code>wb-md-popup</code> as show below
+        </p>
+        <p>
+            <strong>Please specify <code>tagName: ''</code> for the component in which the popup will be wrapped</strong>
+        </p>
+        <div class="guideline-block__chapter">
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{#wb-md-popup size='medium'}}
+                    &#123;{#wb-md-content-toolbar border=(if componentConfig.showTopBar "bottom") color='blue' pad="full" }}
+                        &#123;{#wb-md-content-toolbar-row}}
+                            &#123;{#wb-md-content-toolbar-element}}
+                                <div class="content-toolbar__title">
+                                    Team Information
+                                </div>
+                            &#123;{/wb-md-content-toolbar-element}}
+                        &#123;{/wb-md-content-toolbar-row}}
+                    &#123;{/wb-md-content-toolbar}}
+                    <div class="global-popup__content">
+                        <div class="global-popup__text">
+                            <p>
+                                Note that our SettingsModalController is extending from ObjectController and LogoutModalController from Controller,
+                                this is just to suit our demo a bit better. You have to decide on your own if Controller, ObjectController or ArrayController suits your
+                                modal best.
+                            </p>
+                            &#123;{wb-md-input label="Comments" value=comments}}
+                        </div>
+                    </div>
+                    &#123;{#wb-md-content-toolbar color=(if componentConfig.showActionBar 'gray') position="right" }}
+                        &#123;{#wb-md-content-toolbar-row}}
+                            &#123;{#wb-md-content-toolbar-element}}
+                                &#123;{wb-md-button action='closeDialog' size='small' type='link' label='Okay'}}
+                            &#123;{/wb-md-content-toolbar-element}}
+                        &#123;{/wb-md-content-toolbar-row}}
+                    &#123;{/wb-md-content-toolbar}}
+                &#123;{/wb-md-popup}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Openening the Popup</h3>
+        <p>
+            Use <code>mdDialogManager</code> service to open the popup from any route or component
+        </p>
+        <div class="guideline-block__chapter">
+            {{#wb-md-code-highlight type="js"}}
+                actions: {
+                    openPopup(){
+                        this.mdDialogManager.popup({
+                            componentName: 'basic-popup',
+                            someProperty: 'From the config, basic-popup'
+                        });
+                    }
+                }
+            {{/wb-md-code-highlight}}
+        </div>
+        <p>
+            To close the popup use the code from the <code>mdDialogManager</code> service. This should be implemented in component created  for popup
+        </p>
+        <div class="guideline-block__chapter">
+            {{#wb-md-code-highlight type="js"}}
+                actions: {
+                    closeDialog(){
+                        this.get('config.onClose').call(this.get('config.callbackContext'));
+                    }
+                }
+            {{/wb-md-code-highlight}}
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Popup Over Popup</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-button label='Popup Over Popup' type='primary' color="blue" action="openPopupOverPopup"}}
+        </div>
+
+        <h3 class="guideline-block__chapter-title">Openening the Popup</h3>
+        <p>
+            Just invoke the popup component from another popup.
+        </p>
+    </div>
+{{/wb-md-card}}

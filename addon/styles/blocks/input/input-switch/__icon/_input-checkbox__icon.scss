@@ -1,0 +1,37 @@
+.input-switch__icon {
+    width: 46px;
+    height: 24px;
+    position: relative;
+    &:before {
+        background-color: rgba(111, 111, 111, 1);
+        content: '';
+        display: block;
+        width: 24px;
+        height: 14px;
+        margin: 5px 11px;
+        border-radius: 7px;
+    }
+    &:after {
+        background: $white;
+        box-shadow: $raisedButtonShadow;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        will-change: transform;
+        transform: translate3d(0, 2px, 0);
+        border-radius: 50%;
+        content: '';
+        transition: transform 0.4s $baseTransition;
+        cursor: pointer;
+    }
+}
+.input-switch input:checked + .input-switch__icon {
+    &:before {
+       background-color: $orange-scb400;
+    }
+    &:after {
+        transform: translate3d(26px, 2px, 0);
+    }
+}

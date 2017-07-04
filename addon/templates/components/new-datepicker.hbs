@@ -1,0 +1,53 @@
+<div class="global-datepicker__header">
+    <div class="global-datepicker__year" {{action "yearClick"}}>
+        {{shownYear}}
+    </div>
+    <div class="global-datepicker__date">
+        {{shownDay}} {{object-at array=(get (get locales currentLocal) 'monthsShort') index=shownMonth}}
+    </div>
+</div>
+<div class="global-datepicker__main">
+    {{#if dateView}}
+        <div class="global-datepicker__month-slide">
+            <div class="global-datepicker__month-control">
+                {{wb-md-icon iconName="navigate_before" disabled=isFirstMonth click=(action "prevMonth" shownYear shownMonth)}}
+            </div>
+            <div>
+                {{object-at array=(get (get locales currentLocal) 'months') index=shownMonth}}
+            </div>
+            <div class="global-datepicker__month-control">
+                {{wb-md-icon iconName="navigate_next" disabled=isLastMonth click=(action "nextMonth" shownYear shownMonth)}}
+            </div>
+        </div>
+        <div class="global-datepicker__day-names">
+            {{#each (get (get locales currentLocal) 'daysShort') as |dayName|}}
+                <div class="global-datepicker__day-name">{{dayName}}</div>
+            {{/each}}
+        </div>
+        <div class="global-datepicker__days">
+            {{#each days as |day index|}}
+                <div class="global-datepicker__day{{if day.isDisable ' global-datepicker__day_status_disable'}}{{if day.isCurrent ' global-datepicker__day_status_current'}}"{{action "selectDay" shownYear shownMonth day.number}}>
+                    {{day.number}}
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+    {{#if monthView}}
+        <div class="global-datepicker__month-list">
+            {{#each (get (get locales currentLocal) 'monthsShort') as |monthName index|}}
+            <div class="global-datepicker__month-list-element">
+                <div class="global-datepicker__month-name{{if (and (eq index selectedMonth)) " global-datepicker__month_status_current"}}" {{action "selectMonth" shownYear index}}>
+                    {{monthName}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    {{/if}}
+    {{#if yearsView}}
+        {{#each years as |year|}}
+            <div class="year-name" {{action "selectYear" year}}>
+                {{year}}
+            </div>
+        {{/each}}
+    {{/if}}
+</div>

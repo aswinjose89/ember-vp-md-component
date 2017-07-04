@@ -1,0 +1,3 @@
+.followup-task__message {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+}

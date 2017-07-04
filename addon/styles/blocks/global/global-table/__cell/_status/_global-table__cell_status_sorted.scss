@@ -1,0 +1,11 @@
+.global-table__cell_status_sorted {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    padding-right: 30px !important;
+    .global-table__sort,
+    .global-table__filter-trigger {
+        opacity: 1;
+        transition: opacity 0.25s $baseTransition;
+    }
+}

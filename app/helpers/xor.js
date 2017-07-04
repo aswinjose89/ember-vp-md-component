@@ -1,0 +1,1 @@
+export { default, xor } from 'wb-ui-md-components/helpers/xor';

@@ -1,0 +1,19 @@
+.dashboard {
+  &-back {
+    font-size: 22px;
+    color: $white;
+    padding-top: 8px;
+    width: 330px;
+    flex-shrink: 0;
+    a {
+      color: $white;
+      line-height: 24px;
+      &:before {
+        @extend %material-icons;
+        content: 'keyboard_backspace';
+        margin-right: 26px;
+        vertical-align: top;
+      }
+    }
+  }
+}

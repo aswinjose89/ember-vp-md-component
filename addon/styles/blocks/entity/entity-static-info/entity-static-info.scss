@@ -1,0 +1,14 @@
+.entity-static-info {
+    @include flex(flex, row, wrap, flex-start, stretch, flex-start);
+    color: $white;
+    max-width: 750px;
+    margin-left: -20px;
+    height: 60px;
+    transition: height 0.6s $baseTransition;
+    overflow: hidden;
+    will-change: height;
+}
+
+@import "__element/entity-static-info__element";
+@import "__label/entity-static-info__label";
+@import "__value/entity-static-info__value";

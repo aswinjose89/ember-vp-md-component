@@ -1,0 +1,7 @@
+.global-datepicker__day_status_current {
+    position: relative;
+    color: $white;
+    &:before {
+        transform: scale(1);
+    }
+}

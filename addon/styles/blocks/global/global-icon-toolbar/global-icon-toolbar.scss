@@ -1,0 +1,4 @@
+.global-icon-toolbar {
+  @include flex(flex, row, nowrap, flex-start, center, flex-start);
+}
+@import "__element/global-icon-toolbar__element";

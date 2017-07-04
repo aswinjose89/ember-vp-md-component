@@ -1,0 +1,15 @@
+.global-back {
+  font-size: 18px;
+  color: $baseColor;
+  flex-shrink: 0;
+  user-select: none;
+  line-height: 24px;
+  white-space: nowrap;
+  cursor: pointer;
+  &:before {
+    @extend %material-icons;
+    content: 'arrow_back';
+    margin-right: 20px;
+    vertical-align: top;
+  }
+}

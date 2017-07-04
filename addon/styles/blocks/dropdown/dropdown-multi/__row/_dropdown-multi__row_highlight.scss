@@ -1,0 +1,6 @@
+.dropdown-multi__row_highlight {
+    background: change-color($black, $alpha: 0.04);
+}
+.dropdown-multi__row_highlight.dropdown-multi__row_active {
+    background: change-color($black, $alpha: 0.08);
+}

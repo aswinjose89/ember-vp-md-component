@@ -1,0 +1,4 @@
+.global-login__form-wrapper {
+    flex-grow: 1;
+    @include flex(flex, row, nowrap, center, center, center);
+}

@@ -1,0 +1,5 @@
+.global-table__overflow-element {
+    flex-grow: 0;
+    flex-shrink: 1;
+    @extend %text-overflow;
+}

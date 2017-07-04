@@ -1,0 +1,12 @@
+.global-popup__header {
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
+    z-index: 2;
+    .global-popup__title {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        color: $white;
+    }
+}

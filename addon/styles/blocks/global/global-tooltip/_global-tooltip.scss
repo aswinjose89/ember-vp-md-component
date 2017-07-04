@@ -1,0 +1,22 @@
+.global-tooltip {
+    background: change-color($black, $alpha: 0.7);
+    border-radius: $baseBorderRadius;
+    color: $white;
+    font-size: $smallFontSize;
+    line-height: $smallLineHeight;
+    padding: 4px 10px;
+    max-width: 250px;
+    position: fixed;
+    z-index: 999;
+    top: -99999px;
+    left: 0;
+    word-break: break-word;
+    will-change: transform;
+    a {
+        color: $white;
+        pointer-events: none;
+    }
+}
+
+@import "global-tooltip_open";
+@import "global-tooltip_tags";

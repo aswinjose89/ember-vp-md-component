@@ -1,0 +1,49 @@
+.input-row__modal {
+    position: fixed;
+    background: $white;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 20px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 0 0 $baseBorderRadius $baseBorderRadius;
+    top: -999px;
+    left: 0;
+    z-index: 905;
+    margin-top: 4px;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.input-row__modal_transparent {
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+}
+
+.input-row__modal_inside {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+}
+
+.input-row__modal_bottom-show {
+    @extend %global-effect;
+    @extend %global-effect_position_top_center;
+    animation-name: scaleYIn;
+    animation-duration: .4s;
+}
+
+.input-row__modal_top-show {
+    @extend %global-effect;
+    @extend %global-effect_position_bottom_center;
+    animation-name: scaleYIn;
+    animation-duration: .4s;
+    margin-top: 0;
+}
+
+.input-row__modal_hide {
+    @extend %global-effect;
+    @extend %global-effect_position_top_center;
+    animation-name: scaleYOut;
+    animation-duration: .4s;
+}

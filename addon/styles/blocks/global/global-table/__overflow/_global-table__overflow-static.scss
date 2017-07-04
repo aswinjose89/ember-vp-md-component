@@ -1,0 +1,7 @@
+.global-table__overflow-static {
+    flex-shrink: 0;
+}
+
+.global-table__overflow-element+.global-table__overflow-static {
+    margin-left: 8px;
+}

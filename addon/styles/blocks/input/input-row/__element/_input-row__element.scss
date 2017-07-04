@@ -1,0 +1,30 @@
+.input-row__element {
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    &:after {
+        background: $baseBorderColor;
+        height: 1px;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateY(3px);
+        z-index: -2;
+    }
+    &:before {
+        background: $indigo_500;
+        height: 2px;
+        left: 50%;
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        transform: translateY(4px);
+        transition: all 0.4s $baseTransition;
+        z-index: -1;
+        will-change: transform;
+    }
+}

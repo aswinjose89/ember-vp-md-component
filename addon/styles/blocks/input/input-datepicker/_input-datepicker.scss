@@ -1,0 +1,18 @@
+.input-datepicker {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 5px 0 4px 0;
+  line-height: $baseLineHeight;
+  height: 24px;
+  align-self: center;
+  user-select: none;
+  &:before {
+    @extend %material-icons;
+    content: 'event';
+    color: rgba(200, 200, 200, 1);
+    vertical-align: top;
+    transform: translateY(-5px);
+    margin-right: 10px;
+  }
+}

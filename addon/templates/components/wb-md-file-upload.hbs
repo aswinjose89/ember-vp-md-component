@@ -1,0 +1,15 @@
+<div class="wb-file-upload-wrapper">
+  <input type="file" accept="{{acceptedType}}" class="fileselect" />
+</div>
+{{#if iconName}}
+	{{wb-md-icon iconName="attach_file" onClickAction=(action "selectFile")}}
+{{else}}
+	<div class="button button_color_raised-blue button_type_raised button_upload
+			{{if disabled 'button_status_disabled-raised-dark'}}" {{ action 'selectFile' }}>
+		{{placeHolder}}
+		{{#if maxSizeText}}
+		  ({{maxSizeText}})
+		 {{/if}}
+		{{wb-md-icon class='button__icon_right' color='white' iconName="file_upload"  ripple=true}}
+	</div>
+{{/if}}

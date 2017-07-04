@@ -1,0 +1,58 @@
+{{#if column.isPriorityWidth}}
+    <div class="global-table__overflow">
+            {{#if (is-equal column.type 'entityLink')}}
+                <div class="global-table__overflow-static">
+                    {{wb-md-entity-icon class='entity-icon_margin_right-10' value=(get filteredItem column.enityIconFiled) color=(get filteredItem column.entityColorField)}}
+                </div>
+            {{/if}}
+            {{#if (or filteredItem.isReadOnly filteredItem.isDisabled isLinksReadOnly)}}
+                <div class="global-table__overflow-element" {{action "hideToolTip" on="mouseLeave"}} {{action "showToolTip" firstItemLabel on="mouseEnter"}}>
+                    {{firstItemLabel}}
+                </div>
+            {{else}}
+                <a href="" class="global-table__overflow-element" {{action "hideToolTip" on="mouseLeave"}} {{action "showToolTip" firstItemLabel on="mouseEnter"}}{{action (action triggerAction firstItem)}}>{{firstItemLabel}}</a>
+            {{/if}}
+        {{#if displayShowListIcon}}
+            <div class="global-table__overflow-static">
+                {{#if (or filteredItem.isReadOnly filteredItem.isDisabled)}}
+                    +{{hiddenItemsCount}}
+                {{else}}
+                    <a href="" {{action toggleProperty 'showMoreList'}}>+{{hiddenItemsCount}}</a>
+                {{/if}}
+            </div>
+        {{/if}}
+    </div>
+{{else}}
+    {{#if (is-equal column.type 'entityLink')}}
+        {{wb-md-entity-icon class='entity-icon_margin_right-10' value=(get filteredItem column.enityIconFiled) color=(get filteredItem column.entityColorField)}}
+    {{/if}}
+    {{#if (or filteredItem.isReadOnly filteredItem.isDisabled isLinksReadOnly)}}
+        {{firstItemLabel}}
+    {{else}}
+        <a href="" {{action (action triggerAction firstItem)}}>{{firstItemLabel}}</a>
+    {{/if}}
+    {{#if displayShowListIcon}}
+        {{#if (or filteredItem.isReadOnly filteredItem.isDisabled)}}
+            +{{hiddenItemsCount}}
+        {{else}}
+            <a href="" {{action toggleProperty 'showMoreList'}}>+{{hiddenItemsCount}}</a>
+        {{/if}}
+    {{/if}}
+{{/if}}
+{{#if isShowMoreList}}
+    {{#ember-wormhole to="MDContainer"}}
+    <div class="global-table__list" id="{{elementId}}-dropdown">
+        <ul>
+            {{#each (get filteredItem column.field) as |arrayItem|}}
+                <li>
+                    {{#if (or arrayItem.isReadOnly filteredItem.isReadOnly isLinksReadOnly)}}
+                        {{get arrayItem column.arrayLabelPath}}
+                    {{else}}
+                        <a href="" {{action (action triggerAction arrayItem)}}>{{get arrayItem column.arrayLabelPath}}</a>
+                    {{/if}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+     {{/ember-wormhole}}
+{{/if}}

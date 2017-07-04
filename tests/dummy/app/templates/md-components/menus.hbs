@@ -1,0 +1,261 @@
+{{#wb-md-card}}
+    {{wb-md-button label="change trigger" type="primary" color="blue" action='triggerTrigger'}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Action menu</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-action-menu config=actionMenuConfig}}
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Example</h3>
+            <div class="guideline-block__example">
+                {{#wb-md-content-toolbar}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            {{wb-md-action-menu config=actionMenuConfig}}
+                        </div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            {{wb-md-action-menu config=actionMenuGroupHeaderConfig}}
+                        </div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            {{wb-md-action-menu config=actionMenuChildConfig}}
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>items</span></code> Ember.A([ ]) - array if Ember Object</li>
+                        <li><code><span>item</span></code> -  Each item must be wrapped in Ember.Object.create( ) and have option:
+                            <ul>
+                                <li><code><span>iconName</span></code> set icon. Not mandatory</li>
+                                <li><code><span>action</span></code> set action. Not mandatory</li>
+                                <li><code><span>label</span></code> set action. Not mandatory</li>
+                                <li><code><span>isDisabled</span></code> set true to disable item</li>
+                                <li><code><span>isSelected</span></code> set true if item selected by default</li>
+                            </ul>
+                        </li>
+                        <li><code><span>groupHeader</span></code> if item have groupHeader option it's marked like Group and must contain items with same rules like for first option. If triggerElement is button also change label of button based on groupHeader and choosed item label</li>
+                        <li><code><span>divider</span></code> - if item or Group have this option set true - render divider before item(Group)</li>
+                        <li><code><span>item with items</span></code> if item have items inside, it marked like parent item and haven't own action. On click it choosed all items inside group. If haven't iconName option will show status based on child selection (mandatory, checked, unchecked);
+                            <ul>
+                                <li><code><span>items</span></code> - have same option like for first option, on click set own property isSelected: true, and send event if have. Also change status of parent (mandatory, checked, unchecked)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <code><span>triggerElement</span></code>
+                            <ul>
+                                <li><code><span>config if triggerElement</span></code>
+                                <ul>
+                                    <li><code><span>componentName</span></code> - set componentName (wb-md-button or wb-md-icon)</li>
+                                    <li><code><span>config</span></code> - set choosed below component config</li>
+                                </ul>
+                                {{#wb-md-code-highlight type="js" }}
+                                triggerElement: Ember.Object.create({
+                                    componentName: 'wb-md-icon',
+                                    config: Ember.Object.create({
+                                        iconName: 'more_vert'
+                                    })
+                                })
+                                {{/wb-md-code-highlight}}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Icon Toolbar</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-tag label="MULTIPLE"}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-icon-toolbar config=iconToolbarConfig}}
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Basic config component</h3>
+
+            {{#wb-md-code-highlight type="js"}}
+            {
+                visibleItems: '4',
+                actionMenuConfig: Ember.Object.create({
+                    triggerElement: Ember.Object.create({
+                        componentName: 'wb-md-button',
+                        config: Ember.Object.create({
+                            color: 'blue',
+                            type: 'primary',
+                            label: 'action'
+                        })
+                    })
+                }),
+                items: Ember.A([
+                    Ember.Object.create({
+                        componentName: 'wb-md-icon',
+                        config: {
+                            iconName: 'edit',
+                            label: 'Edit',
+                            action: 'iconToolbarAction'
+                        }
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-button',
+                        config: {
+                            type: 'primary',
+                            color: 'blue',
+                            label: 'Event',
+                            action: 'iconToolbarAction'
+                        }
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-icon',
+                        config: {
+                            iconName: 'comment',
+                            label: 'View',
+                            action: 'iconToolbarAction'
+                        }
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-icon',
+                        config: {
+                            iconName: 'file_download',
+                            label: 'Download',
+                            action: 'iconToolbarAction',
+                        },
+                        groupHeader: 'Group Header'
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-icon',
+                        config: {
+                            iconName: 'delete',
+                            label: 'Delete',
+                            action: 'iconToolbarAction'
+                        }
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-icon',
+                        config: {
+                            iconName: 'check',
+                            label: 'Submit for review',
+                            action: 'iconToolbarAction'
+                        }
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-action-menu',
+                        config: Ember.Object.create({
+                            items: Ember.A([
+                                Ember.Object.create({
+                                    iconName: 'remove_circle',
+                                    label: 'Edit',
+                                    action: 'test'
+                                }), Ember.Object.create({
+                                    label: "Edit",
+                                    items: Ember.A([
+                                        Ember.Object.create({
+                                            label: "Sub menu 1",
+                                            action: "menuAction",
+                                            isSelected: false
+                                        }), Ember.Object.create({
+                                            label: "Sub menu 1",
+                                            action: "menuAction",
+                                            isSelected: true
+                                        }), Ember.Object.create({
+                                            label: "Sub menu 1",
+                                            action: "menuAction",
+                                            isSelected: true
+                                        })
+                                    ])
+                                }), Ember.Object.create({
+                                    iconName: 'remove_circle',
+                                    label: 'Edit',
+                                    action: 'test'
+                                })
+                            ])
+                        })
+                    }),
+                    Ember.Object.create({
+                        componentName: 'wb-md-icon',
+                        config: {
+                            iconName: 'padlock',
+                            label: 'Lock',
+                            action: 'iconToolbarAction'
+                        }
+                    })
+                ])
+            }
+            {{/wb-md-code-highlight}}
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>visibleItems</span></code> - number if show items</li>
+                    <li><code><span>items</span></code> - Array of elements</li>
+                    <li><code><span>color</span></code> - Set default color for items array elements. Can be overridden at each item.</li>
+                    <li><code><span>componentName</span></code> - Set the component to render, supported values:
+                        wb-md-button, wb-md-icon, wb-md-action-menu
+                    </li>
+                    <li><code><span>config</span></code> - Component configuration (based on component type). Mandatory setting below.
+                        <ul>
+                            <li><code><span>label</span></code> - Set label</li>
+                            <li><code><span>action</span></code> - Set action</li>
+                        </ul>
+                    </li>
+                    <li><code><span>actionMenuConfig</span></code> - Similar to action menu settings.</li>
+                </ul>
+            </div>
+        </div>
+        {{#wb-md-content-toolbar}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-icon-toolbar config=iconToolbarConfig}}
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{#wb-md-content-toolbar color="blue"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-icon-toolbar config=model.iconToolbarExample}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <a href=""{{action "setAsFavourite"}}>Change Star</a>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+    </div>
+{{/wb-md-card}}

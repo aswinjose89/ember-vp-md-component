@@ -1,0 +1,75 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Default Pagination</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+        {
+            ...
+            pageable: true,
+            pageType: 'default',
+            rowsPerPage: [10,20,30],
+            sortable: true,
+            headerToolBar: {
+                enableTableSearch: true,
+                dropdowns: Ember.A([
+                    Ember.Object.create({
+                        action: 'tableHeaderSelectionChange',
+                        iconName: 'arrow_drop_down',
+                        placeholder: 'Select Month',
+                        selectedItem: Ember.Object.create({ id: 1, name: 'Jan' }),
+                        optionLabelPath: 'name',
+                        content: Ember.A([
+                            Ember.Object.create({ id: 1, name: 'Jan' }),
+                            Ember.Object.create({ id: 2, name: 'Feb' }),
+                            Ember.Object.create({ id: 3, name: 'Mar' }),
+                            Ember.Object.create({ id: 4, name: 'Apr' })
+                        ])
+                    })
+                ]),
+                enableShowHideColumn: true,
+                items: [
+                    { iconName: 'get_app', action: 'downloadAction' },
+                    { iconName: 'save', action: 'saveAction' }
+                ]
+            },
+            filterable: true,
+            filterConditions: ['contains', 'equal'],
+            columns: [
+                { field: 'firstName', type:'text', isFilterable: false, isSortable: false, title: 'First Name' },
+                ...
+                {
+                    field: 'userCountry',
+                    type:'text',
+                    filterType: 'dropdown',
+                    filterConfig: Ember.Object.create({
+                        isMultiselect: true,
+                        optionLabelPath: 'label',
+                        optionValuePath: 'id',
+                        content:[{ id: 1, label: 'Singapore', isSelected: false },...]
+                    }),
+                    title: 'User Country'
+                },
+                ...
+            ]
+            ...
+        }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+    </div>
+    {{default-pageable-table tableContent=model}}
+{{/wb-md-card}}

@@ -1,0 +1,14 @@
+.global-popup__content {
+    overflow-y: auto;
+    flex-grow: 1;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    p,
+    ul {
+        &+p,
+        &+ul {
+            margin-top: 20px;
+        }
+    }
+}

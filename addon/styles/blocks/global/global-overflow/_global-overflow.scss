@@ -1,0 +1,7 @@
+.global-overflow {
+    @extend %text-overflow;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+}
+
+@import "__fluid/global-overflow__fluid";
+@import "__static/global-overflow__static";

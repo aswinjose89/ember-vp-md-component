@@ -1,0 +1,13 @@
+.global-login__info {
+    position: absolute;
+    left: 40px;
+    top: 88px;
+    color: $white;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: $smallFontSize;
+    opacity: .7;
+    .global-icon {
+        margin-left: 4px;
+    }
+}

@@ -1,0 +1,28 @@
+.global-spinner {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  &:after, &:before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &:before {
+    border: 3px solid #E9E9E9;
+  }
+  &:after {
+    animation: rotate360 0.3s infinite linear;
+    will-change: transform;
+    border: 3px solid  $baseLinkColor;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+}

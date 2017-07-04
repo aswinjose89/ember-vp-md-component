@@ -1,0 +1,5 @@
+.global-icon-toolbar__element {
+  & ~ .global-icon-toolbar__element {
+    margin-left: 20px;
+  }
+}

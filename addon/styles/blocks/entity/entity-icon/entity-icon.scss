@@ -1,0 +1,31 @@
+.entity-icon {
+    overflow: hidden;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 11px;
+    vertical-align: top;
+    user-select: none;
+    background-color: $indigo_500;
+    color: $white;
+    border-radius: 50%;
+    text-transform: uppercase;
+    display: inline-block;
+    &~.entity-icon {
+        margin-left: 10px;
+    }
+    .global-icon {
+        pointer-events: none;
+        vertical-align: middle;
+        transform: translateY(-2px);
+        &.global-icon_size_18 {
+            transform: translateY(-1px);
+        }
+    }
+}
+
+@import "_color/entity-icon_color";
+@import "_size/entity-icon_size";
+@import "entity-icon_margin_right-10";
+@import "entity-icon_margin_left-20";

@@ -1,0 +1,6 @@
+.input-table__modal_position_top-right {
+    bottom: calc(100% + 18px);
+    right: 0;
+    top: auto;
+    @extend %global-effect_position_bottom_right;
+}

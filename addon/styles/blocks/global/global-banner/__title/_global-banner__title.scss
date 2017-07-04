@@ -1,0 +1,13 @@
+.global-banner__title {
+    font-size: 32px !important;
+    color: $white;
+    font-weight: 300 !important;
+    position: absolute;
+    left: 88px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: block;
+    margin-top: 0;
+    user-select: none;
+}

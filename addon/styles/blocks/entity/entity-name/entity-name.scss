@@ -1,0 +1,6 @@
+.entity-name {
+  font-size: 18px;
+  color: $white;
+  max-width: 500px;
+  @extend %text-overflow;
+}

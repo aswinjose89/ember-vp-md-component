@@ -1,0 +1,12 @@
+.global-file-link {
+  padding: 20px;
+  border-bottom: 1px solid $baseBorderColor;
+  @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+}
+.global-file-link .input-checkbox {
+  margin: 3px 20px 0 0;
+}
+//import elements
+@import "__row/global-file-links__row";
+@import "__element/global-file-link__element";
+@import "__description/global-file-link__description";

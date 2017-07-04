@@ -1,0 +1,9 @@
+.card-message_type_error {
+    background-color: $red_50;
+    .card-message__actions {
+        color: $red_500;
+        a {
+            color: $red_500;
+        }
+    }
+}

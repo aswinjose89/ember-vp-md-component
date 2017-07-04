@@ -1,0 +1,14 @@
+.global-tabs__slide-line {
+    position: absolute;
+    height: 4px;
+    bottom: 0;
+    background: $indigo_500;
+    z-index: -1;
+    will-change: left, right;
+    &_error {
+        background: $red_500;
+    }
+}
+
+@import "_direction/global-tabs__slide-line_direction";
+@import "global-tabs__slide-line_button";

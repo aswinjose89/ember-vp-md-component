@@ -1,0 +1,16 @@
+.redirect-box__content-logo {
+    position: relative;
+    z-index: 1;
+    font-size: 0;
+    line-height: 0;
+    img {
+        vertical-align: top;
+    }
+    sup {
+        position: absolute;
+        top: 4px;
+        font: normal $baseFontSize $baseFont;
+        color: change-color($white, $alpha: .6);
+        margin-left: 3px;
+    }
+}

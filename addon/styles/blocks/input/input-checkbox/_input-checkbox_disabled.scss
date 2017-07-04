@@ -1,0 +1,6 @@
+.input-checkbox:disabled {
+  pointer-events: none;
+  .input-checkbox__icon {
+    color: $iconColorDisabled;
+  }
+}

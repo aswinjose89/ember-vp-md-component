@@ -1,0 +1,16 @@
+.content-toolbar__row {
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+}
+
+.content-toolbar__row~.content-toolbar__row {
+    margin-left: 10px;
+}
+
+.content-toolbar__row_static {
+    flex-shrink: 0;
+}
+
+.content-toolbar__row_fluid {
+    flex-shrink: 1;
+    flex-grow: 1;
+}

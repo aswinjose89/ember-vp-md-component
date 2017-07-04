@@ -1,0 +1,20 @@
+.card-title {
+    padding: 0 20px;
+    border-bottom: 20px solid transparent;
+    border-top: 20px solid transparent;
+    height: 80px;
+    box-shadow: inset 4px 0 0 0 $indigo_500;
+    @include flex(flex, row, nowrap, space-between, center, flex-start);
+    h2 {
+        font-size: 16px;
+        font-weight: 500;
+        color: $indigo_500;
+        sup {
+            display: inline-block;
+            vertical-align: top;
+            transform: translateY(7px);
+        }
+    }
+}
+
+@import "__description/card-title__description";

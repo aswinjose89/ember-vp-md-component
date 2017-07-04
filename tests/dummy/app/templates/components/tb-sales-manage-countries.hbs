@@ -1,0 +1,76 @@
+    <div class="tb-sales-countries__header" style="width: {{elementWidth}}px">
+        <div class="tb-sales-countries__column">
+            <div class="tb-sales-countries__element">
+                <div class="tb-sales-countries__label">SCB Presence Countries</div>
+                <div class="tb-sales-countries__count">{{model.scbPresenceCountries.length}}</div>
+            </div>
+        </div>
+        <div class="tb-sales-countries__column">
+            <div class="tb-sales-countries__element">
+                <div class="tb-sales-countries__label">Pending Countries</div>
+                <div class="tb-sales-countries__count">{{model.pendingCountries.length}}</div>
+            </div>
+        </div>
+        <div class="tb-sales-countries__column">
+            <div class="tb-sales-countries__element">
+                <div class="tb-sales-countries__label">SCB Non-Presence Countries</div>
+                <div class="tb-sales-countries__count">{{model.scbNonPresenceCountries.length}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="tb-sales-countries__content">
+      <div class="tb-sales-countries__column">
+          <div class="tb-sales-countries__element">
+              <div class="tb-sales-countries__label">All</div>
+              <div class="tb-sales-countries__icon">
+                  {{wb-md-icon iconName="remove_circle" onClickAction=(action 'removePresenceCountry' 'All')}}
+              </div>
+          </div>
+          {{#each model.scbPresenceCountries as |country|}}
+            <div class="tb-sales-countries__element">
+                <div class="tb-sales-countries__label">{{country.name}}</div>
+                <div class="tb-sales-countries__icon">
+                    {{wb-md-icon iconName="remove_circle" onClickAction=(action 'removePresenceCountry' country)}}
+                </div>
+            </div>
+          {{/each}}
+      </div>
+      <div class="tb-sales-countries__column">
+          <div class="tb-sales-countries__element">
+              <div class="tb-sales-countries__icon">
+                  {{wb-md-icon iconName="keyboard_arrow_circle_left" onClickAction=(action 'addPresenceCountry' 'All')}}
+              </div>
+              <div class="tb-sales-countries__label">All</div>
+              <div class="tb-sales-countries__icon">
+                  {{wb-md-icon iconName="keyboard_arrow_circle_right" onClickAction=(action 'addNonPresenceCountry' 'All')}}
+              </div>
+          </div>
+          {{#each model.pendingCountries as |country|}}
+              <div class="tb-sales-countries__element">
+                  <div class="tb-sales-countries__icon">
+                      {{wb-md-icon iconName="keyboard_arrow_circle_left" onClickAction=(action 'addPresenceCountry' country)}}
+                  </div>
+                  <div class="tb-sales-countries__label">{{country.name}}</div>
+                  <div class="tb-sales-countries__icon">
+                      {{wb-md-icon iconName="keyboard_arrow_circle_right" onClickAction=(action 'addNonPresenceCountry' country)}}
+                  </div>
+              </div>
+          {{/each}}
+      </div>
+      <div class="tb-sales-countries__column">
+          <div class="tb-sales-countries__element">
+              <div class="tb-sales-countries__label">All</div>
+              <div class="tb-sales-countries__icon">
+                  {{wb-md-icon iconName="remove_circle" onClickAction=(action 'removeNonPresenceCountry' 'All')}}
+              </div>
+          </div>
+          {{#each model.scbNonPresenceCountries as |country|}}
+            <div class="tb-sales-countries__element">
+                <div class="tb-sales-countries__label">{{country.name}}</div>
+                <div class="tb-sales-countries__icon">
+                    {{wb-md-icon iconName="remove_circle" onClickAction=(action 'removeNonPresenceCountry' country)}}
+                </div>
+            </div>
+          {{/each}}
+      </div>
+    </div>

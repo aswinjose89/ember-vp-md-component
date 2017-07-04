@@ -1,0 +1,32 @@
+    <div class="global-file-link">
+          {{wb-md-checkbox  checked=file.isSelected }}
+       <div class="global-file-links__element">
+           {{wb-md-file type=file.fileExtension name=file.fileName file=file readOnly=readOnly}}
+           <div class="global-file-upload__form-info" style="padding: 10px 0px;">
+              {{#if file.uploadedBy}}
+                  Uploaded by {{file.uploadedBy}} on {{format-date file.uploadedDate}}
+              {{/if}}
+              <div class="global-file-links__description">
+                   {{#if fileCategoryLabel}} {{fileCategoryLabel}} : {{/if}} {{file.fileCategory.description}}
+               </div>
+               <div class="global-file-links__description">
+                     {{#if showMore}}
+                            {{file.description}}
+                     {{else}}
+                           {{truncate file.description limit=100}}
+                     {{/if}}
+               </div>
+               {{#if showTrigger}}
+                  <div class="card-comment__length-trigger">
+                      <a href="" {{action toggleProperty 'showMore'}}>
+                          {{#if showMore}}
+                              Show less
+                          {{else}}
+                              Show more
+                          {{/if}}
+                      </a>
+                  </div>
+               {{/if}}
+           </div>
+       </div>
+    </div>

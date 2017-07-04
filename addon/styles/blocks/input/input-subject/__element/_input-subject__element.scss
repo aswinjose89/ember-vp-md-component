@@ -1,0 +1,30 @@
+.input-subject__element {
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    textarea {
+        resize: none;
+        overflow: hidden;
+        width: 100%;
+        background: none;
+        border: 0;
+        line-height: 26px;
+        font-size: 18px;
+        font-family: $baseFont;
+        padding: 0;
+        vertical-align: top;
+        color: $baseColor;
+        @include placeholder {
+            opacity: .7;
+            color: $baseColor;
+            transition: .25s opacity $baseTransition;
+        }
+        &:focus {
+            @include placeholder {
+                opacity: .3;
+                color: $baseColor;
+            }
+        }
+    }
+}

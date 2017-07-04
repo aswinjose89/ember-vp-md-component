@@ -1,0 +1,22 @@
+@import "addon/styles/addon";
+header {
+    visibility: hidden;
+}
+
+.icon_wrapper .text {
+	position: relative;
+    bottom: 40px;
+    left: -20px;
+    visibility: hidden;
+    display: inline;
+    font-size: 20px;
+    background: blue;
+    color: white;
+}
+
+.icon_wrapper:hover .text {
+	visibility:visible;
+}
+input::-webkit-calendar-picker-indicator{
+    display: none;
+}

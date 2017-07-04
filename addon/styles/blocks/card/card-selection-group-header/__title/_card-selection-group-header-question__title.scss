@@ -1,0 +1,13 @@
+.card-selection-group-header__title {
+    line-height: 1.5;
+
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    span {
+        margin-right: 4px;
+        flex-shrink: 0;
+    }
+    h3 {
+        font-size: $baseFontSize;
+        color: $baseColor;
+    }
+}

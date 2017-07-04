@@ -1,0 +1,5 @@
+.global-login__links-element {
+    & ~ .global-login__links-element {
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,18 @@
+.card {
+    background: $white;
+    box-shadow: $cardShadow;
+    border-radius: $baseBorderRadius;
+    &+.card,
+    &+.content-toolbar {
+        margin-top: 10px;
+    }
+}
+
+.card+.card_type_active,
+.card_type_active+.card {
+    margin-top: 20px;
+}
+
+@import "_type/card_type";
+@import "__header/card__header";
+@import "__text/card__text"

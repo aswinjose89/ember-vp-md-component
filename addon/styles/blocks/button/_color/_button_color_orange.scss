@@ -1,0 +1,6 @@
+.button_color_orange {
+    color: $amber_900;
+    &:hover, &.button_status_active  {
+        background: $grayNested;
+    }
+}

@@ -1,0 +1,4 @@
+{{input type="text" placeholder=placeholder value=value keyUp=(action 'triggerSearch') enter=(action 'triggerEnterAction' enterAction) readonly=(if (and isReadOnly true) 'readonly')}}
+{{#if (and value clearIcon)}}
+    {{wb-md-icon iconName="close" click=(action "clearSearch")}}
+{{/if}}

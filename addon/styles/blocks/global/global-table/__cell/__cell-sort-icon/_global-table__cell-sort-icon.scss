@@ -1,0 +1,9 @@
+.global-table__cell-sort-icon {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -1px;
+    pointer-events: none;
+    opacity: 0;
+}
+@import "global-table__cell-sort-icon_down";
+@import "global-table__cell-sort-icon_up";

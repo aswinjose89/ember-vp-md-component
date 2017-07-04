@@ -1,0 +1,9 @@
+.global-tabs__slide-line_button {
+    position: absolute;
+    height: 30px;
+    bottom: 15px;
+    background: $indigo_500;
+    z-index: -1;
+    will-change: left, right;
+    border-radius: $baseBorderRadius;
+}

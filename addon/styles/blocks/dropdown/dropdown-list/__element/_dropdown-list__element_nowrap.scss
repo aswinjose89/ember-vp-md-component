@@ -1,0 +1,5 @@
+.dropdown-list__element_nowrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    @extend %text-overflow;
+}

@@ -1,0 +1,108 @@
+/*
+    The following files are not imported inside .material-design class
+    as the fonts should be available globally for the icons to work
+*/
+
+@import "miscellaneous/font";
+@import "miscellaneous/svg";
+//Import new Google Material Design Layout
+.wb-ui-md-material-icon {}
+
+.material-design {
+    //over-rides from 2.0 layout
+    font-family: Roboto, sans-serif !important;
+    //Base Styles placed in material-design
+    @import "material-design";
+    color: $baseColor;
+    font-size: $baseFontSize;
+    line-height: normal;
+    //line-height: $baseLineHeight;
+    .entity-module {
+        font-size: 18px;
+        color: $white;
+        padding-right: 20px;
+        position: relative;
+        z-index: 1;
+        &:after {
+            content: '';
+            width: 1px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: $indigo_400;
+        }
+    }
+    .card-help-text {
+        padding: 44px 20px;
+        text-align: center;
+        color: #4a4a4a;
+        &_border_top {
+            border-top: 1px solid $baseBorderColor;
+        }
+        .card-help-text__icon+.card-help-text__text {
+            margin-top: 10px;
+        }
+        .card-help__text__text {
+            line-height: 22px;
+            font-size: $baseFontSize;
+        }
+    }
+    .icons-list {
+        @include flex(flex, row, wrap, space-between, flex-start, flex-start);
+        margin: -6px;
+        padding-top: 20px;
+    }
+    .icons-list__element {
+        width: 56px;
+        height: 56px;
+        background: $gray_100;
+        @include flex(flex, row, nowrap, center, center, flex-start);
+        margin: 6px;
+        text-align: center;
+        border-radius: $baseBorderRadius;
+        cursor: pointer;
+        will-change: transform;
+    }
+    .icons-list__element_hide {
+        display: none;
+    }
+    .icons-list__element_active {
+        box-shadow: inset 0 0 0 .125em #ffbb4d;
+        background-color: $white;
+    }
+    .temp_back {
+        margin-right: 20px;
+    }
+    .float-icon {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background: $indigo_500;
+        position: fixed;
+        bottom: 20px;
+        transform: translateX(310px);
+        cursor: pointer;
+        z-index: 999;
+        transition: transform 0.4s ease;
+        box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.24);
+        @include flex(flex, row, nowrap, center, center, flex-start);
+        &_full {
+            transform: translate(-10px, -10px) scale(1.5);
+        }
+    }
+    [class*=col-] {
+        position: static;
+        float: none;
+    }
+    .simple-table-data {
+        td+td {
+            padding-left: 20px;
+        }
+    }
+}
+
+@import "material-design-overrides";
+@import "landing_overrides";

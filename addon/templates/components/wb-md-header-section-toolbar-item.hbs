@@ -1,0 +1,5 @@
+{{#if isIcon}}
+	 {{wb-md-icon color="white" active=active iconName=elementType onClickAction=(action 'clickAction') isDisable= isDisable}}
+{{else}}
+	{{wb-md-button text=label ripple=ripple type=type disabled=isDisable color=color }}
+{{/if}}

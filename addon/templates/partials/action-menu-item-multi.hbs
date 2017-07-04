@@ -1,0 +1,41 @@
+<div class="dropdown-list__row {{if item.isDisabled ' dropdown-list__row_disabled'}}{{if item.isSelected ' dropdown-list__row_active'}}{{if item.isHighLight ' dropdown-list__row_highlight'}}"{{action 'addSubMenus' item on='mouseEnter'}} {{action 'removeSubMenus' item on='mouseLeave'}} {{action 'addSubMenus' item.submenus on='contextMenu'}}
+onmouseenter={{action 'setDropItemHighLight' item}}
+onmouseleave={{action 'unSetDropItemHighLight' item}}
+>
+    <div class="dropdown-list__element dropdown-list__element_nowrap dropdown-list__element_parent" {{action "toggleSelectItem" item item.action}}>
+        <div class="dropdown-list__icon dropdown-list__icon_readonly">
+            {{#if item.iconName}}
+                {{wb-md-icon iconName=item.iconName}}
+            {{else}}
+                {{#if item.isSelected}}
+                    {{wb-md-icon iconName="check" ripple=false}}
+                {{/if}}
+                {{#if item.indeterminate}}
+                    {{wb-md-icon iconName="remove" ripple=false}}
+                {{/if}}
+            {{/if}}
+        </div>
+        {{item.label}}
+    </div>
+    <div class="global-menu__modal{{if item.showSubmenu " global-menu__modal_show"}}">
+        <div class="dropdown-list">
+            {{#each item.items as |subItem|}}
+                <div class="dropdown-list__row{{if subItem.isDisabled ' dropdown-list__row_disabled'}}{{if subItem.isSelected ' dropdown-list__row_active'}}{{if subItem.isHighLight ' dropdown-list__row_highlight'}}"
+                onmouseenter={{action 'setDropItemHighLight' subItem}}
+                onmouseleave={{action 'unSetDropItemHighLight' subItem}}
+                >
+                    <div class="dropdown-list__element dropdown-list__element_nowrap" {{action "toggleSelectItem" subItem subItem.action item.disableSelection}}>
+                        {{#unless item.disableSelection}}
+                            <div class="dropdown-list__icon dropdown-list__icon_readonly">
+                                {{#if subItem.isSelected}}
+                                    {{wb-md-icon iconName="check" ripple=false}}
+                                {{/if}}
+                            </div>
+                        {{/unless}}
+                        {{subItem.label}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

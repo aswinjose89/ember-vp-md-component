@@ -1,0 +1,22 @@
+.global-table__list {
+    padding: 12px 20px;
+    min-width: 200px;
+    position: fixed;
+    top: -9999px;
+    left: 0;
+    background: $gray_50;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.16);
+    border-radius: 0px 2px 2px 0px;
+    font-size: $baseFontSize;
+    color: $grayLabel;
+    line-height: 22px;
+    max-height: 250px;
+    overflow-y: auto;
+    @extend %global-effect;
+    animation-name: scaleIn;
+    animation-duration: 0.25s;
+    @extend %global-effect_position_top_left;
+    strong {
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,139 @@
+//Typo vars
+$baseFontSize: 13px;
+$baseLineHeight: 15px;
+$baseFont: 'Roboto',
+sans-serif;
+$smallFontSize: 11px;
+$smallLineHeight: 13px;
+//colors
+$amber_50: rgba(255, 248, 225, 1);
+$amber_100: rgba(255, 236, 179, 1);
+$amber_500: rgba(255, 193, 7, 1);
+$amber_900: rgba(255, 111, 0, 1);
+$buttercup: rgba(245, 166, 35, 1);
+$blue_50: rgba(227, 242, 253, 1);
+$blue_400: rgba(66, 165, 245, 1);
+$blue_500: rgba(33, 150, 243, 1);
+$blue_800: rgba(21, 101, 192, 1);
+$blue_doc: rgba(44, 89, 152, 1);
+$blue_fb: rgba(58, 89, 152, 1);
+$blue_twitter: rgba(29, 161, 242, 1);
+$deepPurple_400: rgba(126, 87, 194, 1);
+$deepPurple_500: rgba(103, 58, 183, 1);
+$haveLockBlue: rgba(74, 144, 226, 1);
+$brown_50: rgba(239, 235, 233, 1);
+$brown_500: rgba(121, 85, 72, 1);
+$bluegray_300: rgba(144, 164, 174, 1);
+$bluegray_500: rgba(96, 125, 139, 1);
+$bluegray_600: rgba(84, 110, 122, 1);
+$bluegray_800: rgba(55, 71, 79, 1);
+$cyan_500: rgba(0, 188, 212, 1);
+$deepOrange_50: rgba(251, 233, 231, 1);
+$deepOrange_500: rgba(255, 87, 34, 1);
+$orange-50: rgba(255, 243, 224, 1);
+$orange-500: rgba(255, 152, 0, 1);
+$orange-scb400: rgba(255, 200, 0, 1);
+$orange_ptt: rgba(221, 91, 27, 1);
+$orange_reuters: rgba(255, 128, 0, 1);
+$indigo_50: rgba(232, 234, 246, 1);
+$indigo_100: rgba(197, 202, 233, 1);
+$indigo_400: rgba(92, 107, 192, 1);
+$indigo_500: rgba(63, 81, 181, 1);
+$indigo_700: rgba(48, 63, 159, 1);
+$indigo_scb100: rgba(75, 93, 191, 1);
+$indigo_bloomberg: rgba(40, 0, 215, 1);
+$green_100: rgba(200, 230, 201, 1);
+$green_500: rgba(76, 175, 80, 1);
+$green_700: rgba(56, 142, 60, 1);
+$green_A700: rgba(0, 200, 83, 1);
+$lightGreen_500: rgba(139, 195, 74, 1);
+$gray_50: rgba(250, 250, 250, 1);
+$gray_100: rgba(245, 245, 245, 1);
+$grey_300: #E0E0E0;
+$grey_500: rgba(158, 158, 158, 1);
+$gray_scb50: rgba(242, 242, 242, 1);
+$gray_scb300: rgba(225, 225, 225, 1);
+$dustyGray: rgba(155, 155, 155, 1);
+$grayLabel: rgba(74, 74, 74, 1);
+$gray_img: $grayLabel;
+$grayNested: rgba(231, 231, 231, 1);
+$gray_no-data: rgba(171, 171, 171, 1);
+$malibu: rgba(87, 161, 252, 1);
+$muleFawn: rgba(139, 87, 42, 1);
+$yellow_scb100: rgba(251, 247, 231, 1);
+$red_50: rgba(255, 235, 238, 1);
+$red_500: rgba(244, 67, 54, 1);
+$silver: rgba(186, 186, 186, 1);
+$teal_500:rgba(0, 150, 136, 1);
+$white: rgba(255, 255, 255, 1);
+$black: rgba(0, 0, 0, 1);
+$baseColor: rgba(0, 0, 0, 1);
+$baseLinkColor: $blue_500;
+$baseBackground: $gray_100;
+//borders colors
+$baseBorderColor: rgba(221, 221, 221, 1);
+//icon colors
+$iconColorDefault: rgba(115, 115, 115, 1);
+$iconColorDisabled: rgba(200, 200, 200, 1);
+//status
+$disabledStateOpacity: .5;
+//border radius
+$baseBorderRadius: 2px;
+//Animations
+$baseTransition: cubic-bezier(.25, .8, .25, 1);
+$tabsTransition: cubic-bezier(.35, 0, .25, 1);
+//Shadows
+$raisedButtonShadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.40);
+$raisedButtonShadowClick: 0px 1px 4px 0px rgba(0, 0, 0, 0.40);
+$readyButtonShadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.26);
+$readyButtonShadowHover: 0px 4px 5px 0px rgba(0, 0, 0, 0.16);
+$cardShadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.16);
+$cardShadowRaised: 0px 0px 15px 0px rgba(0, 0, 0, 0.20);
+$popupShadow: 0px 11px 15px 0px rgba(0, 0, 0, 0.20);
+$controlShadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.16);
+$globalSearchShadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+$globalInputShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.16);
+//Page defaults vars
+%center {
+    max-width: 1280px;
+    min-width: 1280px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+// Square Roots
+@mixin clearfix {
+    clear: both;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+%text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+%inlinelist {
+    font-size: 0;
+    line-height: 0;
+}
+
+%inlinelistitem {
+    font-size: $baseFontSize;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+
+%inlinesvg {
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+}

@@ -1,0 +1,17 @@
+.workbench-back {
+  font-size: 22px;
+  color: $white;
+  width: 330px;
+  flex-shrink: 0;
+  a {
+    color: $white;
+    line-height: 24px;
+    &:before {
+      @extend %material-icons;
+      content: 'arrow_back';
+      margin-right: 26px;
+      vertical-align: top;
+    }
+  }
+}
+@import "_color/workbench-back_color";

@@ -1,0 +1,25 @@
+.global-attachment {
+    padding: 5px 10px 5px 5px;
+    position: relative;
+    z-index: 1;
+    background: $gray_scb50;
+    box-shadow: $readyButtonShadow;
+    border-radius: $baseBorderRadius;
+    @include flex(inline-flex, row, nowrap, flex-start, center, flex-start);
+    cursor: pointer;
+    user-select: none;
+    will-change: box-shadow;
+    transition: box-shadow 0.4s $baseTransition;
+    max-width: 200px;
+    &:hover {
+        box-shadow: $readyButtonShadowHover;
+    }
+    &:hover &__delete {
+        transform: translate3d(50%, -50%, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@import "__name/global-attachment__name";
+@import "__delete/global-attachment__delete";
+@import "_status/global-attachment_status";

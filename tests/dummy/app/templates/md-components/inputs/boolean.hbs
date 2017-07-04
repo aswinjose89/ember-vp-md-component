@@ -1,0 +1,114 @@
+{{radio-button-section}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">CheckBox</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-checkbox fieldLabel="Check Me"}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-checkbox fieldLabel="Check Me"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>checked</span></code> - Holds the value of the current selected item in the radio group</li>
+                        <li><code><span>indeterminate</span></code> - Holds the value of the current selected item in the radio group</li>
+                        <li><code><span>disabled</span></code> - Holds the value of the current selected item in the radio group</li>
+                        <li><code><span>iconColor</span></code> - set the checkbox color, all variants available on icon section</li>
+                        <li><code><span>isError</span></code> set true per item</li>
+                    </ul>
+                    <h3 class="guideline-block__chapter-title">Input list setting</h3>
+                    <ul>
+                        <li><code><span>title</span></code> - Radio group title</li>
+                        <li><code><span>number</span></code> - add number before title</li>
+                        <li><code><span>description</span></code> - Radio group description</li>
+                        <li><code><span>errorMessage</span></code> - error text, show on description place</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__example">
+            <h3 class="guideline-block__chapter-title">CheckBox States</h3>
+            {{#wb-md-input-list}}
+            <div class="input-list__group">
+                <div class="input-list__element">{{wb-md-checkbox checked=true fieldLabel="Pre Checked Input"}}</div>
+                <div class="input-list__element">{{wb-md-checkbox disabled=true checked=true  fieldLabel="Disabled Checkbox"}}</div>
+                <div class="input-list__element">{{wb-md-checkbox indeterminate=true fieldLabel="Indeterminate Checkbox"}}</div>
+            </div>
+            {{/wb-md-input-list}}
+        </div>
+        <div class="guideline-block__example">
+            {{#wb-md-input-list isInline=true errorMessage="Error text" isError=true title="CheckBox Inline"}}
+                <div class="input-list__group">
+                    <div class="input-list__element">{{wb-md-checkbox checked=true fieldLabel="Pre Checked Input" iconColor="green-500"}}</div>
+                    <div class="input-list__element">{{wb-md-checkbox disabled=true checked=true  fieldLabel="Disabled Checkbox"}}</div>
+                    <div class="input-list__element">{{wb-md-checkbox indeterminate=true fieldLabel="Indeterminate Checkbox"}}</div>
+                    <div class="input-list__element">{{wb-md-checkbox isError=true fieldLabel="Error Checkbox"}}</div>
+                </div>
+            {{/wb-md-input-list}}
+        </div>
+        <div class="guideline-block__example">
+            <h3 class="guideline-block__chapter-title">CheckBox Select all</h3>
+            {{wb-md-checkbox-nested}}
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Switch</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-switch label="Toggle" leftLabel=true onChange=(action "switchChange")}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-switch label="Toggle" leftLabel=true}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>checked</span></code> - Holds the value of the current selected item in the radio group</li>
+                        <li><code><span>indeterminate</span></code> - Holds the value of the current selected item in the radio group</li>
+                        <li><code><span>disabled</span></code> - Holds the value of the current selected item in the radio group</li>
+                        <li><code><span>onChange() returns value</span></code> - Closure action, on change of the switch button the current <code>value</code> will be returned</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__example">
+            <h3 class="guideline-block__chapter-title">Switch States</h3>
+            {{wb-md-switch value=true label="Toggle default active"}}
+            {{wb-md-switch disabled=true label="Toggle disabled"}}
+            {{wb-md-switch disabled=true value=true label="Toggle disabled with active"}}
+        </div>
+    </div>
+{{/wb-md-card}}

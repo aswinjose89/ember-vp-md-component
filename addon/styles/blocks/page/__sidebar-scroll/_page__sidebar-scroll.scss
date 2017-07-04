@@ -1,0 +1,10 @@
+.page__sidebar-scroll {
+    width: 310px;
+    padding: 0 0 10px 10px;
+    margin-right: auto;
+    > * {
+        & ~ * {
+            margin-top: 20px;
+        }
+    }
+}

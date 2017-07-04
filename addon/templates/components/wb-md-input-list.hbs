@@ -1,0 +1,13 @@
+{{#if title}}
+    <div class="input-list__title">
+        {{#if number}}<span>{{number}}.</span>{{/if}}
+        <h3>{{{title}}}</h3></div>
+{{/if}}
+{{#if (and errorMessage isError)}}
+    <div class="input-list__error-message">{{{errorMessage}}}</div>
+    {{else}}
+    {{#if description}}
+        <div class="input-list__description">{{{description}}}</div>
+    {{/if}}
+{{/if}}
+{{yield}}

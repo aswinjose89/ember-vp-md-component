@@ -1,0 +1,63 @@
+.input-table__modal {
+    position: fixed;
+    background: $gray_50;
+    border-radius: $baseBorderRadius;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 20px 0 rgba(0, 0, 0, 0.16);
+    top: -999px;
+    left: 0;
+    z-index: 9999;
+    margin-top: 4px;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.input-table__modal_multilevel {
+    overflow: visible;
+}
+
+.input-table__modal_transparent {
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+}
+
+.input-table__modal_inside {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+}
+
+.input-table__modal_bottom-show {
+    @extend %global-effect;
+    @extend %global-effect_position_top_center;
+    animation-name: scaleYIn;
+    animation-duration: .4s;
+}
+
+.input-table__modal_top-show {
+    @extend %global-effect;
+    @extend %global-effect_position_bottom_center;
+    animation-name: scaleYIn;
+    animation-duration: .4s;
+    margin-top: -4px;
+}
+
+.input-table__modal_hide {
+    @extend %global-effect;
+    @extend %global-effect_position_top_center;
+    animation-name: scaleYOut;
+    animation-duration: .4s;
+}
+
+.input-table__modal .input-table__modal {
+    position: absolute;
+    left: calc(100% - 4px);
+    z-index: 1;
+    animation-name: fadeIn;
+    max-height: 250px;
+    overflow-y: auto;
+    top: -18px;
+}

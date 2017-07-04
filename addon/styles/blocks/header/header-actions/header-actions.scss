@@ -1,0 +1,7 @@
+.header-actions {
+    flex-shrink: 0;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    height: 60px;
+}
+
+@import "__element/header-actions__element";

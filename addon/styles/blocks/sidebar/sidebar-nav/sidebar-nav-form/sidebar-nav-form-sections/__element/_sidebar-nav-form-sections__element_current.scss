@@ -1,0 +1,15 @@
+.sidebar-nav-form-sections__element_current {
+    background: $indigo_500 !important;
+    font-weight: 500;
+    color: $white !important;
+    pointer-events: none;
+    &:before {
+        color: $white !important;
+    }
+    &.sidebar-nav-form-sections__element_error {
+        background: $red_500 !important;
+    }
+    &:hover {
+        background: $indigo_500;
+    }
+}

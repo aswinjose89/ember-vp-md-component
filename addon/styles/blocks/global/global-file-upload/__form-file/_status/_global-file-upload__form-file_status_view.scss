@@ -1,0 +1,9 @@
+.global-file-upload__form-file_status_view {
+  background: $gray_scb50;
+  box-shadow: $readyButtonShadow;
+  cursor: pointer;
+  transition: all 0.6s $baseTransition;
+  &:hover, &:focus {
+    box-shadow: $readyButtonShadowHover;
+  }
+}

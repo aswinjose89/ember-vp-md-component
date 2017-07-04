@@ -1,0 +1,30 @@
+.global-table {
+    tbody {
+        tr {
+            &:first-child {
+                border-top-width: 2px;
+            }
+        }
+    }
+}
+
+//import elements
+@import "__title/global-header__title";
+@import "__content/global-table__content";
+//@import "__cell/__cell-sort-icon/_global-table__cell-sort-icon.scss";
+@import "__small-text/global-table__small-text";
+@import "__update-count/global-table__update-count";
+@import "__search/global-table__search";
+@import "__filter/_global-table__filter";
+@import "__row/global-table__row";
+@import "__cell/global-table__cell";
+@import "__overflow/global-table__overflow";
+@import "__sort/global-table__sort";
+@import "__text/global-table__text";
+@import "__list/global-table__list";
+@import "__value-list/global-table__value-list";
+@import "_status/global-table_status";
+@import "__nested/global-table__nested";
+@import "__inner/global-table__inner";
+@import "__loader/global-table__loader";
+@import '_border/global-table_border';

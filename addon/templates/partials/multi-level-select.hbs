@@ -1,0 +1,38 @@
+{{#if (and firstLevelGroupHeader filteredContent)}}
+    <div class="dropdown-list__header">
+        {{firstLevelGroupHeader}}
+    </div>
+{{/if}}
+{{#each filteredContent as | record |}}
+    {{#unless record.isHidden}}
+        <div class="dropdown-list__row" {{action 'toggleSelectedItem' record}}>
+            <div class="dropdown-list__element dropdown-list__element_nowrap">
+                <div class="dropdown-list__icon">
+                    {{#if record.isIndeterminate}}
+                        {{wb-md-icon iconName="indeterminate_check_box" color="blue"}}
+                    {{else}}
+                        {{wb-md-icon iconName=(if (mut record.isChecked) 'check_box' 'check_box_outline_blank') color=(if (mut record.isChecked) 'blue' 'gray')}}
+                    {{/if}}
+                </div>
+                <div class="dropdown-list__label">{{get record optionLabelPath}}</div>
+            </div>
+        </div>
+    {{/unless}}
+{{/each}}
+{{#if (and secondLevelGroupHeader multiLevelfilteredContent)}}
+    <div class="dropdown-list__header">
+        {{secondLevelGroupHeader}}
+    </div>
+{{/if}}
+{{#each multiLevelfilteredContent as | record |}}
+    {{#unless record.isHidden}}
+        <div class="dropdown-list__row" {{action 'toggleSelectedItem' record}}>
+            <div class="dropdown-list__element dropdown-list__element_nowrap">
+                <div class="dropdown-list__icon">
+                    {{wb-md-icon iconName=(if (mut record.isChecked) 'check_box' 'check_box_outline_blank') color=(if (mut record.isChecked) 'blue' 'gray')}}
+                </div>
+                <div class="dropdown-list__label">{{get record optionLabelPath}}</div>
+            </div>
+        </div>
+    {{/unless}}
+{{/each}}

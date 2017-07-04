@@ -1,0 +1,14 @@
+.sidebar-nav-form-additional-info__element {
+    @include flex(flex, row, nowrap, space-between, center, flex-start);
+    padding: 10px 0;
+    .label {
+        color: $indigo_500;
+        font-weight: 500;
+        min-width: inherit;
+        margin-right: 50px;
+    }
+    .value {
+        color: $baseColor;
+        @extend %text-overflow;
+    }
+}

@@ -1,0 +1,10 @@
+.global-menu {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    display: inline-block;
+}
+
+@import "__modal/global-menu__modal";
+@import "__toggle/global-menu__toggle";
+@import "global-menu_open";

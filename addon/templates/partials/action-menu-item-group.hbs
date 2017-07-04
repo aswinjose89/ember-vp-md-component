@@ -1,0 +1,13 @@
+<div class="dropdown-list__row{{if groupItem.isDisabled ' dropdown-list__row_disabled'}}{{if groupItem.isSelected ' dropdown-list__row_active'}}{{if groupItem.isHighLight ' dropdown-list__row_highlight'}}">
+    <div class="dropdown-list__element dropdown-list__element_nowrap button-ripple" {{action 'triggerSendAction' groupItem.action groupItem item.groupHeader}}
+    onmouseenter={{action 'setDropItemHighLight' groupItem}}
+    onmouseleave={{action 'unSetDropItemHighLight' groupItem}}
+    >
+        {{#if groupItem.iconName}}
+            <div class="dropdown-list__icon dropdown-list__icon_readonly">
+                {{wb-md-icon iconName=groupItem.iconName}}
+            </div>
+        {{/if}}
+        {{groupItem.label}}
+    </div>
+</div>

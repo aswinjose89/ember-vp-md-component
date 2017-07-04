@@ -1,0 +1,9 @@
+.input-row__bottom-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    transform: translateY(10px);
+    @include flex(flex, row, nowrap, flex-end, flex-start, flex-start);
+    pointer-events: all;
+}

@@ -1,0 +1,19 @@
+.dropdown-multi__row {
+    min-height: 60px;
+    max-width: none;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    cursor: pointer;
+}
+
+.dropdown-multi__row+.dropdown-multi__row .dropdown-multi__content {
+    border-top: 1px solid $baseBorderColor;
+}
+
+.dropdown-multi__row .dropdown-multi__avatar+.dropdown-multi__content {
+    padding-left: 0;
+}
+
+@import "dropdown-multi__row_active";
+@import "dropdown-multi__row_highlight";

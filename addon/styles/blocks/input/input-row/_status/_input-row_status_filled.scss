@@ -1,0 +1,20 @@
+.input-row_status_filled {
+    .input-row__label {
+        transform: translateY(-17px) scale(.85);
+        color: $indigo_500;
+    }
+    .input-row__search-input:before {
+        opacity: 0;
+        z-index: -1;
+        transform: translateX(20px);
+        position: absolute;
+    }
+    .input-row__search-input:after {
+        order: 10;
+        margin-right: 0;
+    }
+    .input-row__search-input input {
+        position: static;
+    }
+
+}

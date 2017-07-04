@@ -1,0 +1,25 @@
+.input-row_status_active {
+    z-index: 4;
+    .input-row__label {
+        transform: translateY(-17px) scale(.85);
+        color: $indigo_500;
+    }
+    .input-row__element {
+        &:before {
+            left: 0;
+            right: 0;
+            content: '';
+        }
+    }
+    .input-row__modal {
+        animation: modalshow 0.6s $baseTransition;
+        animation-fill-mode: forwards;
+        z-index: 1;
+    }
+    .input-row__search-input, .input-row__placeholder {
+        opacity: 1;
+    }
+    .input-row__search-input {
+        position: relative;
+    }
+}

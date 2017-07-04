@@ -1,0 +1,14 @@
+.input-row__placeholder {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background: none;
+    border: 0;
+    line-height: 22px;
+    font-size: $baseFontSize;
+    font-family: $baseFont;
+    padding: 1px 0;
+    vertical-align: top;
+    color: $baseColor;
+    opacity: 0;
+}

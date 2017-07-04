@@ -1,0 +1,10 @@
+.static-info_color_white {
+    color: $white;
+    .static-info__label {
+        opacity: .7;
+        color: $white;
+    }
+    a {
+        color: $white;
+    }
+}

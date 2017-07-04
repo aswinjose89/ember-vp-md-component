@@ -1,0 +1,8 @@
+.content-toolbar__list {
+    font-size: 11px;
+    li {
+        @extend %text-overflow;
+    }
+}
+
+@import "content-toolbar__list_inline";

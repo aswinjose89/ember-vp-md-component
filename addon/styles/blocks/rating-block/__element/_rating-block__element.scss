@@ -1,0 +1,16 @@
+.rating-block__element {
+    color: $orange-scb400;
+    cursor: pointer;
+    &:before {
+        @extend %material-icons;
+        content: 'star';
+    }
+    &:hover ~ .rating-block__element {
+        color: rgb(196, 200, 204);
+    }
+}
+.rating-block.rating-block_0:not(:hover) {
+    .rating-block__element {
+        color: rgb(196, 200, 204);
+    }
+}

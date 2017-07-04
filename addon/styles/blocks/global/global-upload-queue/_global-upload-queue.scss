@@ -1,0 +1,19 @@
+.global-upload-queue {
+  position: fixed;
+  right: 5px;
+  bottom: 8px;
+  background: $white;
+  box-shadow: $cardShadow;
+  border-radius: $baseBorderRadius;
+  width: 400px;
+  z-index: 100;
+}
+
+@import "__header/global-upload-queue__header";
+@import "__list/global-upload-queue__list";
+@import "__list/__list-element/global-upload-queue__list-element";
+@import "__title/global-upload-queue__title";
+@import "__toolbal/global-upload-queue__toolbar";
+@import "__toolbal/__toolbal-element/global-upload-queue__toolbar-element";
+@import "__icon/global-upload-queue__icon";
+@import "__list/__list-element-name/global-upload-queue__list-element-name";

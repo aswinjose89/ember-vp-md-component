@@ -1,0 +1,5 @@
+.global-action__element {
+  & ~ .global-action__element {
+    margin-left: 10px;
+  }
+}

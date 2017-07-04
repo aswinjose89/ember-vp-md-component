@@ -1,0 +1,14 @@
+{{#if label}}
+    <div class="global-tag__value">
+        {{#if circleStatusColor}}<span class="global-tag__circle {{circleStatusColor}}"></span>{{/if}}{{label}}
+    </div>
+{{/if}}
+{{#if iconConfig}}
+    <div class="global-tag__icon">
+        {{wb-md-icon
+            config=iconConfig
+            ripple=false
+            size='small'
+        }}
+    </div>
+{{/if}}

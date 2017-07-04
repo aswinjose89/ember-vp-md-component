@@ -1,0 +1,20 @@
+.dropdown-multi__info-element {
+    font-size: $smallFontSize;
+    line-height: $smallLineHeight;
+}
+.dropdown-multi__info-element ~ .dropdown-multi__info-element {
+    position: relative;
+    z-index: 1;
+    padding-left: 44px;
+    &:before {
+        width: 4px;
+        height: 4px;
+        content: '';
+        display: block;
+        background: $iconColorDefault;
+        position: absolute;
+        left: 20px;
+        top: 4px;
+        border-radius: 50%;
+    }
+}

@@ -1,0 +1,5 @@
+.card-message_short {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    min-height: 50px;
+    padding: 9px 20px 9px 20px;
+}

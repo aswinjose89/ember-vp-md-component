@@ -1,0 +1,11 @@
+.card-comment__done {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  line-height: $baseLineHeight;
+  font-size: $baseFontSize;
+  color: $baseLinkColor;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 2;
+}

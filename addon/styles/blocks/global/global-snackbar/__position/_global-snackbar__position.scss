@@ -1,0 +1,16 @@
+[class*=global-snackbar__position] {
+    @extend %global-effect;
+    animation-duration: .250s;
+}
+[class*=global-snackbar__position_bottom] {
+    animation-name: snackbarBottomIn;
+}
+[class*=global-snackbar__position_top] {
+    animation-name: snackbarTopIn;
+}
+@import "global-snackbar__position_bottom-right";
+@import "global-snackbar__position_bottom-center";
+@import "global-snackbar__position_bottom-left";
+@import "global-snackbar__position_top-right";
+@import "global-snackbar__position_top-center";
+@import "global-snackbar__position_top-left";

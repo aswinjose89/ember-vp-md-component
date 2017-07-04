@@ -1,0 +1,223 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Icon</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-icon iconName=iconName}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li>
+                            <code><span>color</span></code> - Change icon color.
+                            <div class="guideline-block__example">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>black</th>
+                                            <th>blue</th>
+                                            <th>blue-500</th>
+                                            <th>blue-gray-800</th>
+                                            <th>gray-light</th>
+                                            <th>green-500</th>
+                                            <th>muleFawn</th>
+                                            <th>orange-400</th>
+                                            <th>orange-500</th>
+                                            <th>red-500</th>
+                                            <th>white</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{wb-md-icon iconName="alarm" color="black"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="blue"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="blue-500"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="blue-gray-800"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="gray-light"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="green-500"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="muleFawn"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="orange-400"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="orange-500"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="red-500"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="white"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>size</span></code> - Icon Size
+                            <div class="guideline-block__example">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>default</th>
+                                            <th>medium</th>
+                                            <th>small</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{wb-md-icon iconName="alarm" color="black"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="black" size="medium"}}</td>
+                                            <td>{{wb-md-icon iconName="alarm" color="black" size="small"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>active</span></code> - false by default.
+                            <div class="guideline-block__example">
+                                {{wb-md-icon iconName="alarm" color="black" active=true}}
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>isDisabled</span></code> - false by default.
+                            <div class="guideline-block__example">
+                                {{wb-md-icon iconName="alarm" color="black" isDisabled=true}}
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>isReadOnly</span></code> - false by default.
+                            <div class="guideline-block__example">
+                                {{wb-md-icon iconName="alarm" color="black" isReadOnly=true}}
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>helpText</span></code> - tooltip text.
+                            <div class="guideline-block__example">
+                                {{wb-md-icon iconName="alarm" color="black" helpText="short text here"}}
+                            </div>
+                        </li>
+                        <li>
+                            <code><span>Actions</span></code>
+                            <ul>
+                                <li><code><span>onClickAction</span></code> - invoke on click action</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{icons-list iconsList=model}}
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Entity Icon</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-entity-icon value="D"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>value</span></code> - Set value</li>
+                        <li>
+                            <code><span>color</span></code> - Set icon background color.
+                            <div class="guideline-block__example">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>none</th>
+                                            <th>amber-500</th>
+                                            <th>blue-500</th>
+                                            <th>blue-800</th>
+                                            <th>green-500</th>
+                                            <th>indigo-400</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{wb-md-entity-icon value="D"}}</td>
+                                            <td>{{wb-md-entity-icon value="D" color="amber-500"}}</td>
+                                            <td>{{wb-md-entity-icon value="D" color="blue-500"}}</td>
+                                            <td>{{wb-md-entity-icon value="D" color="blue-800"}}</td>
+                                            <td>{{wb-md-entity-icon value="D" color="green-500"}}</td>
+                                            <td>{{wb-md-entity-icon value="D" color="indigo-400"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li><code><span>size</span></code> - Set size.
+                            <div class="guideline-block__example">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>none</th>
+                                            <th>medium</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{wb-md-entity-icon value="D"}}</td>
+                                            <td>{{wb-md-entity-icon value="112" size="medium"}}{{wb-md-entity-icon value="D" size="medium"}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Custom icons for modules</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            <img src="data:image/svg+xml;charset=utf8, %3Csvg width='124' height='124' viewBox='0 0 124 124' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Euser icon%3C/title%3E%3Cdefs%3E%3Cfilter x='-50%25' y='-50%25' width='200%25' height='200%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='2' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cellipse id='b' cx='60' cy='60' rx='60' ry='60'/%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(2)' fill='none' fill-rule='evenodd'%3E%3Cmask id='c' fill='%23fff'%3E%3Cuse xlink:href='%23b'/%3E%3C/mask%3E%3Cuse fill='%23E8EAF6' xlink:href='%23b'/%3E%3Cpath d='M60.5 71.79c12.57 0 22.75-10.246 22.75-22.895C83.25 36.245 73.07 26 60.5 26S37.75 36.245 37.75 48.895 47.93 71.789 60.5 71.789zM15 102.266V142h91v-39.733c0-14.177-30.314-21.32-45.5-21.32S15 88.09 15 102.267z' fill='%233F51B5' mask='url(%23c)'/%3E%3C/g%3E%3C/svg%3E"
+            />
+        </div>
+        <!--HTML Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">HTML</h3>
+            {{#wb-md-code-highlight}}
+                <img src="data:image/svg+xml;charset=utf8, %3Csvg width='124' height='124' viewBox='0 0 124 124' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Euser icon%3C/title%3E%3Cdefs%3E%3Cfilter x='-50%25' y='-50%25' width='200%25' height='200%25' filterUnits='objectBoundingBox' id='a'%3E%3CfeOffset dy='2' in='SourceAlpha' result='shadowOffsetOuter1'/%3E%3CfeGaussianBlur stdDeviation='1' in='shadowOffsetOuter1' result='shadowBlurOuter1'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0' in='shadowBlurOuter1' result='shadowMatrixOuter1'/%3E%3CfeMerge%3E%3CfeMergeNode in='shadowMatrixOuter1'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cellipse id='b' cx='60' cy='60' rx='60' ry='60'/%3E%3C/defs%3E%3Cg filter='url(%23a)' transform='translate(2)' fill='none' fill-rule='evenodd'%3E%3Cmask id='c' fill='%23fff'%3E%3Cuse xlink:href='%23b'/%3E%3C/mask%3E%3Cuse fill='%23E8EAF6' xlink:href='%23b'/%3E%3Cpath d='M60.5 71.79c12.57 0 22.75-10.246 22.75-22.895C83.25 36.245 73.07 26 60.5 26S37.75 36.245 37.75 48.895 47.93 71.789 60.5 71.789zM15 102.266V142h91v-39.733c0-14.177-30.314-21.32-45.5-21.32S15 88.09 15 102.267z' fill='%233F51B5' mask='url(%23c)'/%3E%3C/g%3E%3C/svg%3E"
+                />
+            {{/wb-md-code-highlight}}
+        </div>
+    </div>
+{{/wb-md-card}}

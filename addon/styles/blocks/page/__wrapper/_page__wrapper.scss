@@ -1,0 +1,9 @@
+.page__wrapper {
+  width: 100%;
+  overflow: hidden;
+  @include flex(flex, column, nowrap, flex-start, stretch, flex-start);
+  min-height: 100%;
+  height: 100vh;
+  position: relative;
+  min-width: 1280px;
+}

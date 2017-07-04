@@ -1,0 +1,25 @@
+{{#wb-md-content-toolbar}}
+    <div class="content-toolbar__row">
+        <div class="content-toolbar__element">{{wb-md-button type='primary' color='blue' label='Get Filters' action='getFilters'}}</div>
+        <div class="content-toolbar__element">{{wb-md-button type='primary' color='blue' label='Reset Filters' action='resetFilters'}}</div>
+        <div class="content-toolbar__element">{{wb-md-button label='Change Month' color='blue' type='primary' action=(action 'changeMonth')}}</div>
+    </div>
+{{/wb-md-content-toolbar}}
+<div class="guideline-block">
+    <div class="guideline-block__chapter">
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Reset Filters</h3>
+                <ul>
+                    <li><code><span>resetFilters()</span></code> - Reset Filters</li>
+                    <li><code><span>resetSort()</span></code> - Reset Sort</li>
+                    <li><code><span>resetAll()</span></code> - Reset both sort and filters</li>
+                    <li><code><span>disableQueryAction :default false</span></code> - Pass this property as true to supress server call when resetting filters</li>
+                    <li><code><span>resetManageColumns :default false</span></code> - Pass this property as true to reset the column state when invoking resetAll()</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{wb-md-table menuAction="menuAction" downloadAction='downloadAction' config=tableConfig queryAction=(action 'userQueryAction') headerToolBar=headerToolBar}}

@@ -1,0 +1,23 @@
+.checkbox-menu__modal-element {
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    padding: 0 40px 0 20px;
+    transition: box-shadow .4s $baseTransition, background-color .4s $baseTransition;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    height: 32px;
+    z-index: 1;
+    position: relative;
+    color: $baseColor;
+    &:hover {
+        background: #F5F5F5;
+        border-radius: $baseBorderRadius;
+        z-index: 2;
+    }
+}
+.checkbox-menu_modal-element + .checkbox-menu__modal-element {
+    margin-top: 10px;
+}
+

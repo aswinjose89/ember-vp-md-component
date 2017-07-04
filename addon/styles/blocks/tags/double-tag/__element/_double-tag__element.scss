@@ -1,0 +1,9 @@
+.double-tag__element {
+    padding: 0 8px 0 7px;
+    line-height: 16px;
+    &+.double-tag__element {
+        background: $white;
+        border-radius: 0 $baseBorderRadius $baseBorderRadius 0;
+        padding: 0 7px 0 8px;
+    }
+}

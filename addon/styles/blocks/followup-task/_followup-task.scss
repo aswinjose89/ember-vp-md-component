@@ -1,0 +1,9 @@
+.followup-task {
+    & + .followup-task {
+        box-shadow: inset 0 1px 0 0 $baseBorderColor;
+    }
+}
+@import "__message/followup-task__message";
+@import "__message-icon/followup-task__message-icon";
+@import "__message-content/followup-task__message-content";
+@import "_status/followup-task_status";

@@ -1,0 +1,51 @@
+{{#if title}}
+    <div class="input-list__title">
+        {{#if number}}<span>{{number}}.</span>{{/if}}
+        <h3>
+            {{{title}}}
+            {{#if (and required title)}}
+                <sup>*</sup>
+            {{/if}}
+        </h3>
+    </div>
+{{/if}}
+{{#if (and errorMessage isError)}}
+    <div class="input-list__error-message">
+        <div class="global-overflow">
+            <div class="global-overflow__fluid">{{{errorMessage}}}</div>
+            {{#if isErrorTextOverflow}}
+                <div class="global-overflow__static"><a href="" {{action 'openHelpModal' errorMessage true bubbles=false}}>more</a></div>
+            {{/if}}
+        </div>
+    </div>
+{{else}}
+    {{#if description}}
+        <div class="input-list__description">
+            <div class="global-overflow">
+                <div class="global-overflow__fluid">{{{description}}}</div>
+                {{#if isHelpTextOverflow}}
+                    <div class="global-overflow__static"><a href="" {{action 'openHelpModal' description bubbles=false}}>more</a></div>
+                {{/if}}
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
+{{#if helpText}}
+    <div class="input-list__description">
+        <a href="" {{action "openHelpModal" helpText}}>{{computedHelpLinkTitle}}</a>
+    </div>
+{{/if}}
+<div class="input-list__group">
+    {{#each content  as |radioButton index|}}
+        <div class="input-list__element{{if radioButton.isError ' input-list__element_status_error'}}">
+            <div class="input-radio{{if (or disabled isDisabled radioButton.disabled) ' input-radio_status_disabled'}}" {{action "setSelection" (get radioButton optionValuePath)}}>
+                {{log 'optionValuePath' (get radioButton optionValuePath)}}
+                <input type="radio" checked="{{if (eq (get radioButton optionValuePath) value) true}}" value="{{mut (get radioButton optionValuePath)}}" name="{{name}}" disabled="{{if (or disabled radioButton.disabled) true}}" required="{{required}}">
+                <div class="input-radio__icon">{{wb-md-icon ripple=true iconName=(if (eq (get radioButton optionValuePath) value) "radio_button_checked" "radio_button_unchecked") color=(if radioButton.isError 'red-500' (if (eq (get radioButton optionValuePath) value) "blue" "gray"))}}</div>
+                {{#if (get radioButton optionLabelPath)}}
+                    <label>{{get radioButton optionLabelPath}}</label>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>

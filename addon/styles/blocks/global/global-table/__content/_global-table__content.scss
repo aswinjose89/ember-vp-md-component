@@ -1,0 +1,10 @@
+.global-table__content {
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+}
+.card_type_raised .global-table__content {
+  padding-left: 50px;
+}

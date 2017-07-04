@@ -1,0 +1,5 @@
+.checkbox-menu__modal_position_bottom {
+  top: calc(100% + 2px);
+  left: 0;
+  @extend  %global-effect_position_top_left;
+}

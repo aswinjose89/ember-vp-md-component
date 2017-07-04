@@ -1,0 +1,12 @@
+.global-login__news {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 50%;
+    padding: 0 40px;
+    bottom: 106px;
+    color: $white;
+    opacity: 0;
+    transition: all 1.2s ease;
+}
+@import "global-login__news_active";

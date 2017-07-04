@@ -1,0 +1,8 @@
+.static-info__list {
+    li {
+        @extend %text-overflow;
+        cursor: default;
+    }
+}
+
+@import "static-info__list_inline";

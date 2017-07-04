@@ -1,0 +1,63 @@
+{{#if (and (not isButton) (not isStatic))}}
+    <div class="global-tabs__control left{{if (not isLeftNavActive) ' global-tabs__element_status_disabled'}}" {{action "moveLeft"}}>
+        {{wb-md-icon iconName="keyboard_arrow_left" color=iconColor ripple=false}}
+    </div>
+{{/if}}
+<div class="global-tabs__list-wrapper">
+    <div class="global-tabs__list">
+        {{#each tabs as |tab index|}}
+            {{#if routable}}
+                {{#if tab.id}}
+                    {{#link-to tab.route tab.id disabled=tab.disabled click=(action "openTab" index) class="global-tabs__element" classBinding="tab.disabled:global-tabs__element_status_disabled" classBinding="isButton:global-tabs__element_type_button"  classBinding="tab.isError:global-tabs__element_status_error" classBinding="isFluid:global-tabs__element_type_fluid"}}
+                        {{#if tab.label}}
+                            <div class="global-tabs__label">{{tab.label}}</div>
+                        {{/if}}
+                        {{#if tab.value}}
+                            <div class="global-tabs__value">{{tab.value}}</div>
+                        {{/if}}
+                        {{#if (and (and isDeletable (not isLastTab) (not tab.disabled)) (not isButton) (not tab.isReadOnly))}}
+                            <div class="global-tabs__remove">
+                                {{wb-md-icon class="global-icon_size_8" iconName="clear" color=(if isLite 'white') isDisabled=isDeleteDisable click=(action "removeTab" index tab bubbles=false) ripple=false}}
+                            </div>
+                        {{/if}}
+                    {{/link-to}}
+                {{else}}
+                    {{#link-to tab.route disabled=tab.disabled click=(action "openTab" index) class="global-tabs__element" classBinding="tab.disabled:global-tabs__element_status_disabled" classBinding="isButton:global-tabs__element_type_button" classBinding="tab.isError:global-tabs__element_status_error" classBinding="isFluid:global-tabs__element_type_fluid"}}
+                        {{#if tab.label}}
+                            <div class="global-tabs__label">{{tab.label}}</div>
+                        {{/if}}
+                        {{#if tab.value}}
+                            <div class="global-tabs__value">{{tab.value}}</div>
+                        {{/if}}
+                        {{#if (and (and isDeletable (not isLastTab) (not tab.disabled)) (not isButton) (not tab.isReadOnly))}}
+                            <div class="global-tabs__remove">
+                                {{wb-md-icon class="global-icon_size_8" iconName="clear" color=(if isLite 'white') isDisabled=isDeleteDisable click=(action "removeTab" index tab bubbles=false) ripple=false}}
+                            </div>
+                        {{/if}}
+                    {{/link-to}}
+                {{/if}}
+            {{else}}
+                <div class="global-tabs__element{{if tab.isActive ' global-tabs__element_status_active'}}{{if tab.disabled ' global-tabs__element_status_disabled'}}{{if tab.isError ' global-tabs__element_status_error'}}{{if isButton ' global-tabs__element_type_button'}}{{if isFluid ' global-tabs__element_type_fluid'}}" {{action "openTab" index}}>
+                    {{#if tab.label}}
+                        <div class="global-tabs__label">{{tab.label}}</div>
+                    {{/if}}
+                    {{#if tab.value}}
+                        <div class="global-tabs__value">{{tab.value}}</div>
+                    {{/if}}
+                    {{#if (and (and isDeletable (not isLastTab) (not tab.disabled)) (not isButton) (not tab.isReadOnly))}}
+                        <div class="global-tabs__remove">
+                            {{wb-md-icon class="global-icon_size_8" iconName="clear" color=(if isLite 'white') isDisabled=isDeleteDisable click=(action "removeTab" index tab bubbles=false) ripple=false}}
+                        </div>
+                    {{/if}}
+                </div>
+            {{/if}}
+
+        {{/each}}
+        <div class="global-tabs__slide-line {{slideDirection}} {{if isButton 'global-tabs__slide-line_button'}}{{if slideLineIsError 'global-tabs__slide-line_error'}}"></div>
+    </div>
+</div>
+{{#if (and (not isButton) (not isStatic))}}
+    <div class="global-tabs__control{{if (not isRightNavActive) ' global-tabs__element_status_disabled'}}" {{action "moveRight"}}>
+        {{wb-md-icon iconName="keyboard_arrow_right" color=iconColor ripple=false}}
+    </div>
+{{/if}}

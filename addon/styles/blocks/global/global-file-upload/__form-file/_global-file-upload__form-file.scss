@@ -1,0 +1,17 @@
+.global-file-upload__form-file {
+    background: $white;
+    border: 1px solid #E8E8E8;
+    border-radius: $baseBorderRadius;
+    padding: 0 20px;
+    height: 40px;
+    position: relative;
+    z-index: 1;
+    transform: translateZ(0);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    user-select: none;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+}
+
+@import "_status/global-file-upload__form-file_status";

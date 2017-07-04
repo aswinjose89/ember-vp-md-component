@@ -1,0 +1,15 @@
+.dropdown-list__divider {
+    height: 28px;
+    position: relative;
+    z-index: 1;
+    &:before {
+        content: '';
+        background: $baseBorderColor;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transition: translateY(-50%);
+    }
+}

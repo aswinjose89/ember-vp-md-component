@@ -1,0 +1,19 @@
+.button {
+    // Mod name
+    &_size {
+        &_28 {
+            height: 28px;
+            font-size: $baseFontSize;
+            border-radius: $baseBorderRadius;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-weight: 500;
+            .button__icon_left {
+                margin-left: 0;
+            }
+            .button__icon_right {
+                margin-right: 0;
+            }
+        }
+    }
+}

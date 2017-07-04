@@ -1,0 +1,14 @@
+.followup-task_status_done {
+    .static-info {
+        transition: opacity 0.25s $baseTransition;
+    }
+    &:hover {
+        .followup-task__message-content {
+            text-decoration: none;
+        }
+        .static-info {
+            opacity: 1;
+        }
+    }
+
+}

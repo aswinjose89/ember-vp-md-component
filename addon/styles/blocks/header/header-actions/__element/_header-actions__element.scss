@@ -1,0 +1,5 @@
+.header-actions__element {
+  & ~ .header-actions__element {
+    margin-left: 10px;
+  }
+}

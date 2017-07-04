@@ -1,0 +1,138 @@
+<div class="card-title">
+    <div class="card-title__left">
+        <h2>Details</h2>
+    </div>
+</div>
+<div class="static-list">
+    <table>
+        <tr class="static-list__row">
+            <td class="static-list__label">Product Group</td>
+            {{!-- you can use the following mixin in your component 
+                import ComponentHelper from 'wb-ui-md-components/mixins/component-helper';
+                init() {
+                    this.setupConfig(this.get('config'));
+                }
+                to use property directly as 'productValue' instead of 'config.productValue'
+            --}}
+            <td class="static-list__data">{{if config.productValue config.productValue '-'}}</td>
+            <td class="static-list__label">Charge/ Interest Description</td>
+            <td class="static-list__data">{{if interestGroup interestGroup '-'}}</td>
+        </tr>
+        <tr class="static-list__row">
+            <td class="static-list__label">SCI Product Code Description</td>
+            <td class="static-list__data">
+                {{#wb-md-previous-value value="Previous Value: Flat Amount" }} Red Clause LCs {{/wb-md-previous-value}}
+            </td>
+            <td class="static-list__label">Charge Party</td>
+            <td class="static-list__data">
+                {{#wb-md-previous-value value="Previous Value: Flat Amount" }} Applicant {{/wb-md-previous-value}}
+            </td>
+        </tr>
+        <tr class="static-list__row">
+            <td class="static-list__label">Transaction Initiation</td>
+            <td class="static-list__data">
+                {{#wb-md-previous-value value="Previous Value: Flat Amount" }}Electronic{{/wb-md-previous-value}}
+            </td>
+            <td class="static-list__label">Transaction Type</td>
+            <td class="static-list__data">
+                Foreign
+            </td>
+        </tr>
+        <tr class="static-list__row">
+            <td class="static-list__label">Base Amount Code</td>
+            <td class="static-list__data">
+                Undertaking Amount
+            </td>
+            <td class="static-list__label">Period Code</td>
+            <td class="static-list__data">
+                {{#wb-md-previous-value value="Previous Value: Flat Amount" }}Expairy to ACP Matrty Dte{{/wb-md-previous-value}}
+            </td>
+        </tr>
+        <tr class="static-list__row">
+            <td class="static-list__label">Deal Currency</td>
+            <td class="static-list__data">
+                SGD
+            </td>
+            <td class="static-list__label">Finance Currency</td>
+            <td class="static-list__data">
+                USD
+            </td>
+        </tr>
+        <tr class="static-list__row">
+            <td class="static-list__label">Pricing Method</td>
+            <td class="static-list__data">
+                {{#wb-md-previous-value value="Previous Value: Flat Amount" }}Tier by Amount{{/wb-md-previous-value}}
+            </td>
+        </tr>
+        <tr class="static-list__row">
+            <td class="static-list__label">Proposed Pricing</td>
+            <td class="static-list__data">
+                {{#wb-md-previous-value value="Previous Value: Flat Amount"}}
+                <table class="simple-table-data">
+                    <tr>
+                        <td>SGD 10000</td>
+                        <td>-</td>
+                        <td>50000</td>
+                        <td>- 5%</td>
+                    </tr>
+                    <tr>
+                        <td>SGD 50001</td>
+                        <td>-</td>
+                        <td>10000</td>
+                        <td>- 4%</td>
+                    </tr>
+                    <tr>
+                        <td>SGD 100001</td>
+                        <td>-</td>
+                        <td>20000</td>
+                        <td>- 3%</td>
+                    </tr>
+                    <tr>
+                        <td>SGD 200001</td>
+                        <td>-</td>
+                        <td>50000</td>
+                        <td>- 2%</td>
+                    </tr>
+                    <tr>
+                        <td>SGD 500001</td>
+                        <td>+</td>
+                        <td></td>
+                        <td>- 1%</td>
+                    </tr>
+                </table>
+                <p>(USD 6000 or 2% whichever is higher)</p>
+                {{/wb-md-previous-value}}
+            </td>
+        </tr>
+    </table>
+</div>
+{{wb-md-spacer}}
+{{#wb-md-content-toolbar
+    color="gray"
+    border="top"
+}}
+    <div class="content-toolbar__row">
+        <div class="content-toolbar__element">
+            {{wb-md-button
+                label="AUDIT TRAIL"
+                color="transparent"
+                action='auditTrial'
+            }}
+        </div>
+    </div>
+    <div class="content-toolbar__row">
+        <div class="content-toolbar__element">
+            {{wb-md-button
+                label="MARK FOR REFER BACK"
+                type="link"
+            }}
+        </div>
+        <div class="content-toolbar__element">
+            {{wb-md-button
+                label="MARK FOR APPROVAL"
+                type="link"
+                action='markForApproval'
+            }}
+        </div>
+    </div>
+{{/wb-md-content-toolbar}}

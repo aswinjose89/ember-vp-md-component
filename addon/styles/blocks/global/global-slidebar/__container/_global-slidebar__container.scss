@@ -1,0 +1,13 @@
+.global-slidebar__container {
+    width: 400px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: $white;
+    border-radius: 0px 0px 2px 2px;
+    animation-name: slideInRight;
+    animation-duration: .1s;
+    @extend %global-effect;
+    @extend %global-effect_position_top_right;
+}

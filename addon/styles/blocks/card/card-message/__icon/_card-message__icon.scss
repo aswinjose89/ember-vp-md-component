@@ -1,0 +1,13 @@
+.card-message__icon {
+    margin-right: 10px;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    @include flex(flex, row, nowrap, center, center, flex-start);
+    border-radius: 50%;
+    pointer-events: none;
+    background: $orange-500;
+}
+
+//import mods
+@import "__color/card-message__icon_color";

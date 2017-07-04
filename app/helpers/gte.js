@@ -1,0 +1,1 @@
+export { default, gte } from 'wb-ui-md-components/helpers/gte';

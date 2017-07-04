@@ -1,0 +1,20 @@
+<h3 class="guideline-block__chapter-title">Select Select</h3>
+{{wb-md-input type='select'
+    searchable=true
+    searchAction=(action 'userQueryAction')
+    selectedItem=selectedUser
+    config=userSearchConfig
+    onChange='selectionChanged'
+    optionValuePath="id"
+    optionLabelPath="name"
+}}
+<h3 class="guideline-block__chapter-title">Multi Select</h3>
+{{wb-md-input type='select'
+    searchable=true
+    searchAction=(action 'userQueryAction')
+    multiple=true
+    selectedItems=selectedUsers
+    config=userSearchConfig
+    optionValuePath="id"
+    optionLabelPath="name"
+}}

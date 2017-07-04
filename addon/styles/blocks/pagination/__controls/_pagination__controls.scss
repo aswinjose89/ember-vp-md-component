@@ -1,0 +1,4 @@
+.pagination__controls {
+    width: 72px;
+    @include flex(flex, row, nowrap, space-between, flex-start, flex-start);
+}

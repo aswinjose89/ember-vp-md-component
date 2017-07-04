@@ -1,0 +1,11 @@
+.global-table__row {
+    border-top: 1px solid $baseBorderColor;
+    &:not([class*=lobal-table__row_type_inner]):not([class*=lobal-table__row_color]):hover {
+        & > td {
+            background-color: $gray_100;
+        }
+    }
+}
+@import "_type/global-table__row_type";
+@import "_color/global-table__row_color";
+@import "_status/global-table__row_status";

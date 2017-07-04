@@ -1,0 +1,7 @@
+.input-subject__icon {
+  flex-shrink: 0;
+    transform: translateY(1px);
+}
+
+@import "input-subject__icon_left";
+@import "input-subject__icon_right";

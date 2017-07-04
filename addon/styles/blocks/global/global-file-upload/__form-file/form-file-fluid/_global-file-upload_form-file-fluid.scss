@@ -1,0 +1,5 @@
+.global-file-upload_form-file-fluid {
+    width: 100%;
+    flex-shrink: 1;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+}

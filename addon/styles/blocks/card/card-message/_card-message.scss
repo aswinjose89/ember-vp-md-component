@@ -1,0 +1,15 @@
+.card-message {
+    padding: 0 20px;
+    flex-shrink: 0;
+}
+
+//import elements
+@import "__actions/card-message__actions";
+@import "__icon/card-message__icon";
+@import "__text/card-message__text";
+@import "__title/card-message__title";
+@import "__help-icon/card-message__help-icon";
+//import mods
+@import "_type/card-message_type";
+@import "card-message_short";
+@import "card-message_shadow";

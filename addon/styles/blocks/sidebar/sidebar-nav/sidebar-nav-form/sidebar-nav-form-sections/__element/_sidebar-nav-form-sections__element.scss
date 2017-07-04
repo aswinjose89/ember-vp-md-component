@@ -1,0 +1,31 @@
+.sidebar-nav-form-sections__element {
+    padding: 10px 20px 8px 10px;
+    position: relative;
+    z-index: 1;
+    border-radius: $baseBorderRadius;
+    background: transparent;
+    cursor: pointer;
+    color: change-color($baseColor, $alpha: .7);
+    user-select: none;
+    transition: background 0.3s $baseTransition;
+    line-height: 24px;
+    will-change: background;
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    .global-icon {
+        flex-shrink: 0;
+        transform: translateY(-1px);
+        margin: 0 16px 0 -4px;
+    }
+    span {
+        @extend %text-overflow;
+    }
+    &:hover {
+        background: change-color($gray_scb300, $alpha: 0.5);
+    }
+}
+
+//import mods
+@import "sidebar-nav-form-sections__element_current";
+@import "sidebar-nav-form-sections__element_done";
+@import "sidebar-nav-form-sections__element_error";
+@import "sidebar-nav-form-sections__element_disabled.scss"

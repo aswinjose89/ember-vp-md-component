@@ -1,0 +1,10 @@
+.global-upload-queue__header {
+  position: relative;
+  height: 50px;
+  padding: 0 20px;
+  z-index: 1;
+  background: #323232;
+  border-radius: 2px 2px 0px 0px;
+  user-select: none;
+  @include flex(flex, row, nowrap, space-between, center, flex-start)
+}

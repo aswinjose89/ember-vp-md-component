@@ -1,0 +1,37 @@
+%material-icons,
+.global-icon {
+    font-family: 'SCB-Material-Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+    vertical-align: top;
+    user-select: none;
+}
+
+.global-icon {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.global-icon_margin_left {
+    margin-left: 10px;
+}
+
+@import "_color/global-icon_color";
+@import "_status/global-icon_status";
+@import "_size/global-icon_size";

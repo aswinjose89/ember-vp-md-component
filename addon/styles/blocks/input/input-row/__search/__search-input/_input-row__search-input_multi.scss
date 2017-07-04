@@ -1,0 +1,12 @@
+.input-row__search-input_multi {
+    &:before {
+        content: '+ Add';
+        flex-shrink: 0;
+        color: change-color($baseColor, $alpha: .4);
+        opacity: 1;
+        transition: all 0.4s ease;
+        will-change: all;
+        order: 1;
+        white-space: nowrap;
+    }
+}

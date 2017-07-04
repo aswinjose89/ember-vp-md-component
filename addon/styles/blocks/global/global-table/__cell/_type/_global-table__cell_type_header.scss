@@ -1,0 +1,9 @@
+.global-table__cell_type_header {
+    border-bottom: 1px solid $baseBorderColor;
+    color: $baseColor;
+    font-size: $smallFontSize;
+    font-weight: 500;
+    .checkbox-menu {
+        margin: 0 -6px;
+    }
+}

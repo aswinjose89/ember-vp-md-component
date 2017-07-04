@@ -1,0 +1,43 @@
+{{#wb-md-popup size="medium"}}
+    {{#wb-md-content-toolbar border=(if componentConfig.showTopBar "bottom") color='blue' pad="full" }}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title">
+                    {{popupTitle}}
+                </div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="global-popup__content">
+        {{wb-md-spacer}}
+        {{wb-md-input 
+            multiline=true
+            label=componentConfig.label
+            value=multiLineText
+            leftIconName="comment"
+            required=isRequired
+            maxLength=componentConfig.maxLength
+        }}
+        {{wb-md-spacer}}
+    </div>
+    {{#wb-md-content-toolbar color='gray' position="right" pad="full"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button 
+                    action='closeDialog' 
+                    type='secondary' 
+                    label='Cancel'
+                }}
+            </div>
+            <div class="content-toolbar__element">
+                {{wb-md-button 
+                    action='saveContent' 
+                    color="blue" 
+                    type='primary' 
+                    label='Done'
+                    disabled=isDoneDisabeld
+                }}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+{{/wb-md-popup}}

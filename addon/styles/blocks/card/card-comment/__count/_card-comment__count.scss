@@ -1,0 +1,9 @@
+.card-comment__count {
+  position: absolute;
+  right: 20px;
+  line-height: $smallFontSize;
+  font-size: $smallFontSize;
+  bottom: 66px;
+  color: change-color($baseColor, $alpha: .7);
+  z-index: 2;
+}

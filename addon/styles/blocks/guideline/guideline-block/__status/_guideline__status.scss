@@ -1,0 +1,10 @@
+.guideline-block__status {
+  border-radius: $baseBorderRadius;
+  padding: 4px 10px 3px 10px;
+  margin-left: 20px;
+}
+
+//import status mods
+@import "guideline__status_stable";
+@import "guideline__status_deprecated";
+@import "guideline__status_in-progress";

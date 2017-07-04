@@ -1,0 +1,13 @@
+{{wb-md-checkbox disabled=disabled click=(action "toggleSelectAll") indeterminate=isIndeterminate checked=isChecked}}
+{{wb-md-icon iconName="arrow_drop_down" disabled=disabled click=(action "showModal")}}
+<div class="checkbox-menu__modal{{if isOpen " checkbox-menu__modal_show"}} checkbox-menu__modal_position_{{position}}">
+    {{#each items as |item|}}
+        <div class="checkbox-menu__modal-element" {{action "setSelection" item}}>
+            {{#if item.isSelected}}
+                {{item.selectionLabel}}
+            {{else}}
+                {{item.label}}
+            {{/if}}
+        </div>
+    {{/each}}
+</div>

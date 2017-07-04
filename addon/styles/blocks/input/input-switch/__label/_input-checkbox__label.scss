@@ -1,0 +1,11 @@
+.input-switch__label {
+    cursor: pointer;
+    line-height: $baseLineHeight;
+    display: inline-block;
+    line-height: 22px;
+    padding-top: 2px;
+    margin-right: 10px;
+    user-select: none;
+}
+
+@import "input-checkbox__label_right";

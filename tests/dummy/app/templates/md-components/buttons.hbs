@@ -1,0 +1,265 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Buttons</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-button type='primary' label="Button" color="blue"}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-button type='primary' color="blue" label="Button Label"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>label</span></code> - Sets the button label</li>
+                        <li><code><span>color</span></code> - Sets the button color</li>
+                        <li><code><span>size</span></code> - Only two button sizes are available default and small</li>
+                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>default</th>
+                                <th>small</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{wb-md-button type='primary' label="Button" color="blue"}}</td>
+                                <td>{{wb-md-button type='primary' size="small" label="Button" color="blue"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li><code><span>color</span></code> - Sets the button color</li>
+                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>blue</th>
+                                <th>blue-500</th>
+                                <th>blue-gray</th>
+                                <th>green</th>
+                                <th>white</th>
+                                <th>orange</th>
+                                <th>transparent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{wb-md-button type='primary' label="Button" color="blue"}}</td>
+                                <td>{{wb-md-button type='primary' label="Button" color="blue-500"}}</td>
+                                <td>{{wb-md-button type='primary' label="Button" color="blue-gray"}}</td>
+                                <td>{{wb-md-button type='primary' label="Button" color="green"}}</td>
+                                <td>{{wb-md-button type='primary' label="Button" color="white"}}</td>
+                                <td>{{wb-md-button type='primary' label="Button" color="orange"}}</td>
+                                <td>{{wb-md-button type='secondary' label="Button" color="transparent"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li><code><span>type</span></code> - Sets the button type</li>
+                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>primary</th>
+                                <th>secondary</th>
+                                <th>link</th>
+                                <th>icon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{wb-md-button type='primary' label="Primary" color="blue"}}</td>
+                                <td>{{wb-md-button type='secondary' label="Secondary"}}</td>
+                                <td>{{wb-md-button type='link' label="Link"}}</td>
+                                <td>{{wb-md-button iconName='alarm' type='primary' color='blue'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li><code><span>disabled</span></code> - Set true to disable the button</li>
+                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>primary</th>
+                                <th>secondary</th>
+                                <th>link</th>
+                                <th>icon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{wb-md-button disabled=true type='primary' label="Primary" color="blue"}}</td>
+                                <td>{{wb-md-button disabled=true type='secondary' label="Secondary"}}</td>
+                                <td>{{wb-md-button disabled=true type='link' label="Link"}}</td>
+                                <td>{{wb-md-button disabled=true iconName='alarm' type='primary' color='blue'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Events &amp; Actions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>action</td>
+                                <td class="">
+                                    <p>
+                                        If <code>async</code> property is set to true the button will be enabled and disabled automatically.
+                                        If <code>async</code> property is false, the attributes returned will be
+                                        <code>params</code> passed to the action and <code>click</code> event object.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Buttons with Icon</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-button type='primary' rightIconName='arrow_drop_down' leftIconName='event' color="blue" label="Icon Button"}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-button type='primary' rightIconName='arrow_drop_down' leftIconName='event' color="blue" label="Icon Button"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>rightIconName</span></code> - Provide the icon name to this property for the button with right icon</li>
+                        <li><code><span>leftIconName</span></code> - Provide the icon name to this property for the button with left icon</li>
+                        <li><code><span>iconName</span></code> - Give the icon name to this property if you need icon button</li>
+                        <li><code><span>iconColor</span></code> - Custom Icon color</li>
+                    </ul>
+                </div>
+            </div>
+            <h3 class="guideline-block__chapter-title">Custom Icon Color</h3>
+            <div class="guideline-block__example">
+                {{wb-md-button type="secondary" iconColor='green-500' leftIconName='event' label='Open Calendar'}}
+            </div>
+            <div class="guideline-block__chapter">
+                {{#wb-md-code-highlight type="handlebars"}}
+                    &#123;{wb-md-button type="secondary" iconColor='green-500' leftIconName='event' async=true  label='Open Calendar'}}
+                {{/wb-md-code-highlight}}
+            </div>
+            <h3 class="guideline-block__chapter-title">Icon Button</h3>
+                <div class="guideline-block__example">
+                    {{wb-md-button iconName='alarm' type='primary' color='blue'}}
+                </div>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-button iconName='alarm' type='primary' color='blue'}}
+            {{/wb-md-code-highlight}}
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Async Buttons</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <p>
+            Async buttons will automatically enable and dsiable the button state when the button is clicked. Just give <code>asyn=true</code>
+            return a <code>promise</code> to the action.
+        </p>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>aync default:false</span></code> - Enable async behaviour</li>
+                    <li><code><span>action</span></code> - Specify a <code>action</code> which returns a promise</li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Closure action</h3>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-button type="primary" color="blue" async=true action=(action "saveWithClosureAction") label='Save with Closure Action'}}
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Javascript</h3>
+            {{#wb-md-code-highlight type="js"}}
+                actions: {
+                    saveWithClosureAction(){
+                        return model.save()
+                    }
+                }
+            {{/wb-md-code-highlight}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Action with a promise callback</h3>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-button type="primary" color="blue" async=true action="save" label='Save'}}
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Javascript</h3>
+            {{#wb-md-code-highlight type="js"}}
+                actions: {
+                    save: function (callback) {
+                        var promise = new Ember.RSVP.Promise(function (resolve, reject) {
+                            if(someCondition){
+                                resolve();
+                            }else{
+                                reject('Promise is rejectd');
+                            }
+                        });
+                        callback(promise);
+                    }
+                }
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Example</h3>
+            {{async-button}}
+        </div>
+    </div>
+{{/wb-md-card}}

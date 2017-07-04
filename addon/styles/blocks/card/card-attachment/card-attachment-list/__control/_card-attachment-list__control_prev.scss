@@ -1,0 +1,6 @@
+.card-attachment-list__control_prev {
+  left: 10px;
+  &:before {
+    content: 'keyboard_arrow_left';
+  }
+}

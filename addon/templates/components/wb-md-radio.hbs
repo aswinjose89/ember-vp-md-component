@@ -1,0 +1,5 @@
+<input type="radio" name="{{name}}" disabled="{{disabled}}" checked={{checked}}>
+<div class="input-radio__icon">{{wb-md-icon ripple=true iconName=(if checked "radio_button_checked" "radio_button_unchecked") color=(if checked "blue" "gray")}}</div>
+{{#if label}}
+    <label>{{label}}</label>
+{{/if}}

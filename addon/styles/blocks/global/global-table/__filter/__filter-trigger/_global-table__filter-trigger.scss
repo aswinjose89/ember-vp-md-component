@@ -1,0 +1,23 @@
+.global-table__filter-trigger {
+    background-color: #EAEAEA;
+    width: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0);
+    &:after {
+        pointer-events: none;
+        @extend %material-icons;
+        content: 'arrow_drop_down';
+        color: #6F6F6F;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate3D(-50%, -50%, 0);
+    }
+}

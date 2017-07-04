@@ -1,0 +1,286 @@
+.ap-table {
+    table {
+        width: 100%;
+    }
+    td,
+    th {
+        padding: 10px;
+        height: 50px;
+        vertical-align: middle;
+        width: 1px;
+        white-space: nowrap;
+        //&:first-child {
+        //    padding-left: 20px;
+        //}
+        //&:last-child {
+        //    padding-right: 20px;
+        //}
+        .input-table {
+            min-width: 90px;
+        }
+        &.ap-table_cell__align_top {
+            vertical-align: top;
+        }
+        &.ap-table__cell_status_priority,
+        &.global-table__cell_status_priority {
+            width: auto;
+        }
+        .global-icon {
+            vertical-align: middle;
+        }
+    }
+    th {
+        font-size: $smallFontSize;
+        color: $grayLabel;
+        font-weight: 500;
+        background-color: $gray_50;
+    }
+    tr:not(.ap-table__total) {
+        border-top: 1px solid $baseBorderColor;
+        &:hover {
+            &>td {
+                background-color: $gray_100;
+            }
+        }
+    }
+    tbody {
+        tr {
+            &:first-child {
+                border-top: 0;
+                td {
+                    box-shadow: inset 0px 6px 3px -3px rgba(0, 0, 0, 0.15);
+                }
+            }
+        }
+    }
+    a {
+        font-weight: 500;
+    }
+}
+
+.ap-table__cell_border_left {
+    border-left: 1px solid $baseBorderColor;
+    padding-left: 11px;
+}
+
+.ap-table__total {
+    font-weight: 500;
+    background: #E0F2F1;
+    color: #00796B;
+    &_color_brown {
+        background: $brown_50;
+        color: $brown_500;
+    }
+    &_color_yellow {
+        background: #FBF8F0;
+        color: $grayLabel;
+    }
+}
+
+.ap-table__cell_actions {
+    text-align: right;
+}
+
+.ap-grand-total {
+    @include flex(flex, row, nowrap, space-between, center, flex-start);
+    background: #E0F2F1;
+    color: #00796B;
+    height: 80px;
+    padding: 0 20px;
+    &__title {
+        font-size: 16px;
+    }
+    &__list {
+        flex-shrink: 0;
+        @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    }
+    &__element {
+        width: 150px;
+        flex-shrink: 0;
+        text-align: right;
+    }
+    &__label {
+        font-size: $smallFontSize;
+        color: $grayLabel;
+    }
+    &__value {
+        font-size: 16px;
+        margin-top: 5px;
+    }
+}
+
+.tb-sales-statistic {
+    padding: 10px 20px 20px 20px;
+    @include flex(flex, row, nowrap, flex-start, stretch, flex-start);
+    .tb-sales-statistic__cell {
+        @include flex(flex, column, nowrap, space-between, flex-start, flex-start);
+        width: 100%;
+        flex-shrink: 1;
+        flex-grow: 1;
+        background: $white;
+        padding: 20px 10px 10px 10px;
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.16);
+        cursor: pointer;
+        &+.tb-sales-statistic__cell {
+            margin-left: 10px;
+        }
+        &_status_active {
+            color: $white;
+            background: $indigo_500;
+            cursor: default;
+        }
+    }
+    .tb-sales-statistic__element {
+        &+.tb-sales-statistic__element {
+            margin-top: 10px;
+        }
+    }
+    .tb-sales-statistic__label {
+        font-size: $smallFontSize;
+        color: change-color($grayLabel, $alpha: .7);
+    }
+    .tb-sales-statistic__cell_status_active .tb-sales-statistic__label {
+        color: change-color($white, $alpha: .7);
+    }
+    .tb-sales-statistic__total {
+        font-size: 24px;
+        margin-top: 4px;
+        &_color {
+            &_blue {
+                color: rgba(124, 184, 255, 1);
+            }
+            &_green {
+                color: $lightGreen_500;
+            }
+            &_orange {
+                color: rgba(245, 168, 35, 1);
+            }
+            &_purple {
+                color: $deepPurple_500;
+            }
+        }
+    }
+    .tb-sales-statistic__cell_status_active .tb-sales-statistic__total {
+        color: $white;
+    }
+    .tb-sales-statistic__value {
+        color: $grayLabel;
+        margin-top: 4px;
+    }
+    .tb-sales-statistic__cell_status_active .tb-sales-statistic__value {
+        color: $white;
+    }
+    &__info {
+        &+.tb-sales-statistic__info {
+            margin-top: 10px;
+        }
+    }
+}
+
+.tb-sales-countries {
+    color: $grayLabel;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    &__header {
+        @include flex(flex, row, nowrap, flex-start, stretch, flex-start);
+        background: $white;
+        position: fixed;
+        width: inherit;
+        .tb-sales-countries__label {
+            font-size: $smallFontSize;
+        }
+    }
+    &__element {
+        @include flex(flex, row, nowrap, space-between, center, flex-start);
+        height: 50px;
+        padding: 0 20px;
+        &:hover {
+            .tb-sales-countries__icon {
+                transform: scale(1);
+            }
+        }
+    }
+    &__header .tb-sales-countries__element {
+        border-bottom: 2px solid $baseBorderColor;
+    }
+    &__column {
+        width: 33.3%;
+        &+.tb-sales-countries__column {
+            border-left: 1px solid $baseBorderColor;
+        }
+        &:nth-child(1) {
+            background-color: change-color($green_500, $alpha: .05);
+            & .tb-sales-countries__element {
+                &:hover {
+                    background-color: rgba(223, 235, 226, 1);
+                }
+            }
+        }
+        &:nth-child(2) {
+            & .tb-sales-countries__element {
+                &:hover {
+                    background-color: rgba(245, 245, 245, 1);
+                }
+            }
+        }
+        &:nth-child(3) {
+            background-color: change-color($amber_500, $alpha: .05);
+            & .tb-sales-countries__element {
+                &:hover {
+                    background-color: $amber_50;
+                }
+            }
+        }
+    }
+    &__content {
+        @include flex(flex, row, nowrap, flex-start, stretch, flex-start);
+        color: $grayLabel;
+        padding-top: 50px;
+    }
+    &__content .tb-sales-countries__element {
+        border-bottom: 1px solid $baseBorderColor;
+    }
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 20px;
+        transform: scale(0);
+        transition: transform 0.25s $baseTransition;
+    }
+    &__label {
+        @extend %text-overflow;
+    }
+    &__label+.tb-sales-countries__icon {
+        margin-right: 0;
+        margin-left: 20px;
+    }
+    &__count {
+        font-weight: 500;
+    }
+}
+
+.ap-map-tooltip {
+    color: $white;
+    background: change-color($black, $alpha: 0.8);
+    padding: 13px 20px 0 20px;
+    h3 {
+        font-size: $baseFontSize;
+        color: rgba(124, 184, 255, 1);
+        font-weight: 500;
+        padding-bottom: 13px;
+    }
+    table {
+        font-size: $smallFontSize;
+        tr~tr {
+            td {
+                padding-top: 10px;
+            }
+        }
+        td~td {
+            padding-left: 20px;
+        }
+    }
+    &__text_orange {
+        color: $deepOrange_500;
+    }
+}

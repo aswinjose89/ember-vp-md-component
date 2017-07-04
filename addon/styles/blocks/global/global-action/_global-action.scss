@@ -1,0 +1,16 @@
+.global-action {
+  padding: 0 10px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+//import elements
+@import "__element/global-action__element";
+@import "__row/global-action__row";
+
+//import mods
+@import "global-action_border-top";
+@import "global-action_border-bottom";
+@import "global-action_full-pad";
+@import "_position/global-action_position";
+@import "_color/global-action_color";

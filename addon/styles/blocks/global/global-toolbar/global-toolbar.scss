@@ -1,0 +1,33 @@
+.global-toolbar {
+    flex-shrink: 0;
+    //@extend %center;
+    padding: 0 20px;
+    height: 60px;
+    position: relative;
+    z-index: 5;
+    align-self: flex-start;
+    width: 100%;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    &:before {
+        background: $indigo_700;
+        width: 20000px;
+        position: absolute;
+        content: '';
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: translateX(-50%);
+    }
+}
+
+.global-toolbar__left, .global-toolbar___right {
+    flex-shrink: 0;
+}
+
+.global-toolbar__center {
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+@import "_color/global-toolbar_color";

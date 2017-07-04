@@ -1,0 +1,24 @@
+.global-slidebar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 900;
+    background: rgba(0, 0, 0, .1);
+    overflow: hidden;
+    @include flex(flex, row, nowrap, center, center, center);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    animation-fill-mode: forwards;
+    animation-duration: .2s;
+    animation-name: showBackground;
+    animation-timing-function: ease;
+    will-change: background;
+}
+
+.global-slidebar_overpopup {
+    z-index: 904;
+}
+
+@import "__container/global-slidebar__container";

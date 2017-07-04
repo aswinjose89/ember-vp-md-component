@@ -1,0 +1,11 @@
+.static-info__label {
+    font-size: $smallFontSize;
+    @extend %text-overflow;
+    padding-bottom: 1px;
+    color: $indigo_500;
+    cursor: default;
+}
+
+.static-info__label_icon {
+    padding-left: 34px;
+}

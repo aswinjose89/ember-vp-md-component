@@ -1,0 +1,66 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Date Picker</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-button type="primary" color="blue" label="Change start date" action="changeStartDate"}}
+            {{wb-md-button type="primary" color="blue" label="Change input date" action="changeInputDate"}}
+            {{wb-md-button type="primary" color="blue" label="Clear input date" action="clearInputDate"}}
+            {{wb-md-input type="datepicker" onChange='dateChanged' leftIconName='event' label='Date of Birth' format='dd MMM yyyy' required=true startDate=startDate}}
+            {{wb-md-input type="datepicker" onChange='dateChanged' onClearDate='dateChanged' value=dateValue leftIconName='event' label='Date of Birth' format='dd MMM yyyy' showDays=false}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type="text" leftIconName='chat' required=true max=10 label="Project Name"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>type</span></code> - Specify type as <code>datepicker</code></li>
+                        <li><code><span>format default:dd MMM yyyy</span></code> - Holds the format for the date</li>
+                        <li><code><span>value</span></code> - Pass the unix timestamp</li>
+                        <li><code><span>showDays</span></code> - true by default, show or hide days</li>
+                        <li><code><span>startDate</span></code> - Set first date (in timestamp format) which can be selected</li>
+                        <li><code><span>endDate</span></code> - Set last date (in timestamp format) which can be selected</li>
+                        <li><code><span>dateView</span></code> - choose default view. Possible values: <code><span>days</span></code>, <code><span>months</span></code> or <code><span>years</span></code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Events &amp; Actions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>onChange(value, elementId)</td>
+                                <td>
+                                    <p>
+                                        This action is fired whenever the date is changed
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+{{/wb-md-card}}

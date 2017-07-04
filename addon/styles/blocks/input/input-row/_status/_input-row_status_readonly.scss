@@ -1,0 +1,13 @@
+.input-row_status_readonly {
+    pointer-events: none;
+    .input-row__search-item {
+        padding-right: 8px;
+        pointer-events: none;
+    }
+    .input-row__element {
+        &:after {
+            background-size: 5px 1px;
+            background-image: linear-gradient( to right, change-color($black, $alpha: .4) 0, change-color($black, $alpha: .4) 20%, white 0, white 80%);
+        }
+    }
+}

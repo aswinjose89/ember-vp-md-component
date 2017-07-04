@@ -1,0 +1,12 @@
+.global-login__links {
+	position: relative;
+    padding: 40px 64px;
+    flex-shrink: 0;
+    font-weight: 500;
+    line-height: $baseLineHeight;
+    @include flex(flex, row, nowrap, flex-end, flex-start, flex-start);
+    .env-name {
+    	position: absolute;
+    	left: 32px;
+    }
+}

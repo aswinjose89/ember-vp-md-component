@@ -1,0 +1,22 @@
+.global-file-type {
+    border-radius: $baseBorderRadius;
+    font-weight: 700;
+    font-size: 8px;
+    color: $white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 6px 0 5px 0;
+    line-height: 9px;
+    margin-right: 6px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@import "global-file-type_pdf";
+@import "global-file-type_xls";
+@import "global-file-type_doc";
+@import "global-file-type_ppt";
+@import "global-file-type_img";

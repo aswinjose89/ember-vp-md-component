@@ -1,0 +1,5 @@
+.card-attachment-list__slide {
+  @include flex(flex,row, nowrap, flex-start, flex-start, flex-start);
+  position: relative;
+  z-index: 1;
+}

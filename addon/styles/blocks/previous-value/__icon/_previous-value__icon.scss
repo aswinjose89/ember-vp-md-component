@@ -1,0 +1,14 @@
+.previous-value__icon {
+    margin-right: 6px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    &:before {
+        background: #F44336;
+        width: 5px;
+        display: inline-block;
+        height: 5px;
+        transform: rotate(45deg) translateY(-2px);
+        content: '';
+        vertical-align: middle;
+    }
+}

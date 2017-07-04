@@ -1,0 +1,17 @@
+.pagination {
+    height: 80px;
+    background: $gray_scb50;
+    @include flex(flex, row, nowrap, flex-end, center, flex-start);
+    font-size: $baseFontSize;
+    color: $baseColor;
+    border-top: 1px solid $baseBorderColor;
+    padding: 0 20px;
+    border-radius: 0;
+    .input-row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+@import "__element/pagination__element";
+@import "__controls/pagination__controls";
+@import "__information/pagination__information";

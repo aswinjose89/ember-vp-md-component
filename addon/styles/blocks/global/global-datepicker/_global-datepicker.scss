@@ -1,0 +1,19 @@
+.global-datepicker {
+    width: 330px;
+    height: 480px;
+}
+@import "__days/global-datepicker__days";
+@import "__day/global-datepicker__day";
+
+@import "__main/global-datepicker__main";
+
+@import "__day-names/global-datepicker__day-names";
+@import "__day-name/global-datepicker__day-name";
+
+@import "__year/global-datepicker__year";
+@import "__date/global-datepicker__date";
+@import "__month-slide/global-datepicker__month-slide";
+@import "__month-list/global-datepicker__month-list";
+@import "__month-name/global-datepicker__month-name";
+
+@import "__header/global-datepicker__header";

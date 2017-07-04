@@ -1,0 +1,9 @@
+.card-question__additions {
+    max-width: 33.3%;
+    flex-shrink: 0;
+    text-align: right;
+    @include flex(flex, column, nowrap, flex-end, stretch, flex-start);
+    padding: 20px;
+}
+
+@import "card-question__additions_between";

@@ -1,0 +1,56 @@
+{{#wb-md-popup size="medium"}}
+    {{#wb-md-content-toolbar border=(if componentConfig.showTopBar "bottom") color='blue' pad="full" }}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title">
+                    Team Information
+                </div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="global-popup__content">
+        {{wb-md-button type="primary" label="Show alert" color="blue" action="showAlert"}}
+        <div class="global-popup__text">
+            <p>
+                {{componentConfig.text}}
+            </p>
+        </div>
+        <div class="content-toolbar-group">
+            {{#wb-md-content-toolbar height="auto" pad="full"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-icon iconName="check_circle" color="green-500"}}
+                    </div>
+                    <div class="content-toolbar__element">Part A</div>
+                </div>
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-tag label="UNDER REVIEW" color="orange"}}
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+            {{#wb-md-content-toolbar height="auto" pad="full"}}
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-icon iconName="check_box" color="blue"}}
+                    </div>
+                    <div class="content-toolbar__element">Part B</div>
+                </div>
+                <div class="content-toolbar__row">
+                    <div class="content-toolbar__element">
+                        {{wb-md-tag label="COMPLETED" color="green-500"}}
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+        </div>
+        {{wb-md-input label="Comments" value=comments leftIconName="comment"}}
+        {{multi-level-dropdown}}
+    </div>
+    {{#wb-md-content-toolbar color=(if componentConfig.showActionBar 'gray') position="right" }}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button action='closeDialog' color="blue" type='primary' label='Okay'}}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+{{/wb-md-popup}}

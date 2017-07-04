@@ -1,0 +1,27 @@
+{{#each items as |item index|}}
+    {{#if (gt visibleItems index)}}
+        <div class="global-icon-toolbar__element">
+            {{#if item.config.color}}
+            {{component item.componentName config=item.config  onClickAction=(action "triggerSendAction" item.config.action item)}}
+            {{else}}
+            {{component item.componentName config=item.config color=color onClickAction=(action "triggerSendAction" item.config.action item)}}
+            {{/if}}
+        </div>
+    {{/if}}
+{{/each}}
+{{#if actionMenuConfig.items}}
+    <div class="global-icon-toolbar__element">
+        {{wb-md-action-menu config=actionMenuConfig}}
+    </div>
+{{/if}}
+{{#if toggleExist}}
+    <div class="global-icon-toolbar__element">
+        {{wb-md-icon
+            color=color
+            helpText=toogleHelpText
+            iconName=(if toggledProperty toggleElement.iconAlternative toggleElement.iconDefault)
+            active=toggledProperty
+            click=(action toggleProperty 'toggledProperty')
+        }}
+    </div>
+{{/if}}

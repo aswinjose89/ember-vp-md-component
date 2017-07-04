@@ -1,0 +1,5 @@
+.global-popup__title {
+    @extend %text-overflow;
+    font-size: 18px;
+    color: $baseColor;
+}

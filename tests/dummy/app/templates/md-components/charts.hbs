@@ -1,0 +1,171 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Charts</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-chart config=chart.options series=chart.data}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>config</span> - Mandatory, chart options. Refer more options,
+                            <a href="http://api.highcharts.com/highcharts/chart" target="_blank">here</a></code></li>
+                        <li><code><span>series</span> - Mandatory, chart data.</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+    {{#wb-md-content-toolbar pad="null"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title content-toolbar__title_color_blue">Stacked Column Chart</div>
+            </div>
+            <div class="content-toolbar__element">
+                <div class="guideline-block__status guideline-block__status_stable">
+                    DEV READY: beta
+                </div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="guideline-block__chapter">
+        <h3 class="guideline-block__chapter-title">Ember component</h3>
+
+        {{#wb-md-code-highlight type="handlebars"}}
+            &#123;{wb-md-chart config=columnChart.options series=columnChart.series}}
+        {{/wb-md-code-highlight}}
+    </div>
+    <h3 class="guideline-block__chapter-title">Config Object</h3>
+    {{#wb-md-code-highlight type="js"}}
+    {
+        columnChart: {
+            options: {
+                chart: {
+                    type: 'normal'
+                },
+                ...
+            },
+            series: [{
+                name: "Feedback",
+                data: [5, 3, 4, 7, 2, 6, 4, 3, 0]
+            }, {
+                name: "Compliment",
+                data: [2, 2, 3, 2, 1, 6, 8, 1, 9]
+            },
+            ...
+            ]
+        }
+    }
+    {{/wb-md-code-highlight}}
+    <div class="guideline-block__chapter-inner">
+        <div class="guideline-block__description">
+            <h3 class="guideline-block__chapter-title">Preview</h3>
+        </div>
+    </div>
+    {{wb-md-tabs selectedIndex=buttonTabsContentIndex config=buttonTabsConfig}}
+    {{#wb-md-tabs-content selectedIndex=buttonTabsContentIndex}}
+        {{#each buttonHeaderContent as |tab index|}}
+            {{#wb-md-tab-content}}
+                {{wb-md-chart config=columnChart.options series=columnChart.series}}
+            {{/wb-md-tab-content}}
+        {{/each}}
+    {{/wb-md-tabs-content}}
+
+</div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+    {{#wb-md-content-toolbar pad="null"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title content-toolbar__title_color_blue">Time line Chart</div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="guideline-block__chapter">
+        <h3 class="guideline-block__chapter-title">Ember component</h3>
+
+        {{#wb-md-code-highlight type="handlebars"}}
+            &#123;{wb-md-chart config=timeline.options series=timeline.series}}
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>config</span> - Mandatory, chart options.</code></li>
+                    <li><code>
+                        <ul>
+                            <li><code><span>options</span> - Mandatory, </code></li>
+                            <ul>
+                                <li><code><span>chart.type</span> value is timeline</code></li>
+                                <li><code><span>colors</span> Optional, array of colors</code></li>
+                                <li><code><span>isShowTotal</span> Optional, set true to display sum of data.</code></li>
+                                <li><code><span>legend.isShow</span> Optional, set true to display legend with associated data</code></li>
+                                <li><code><span>legend.legendItemClick</span> Optional function, triggered when clicking the legend</code></li>
+                                <li><code><span>onClick</span> Optional function, triggered when click the bar</code></li>
+                            </ul>
+                        </ul>
+                    </code></li>
+                    <li><code><span>series</span> - Mandatory, chart data.</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h3 class="guideline-block__chapter-title">Config Object</h3>
+    {{#wb-md-code-highlight type="js"}}
+    {
+        timeLine: {
+            options: {
+                chart: {
+                    type: 'timeline'
+                },
+                ...
+            },
+            series: [{
+                name: "High",
+                data: 10
+            }, {
+                name: "Medium",
+                data: 5
+            },
+            ...
+            ]
+        }
+    }
+    {{/wb-md-code-highlight}}
+    <div class="guideline-block__chapter-inner">
+        <div class="guideline-block__description">
+            <h3 class="guideline-block__chapter-title">Preview</h3>
+        </div>
+    </div>
+    {{wb-md-chart config=timeLine.options series=timeLine.series}}
+</div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+    {{#wb-md-content-toolbar pad="null"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title content-toolbar__title_color_blue">World Map</div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    Coming soon.
+</div>
+{{/wb-md-card}}

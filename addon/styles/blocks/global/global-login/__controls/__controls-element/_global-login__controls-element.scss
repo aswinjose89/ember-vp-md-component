@@ -1,0 +1,7 @@
+.global-login__controls-element {
+    width: 20px;
+    height: 20px;
+    &~.global-login__controls-element {
+        margin-left: 10px;
+    }
+}

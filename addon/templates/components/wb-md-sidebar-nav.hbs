@@ -1,0 +1,33 @@
+{{#if additionalInfo}}
+<div class="sidebar-nav-form-additional-info">
+    {{#each additionalInfo as |info|}}
+        <div class="sidebar-nav-form-additional-info__element">
+            <div class="label">{{info.label}}</div>
+            <div class="value"
+                {{action "showToolTip" info.infoLabel on="mouseEnter"}}
+                {{action "hideToolTip" on="mouseLeave"}}>
+                {{#if info.infoLabel}}
+                    {{info.infoLabel}}
+                {{else}}
+                    {{component info.componentName config=info.componentConfig}}
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>
+{{/if}}
+<div class="sidebar-nav-form">
+    {{#if (or title actionLabel)}}
+        <div class="sidebar-nav-form-sections__header">
+            <h2 class="sidebar-nav-form-sections__title">{{title}}{{#if titleHelpText}} <span>{{titleHelpText}}</span>{{/if}}</h2>
+            {{#if actionLabel}}
+                <div class="sidebar-nav-form-sections__action">
+                    <a href {{action 'triggerSendAction'}}>{{actionLabel}}</a>
+                </div>
+            {{/if}}
+        </div>
+    {{/if}}
+    <div class="sidebar-nav-sections">
+        {{yield}}
+    </div>
+</div>

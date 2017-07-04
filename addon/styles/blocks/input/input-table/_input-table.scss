@@ -1,0 +1,11 @@
+.input-table {
+    position: relative;
+    z-index: 1;
+    min-width: 100px;
+}
+
+@import "__inline/input-table__inline";
+@import "__input/input-table__input";
+@import "__icon/input-table__icon";
+@import "__modal/input-table__modal";
+@import "_status/input-table_status";

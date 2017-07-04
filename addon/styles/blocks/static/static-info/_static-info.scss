@@ -1,0 +1,24 @@
+.static-info {
+    min-height: 60px;
+    padding: 14px 20px 10px 20px;
+}
+
+.static-info_inline {
+    padding: 0;
+    min-height: 0;
+    .static-info__label {
+        display: none;
+    }
+}
+
+@import "__label/static-info__label";
+@import "__value/static-info__value";
+@import "__icon/static-info__icon";
+@import "__inline/static-info__inline";
+@import "__content/static-info__content";
+@import "_size/static-info_size";
+@import "__length-trigger/static-info__length-trigger";
+@import "__list/static-info__list";
+@import "_status/static-info_status_disabled";
+@import "_color/static-info_color";
+@import "__modal/static-info__modal";

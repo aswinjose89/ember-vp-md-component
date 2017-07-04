@@ -1,0 +1,21 @@
+{{#if (or remoteSearch isRemoteSearch)}}
+    <div class="dropdown-list__row">
+        <div class="dropdown-list__element">
+        {{#if loading}}
+            {{loadingMessage}}
+        {{else if resolved}}
+            {{noMatchesMessage}}
+        {{else if rejected}}
+            {{searchFailedMessage}}
+        {{else}}
+            {{searchMessage}}
+        {{/if}}
+        </div>
+    </div>
+{{else}}
+    <div class="dropdown-list__row">
+        <div class="dropdown-list__element">
+        {{emptyContentMessage}}
+        </div>
+    </div>
+{{/if}}

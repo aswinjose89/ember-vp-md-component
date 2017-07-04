@@ -1,0 +1,19 @@
+[class*=global-icon_status_active] {
+    &:after {
+        height: 36px;
+        width: 36px;
+        border-radius: 50%;
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: -6px;
+        z-index: -2;
+    }
+}
+
+//import values
+@import "global-icon_status_active-white";
+@import "global-icon_status_active-gray";
+@import "global-icon_status_no-ripple";
+@import "global-icon_status_disabled";
+@import "global-icon_status_readonly"

@@ -1,0 +1,7 @@
+.global-tabs__list {
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    height: 60px;
+    transition: 0.25s $baseTransition;
+    position: relative;
+    z-index:  1;
+}

@@ -1,0 +1,88 @@
+<div class="guideline-block__chapter-inner">
+    <div class="guideline-block__description">
+        <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+        <ul>
+            <li><code><span>isMemberDropdown :default false</span></code> - Enable member dropdown behaviour</li>
+            <li><code><span>hasGroups :default false</span></code> - Enable group behaviour</li>
+            <li><code><span>headerActionLabel</span></code> - Sets the label for global header action</li>
+            <li><code><span>headerAction</span></code> - Sets the action to be triggered when clicking <code>headerActionLabel</code></li>
+            <li>
+                <code>
+                    <span>resultConfig</span></code> - List of properties to be referred from the result set
+                <ul>
+                    <li><code><span>label</span></code> - The property name to map from the Ember Model</li>
+                    <li><code><span>avatar</span></code> - Sets the field from which the user avatar will be loaded</li>
+                    <li><code><span>isClient :default false</span></code> - Specify the member is client or group</li>
+                    <li><code><span>additonalInfoItems</span></code> - The filed which holds the addtional information for the member</li>
+                    <li><code><span>groupHeader</span></code> - The Groups header if <code>hasGroups:true</code></li>
+                    <li><code><span>members</span></code> - The field from which the member list should be referred if <code>hasGroups:true</code></li>
+                    <li><code><span>emailAction</span></code> - The action to be triggered when email is clicked</li>
+                    <li><code><span>enableMemberAction</span></code> - Set the action name to make member name clickable</li>
+                    <li><code>
+                        <span>rowAction</span></code> - Sets the row level action for the dropdown
+                        <ul>
+                            <li><code><span>label</span></code> - The label to be displayed for row action</li>
+                            <li><code><span>action</span></code> - The action to be invoked when rowAction is triggered</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="guideline-block__chapter">
+    <h3 class="guideline-block__chapter-title">Simple Member Dropdown</h3>
+    {{#wb-md-code-highlight type="js" }}
+    {
+        type: 'select',
+        isMemberDropdown: 'true',
+        optionLabelPath: 'name',
+        label: 'Select Member',
+        searchable: true,
+        multiple: true,
+        content: this.getMemberDetails(),
+        resultConfig: {
+            label: 'name',
+            avatar: 'avatarField',
+            isClient: 'isThisMemberClient',
+            additonalInfoItems: 'secondaryItems'
+        }
+    }
+    {{/wb-md-code-highlight}}
+</div>
+
+{{wb-md-input config=simpleMemberDropdownConfig}}
+<div class="guideline-block__chapter">
+    <h3 class="guideline-block__chapter-title">Member Dropdown Group</h3>
+    {{#wb-md-code-highlight type="js" }}
+    {
+        type: 'select',
+        isMemberDropdown: 'true',
+        optionLabelPath: 'name',
+        label: 'Select Member',
+        hasGroups: true,
+        headerAction: 'createAction',
+        headerActionLabel: 'CREATE NEW',
+        searchable: true,
+        multiple: true,
+        content: this.getGroupMemberDeatils(),
+        resultConfig: {
+            label: 'name',
+            avatar: 'avatarField',
+            groupHeader: 'groupName',
+            members: 'members',
+            emailAction: 'emailClicked',
+            isClient: 'isThisMemberClient',
+            enableMemberAction: 'isActionable',
+            memberAction: 'memberNameClicked',
+            enableRowAction: 'isEditEnabled',
+            rowAction: {
+                label: 'Edit',
+                action: 'editContact'
+            },
+            additonalInfoItems: 'secondaryItems'
+        }
+    }
+    {{/wb-md-code-highlight}}
+</div>
+{{wb-md-input config=groupableMemberDropdownConfig isOpen=isDropdownOpen}}

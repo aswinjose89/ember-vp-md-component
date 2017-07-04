@@ -1,0 +1,8 @@
+.input-row_status_error .input-row__element {
+  &:before {
+    left: 0;
+    right: 0;
+    content: '';
+    background: #D0021B;
+  }
+}

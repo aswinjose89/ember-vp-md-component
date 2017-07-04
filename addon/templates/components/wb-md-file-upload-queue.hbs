@@ -1,0 +1,48 @@
+{{#if uploadQueue }}
+<div class="global-upload-queue {{unless displayUploadQueue 'hide'}} ">
+     <div class="global-upload-queue__header">
+        <div class="global-upload-queue__title">{{attachmentService.fileUploadProgress}} uploaded...</div>
+        <div class="global-upload-queue__toolbar">
+            <div class="global-upload-queue__toolbar-element">
+                {{#if minimizeUploadQueue}}
+                    {{wb-md-icon iconName="expand_less" onClickAction=(action "maximize") color="white"}}
+               {{else}}
+                     {{wb-md-icon iconName="expand_more" onClickAction=(action "minimize") color="white"}}
+               {{/if}}
+            </div>
+            <div class="global-upload-queue__toolbar-element">
+                {{wb-md-icon iconName="clear" onClickAction=(action "confirmCancelAllUploads") color="white"}}
+            </div>
+        </div>
+    </div>
+    <div class="global-upload-queue__list {{if minimizeUploadQueue 'hide'}}" >
+    {{#each uploadQueue as |file fileIndex|}}
+        <div class="global-upload-queue__list-element">
+            {{wb-md-file-type type=file.fileExtension file=file}}
+            <div class="global-upload-queue__list-element-name">{{file.fileName}}</div>
+            {{#unless file.isFileUploading}}
+                {{#if file.isError}}
+                    <span>&nbsp;&nbsp;</span>
+                    <div class="global-icon global-icon_color_red-500 global-icon_status_no-ripple"
+                                title="File upload Failed">
+                        error
+                    </div>
+                {{else}}
+                    <div class="global-upload-queue__icon global-upload-queue__icon_done">
+                        <div class="global-icon global-icon_color_green-500">check_circle</div>
+                    </div>
+                {{/if}}
+            {{else}}
+                    <div class="global-upload-queue__icon global-upload-queue__icon_spinner">
+                        <div class="global-spinner"></div>
+                    </div>
+                    <div class="global-upload-queue__list-element-spinner"></div>
+            {{/unless}}
+                <div class="global-upload-queue__icon global-upload-queue__icon_cancel">
+                    {{wb-md-icon iconName="cancel" onClickAction=(action "confirmCancelSingleUpload" file)}}
+                </div>
+        </div>
+        {{/each}}
+    </div>
+ </div>
+ {{/if}}

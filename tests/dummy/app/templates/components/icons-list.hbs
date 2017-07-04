@@ -1,0 +1,16 @@
+{{#wb-md-content-toolbar color="blue" pad="full"}}
+    {{wb-md-input type="search" value=searchKey clearIcon=true}}
+{{/wb-md-content-toolbar}}
+<div class="guideline-block__description">
+    <br>
+    <strong>Click on icon</strong> to copy the name</div>
+<div class="guideline-block__example">
+    <div class="icons-list">
+        {{#each iconsList as |icon|}}
+            <div class="icons-list__element {{if icon.isHidden 'icons-list__element_hide'}}" {{action "copyName" icon.name}}>
+                {{wb-md-icon iconName=icon.name color="black" ripple=false}}
+            </div>
+        {{/each}}
+    </div>
+</div>
+{{yield}}

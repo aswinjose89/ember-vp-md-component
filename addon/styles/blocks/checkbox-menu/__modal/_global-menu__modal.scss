@@ -1,0 +1,16 @@
+.checkbox-menu__modal {
+    position: absolute;
+    background: $white;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 20px 0 rgba(0,0,0,0.16);
+    border-radius: $baseBorderRadius;
+    padding: 14px 0;
+    user-select: none;
+    z-index: -2;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+@import "global-menu__modal_position_bottom";
+@import "global-menu__modal_position_top";
+@import "global-menu__modal_show";

@@ -1,0 +1,12 @@
+.input-list {
+    padding: 12px 20px 9px 20px;
+}
+
+@import "__element/input-list__element";
+@import "input-list_inline";
+@import "input-list_no-vertical-padding";
+@import "__title/input-list__title";
+@import "__description/input-list__description";
+@import "__group/input-list__group";
+@import "__error-message/input-list__error-message";
+@import "_status/input-list_status";

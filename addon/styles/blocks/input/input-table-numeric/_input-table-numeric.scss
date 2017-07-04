@@ -1,0 +1,25 @@
+.input-table-numeric {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 0;
+    input {
+        text-align: left;
+        font-size: $baseFontSize;
+        color: $baseColor;
+        width: 90px;
+        background: $white;
+        border: 1px solid $baseBorderColor;
+        border-radius: $baseBorderRadius;
+        height: 28px;
+        padding: 0 10px;
+        transition: all .4s $baseTransition;
+        &:focus {
+            border: 1px solid $indigo_500;
+            box-shadow: $globalInputShadow;
+        }
+    }
+}
+@import "input-table-numeric__tooltip-trigger";
+@import "input-table-numeric_status_disabled";
+@import "input-table-numeric_status_error";

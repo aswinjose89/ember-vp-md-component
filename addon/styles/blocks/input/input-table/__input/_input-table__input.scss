@@ -1,0 +1,22 @@
+.input-table__input {
+    flex-grow: 1;
+    height: 24px;
+    line-height: 24px;
+    @extend %text-overflow;
+    input {
+        height: 24px;
+        background: transparent;
+        border: 0;
+        color: $baseColor;
+        font-family: $baseFont;
+        font-size: $baseFontSize;
+        padding: 0;
+        @include placeholder {
+            color: change-color($baseColor, $alpha: .7);
+        }
+        width: 100%;
+        @extend %text-overflow;
+    }
+}
+
+@import "input-table__input_header";

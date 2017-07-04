@@ -1,0 +1,184 @@
+.contact-360-banner {
+    background: url("/assets/images/contact_360_banner.jpg");
+    height: 80px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+    box-shadow: $cardShadow;
+    border-radius: $baseBorderRadius;
+}
+
+.contact-360-banner__title {
+    font-size: 32px !important;
+    color: $white;
+    font-weight: 300 !important;
+    position: absolute;
+    left: 88px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    display: block;
+    margin-top: 0;
+    user-select: none;
+}
+
+.contact-360-banner__help-link {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.contact-360-banner__icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+    img {
+        display: block;
+    }
+}
+
+.contact-360-info {
+    padding: 0 20px;
+}
+
+.contact-360-info__total {
+    font-size: 18px;
+    line-height: 21px;
+    white-space: nowrap;
+}
+
+.contact-360-info__line {
+    margin-top: 10px;
+    @include flex(flex,
+    row,
+    nowrap,
+    flex-start,
+    flex-start,
+    flex-start);
+}
+
+.contact-360-info__line-element {
+    flex-shrink: 0;
+    height: 20px;
+    width: 0;
+    will-change: width;
+    transition: all 0.25s $baseTransition;
+    &_recent {
+        background: $blue_400;
+    }
+    &_year {
+        background: $orange-500;
+    }
+    &_half-year {
+        background: $teal_500;
+    }
+}
+
+.contact-360-info__legend {
+    padding: 10px 0;
+    @include flex(flex,
+    row,
+    nowrap,
+    flex-start,
+    flex-start,
+    flex-start);
+}
+
+.contact-360-info__legend-element {
+    height: 60px;
+    padding: 13px 20px 10px 20px;
+    label {
+        font-size: 11px;
+        color: $grayLabel;
+    }
+    .contact-360-info__legend-element-value {
+        font-size: 16px;
+        margin-top: -2px;
+    }
+    &_recent .contact-360-info__legend-element-value {
+        color: $blue_400;
+    }
+    &_year .contact-360-info__legend-element-value {
+        color: $orange-500;
+    }
+    &_half-year .contact-360-info__legend-element-value {
+        color: $teal_500;
+    }
+}
+
+.contact-360-vcard {
+    @include flex(flex,
+    row,
+    nowrap,
+    flex-start,
+    center,
+    flex-start);
+    padding: 10px 20px;
+    background: $indigo_500;
+    color: $white;
+    flex-shrink: 0;
+    &__avatar {
+        flex-shrink: 0;
+        margin-right: 20px;
+    }
+    &__name {
+        margin-right: 40px;
+        @extend %text-overflow;
+        font-size: 18px;
+    }
+    &__tags {
+        @include flex(flex,
+        row,
+        nowrap,
+        flex-start,
+        center,
+        flex-start);
+        flex-shrink: 1;
+        flex-grow: 1;
+    }
+    &__tags-element {
+        &+.contact-360-vcard__tags-element {
+            margin-left: 10px;
+        }
+    }
+    &__id {
+        margin-left: 20px;
+        flex-shrink: 0;
+        color: change-color($white, $alpha: .7);
+        font-size: 18px;
+    }
+}
+
+.upload-block {
+    text-align: center;
+    padding: 20px 0;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    &__title {
+        font-weight: 500;
+        font-size: $baseFontSize;
+        @extend a;
+        margin-top: 10px;
+    }
+}
+
+.contacts-social-media {
+    flex-shrink: 0;
+    @include flex(flex,
+    row,
+    nowrap,
+    flex-start,
+    center,
+    flex-start);
+    &__element {
+        flex-shrink: 0;
+        &~.contacts-social-media__element {
+            margin-left: 10px;
+        }
+    }
+}

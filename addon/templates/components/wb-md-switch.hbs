@@ -1,0 +1,8 @@
+{{#if (and label leftLabel)}}
+    <label class="input-switch__label" {{action 'toggleSwitch'}}>{{label}}</label>
+{{/if}}
+<input type="checkbox" disabled={{disabled}} tabindex={{tabindex}} checked={{value}} form={{form}}>
+<div class="input-switch__icon" {{action 'toggleSwitch'}}></div>
+{{#if (and label (not leftLabel))}}
+    <label class="input-switch__label input-switch__label_right" {{action 'toggleSwitch'}}>{{label}}</label>
+{{/if}}

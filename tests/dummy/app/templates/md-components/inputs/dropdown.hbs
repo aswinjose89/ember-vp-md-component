@@ -1,0 +1,359 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Single Select Input</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <h3 class="guideline-block__chapter-title">Simple Select</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input type='select' required=true onChange="selectionChanged" selectedItem=selectedCountry1 config=customCountryConfig optionValuePath='id' optionLabelPath='val' leftIconName="people"
+                showMoreAction='showGuidance'
+                helpText="Liabilities for HTTP/1 users. In the final part of this series, we’ll talk about the performance implications of such a strategy and how build tools can help you manage HTTP/1- and HTTP/2-specific assets"
+                enterAction='enterAction'
+                promptMessage="Select Country"
+            }}
+            {{wb-md-button action='clearSelection' type='primary' size='small' color='blue' label='Clear Selection'}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Searchable Select</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input type='select' searchable=true required=isRequired onChange="selectionChanged" selectedItem=newUser.country config=dynamicCountryConfig}}
+            {{wb-md-button label='Toggle Required Field' type='primary' size='small' color='blue' action=(action toggleProperty 'isRequired')}}
+            {{wb-md-button action='reLoadCountries' type='primary' size='small' color='blue' label='Reload'}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type='select' onChange="selectionChanged" selectedItem=selectedCountry1 config=customCountryConfig optionLabelPath='val' optionValuePath='id' leftIconName="people"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>value</span></code> - Holds the selected Item's value</li>
+                        <li><code><span>enableSearchAcross :default false</span></code> - Enables search across the value</li>
+                        <li><code><span>selectedItem</span></code> - Alias for <code>value</code>. The property will hold the selected record</li>
+                        <li><code><span>debounceTime default:500</span></code> - On user input, waits for the given time in Miliseconds before triggering the component's search action</li>
+                        <li><code><span>selectedItems</span></code> - Alias for <code>value</code>. In case of multi select this property will hold the array of selected records</li>
+                        <li>
+                            <code><span>optionLabelPath default:label</span></code> - If the passed <code>content</code> array does not have <code>label</code> property.
+                            The passed value will be used to get the label to be shown in dropdown from the <code>content</code> array.
+                        </li>
+                        <li>
+                            <code><span>optionValuePath default:id</span></code> - If the passed <code>content</code> array does not have <code>id</code> property.
+                            The passed value will be used to set the value of the record in dropdown from the <code>content</code> array.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Events &amp; Actions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>onChange(selectedRecord, elementId, event)</td>
+                                <td>
+                                    <p>
+                                        This action is fired whenever the selection is changed in the dropdown
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>onOpen()</td>
+                                <td>
+                                    <p>
+                                        This action is fired whenever the dropdown is opened.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="guideline-block__example">
+                <h3 class="guideline-block__chapter-title">Disabled States</h3>
+                {{wb-md-input type='select' required=true onChange="selectionChanged" selectedItem=selectedCountry1 config=customCountryConfig optionValuePath='id' optionLabelPath='val' leftIconName="people"
+                    showMoreAction='showGuidance'
+                    disabled=true
+                    helpText="Liabilities for HTTP/1 users. In the final part of this series, we’ll talk about the performance implications of such a strategy and how build tools can help you manage HTTP/1- and HTTP/2-specific assets"
+                    enterAction='enterAction'
+                    promptMessage="Select Country"
+                }}
+                {{wb-md-input type='select' required=true onChange="selectionChanged" config=customCountryConfig optionValuePath='id' optionLabelPath='val' leftIconName="people"
+                    showMoreAction='showGuidance'
+                    disabled=true
+                    enterAction='enterAction'
+                    promptMessage="Select Country"
+                }}
+                {{wb-md-input type='select' disabled=true searchable=true required=true onChange="selectionChanged" selectedItem=selectedCountry2 config=countryConfig}}
+                {{wb-md-input type='select'  disabled=true required=true multiple=true selectedItems=selectedCountry3 onChange="selectionChanged" config=countryConfig}}
+            </div>
+            <div class="guideline-block__example">
+                <h3 class="guideline-block__chapter-title">Read only State</h3>
+                {{wb-md-input type='select' required=true onChange="selectionChanged" selectedItem=selectedCountry1 config=customCountryConfig optionValuePath='id' optionLabelPath='val' leftIconName="people"
+                    showMoreAction='showGuidance'
+                    readonly=true
+                    helpText="Liabilities for HTTP/1 users. In the final part of this series, we’ll talk about the performance implications of such a strategy and how build tools can help you manage HTTP/1- and HTTP/2-specific assets"
+                    enterAction='enterAction'
+                    promptMessage="Select Country"
+                }}
+                {{wb-md-input type='select' required=true onChange="selectionChanged" config=customCountryConfig optionValuePath='id' optionLabelPath='val' leftIconName="people"
+                    showMoreAction='showGuidance'
+                    readonly=true
+                    enterAction='enterAction'
+                    promptMessage="Select Country"
+                }}
+                {{wb-md-input type='select' readonly=true searchable=true required=true onChange="selectionChanged" selectedItem=selectedCountry2 config=countryConfig}}
+                {{wb-md-input type='select'  isReadOnly=true required=true multiple=true selectedItems=selectedCountry3 onChange="selectionChanged" config=countryConfig}}
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Multi Select Input</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-input id='mySelect' type='select' required=true multiple=true selectedItems=selectedCountry3  enterAction='enterAction' onChange="selectionChanged" config=countryConfig}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Sorted Selection</h3>
+            <div class="guideline-block__example">
+                {{wb-md-input type='select' isSorted=true required=true optionLabelPath='name' multiple=true selectedItems=selectedCountry4 content=model label='Sorted Countries'}}
+            </div>
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type='select' onChange="selectionChanged" selectedItem=selectedCountry1 config=customCountryConfig optionLabelPath='val' optionValuePath='id' leftIconName="people"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>multiple</span></code> - Sets select as multi select. All multi select input are searchable by default</li>
+                        <li><code><span>maxLength</span></code> - retricts the searchable inputs maxLength</li>
+                        <li><code><span>maxSelection</span></code> - Sets the maximum number of items that can be selected</li>
+                        <li><code><span>value</span></code> - Holds the selected Item's value</li>
+                        <li><code><span>isSorted</span></code> - Set true to show the items in sorted order by provided oprionLabelPath</li>
+                        <li><code><span>selectedItems</span></code> - Alias for <code>value</code>. In case of multi select this property will hold the array of selected records
+                            <ul>
+                                <li><code><span>isReadOnly</span></code> - Sets the selection readonly</li>
+                            </ul>
+                        </li>
+                        <li><code><span>enableGropuHeader</span></code> - Enables group headers in the dropdown and add <code><span>isGroupHeader</span></code> for the objects which are headers</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Events &amp; Actions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>onChange(selectedRecord,isAdded, elementId, event)</td>
+                                <td>
+                                    <p>
+                                        This action is fired whenever the selection is changed in the dropdown.
+                                        <code>isAdded</code> true when selected and false when removed
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Remote API Searchable Select</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{user-search}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type='select' searchable=true searchAction=(action 'userQueryAction') multiple=true selectedItems=selectedUsers config=userSearchConfig optionValuePath="psId" optionLabelPath="userCountry"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>searchAction</span></code> - It takes a closure action, while will be triggered when user starts seraching</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Table as Result in Select</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{select-table-result}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type='select' searchable=true searchAction=(action 'userQueryAction') multiple=true selectedItems=selectedUsers config=userSearchConfig optionValuePath="psId" optionLabelPath="userCountry"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>searchAction</span></code> - It takes a closure action, while will be triggered when user starts seraching</li>
+                        <li><code><span>onChange</span></code> - Same as in multi select table</li>
+                        <li><code><span>selectAllAction</span></code> - Same as in multi select table</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Select with Pagination</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{select-pagination}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type='select' searchable=true searchAction=(action 'userQueryAction') multiple=true selectedItems=selectedUsers config=userSearchConfig optionValuePath="psId" optionLabelPath="userCountry"}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                <ul>
+                    <li><code><span>remoteSearch</span></code> - Enables remote search option</li>
+                    <li><code><span>pageable</span></code> - Enables infinte scroll pagination</li>
+                    <li><code><span>pageSize default:20</span></code> - Sets the page size</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Multi Level Dropdown</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{multi-level-dropdown}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type='select'  multiLevel=true multiple=true selectedItems=selectedUsers}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                <ul>
+                    <li><code><span>multiLevel</span></code> - Enable multi level selection</li>
+                    <li><code><span>firstLevelGroupHeader</span></code> - Sets the parent level group header</li>
+                    <li><code><span>secondLevelGroupHeader</span></code> - Sets the child level group header</li>
+                    <li><code><span>checkBoxSelection</span></code> - Enables checkbox selection</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Member Dropdown</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input config=simpleMemberDropdownConfig}}
+            {{/wb-md-code-highlight}}
+        </div>
+        {{member-dropdown}}
+    </div>
+{{/wb-md-card}}

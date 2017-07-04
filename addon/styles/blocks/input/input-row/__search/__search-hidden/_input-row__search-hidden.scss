@@ -1,0 +1,9 @@
+.input-row__search-hidden {
+    font-family: $baseFont;
+    font-size: $baseFontSize;
+    white-space: nowrap;
+    opacity: 0;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+}

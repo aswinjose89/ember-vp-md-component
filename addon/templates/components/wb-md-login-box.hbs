@@ -1,0 +1,139 @@
+<div class="global-login__logo"></div>
+{{#unless onMaintenance}}
+<div class="global-login__sidebar">
+    {{#if showError}}
+    <div class="global-login__message">
+        {{#wb-md-card-message
+            type="error"
+            iconName="info_outline"
+            iconColor="white"
+            linkText="DISMISS"
+            onCloseClick=(action 'closeError')
+        }}
+            {{errorMessage}}
+        {{/wb-md-card-message}}
+    </div>
+    {{else if showWelcomeMessage}}
+    <div class="global-login__message">
+        {{#wb-md-card-message
+            type="alert"
+            iconName="info_outline"
+            iconColor="white"
+            linkText="DISMISS"
+            onCloseClick=(action 'closeWelcome')
+        }}
+        <p>
+            You’ve reached the WorkBench 2.0 pilot platform – an all new look and feel for WorkBench. If you do not want to be an early
+            adopter, you can access the old platform <a href="{{rmwbLink}}" target="_blank"> here</a>.
+        </p>
+        {{/wb-md-card-message}}
+    </div>
+    {{/if}}
+    {{#if links}}
+    <div class="global-login__links">
+        {{#if env}}
+            <div class="env-name">ENV.NAME: {{env}}</div>
+        {{/if}}
+        {{#each links as |link|}}
+        <div class="global-login__links-element">
+            <a href="{{link.link}}" target="_blank">{{link.label}}</a>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+    <div class="global-login__form-wrapper">
+        <div class="global-login__form">
+            <div class="global-login__form-icon"></div>
+            <h2 class="global-login__form-title">{{loginTitle}}</h2>
+            <div class="global-login__form-fields">
+                {{wb-md-input
+                    type="number"
+                    hideTextCount=true
+                    maxLength=inputName.max
+                    value=identification
+                    required=inputName.required
+                    label=inputName.label
+                    isValid='isValidName'
+                    enterAction='authenticate'
+                    autocomplete="new-name"
+                    name="name"
+                }}
+                {{wb-md-input
+                    type="password"
+                    value=password
+                    required=inputPassword.required
+                    label=inputPassword.label
+                    isValid='isValidPassword'
+                    autocomplete="new-password"
+                    enterAction='authenticate'
+                    name="password"
+                }}
+                <div class="global-login__actions">
+                    <div class="global-login__actions-element">
+                        <a href="{{helpLink}}">{{helpLabel}}</a>
+                    </div>
+                    <div class="global-login__actions-element">
+                        {{wb-md-button
+                            type='primary'
+                            color="blue"
+                            label="LOGIN"
+                            rightIconName='arrow_forward'
+                            action="authenticate"
+                            async=true
+                            disabled=disableSubmitButton
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#if disclaimer}}
+    <div class="global-login__disclaimer">
+        {{{disclaimer}}}
+    </div>
+    {{/if}}
+</div>
+{{else}}
+<div class="workbench-maintenance">
+    <h1 class="workbench-maintenance__title">
+        {{{maintenanceTitle}}}
+    </h1>
+    <div class="workbench-maintenance__message">
+        {{{maintenanceMessage}}}
+    </div>
+    <div class="workbench-maintenance__time">
+        <div class="workbench-maintenance__time-row">
+            <label class="workbench-maintenance__time-label">{{maintenanceStartLabel}}</label>
+            <div class="workbench-maintenance__time-value">{{maintenanceStartTime}}</div>
+        </div>
+        <div class="workbench-maintenance__time-row">
+            <label class="workbench-maintenance__time-label">{{maintenanceEndLabel}}</label>
+            <div class="workbench-maintenance__time-value">{{maintenanceEndTime}}</div>
+        </div>
+    </div>
+</div>
+{{/unless}} {{#if news}} {{#if (gt news.length 1)}}
+<div class="global-login__controls">
+    {{#each news as |article index|}}
+    <div class="global-login__controls-element">
+        <div class="global-login__controls-button{{if (eq activeSlide index) " global-login__controls-button_active "}}" {{action
+            "changeSlide" index}}>
+            <div class="spinner-right"></div>
+            <div class="spinner-left"></div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}} {{#each news as |article index|}}
+<div class="global-login__news{{if (eq activeSlide index) " global-login__news_active "}}">
+    <div class="global-login__news-inline">
+        <div class="global-login__news-title">{{{article.title}}}</div>
+    </div>
+    <div class="global-login__news-content">{{{article.content}}}</div>
+</div>
+{{/each}} {{/if}}
+<div class="global-login__background" style="background-image: url({{release.image}})">
+    <div class="global-login__info">
+        {{release.location}}
+    </div>
+</div>

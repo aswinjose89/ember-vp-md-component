@@ -1,0 +1,15 @@
+.global-table__row_type_child {
+   td:first-child {
+       position: relative;
+       z-index: 0;
+       &:before {
+           background: $grayLabel;
+           width: 5px;
+           content: '';
+           left: 0;
+           position: absolute;
+           top: -1px;
+           bottom: 0;
+       }
+   }
+}

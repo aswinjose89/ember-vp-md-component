@@ -1,0 +1,6 @@
+.card-review {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    padding: 20px 0 20px 20px;
+}
+@import "__image/card-review__image";
+@import "__input/card-review__input";

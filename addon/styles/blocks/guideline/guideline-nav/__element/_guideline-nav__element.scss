@@ -1,0 +1,18 @@
+.guideline-nav__element {
+  padding: 12px 20px 13px 20px;
+  position: relative;
+  z-index: 1;
+  border-radius: $baseBorderRadius;
+  background: transparent;
+  cursor: pointer;
+  color: change-color($baseColor, $alpha: .7);
+  user-select: none;
+  transition: background 0.3s $baseTransition;
+  a {
+    color: $baseColor;
+  }
+  &:hover, &:focus {
+    background: $gray_scb300;
+  }
+}
+@import "guideline-nav__element_current";

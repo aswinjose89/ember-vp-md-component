@@ -1,0 +1,9 @@
+.input-result {
+  padding: 28px 20px 28px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+//input elements
+@import "__content/input_result__content";
+@import "__label/input-result__label";

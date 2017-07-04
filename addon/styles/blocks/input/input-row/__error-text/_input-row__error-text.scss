@@ -1,0 +1,12 @@
+.input-row__error-text {
+    font-size: $smallFontSize;
+    color: #F44336;
+    pointer-events: none;
+    animation-name: fadeIn;
+    animation-delay: .6s;
+    @extend %global-effect;
+    @extend %global-effect_position_top_left;
+    flex-shrink: 1;
+    flex-grow: 1;
+    @extend %text-overflow;
+}

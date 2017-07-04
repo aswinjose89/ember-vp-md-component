@@ -1,0 +1,5 @@
+.global-datepicker__month-slide {
+    @include flex(flex, row, nowrap, space-between, center, flex-start);
+    margin-bottom: 20px;
+    padding: 0 10px;
+}

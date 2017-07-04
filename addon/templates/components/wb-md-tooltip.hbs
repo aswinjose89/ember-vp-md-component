@@ -1,0 +1,46 @@
+{{#if label}}
+    {{{label}}}
+{{/if}}
+{{#if vCard}}
+    <div class="dropdown-multi dropdown-multi_color_white">
+        <div class="dropdown-multi__row">
+            <div class="dropdown-multi__avatar">
+                {{#if vCard.avatar}}
+                    <img src="{{vCard.avatar}}">
+                {{else}}
+                    <div class="dropdown-multi__user-icon{{if vCard.client "dropdown-multi__user-icon_color_client"}}">
+                        {{vCard.initials}}
+                    </div>
+                {{/if}}
+            </div>
+            <div class="dropdown-multi__content">
+                <div class="dropdown-multi__content-main">
+                    <div class="dropdown-multi__name">
+                        {{{vCard.name}}}
+                    </div>
+                    {{#if vCard.information}}
+                        <div class="dropdown-multi__info">
+                            {{#each vCard.information as |value|}}
+                                <div class="dropdown-multi__info-element">{{value}}</div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                    {{#if vCard.tags}}
+                        <div class="dropdown-multi__tags">
+                            {{#each vCard.tags as |tag|}}
+                                {{wb-md-tag config=tag.config}}
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
+{{#if tags}}
+    <ul>
+    {{#each tags as | tag|}}
+        <li>{{wb-md-tag config=tag.config}}</li>
+    {{/each}}
+    </ul>
+{{/if}}

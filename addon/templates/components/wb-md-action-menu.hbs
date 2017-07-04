@@ -1,0 +1,37 @@
+<div class="global-menu__toggle">
+    {{#if (eq triggerElement.componentName 'link')}}
+    <a href="#"{{action toggleProperty "isOpen"}}>{{triggerElement.config.label}}</a>
+    {{else}}
+    {{component triggerElement.componentName config=triggerElement.config label=triggerElement.config.label active=isOpen click=(action toggleProperty "isOpen")}}
+    {{/if}}
+</div>
+{{#if items}}
+    <div class="global-menu__modal{{modalPosition}}{{if isOpen " global-menu__modal_show"}}">
+        <div class="dropdown-list">
+            {{#each items as |item index|}}
+                {{#if (and item.divider (not-equal index 0))}}
+                    <div class="dropdown-list__divider"></div>
+                {{/if}}
+                {{#if item.groupHeader}}
+                    <!--If Group of elements, parse group -->
+                    <div class="dropdown-list__header">
+                        {{item.groupHeader}}
+                    </div>
+                {{/if}}
+                {{#if (and item.items (not item.groupHeader))}}
+                    {{partial 'partials/action-menu-item-multi'}}
+                {{/if}}
+                {{#if (and item.items item.groupHeader)}}
+                    {{#if item.items}}
+                        {{#each item.items as |groupItem|}}
+                            {{partial 'partials/action-menu-item-group'}}
+                        {{/each}}
+                    {{/if}}
+                {{/if}}
+                {{#unless item.items}}
+                  {{partial 'partials/action-menu-item'}}
+                {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+{{/if}}

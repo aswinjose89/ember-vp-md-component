@@ -1,0 +1,6 @@
+.global-tabs__label {
+    white-space: nowrap;
+    @extend %text-overflow;
+    color: $baseColor;
+
+}

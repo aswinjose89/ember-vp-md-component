@@ -1,0 +1,6 @@
+.global-login__message {
+    flex-shrink: 0;
+    @extend %global-effect;
+    animation-duration: .250s;
+    animation-name: slideInTop;
+}

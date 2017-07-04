@@ -1,0 +1,21 @@
+.global-popup__wrapper {
+    background: $white;
+    border-radius: $baseBorderRadius;
+    overflow: hidden;
+    mask-image: radial-gradient(circle, white 100%, black 100%);
+    @include flex(flex, column, nowrap, flex-start, stretch, flex-start);
+    max-height: 100%;
+    height: inherit;
+    max-width: 400px;
+    min-width: 200px !important;
+    animation-duration: .4s;
+    animation-name: scaleIn;
+    @extend %global-effect;
+    &>.content-toolbar {
+        flex-shrink: 0;
+        flex-grow: 0;
+    }
+}
+
+@import "global-popup__wrapper_width_600";
+@import "global-popup__wrapper_width_940";

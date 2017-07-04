@@ -1,0 +1,44 @@
+.input-subject {
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+    &:after {
+        background: $baseBorderColor;
+        height: 1px;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+    }
+    &:before {
+        background: $indigo_500;
+        height: 2px;
+        left: 50%;
+        right: 50%;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        transition: all 0.4s $baseTransition;
+        z-index: -1;
+        will-change: transform;
+    }
+    &.input-row_status_active,
+    &.input-row_status_error {
+        &:before {
+            left: 0;
+            right: 0;
+            content: '';
+        }
+    }
+    &.input-row_status_error {
+        &:before {
+            background: #D0021B;
+        }
+    }
+}
+
+@import "__element/input-subject__element";
+@import "__icon/input-subject__icon";
+@import "__inline/input-subject__inline";

@@ -1,0 +1,103 @@
+$loginAnimationDuration: 6s;
+.global-login__controls-button {
+    width: 10px;
+    height: 10px;
+    border: 1px solid change-color($white, $alpha: .4);
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    cursor: pointer !important;
+    background: transparent;
+}
+
+.global-login__controls-button_active {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    z-index: 1;
+    background-color: change-color($white, $alpha: .4);
+    border-width: 0;
+    overflow: hidden;
+    mask-image: radial-gradient(circle, white 100%, black 100%);
+    .spinner-left {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+        clip-path: polygon(50% 0, 105% 0, 105% 100%, 50% 100%);
+        overflow: hidden;
+        mask-image: radial-gradient(circle, white 100%, black 100%);
+        animation-name: leftBackGround;
+        animation-duration: $loginAnimationDuration;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        &:before {
+            content: '';
+            width: 51%;
+            height: 100%;
+            position: absolute;
+            background: $white;
+            animation-name: rotateLeftPart;
+            animation-duration: $loginAnimationDuration;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            transform-origin: 100% 50%;
+            will-change: transform;
+            left: 0;
+            top: 0;
+        }
+    }
+    .spinner-right {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+        clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        overflow: hidden;
+        mask-image: radial-gradient(circle, white 100%, black 100%);
+        &:before {
+            will-change: transform;
+            left: 0;
+            top: 0;
+            content: '';
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            background: $white;
+            animation-name: rotateRightPart;
+            animation-duration: $loginAnimationDuration;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            transform-origin: 100% 50%;
+        }
+    }
+}
+
+@keyframes rotateLeftPart {
+    0% {
+        transform: rotate(0deg);
+    }
+    50%, 100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotateRightPart {
+    0%, 50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes leftBackGround {
+    0%, 49.9% {
+        background: none;
+    }
+    50%, 100% {
+        background: $white
+    }
+}

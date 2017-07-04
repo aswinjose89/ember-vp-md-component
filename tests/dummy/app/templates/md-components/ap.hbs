@@ -1,0 +1,819 @@
+{{#wb-md-card}}
+    {{#wb-md-content-toolbar}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-button type="primary" label='Manage SCB Network Countries' color="blue" action="openPopup"}}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    {{#wb-md-content-toolbar}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title">Map Tooltip example</div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    {{ap-map-tooltip}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="card-title">
+        <div class="card-title__left">
+            <h2>SCB Product Proposal</h2>
+            <div class="card-title__description">Please list the countries and products</div>
+        </div>
+        <div class="card-title__right">
+            {{wb-md-icon iconName="help_text" helpText="Help"}}
+        </div>
+    </div>
+{{/wb-md-card}}
+
+<div class="tb-sales-statistic">
+    <div class="tb-sales-statistic__cell tb-sales-statistic__cell_status_active">
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">SCB Network Countries</div>
+                <div class="tb-sales-statistic__total">37</div>
+            </div>
+        </div>
+        <div class="tb-sales-statistic__element">
+            {{wb-md-button label="MANAGE" size="small" color="blue" type="primary" action="openManageCountriesPopup"}}
+        </div>
+    </div>
+    <div class="tb-sales-statistic__cell">
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Countries with TB Revenue</div>
+                <div class="tb-sales-statistic__total tb-sales-statistic__total_color_blue">37</div>
+            </div>
+        </div>
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Avg TB Revenue</div>
+                <div class="tb-sales-statistic__value">$5,456.77</div>
+            </div>
+        </div>
+    </div>
+    <div class="tb-sales-statistic__cell">
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Opportunity Countries</div>
+                <div class="tb-sales-statistic__total tb-sales-statistic__total_color_green">6</div>
+            </div>
+        </div>
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Pending Countries</div>
+                <div class="tb-sales-statistic__value">15</div>
+            </div>
+        </div>
+    </div>
+    <div class="tb-sales-statistic__cell">
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">SCB Non-Presence Countries</div>
+                <div class="tb-sales-statistic__total tb-sales-statistic__total_color_orange">8</div>
+            </div>
+        </div>
+    </div>
+    <div class="tb-sales-statistic__cell">
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Below Average Countries</div>
+                <div class="tb-sales-statistic__total tb-sales-statistic__total_color_purple">2</div>
+            </div>
+        </div>
+        <div class="tb-sales-statistic__element">
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Avg TB Revenue</div>
+                <div class="tb-sales-statistic__value">$29.09</div>
+            </div>
+            <div class="tb-sales-statistic__info">
+                <div class="tb-sales-statistic__label">Avg Revenue Gap</div>
+                <div class="tb-sales-statistic__value">$8.00</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#wb-md-card}}
+    {{#wb-md-content-toolbar pad="full" border="bottom"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title content-toolbar__title_color_blue">Discussion Points</div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    {{#wb-md-content-toolbar pad="full"}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-entity-icon color="buttercup" size="medium" iconName="people"}}
+            </div>
+            <div class="content-toolbar__element">
+                <h2 class="discussion__title">Product Discussion</h2>
+            </div>
+            <div class="content-toolbar__element">{{wb-md-tag color="orange" label="PRIVATE"}}</div>
+        </div>
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                {{wb-md-icon-toolbar config=iconToolbarTaskConfig toggledProperty=showTasks}}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="discussion__body">
+        <div class="discussion__sidebar">
+            {{wb-md-static-info label="Follow-up Task" value="3 Opened Task"}}
+        </div>
+        <div class="discussion__main">
+            {{wb-md-static-info label="Discussion Details" content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simp Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Contrary to popular belief, Lorem Ipsum is not simp" showMore=true}}
+            {{wb-md-static-info label="Discussion Points" content="Documentation, Covenants Breach"}}
+            {{#if showTasks}}
+                <div class="card-title">
+                    <div class="card-title__left">
+                        <h2>Follow-Up Tasks</h2>
+                    </div>
+                    <div class="card-title__right">
+                        <a href="#">+ ADD</a>
+                    </div>
+                </div>
+                <div class="followup-task">
+                    {{#wb-md-content-toolbar pad="full" height="auto" vertical="top"}}
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                <div class="followup-task__message">
+                                    <div class="followup-task__message-icon">
+                                        {{wb-md-icon iconName="flag"}}
+                                    </div>
+                                    <div class="followup-task__message-content">
+                                        Create a centralized view of all your responsibilities across multiple projects with this to-do list. Share with your team to create transparency, track task progress with Harvey ball symbols, and flag high-priority items.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                {{wb-md-action-menu config=actionMenuConfig}}
+                            </div>
+                        </div>
+                    {{/wb-md-content-toolbar}}
+                    <div class="row">
+                        {{#each taskExample as |task|}}
+                            <div class="col-lg-4">
+                                {{wb-md-static-info config=task}}
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="followup-task">
+                    {{#wb-md-content-toolbar pad="full" height="auto" vertical="top"}}
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                <div class="followup-task__message">
+                                    <div class="followup-task__message-icon">
+                                        {{wb-md-icon iconName="flag" color="orange-500"}}
+                                    </div>
+                                    <div class="followup-task__message-content">
+                                        Create a centralized view of all your responsibilities across multiple projects with this to-do list. Share with your team to create transparency, track task progress with Harvey ball symbols, and flag high-priority items.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                {{wb-md-action-menu config=actionMenuConfig}}
+                            </div>
+                        </div>
+                    {{/wb-md-content-toolbar}}
+                    <div class="row">
+                        {{#each taskExample as |task|}}
+                            <div class="col-lg-4">
+                                {{wb-md-static-info config=task}}
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="followup-task">
+                    {{#wb-md-content-toolbar pad="full" height="auto" vertical="top"}}
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                <div class="followup-task__message">
+                                    <div class="followup-task__message-icon">
+                                        {{wb-md-icon iconName="flag" color="red-500"}}
+                                    </div>
+                                    <div class="followup-task__message-content">
+                                        Create a centralized view of all your responsibilities across multiple projects with this to-do list. Share with your team to create transparency, track task progress with Harvey ball symbols, and flag high-priority items.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                {{wb-md-action-menu config=actionMenuConfig}}
+                            </div>
+                        </div>
+                    {{/wb-md-content-toolbar}}
+                    <div class="row">
+                        {{#each taskExample as |task|}}
+                            <div class="col-lg-4">
+                                {{wb-md-static-info config=task}}
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="followup-task{{if taskStatus ' followup-task_status_done'}}">
+                    {{#wb-md-content-toolbar pad="full" height="auto" vertical="top"}}
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                <div class="followup-task__message">
+                                    <div class="followup-task__message-icon">
+                                        {{wb-md-checkbox name="name" checked=taskStatus iconColor="green-500"}}
+                                    </div>
+                                    <div class="followup-task__message-content {{if taskStatus ' followup-task__message-content_status_stroke'}}">
+                                        Create a centralized view of all your responsibilities across multiple projects with this to-do list. Share with your team to create transparency, track task progress with Harvey ball symbols, and flag high-priority items.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                {{wb-md-action-menu config=actionMenuConfig}}
+                            </div>
+                        </div>
+                    {{/wb-md-content-toolbar}}
+                    <div class="row">
+                        {{#each taskExample as |task|}}
+                            <div class="col-lg-4">
+                                {{wb-md-static-info config=task isDisabled=taskStatus}}
+                            </div>
+                        {{/each}}
+                    </div>
+                    {{#wb-md-content-toolbar pad="full" height="auto" vertical="top"}}
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                <div class="followup-task__message">
+                                    <div class="followup-task__message-icon">
+                                        {{wb-md-icon iconName="chat"}}
+                                    </div>
+                                    <div class="followup-task__message-content">
+                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/wb-md-content-toolbar}}
+                    {{wb-md-static-info config=taskCreateDate}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+        {{#wb-md-content-toolbar pad="full" height="medium" border="bottom"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Revenue Forecast (As of 24 Jun ’16)</div>
+                </div>
+                <div class="content-toolbar__element">
+                    {{wb-md-icon iconName="help_text" helpText="Revenue Forecast"}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__description">All numbers are in ’000 (USD)</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{wb-md-spacer}}
+        {{wb-md-input type="text" multiline=true label="Add comments" leftIconName="comment" maxLength=1000}}
+        {{wb-md-spacer}}
+        {{#wb-md-card type="nested"}}
+            {{#wb-md-card}}
+                {{#wb-md-content-toolbar pad="full" color="light-gray"}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <div class="content-toolbar__title content-toolbar__title_color_blue">Corporate Finance</div>
+                        </div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            {{wb-md-icon iconName="unfold_less"}}
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+                <div class="ap-table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Avg. RoRwa (%)</th>
+                            <th>RWA Period End</th>
+                            <th class="ap-table__cell_border_left">Wallet Sizing</th>
+                            <th class="ap-table__cell_border_left" colspan="2">SCB Revenue Actuals</th>
+                            <th class="ap-table__cell_border_left" colspan="3">SCB Revenue Forecast</th>
+                            <th class="ap-table__cell_border_left ap-table__cell_status_priority"></th>
+                            <th class="ap-table__cell_actions"></th>
+                        </tr>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th class="ap-table__cell_border_left">Client Wallet</th>
+                            <th class="ap-table__cell_border_left">FYE  2014</th>
+                            <th>YTD</th>
+                            <th class="ap-table__cell_border_left">2016</th>
+                            <th>2017</th>
+                            <th>2018</th>
+                            <th class="ap-table__cell_border_left ap-table__cell_status_priority">Key Competitors</th>
+                            <th class="ap-table__cell_actions"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{wb-md-input-table placeholder="Cash" isSelect=true iconName="arrow_drop_down"}}</td>
+                            <td></td>
+                            <td class="ap-table_cell__align_top ap-table__cell_border_left">
+                                <div class="input-table-numeric input-table-numeric_status_error">
+                                    <input type="text" value="150">
+                                </div>
+                                <ul class="global-table__value-list">
+                                    <li></li>
+                                    <li>TB VAL: <span>190</span></li>
+                                </ul>
+                            </td>
+                            <td class="ap-table_cell__align_top ap-table__cell_border_left">
+                                <div class="input-table-numeric input-table-numeric_status_disabled">
+                                    <input type="text" value="7226">
+                                </div>
+                            </td>
+                            <td class="ap-table_cell__align_top">
+                                <div class="input-table-numeric">
+                                    <input type="text" value="4,102">
+                                    <div class="input-table-numeric__tooltip-trigger"></div>
+                                </div>
+                                <ul class="global-table__value-list">
+                                    <li>YOY: <span class="global-table__value-list-value_down">24.6%</span></li>
+                                </ul>
+                            </td>
+                            <td class="ap-table_cell__align_top ap-table__cell_border_left">
+                                <div class="input-table-numeric">
+                                    <input type="text" value="5,800">
+                                </div>
+                                <ul class="global-table__value-list">
+                                    <li>YOY: <span class="global-table__value-list-value_up">14.6%</span></li>
+                                    <li><strong class="global-table__value-list-value_down">TB VAL: 99,432</strong></li>
+                                </ul>
+                            </td>
+                            <td class="ap-table_cell__align_top">
+                                <div class="input-table-numeric">
+                                    <input type="text" value="9,800">
+                                </div>
+                                <ul class="global-table__value-list">
+                                    <li>YOY: <span class="global-table__value-list-value_up">34.5%</span></li>
+                                    <li>TB VAL: 9,800</li>
+                                </ul>
+                            </td>
+                            <td class="ap-table_cell__align_top">
+                                <div class="input-table-numeric">
+                                    <input type="text" value="12,000">
+                                </div>
+                                <ul class="global-table__value-list">
+                                    <li>YOY: <span class="global-table__value-list-value_up">20.2%</span></li>
+                                    <li>TB VAL: 12,000</li>
+                                </ul>
+                            </td>
+                            <td class="ap-table__cell_border_left ap-table__cell_status_priority"><a href="">8 Competitors</a></td>
+                            <td class="ap-table__cell_actions">{{wb-md-icon iconName="remove_circle"}}</td>
+                        </tr>
+                        <tr class="ap-table__total">
+                            <td>20.67%</td>
+                            <td>87,616.08</td>
+                            <td class="ap-table__cell_border_left">150</td>
+                            <td class="ap-table__cell_border_left">7,226</td>
+                            <td>4,102</td>
+                            <td class="ap-table__cell_border_left">9,800</td>
+                            <td>5,600</td>
+                            <td>12,000</td>
+                            <td class="ap-table__cell_border_left ap-table__cell_status_priority"></td>
+                            <td class="ap-table__cell_actions"></td>
+                        </tr>
+                        <tr class="ap-table__total ap-table__total_color_brown">
+                            <td>20.67%</td>
+                            <td>87,616.08</td>
+                            <td class="ap-table__cell_border_left">150</td>
+                            <td class="ap-table__cell_border_left">7,226</td>
+                            <td>4,102</td>
+                            <td class="ap-table__cell_border_left">9,800</td>
+                            <td>5,600</td>
+                            <td>12,000</td>
+                            <td class="ap-table__cell_border_left ap-table__cell_status_priority"></td>
+                            <td class="ap-table__cell_actions"></td>
+                        </tr>
+                        <tr class="ap-table__total ap-table__total_color_yellow">
+                            <td>20.67%</td>
+                            <td>87,616.08</td>
+                            <td class="ap-table__cell_border_left">150</td>
+                            <td class="ap-table__cell_border_left">7,226</td>
+                            <td>4,102</td>
+                            <td class="ap-table__cell_border_left">9,800</td>
+                            <td>5,600</td>
+                            <td>12,000</td>
+                            <td class="ap-table__cell_border_left ap-table__cell_status_priority"></td>
+                            <td class="ap-table__cell_actions"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{#wb-md-content-toolbar border="top" pad="full"}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            {{wb-md-icon iconName="comment"}}
+                        </div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <a href="">+ ADD MORE</a>
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+            {{/wb-md-card}}
+            {{#wb-md-card}}
+                {{#wb-md-content-toolbar pad="full"}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <div class="content-toolbar__title content-toolbar__title_color_blue">
+                                Limit Analysis
+                            </div>
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+                <div class="global-table global-table_status_loading">
+                    <div class="global-table__content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="global-table__cell global-table__cell_type_header global-table__cell_status_priority">
+                                    Limit (USDm)
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Current Approved
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Current Allocation
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Current Outst…
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Proposed ‘16 (%)
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Allocation ‘16  (%)
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Proposed ‘17 (%)
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Allocation ‘17  (%)
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Proposed ‘18 (%)
+                                </th>
+                                <th class="global-table__cell global-table__cell_type_header">
+                                    Allocation ‘18  (%)
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="global-table__row">
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_status_priority">
+                                    <div class="global-table__text">CAT 1</div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                    <ul class="global-table__value-list">
+                                        <li>Utilisation (%): -</li>
+                                    </ul>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="global-table__row global-table__row_type_child">
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_status_priority">
+                                    <div class="global-table__text">CAT 1</div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                    <ul class="global-table__value-list">
+                                        <li>Utilisation (%): -</li>
+                                    </ul>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="global-table__row global-table__row_type_child">
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_status_priority">
+                                    <div class="global-table__text">CAT 1</div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                    <ul class="global-table__value-list">
+                                        <li>Utilisation (%): -</li>
+                                    </ul>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="global-table__row global-table__row_type_child">
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_status_priority">
+                                    <div class="global-table__text">CAT 1</div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                    <ul class="global-table__value-list">
+                                        <li>Utilisation (%): -</li>
+                                    </ul>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_align_top">
+                                    <div class="input-table-numeric">
+                                        <input type="text" placeholder="-">
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {{/wb-md-card}}
+            {{#wb-md-card}}
+                {{#wb-md-content-toolbar pad="full" height="medium" border="bottom"}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <div class="content-toolbar__title content-toolbar__title_color_blue">Client Contact Plan (Updated 24 Jun ‘16)</div>
+                        </div>
+                        <div class="content-toolbar__element">
+                            {{wb-md-icon iconName="help_text" helpText="Revenue Forecast"}}
+                        </div>
+                    </div>
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element"><a href="">SETTINGS</a></div>
+                        <div class="content-toolbar__element">{{wb-md-icon iconName="refresh"}}</div>
+                        <div class="content-toolbar__element">
+                            <a href="">+ ADD</a>
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+                <div class="global-table">
+                    <div class="global-table__content">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="global-table__cell global-table__cell_type_header">Name</th>
+                                <th class="global-table__cell global-table__cell_type_header">Role in Buy Decision</th>
+                                <th class="global-table__cell global-table__cell_type_header global-table__cell_status_priority">Products</th>
+                                <th class="global-table__cell global-table__cell_type_header">Last 2 Calls</th>
+                                <th class="global-table__cell global-table__cell_type_header">Call Plan Freq.</th>
+                                <th class="global-table__cell global-table__cell_type_header" colspan="2">SCB Contacts</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="global-table__row {{if showChild ' global-table__row_color_purple'}}">
+                                <td class="global-table__cell global-table__cell_type_data"><a href="">Chia, Yeong Yeong</a></td>
+                                <td class="global-table__cell global-table__cell_type_data">Administrative</td>
+                                <td class="global-table__cell global-table__cell_type_data global-table__cell_status_priority">Transaction Bank of Argentina</td>
+                                <td class="global-table__cell global-table__cell_type_data"><a href="">18 Apr 2016, 25 May 2016</a></td>
+                                <td class="global-table__cell global-table__cell_type_data">{{wb-md-input-table selectedItems="Monthly" isSelect=true iconName="arrow_drop_down"}}</td>
+                                <td class="global-table__cell global-table__cell_type_data">SCB Contacts</td>
+                                <td class="global-table__cell global-table__cell_type_data">{{wb-md-icon-toolbar config=iconToolbarConfig toggledProperty=showChild}}</td>
+                            </tr>
+                            {{#if showChild}}
+                                <tr class="global-table__row global-table__row_type_inner global-table__row_color_purple">
+                                    <td colspan="7">
+                                        {{#wb-md-card}}
+                                            {{#wb-md-content-toolbar pad="full" height="medium"}}
+                                                <div class="content-toolbar__row">
+                                                    <div class="content-toolbar__element">
+                                                        <div class="content-toolbar__title content-toolbar__title_color_blue">SCB Contacts</div>
+                                                    </div>
+                                                </div>
+                                                <div class="content-toolbar__row">
+                                                    <div class="content-toolbar__element">
+                                                        <div class="content-toolbar__description">Recommended for Banks/Broker Dealer clients</div>
+                                                    </div>
+                                                </div>
+                                            {{/wb-md-content-toolbar}}
+                                            <div class="global-table__content">
+                                                <table>
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="global-table__cell global-table__cell_type_header">Name</th>
+                                                        <th class="global-table__cell global-table__cell_type_header">Role Type</th>
+                                                        <th class="global-table__cell global-table__cell_type_header">Relationship Status</th>
+                                                        <th class="global-table__cell global-table__cell_type_header global-table__cell_status_priority"></th>
+                                                        <th class="global-table__cell global-table__cell_type_header"></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="global-table__row">
+                                                        <td class="global-table__cell global-table__cell_type_data">1531570 - Frank Palmer</td>
+                                                        <td class="global-table__cell global-table__cell_type_data">{{wb-md-input-table selectedItems="Relationship Manager" isSelect=true iconName="arrow_drop_down"}}</td>
+                                                        <td class="global-table__cell global-table__cell_type_data">{{wb-md-input-table selectedItems="Example Status" isSelect=true iconName="arrow_drop_down"}}</td>
+                                                        <td class="global-table__cell global-table__cell_type_data global-table__cell_status_priority"></td>
+                                                        <td class="global-table__cell global-table__cell_type_data">{{wb-md-icon iconName="remove_circle"}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        {{/wb-md-card}}
+                                    </td>
+                                </tr>
+                            {{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {{/wb-md-card}}
+        {{/wb-md-card}}
+    <div class="ap-grand-total">
+        <div class="ap-grand-total__title">Grand Total</div>
+        <div class="ap-grand-total__list">
+            <div class="ap-grand-total__element">
+                <div class="ap-grand-total__label">Total Client Wallet</div>
+                <div class="ap-grand-total__value">150,705</div>
+            </div>
+            <div class="ap-grand-total__element">
+                <div class="ap-grand-total__label">FYE  2014 Revenue</div>
+                <div class="ap-grand-total__value">7,226</div>
+            </div>
+            <div class="ap-grand-total__element">
+                <div class="ap-grand-total__label">YTD Revenue</div>
+                <div class="ap-grand-total__value">4,102</div>
+            </div>
+            <div class="ap-grand-total__element">
+                <div class="ap-grand-total__label">Forecast 2016</div>
+                <div class="ap-grand-total__value">5,800</div>
+            </div>
+            <div class="ap-grand-total__element">
+                <div class="ap-grand-total__label">Forecast 2017</div>
+                <div class="ap-grand-total__value">9,800</div>
+            </div>
+            <div class="ap-grand-total__element">
+                <div class="ap-grand-total__label">Forecast 2018</div>
+                <div class="ap-grand-total__value">12,000</div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{ap-components}}

@@ -1,0 +1,177 @@
+@import "miscellaneous/vars";
+
+/* End of Kendo overrides */
+
+.workbench-back a {
+    vertical-align: top;
+}
+
+.header-toolbar__element~.header-toolbar__element {
+    margin-left: 20px;
+}
+
+.card-question__title h3,
+.input-list__title h3 {
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+.sidebar-nav-form-sections__title {
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    line-height: 15px -2px !important;
+}
+
+.global-attachment .global-attachment__delete {
+    height: 21px;
+    width: 21px;
+}
+
+.global-attachment:hover .global-attachment__delete {
+    transform: translate3d(50%, -50%, 0) scale(1);
+    opacity: 1;
+}
+
+.global-file-upload__tutorial h3 {
+    font-size: 16px !important;
+    color: $baseColor !important;
+    font-weight: 500 !important;
+}
+
+.dropdown-multi__header-title {
+    font-size: $smallFontSize !important;
+    font-weight: 500 !important;
+}
+
+.discussion__title {
+    font-size: 16px !important;
+    color: $black !important;
+    font-weight: 500 !important;
+}
+
+.card-title {
+    h2 {
+        font-size: 16px !important;
+        color: $indigo_500 !important;
+        font-weight: 500 !important;
+    }
+}
+
+.ap-map-tooltip {
+    h3 {
+        font-size: $baseFontSize !important;
+        ;
+        color: rgba(124, 184, 255, 1) !important;
+        ;
+        font-weight: 500 !important;
+        ;
+    }
+}
+
+//Table title override
+.global-table__title {
+    font-weight: normal !important;
+}
+
+.global-login__form-title {
+    text-align: center;
+    font-size: 22px !important;
+    color: $baseColor !important;
+    margin-bottom: 18px !important;
+    font-weight: 500 !important;
+}
+
+//datepicker style fixes
+//overrides
+#content-placeholder .material-design {
+    height: 100%;
+    overflow-x: auto;
+}
+
+#content-placeholder .material-design .page__wrapper {
+    height: 100%;
+}
+
+#content-placeholder.col-sm-9 .material-design .page__wrapper {
+    min-width: 960px;
+}
+
+#secondary-nav+#content-placeholder .material-design .page__main {
+    transform: translateX(0);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+}
+
+#secondary-nav+#content-placeholder .material-design header.header {
+    width: 100%;
+}
+
+#content-placeholder .material-design .page__container-scroll {
+    overflow-x: hidden !important;
+}
+
+#content-wrapper #content-placeholder.content-placeholder_no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+#content-wrapper #secondary-content-wrapper {
+    height: auto;
+    bottom: 0;
+}
+
+.wb-loading-indicator-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+}
+
+#content-placeholder {
+    .page__container-scroll {
+        &.hide-scroll {
+            overflow-y: auto !important;
+        }
+    }
+    .page__container-limiter {
+        max-width: 1280px !important;
+    }
+}
+
+.workbench-maintenance__title {
+    font-family: $baseFont !important;
+    font-size: 22px !important;
+    color: $white !important;
+    line-height: 32px !important;
+    font-weight: 400 !important;
+}
+
+.gems-activity-icon {
+    font-family: 'SCB-Material-Icons' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+    vertical-align: top;
+    user-select: none;
+    &:before {
+        content: "\ec5c";
+    }
+}

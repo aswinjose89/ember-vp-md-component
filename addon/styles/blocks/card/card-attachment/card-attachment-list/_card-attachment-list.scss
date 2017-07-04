@@ -1,0 +1,15 @@
+.card-attachment-list {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 15px 20px;
+  &:hover {
+    .card-attachment-list__control:not(.card-attachment-list__control_disabled) {
+      transform: scale(1);
+    }
+  }
+}
+@import "__element/card-attachment-list__element";
+@import "../../../global/global-file-type/global-file-type";
+@import "__slide/card-attachment-list__slide";
+@import "__control/card-attachment-list__control";

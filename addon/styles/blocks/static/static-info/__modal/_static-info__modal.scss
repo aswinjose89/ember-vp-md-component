@@ -1,0 +1,35 @@
+.static-info__modal {
+    position: fixed;
+    background: $white;
+    top: -999px;
+    left: 0;
+    z-index: 902;
+    max-height: 250px;
+    width: 225px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 20px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 0 $baseBorderRadius $baseBorderRadius 0;
+    padding: 20px;
+    font-size: $baseFontSize;
+    animation-duration: .4s;
+    li {
+        @extend %text-overflow;
+        &+li {
+            margin-top: 10px;
+        }
+    }
+}
+
+.static-info__modal_bottom-show {
+    @extend %global-effect;
+    @extend %global-effect_position_top_center;
+    animation-name: scaleYIn;
+}
+
+.static-info__modal_top-show {
+    @extend %global-effect;
+    @extend %global-effect_position_bottom_center;
+    animation-name: scaleYIn;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 -2px 2px 0 rgba(0, 0, 0, 0.16);
+}

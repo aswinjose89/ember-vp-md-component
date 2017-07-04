@@ -1,0 +1,15 @@
+.rating-block {
+    @include flex(inline-flex, row, nowrap, flex-start, flex-start, flex-start);
+    @for $i from 1 through 10 {
+        &.rating-block_#{$i}:not(:hover) {
+            .rating-block__element {
+                &:nth-child(#{$i}) ~ .rating-block__element {
+                    color: rgb(196, 200, 204);
+                }
+            }
+        }
+    }
+}
+
+@import "__element/rating-block__element";
+@import "rating-block_read-only";

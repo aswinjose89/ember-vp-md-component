@@ -1,0 +1,30 @@
+.global-search {
+  background: change-color($white, $alpha: .1);
+  box-shadow: $globalSearchShadow;
+  border-radius: $baseBorderRadius;
+  padding: 8px 20px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  width: 100%;
+  @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+  &:before {
+    @extend %material-icons;
+    content: 'search';
+    color: white;
+    margin-right: 20px;
+  }
+  input {
+    height: 24px;
+    font-family: $baseFont;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: $white;
+    width: 100%;
+    @include placeholder {
+      color: change-color($white, $alpha: .6);
+      opacity: 1;
+    }
+  }
+}
+@import "_color/global-search_color";

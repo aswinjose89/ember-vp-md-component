@@ -1,0 +1,30 @@
+{{#wb-md-card}}
+  {{#wb-md-content-toolbar pad="full" height="medium" border="bottom"}}
+      <div class="content-toolbar__row">
+          <div class="content-toolbar__element">
+              <div class="content-toolbar__title content-toolbar__title_color_blue">Client Contact Plan (Updated 24 Jun ‘16)</div>
+          </div>
+          <div class="content-toolbar__element">
+              {{wb-md-icon iconName="help_text" helpText="Revenue Forecast"}}
+          </div>
+      </div>
+      <div class="content-toolbar__row">
+          <div class="content-toolbar__element"><a href="">SETTINGS</a></div>
+          <div class="content-toolbar__element">{{wb-md-icon iconName="refresh"}}</div>
+          <div class="content-toolbar__element">
+              <a href="">+ ADD</a>
+          </div>
+      </div>
+  {{/wb-md-content-toolbar}}
+  {{wb-md-table config=multilevelTableConfig}}
+{{/wb-md-card}}
+{{#wb-md-card}}
+  {{#wb-md-content-toolbar pad="full" height="medium" border="bottom"}}
+      <div class="content-toolbar__row">
+          <div class="content-toolbar__element">
+              <div class="content-toolbar__title content-toolbar__title_color_blue">Buying Centre Overview</div>
+          </div>
+      </div>
+  {{/wb-md-content-toolbar}}
+  {{wb-md-table config=multilevelTabConfig}}
+{{/wb-md-card}}

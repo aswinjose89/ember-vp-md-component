@@ -1,0 +1,181 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Messages</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{#wb-md-card-message type="error" iconName="info_outline" iconColor="white" linkText="GOT IT"}}
+                <strong>1453801 Bradley Pitt</strong> already exist as TBS for Client “990024823/5 - JP Morgan Bank Ltd.”
+                &#123;{/wb-md-card-message}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>iconName</span></code> - Set icon. For more information open icons sections.</li>
+                        <li><code><span>iconColor</span></code> - Set icon color.  For more information open icons sections.</li>
+                        <li><code><span>iconWrapperColor</span></code> - Set icon circle color color. Supported value: <code><span>red</span></code>, <code><span>yellow</span></code></li>
+                        <li><code><span>linkText</span></code> - Change submit link label</li>
+                        <li><code><span>linkAction</span></code> - Action name which will be send on link click.</li>
+                        <li><code><span>linkActionValue</span></code> - Action value which will be send on link click.</li>
+                        <li><code><span>type</span></code> - Set message box type. Default value: <code><span>general</span></code></li>
+                        <div class="guideline-block__chapter-inner">
+                            <h3 class="guideline-block__chapter-title">alert</h3>
+                            {{#wb-md-card-message shadow=true type="alert" iconName="padlock" iconColor="muleFawn" iconSize="medium" iconWrapperColor="yellow" linkText="MAKE PUBLIC" }}
+                                This Call Report is Private
+                            {{/wb-md-card-message}}
+                        </div>
+                        <div class="guideline-block__chapter-inner">
+                            <h3 class="guideline-block__chapter-title">error</h3>
+                            {{#wb-md-card-message type="error" iconName="info_outline" iconColor="white" linkText="GOT IT" }}
+                                <p>
+                                    If Individual risk marker fields are required by LEIDs, please go to each record (LEID level) to update specific risk maker fields in individual Exit Checklist
+                                </p>
+                                <p>
+                                    If you have selected TP Accounts from Sanctioned Country list and/or GSAM Clients, please attach the approval email from Group Sanctioned Advisor and/or GSAM Head respectivly
+                                </p>
+                            {{/wb-md-card-message}}
+                        </div>
+                        <div class="guideline-block__chapter-inner">
+                            <h3 class="guideline-block__chapter-title">warning</h3>
+                            {{#wb-md-card-message type="warning" iconName="info_outline" iconColor="white" linkText="GOT IT" }}
+                                You have exceeded the limit for adding more than one TBS for the SubProfile{{wb-md-icon iconName="help_text" class="card-message__help-icon"}}
+                            {{/wb-md-card-message}}
+                        </div>
+                        <div class="guideline-block__chapter-inner">
+                            <h3 class="guideline-block__chapter-title">general</h3>
+                            <p>
+                                General card message can contain multiline text.
+                            </p>
+                            {{#wb-md-card-message title="Message" type="general" iconName="notifications" iconColor="white" linkText="GOT IT" }}
+                                <p>
+                                    The following reports has not ben transmitted today. Please note that the data depicted in this reports is of 25 May 2016.
+                                </p>
+                                <ul>
+                                    <li>DTP Past Due / Irregular Bils Report from Trade system for Singapore.</li>
+                                    <li>OTP Summary Overdue Report from Trade system for Singapore.</li>
+                                </ul>
+                            {{/wb-md-card-message}}
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Alert &amp; Confirmations</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>type</span></code> - the notification types available are</li>
+                        <table>
+                        <thead>
+                            <tr>
+                                <th>alert</th>
+                                <th>confirm</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                    <td>this.mdDialogManager.alert({/* settings */})</td>
+                                    <td>this.mdDialogManager.confirm({/* settings */})</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <li><code><span>message</span></code> - Set message for the alert or confirmation</li>
+                        <li><code><span>title</span></code> - Set title for the modal window</li>
+                        <li><code><span>size</span></code> - Sets the modal size as in popup settings</li>
+                        <li><code><span>showTopBar</span></code> - Show border below the modal title</li>
+                        <li><code><span>showActionBar</span></code> - Show grey action bar at the bottom</li>
+                        <li><code><span>buttonLabel</span></code> - Set the button lable for the alert window</li>
+                        <li><code><span>cancelButtonLabel</span></code> - Sets the cancel button label for confirmation window</li>
+                        <li><code><span>confirmButonLabel</span></code> - Sets the confirm button label for confirmation window</li>
+                    </ul>
+                </div>
+            </div>
+        <div class="guideline-block__example">
+            {{wb-md-button type="primary" color="blue" label='Alert Me' action='openAlert'}}
+            {{wb-md-button type="primary" color="blue" label='Alert with border' action='openAlertWithBorder'}}
+            {{wb-md-button type="primary" color="blue" label='Confirmation' action='openConfirmation'}}
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Messages</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+
+        </div>
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type="primary" color="blue" label='Top Left' click=(action "showSnackBar" 'top-left')}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type="primary" color="blue" label='Top Center' click=(action "showSnackBar" 'top-center')}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type="primary" color="blue" label='Top Right' click=(action "showSnackBar" 'top-right')}}
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type="primary" color="blue" label='Bottom Left' click=(action "showSnackBar" 'bottom-left')}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type="primary" color="blue" label='Bottom Center' click=(action "showSnackBar" 'bottom-center')}}
+                </div>
+            </div>
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    {{wb-md-button type="primary" color="blue" label='Bottom Right' click=(action "showSnackBar" 'bottom-right')}}
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+    </div>
+{{/wb-md-card}}

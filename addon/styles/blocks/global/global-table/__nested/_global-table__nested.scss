@@ -1,0 +1,41 @@
+.global-table__nested_before {
+    &:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -10px;
+        content: '';
+        border-radius: 0 0 $baseBorderRadius $baseBorderRadius;
+        box-shadow: $cardShadow;
+        height: 10px;
+        clip-path: inset(3px 0 -3px 0);
+    }
+    position: relative;
+    z-index: 0;
+    height: 20px;
+    box-shadow: 0 3px 0 3px $baseBackground;
+    display: block;
+    clip-path: inset(-10px -3px 0 -3px);
+    background: $baseBackground;
+}
+.global-table__nested_after {
+    &:after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        content: '';
+        border-radius: $baseBorderRadius $baseBorderRadius 0 0;
+        box-shadow: $cardShadow;
+        height: 10px;
+        clip-path: inset(-4px 3px 4px 3px);
+    }
+    position: relative;
+    z-index: 0;
+    background: $baseBackground;
+    height: 20px;
+    box-shadow: 0 -3px 0 3px $baseBackground;
+    background: $baseBackground;
+    display: block;
+    clip-path: inset(0 -3px -10px -3px);
+}

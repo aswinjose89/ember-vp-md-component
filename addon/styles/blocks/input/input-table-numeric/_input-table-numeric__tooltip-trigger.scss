@@ -1,0 +1,17 @@
+.input-table-numeric__tooltip-trigger {
+    transform: translateY(-50%);
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    cursor: pointer;
+    border: 2px solid #FFFFFF;
+    box-sizing: content-box;
+    &:before {
+        background: #F44336;
+        width: 5px;
+        display: block;
+        content: '';
+        height: 5px;
+        transform: rotate(45deg);
+    }
+}

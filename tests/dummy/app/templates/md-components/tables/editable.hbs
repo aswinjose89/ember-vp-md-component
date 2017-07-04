@@ -1,0 +1,183 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Editable Table</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-table config=tableConfig}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>type: editable</span></code> - Enables the editable grid behaviour</li>
+                        <li><code><span>hasErrorField</span></code> - The property reference from which the Model's isValid property will be referred. Example: alias for modelName.get('isValid')</li>
+                        <li><code><span>enableAddRow</span></code> - Enable add new row button</li>
+                        <li><code><span>disableAddRow</span></code> - Disables the add new row button</li>
+                        <li>
+                            <code>
+                            <span>columns</span></code> - List of columns to map for the content array
+                            <ul>
+                                <li><code><span>isReadOnly</span></code> - Show the column in a readonly mode</li>
+                                <li><code><span>placeholder</span></code> - Placeholder to disaplay if no content is present</li>
+                                <li><code><span>startDate</span></code> - Sets the start date for the date picker if column type is date</li>
+                                <li><code><span>startDateField</span></code> - Map this field to the model, if you want to have row level control over the start date</li>
+                                <li><code><span>endDate</span></code> - Sets the end date for the date picker if column type is date</li>
+                                <li><code><span>endDateField</span></code> - Map this field to the model, if you want to have row level control over the end date</li>
+                                <li><code><span>isSelect :default false</span></code> - Sets true enables the Select box in the table cell</li>
+                                <li><code><span>isMandatory :default false</span></code> -Show the mandatory * at the column header</li>
+                                <li><code><span>isSearchable :default false</span></code> - Sets true enables the searchable dropdown applicable only for single select</li>
+                                <li><code><span>multiSelect :default false</span></code> - Sets true enables the Select box behave as multiselect</li>
+                                <li><code><span>maxSelection :default 10</span></code> - Sets the max amount for selection items</li>
+                                <li><code><span>focusIn</span></code> - Sets the action for focusIn event, applies only for focusable editable field</li>
+                                <li><code><span>focusOut</span></code> - Sets the action for focusOut event, applies only for focusable editable field</li>
+                                <li><code><span>maxLength</span></code> - Sets maxLength for editable inputs</li>
+                                <li><code><span>maxLengthField</span></code> - Set maxLength based on the model reference</li>
+                                <li><code><span>precision</span></code> - Sets the decimal precision for editable inputs</li>
+                                <li><code><span>precisionField</span></code> - Set precision based on the model reference</li>
+                                <li><code><span>action</span></code> - The given action is triggered when select value changes</li>
+                                <li><code><span>optionLabelPath</span></code> - The label to show on the content provided for select dropdown</li>
+                                <li><code><span>optionValuePath</span></code> - The value/id to store for the content provided for select dropdown</li>
+                                <li><code><span>content</span></code> - If <code>isSelect:true</code> takes the content to be displayed in Select box</li>
+                                <li><code><span>contentValuePath</span></code> - If you are passing dropdown content at row level, specify the model's property name to this property</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3 class="guideline-block__chapter-title">Config Object</h3>
+        {{#wb-md-code-highlight type="js" }}
+            {
+                tableHeading: 'User Table',
+                type: 'editable',
+                addRowLabel: 'Add Few',
+                enableAddRow: true,
+                rowAction: {
+                    iconName: "remove_circle",
+                    action: 'deleteAction'
+                },
+                addNewRowAction: 'addANewUser',
+                content: tableContent,
+                columns: [{
+                    field: 'user',
+                    type: 'number',
+                    isSearchable: true,
+                    disableDecimal: true,
+                    title: 'PSID',
+                    focusIn: 'onFocusIn',
+                    focusOut: 'onFocusOut',
+                    placeholder: 'Enter PSID',
+                    searchAction: 'triggerSearch',
+                    isPriorityWidth: true
+                }, {
+                    field: 'firstName',
+                    type:'text',
+                    placeholder:'Enter First Name',
+                    title: 'Name',
+                    isPriorityWidth: true
+                }, {
+                    field: 'country',
+                    type:'text',
+                    isSelect: true,
+                    iconName: 'arrow_drop_down',
+                    content: countries,
+                    contentValuePath: 'content',
+                    optionLabelPath: 'name',
+                    placeholder: 'Select Country',
+                    title: 'Custom Content',
+                    isPriorityWidth: true
+                },{
+                    field: 'nationalities',
+                    type:'text',
+                    isSelect: true,
+                    multiSelect: true,
+                    action: 'editAction',
+                    placeholder: 'Select Nationality',
+                    iconName: 'arrow_drop_down',
+                    content: countries,
+                    optionLabelPath: 'name',
+                    title: 'Nationalities',
+                    isPriorityWidth: true
+                }, {
+                    field: 'country',
+                    type:'text',
+                    isSelect: true,
+                    action: 'editAction',
+                    placeholder: 'Select Country',
+                    iconName: 'arrow_drop_down',
+                    content: countries,
+                    optionLabelPath: 'name',
+                    title: 'Country',
+                    isPriorityWidth: true
+                }]
+            }
+        {{/wb-md-code-highlight}}
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Preview</h3>
+            </div>
+        </div>
+        {{wb-md-spacer}}
+        <p>The Last Name is Mandatory and will accept only Alphabets. Try changing it to check the error status if data is invalid.</p>
+    </div>
+    {{#wb-md-content-toolbar}}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">{{wb-md-button label='Reset Second row custom content' type='primary' color='blue' action='changeDropDown'}}</div>
+            <div class="content-toolbar__element">{{wb-md-button label='Toogle Disabled Row' type='primary' color='blue' action='toggleFirstRow'}}</div>
+            <div class="content-toolbar__element">
+                {{wb-md-button type='primary' color='blue' label='Enable/Disable First Name in 2nd Row' action='toggleFirstName'}}
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    {{wb-md-table config=editableTableConfig}}
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+<div class="guideline-block">
+    {{#wb-md-content-toolbar pad="null" }}
+        <div class="content-toolbar__row">
+            <div class="content-toolbar__element">
+                <div class="content-toolbar__title content-toolbar__title_color_blue">More Field Types</div>
+            </div>
+            <div class="content-toolbar__element">
+                <div class="guideline-block__status guideline-block__status_stable">
+                    DEV READY: beta
+                </div>
+            </div>
+        </div>
+    {{/wb-md-content-toolbar}}
+    <div class="guideline-block__chapter">
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                <ul>
+                    <li>
+                        <code><span>columns</span></code> - List of columns to map for the content array
+                        <ul>
+                            <li><code><span>type: number</span></code> - Sets the editable component type as number</li>
+                            <li><code><span>isBordered :default false</span></code> - Displays bordered input type</li>
+                            <li><code><span>isMultiLine :default false</span></code> - Set true for entering text with multiline</li>
+                            <li><code><span>isRequired :default false</span></code> - Set true to disable done button in multiline popup if field is required</li>
+                            <li><code><span>isRequiredField :default false</span></code> - Set the field to refer for isMultiline required flag</li>
+                            <li><code><span>linkText</span></code> - Set the link text for opening the multi line edit popup. The same will be used for popup header</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{editable-table-addtional-input users=model.users countries=model.countries}}
+{{/wb-md-card}}

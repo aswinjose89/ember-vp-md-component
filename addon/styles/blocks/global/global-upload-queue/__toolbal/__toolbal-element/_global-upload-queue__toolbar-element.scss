@@ -1,0 +1,6 @@
+.global-upload-queue__toolbar-element {
+  & ~ .global-upload-queue__toolbar-element {
+    margin-left: 24px;
+  }
+  color: $white;
+}

@@ -1,0 +1,92 @@
+<div class="{{unless isBordered 'input-table__inline'}}" {{action "clickEvent" on="click"}}>
+    {{#if (and leftIconName (not hideIcon))}}
+        <div class="input-table__icon input-table__icon_left">
+            {{wb-md-icon helpText=leftIconHelpText disabled=isDisabled iconName=leftIconName color=leftIconColor click=(disable-bubbling (action leftIconAction)) size="medium"}}
+        </div>
+    {{/if}}
+    <div class="{{unless isBordered 'input-table__input'}}{{if isInHeader ' input-table__input_header'}}"
+        data-content-changed={{didContentChanged}}
+        {{action "hideToolTip" on="mouseLeave"}}
+        {{action "showToolTip" on="mouseEnter"}}>
+        {{#if (and isSelect (not isSearchable))}}
+            {{#if selectedItems}}
+                {{selectedItemsLabel}}
+            {{else}}
+                {{label}}
+            {{/if}}
+        {{else if isSearchable}}
+            {{input type='text' placeholder=placeholder maxlength=maxLength focus-in='onFocusIn' focus-out='onFocusOut' value=searchText disabled=isDisabled input=(action 'triggerSearch') data-value=selectedItem}}
+        {{else if (is-equal type 'date')}}
+            {{input type='text' value=dateValue required=required disabled=true placeholder=placeholder}}
+            {{#if isOpen}}
+                {{#ember-wormhole to="MDContainer"}}
+                    <div class="input-row__modal input-row__modal_transparent{{if modalAnimationTop " input-row__modal_top-show"}}{{if modalAnimationBottom " input-row__modal_bottom-show"}}" id="{{elementId}}-dropdown">
+                          <div class="pickmeup_wrap"></div>
+                    </div>
+                {{/ember-wormhole}}
+            {{/if}}
+        {{else if isFormatted}}
+            {{input type='text' placeholder=(if isBordered '-' placeholder) maxlength=maxLength focus-in='onFocusIn' focus-out='onFocusOut' value=formattedValue input=(disable-bubbling (action 'validateTableInput' 'formattedValue'))  disabled=isDisabled}}
+        {{else}}
+            {{input type='text' placeholder=(if isBordered '-' placeholder) maxlength=maxLength focus-in='onFocusIn' focus-out='onFocusOut' value=value input=(action 'validateTableInput' 'value') disabled=isDisabled}}
+        {{/if}}
+    </div>
+    {{#if iconName}}
+        <div class="input-table__icon input-table__icon_right">
+            {{#if (is-equal type 'date')}}
+                {{#if (and dateValue (not required))}}
+                    {{wb-md-icon iconName="bid_clear" click=(action "clearDate" bubbles=false)}}
+                {{else}}
+                    {{wb-md-icon iconName="arrow_drop_down" ripple=false}}
+                {{/if}}
+            {{else}}
+                {{wb-md-icon iconName=iconName color=iconColor ripple=false}}
+            {{/if}}
+        </div>
+    {{/if}}
+    {{#if (and rightIconName (not hideIcon))}}
+        <div class="input-table__icon">
+            {{wb-md-icon helpText=rightIconHelpText disabled=isDisabled iconName=rightIconName color=rightIconColor click=(disable-bubbling (action rightIconAction)) size="medium"}}
+        </div>
+    {{/if}}
+</div>
+{{#if isOpen}}
+    {{#ember-wormhole to="MDContainer"}}
+    {{#if multiSelect}}
+        <div class="input-table__modal{{if modalAnimationTop " input-table__modal_top-show"}}{{if modalAnimationBottom " input-table__modal_bottom-show"}}" id="{{elementId}}-dropdown">
+            <div class="dropdown-list">
+                {{#if isMultiLevelSelect}}
+                    {{partial 'partials/multi-level-select'}}
+                {{else}}
+                    {{#each content as |item|}}
+                        <div class="dropdown-list__row{{if (or item.isDisabled item.item.isDisabled) ' dropdown-list__row_disabled'}}  button-ripple" data-max-selection={{isMaxSelectionReached}}>
+                            <div class="dropdown-list__element" {{action "setSelectedItems" item}}>
+                                <div class="dropdown-list__icon">
+                                    {{#if item.isSelected}}
+                                        {{wb-md-icon isReadOnly=true iconName="check" ripple=false}}
+                                    {{/if}}
+                                </div>
+                                {{get item.item optionLabelPath}}
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    {{else}}
+        <div class="input-table__modal{{if modalAnimationTop " input-table__modal_top-show"}}{{if modalAnimationBottom " input-table__modal_bottom-show"}}{{if tempModal ' input-table__modal_multilevel'}}" id="{{elementId}}-dropdown">
+            <div class="dropdown-list">
+                {{#each filteredContent as | record |}}
+                    <div class="dropdown-list__row{{if (is-equal (get record.item optionValuePath) (get value optionValuePath)) ' dropdown-list__row_active'}}{{if record.item.isDisabled ' dropdown-list__row_disabled'}}">
+                        <div class="dropdown-list__element" {{action "setSelectedItem" record}}>
+                            {{get record.item optionLabelPath}}
+                        </div>
+                    </div>
+                {{else}}
+                   {{partial 'partials/dropdown-no-data'}}
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+    {{/ember-wormhole}}
+{{/if}}

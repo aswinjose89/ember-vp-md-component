@@ -1,0 +1,370 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tags</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-tag label="MULTIPLE"}}
+        </div>
+        <!--HTML Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">HTML</h3>
+            {{#wb-md-code-highlight}}
+                <div class="global-tag">
+                    <div class="global-tag__value">MULTIPLE</div>
+                </div>
+            {{/wb-md-code-highlight}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-tag label="MULTIPLE"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>label</span></code> - Set tag text</li>
+                        <li><code><span>color</span></code> - Set of tag background color.</li>
+                    </ul>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>none</th>
+                            <th>green</th>
+                            <th>deep-orange</th>
+                            <th>blue-gray</th>
+                            <th>blue</th>
+                            <th>orange</th>
+                            <th>cyan</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{wb-md-tag label="MULTIPLE"}}</td>
+                            <td>{{wb-md-tag label="ADD" color="green"}}</td>
+                            <td>{{wb-md-tag label="DELETE" color="deep-orange"}}</td>
+                            <td>{{wb-md-tag label="REPLACE" color="blue-gray"}}</td>
+                            <td>{{wb-md-tag label="MANDATED" color="blue"}}</td>
+                            <td>{{wb-md-tag label="draft" color="orange"}}</td>
+                            <td>{{wb-md-tag label="label" color="cyan"}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li><code><span>circle</span></code> - Set of tag circle color.
+                            <div class="guideline-block__example">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>gray</th>
+                                        <th>green</th>
+                                        <th>deep-orange</th>
+                                        <th>blue-gray</th>
+                                        <th>blue</th>
+                                        <th>orange</th>
+                                        <th>red</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>{{wb-md-tag label="Draft" circle="gray"}}</td>
+                                        <td>{{wb-md-tag label="ADD" circle="green"}}</td>
+                                        <td>{{wb-md-tag label="DELETE" circle="deep-orange"}}</td>
+                                        <td>{{wb-md-tag label="REPLACE" circle="blue-gray"}}</td>
+                                        <td>{{wb-md-tag label="MANDATED" circle="blue"}}</td>
+                                        <td>{{wb-md-tag label="draft" circle="orange"}}</td>
+                                        <td>{{wb-md-tag label="High" circle="red"}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tag 2</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-tag-2
+                label="DRAFT"
+            }}
+            {{wb-md-tag-2
+                label="DRAFT"
+                color="white"
+                background="blue-500"
+            }}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+             {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-tag-2
+    label="DRAFT"
+    circle="red-500"
+}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>label</span></code> - Set label</li>
+                        <li><code><span>color</span></code> - Set text color.</li>
+                        <li><code><span>background</span></code> - Set background.</li>
+                        <li><code><span>circle</span></code> - Set background of circle.</li>
+                    </ul>
+                   <p>
+                       All color's properties present on <a href="//material.io/guidelines/style/color.html#color-color-palette">material color palette</a>.
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tags with icon</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-tag iconName="forbidden"}} {{wb-md-tag iconName="padlock" iconColor="muleFawn" color="buttercup"}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-tag iconName="padlock" iconColor="muleFawn" color="buttercup"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Icon Setting</h3>
+                    <ul>
+                        <li><code><span>iconName</span></code> - Set icon ligature</li>
+                        <li><code><span>iconColor</span></code> - Set icon color.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Tags with Tooltips</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-tag config=toolTipConfig}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-tag config=toolTipConfig}}
+            {{/wb-md-code-highlight}}
+            <h3 class="guideline-block__chapter-title">Config Object</h3>
+            {{#wb-md-code-highlight type="js"}}
+            {
+                label: 'Multiple',
+                tooltip: {
+                    //tooltip setting here
+                    tags: [{
+                            label: '2 Add',
+                            circle: 'green'
+                        },
+                        {
+                            label: '1 Delete',
+                            circle: 'red'
+                        }
+                    ]
+                    //end of tooltip setting
+                }
+            }
+            {{/wb-md-code-highlight}}
+        </div>
+    </div>
+{{/wb-md-card}}
+
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Entity Tags</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <!--HTML Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">HTML</h3>
+            {{#wb-md-code-highlight}}
+                <div class="entity-header-tag">
+                    <div class="entity-header-tag__instance">
+                        <span>3B</span>
+                        <span>WACG</span>
+                    </div>
+                    <div class="entity-header-tag__instance">
+                        <span>2A</span>
+                        <span>GROUP CG</span>
+                    </div>
+                </div>
+            {{/wb-md-code-highlight}}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-entity-tag tags=entityTags}}
+            {{/wb-md-code-highlight}}
+            <br>
+            <h3 class="guideline-block__chapter-title">JSON</h3>
+            {{#wb-md-code-highlight type="js"}}
+                "entityTags": [
+                {"key": "3B", "value":"WACG" },
+                {"key": "2A", "value":"GROUP CG" },
+                {"key": "A+", "value":"S&P" },
+                {"key": "MULTI STRIPED"}
+                ]
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Preview</h3>
+                    {{#wb-md-content-toolbar color="blue"}}
+                        <div class="content-toolbar__row">
+                            <div class="content-toolbar__element">
+                                {{wb-md-entity-tag tags=entityTags}}
+                            </div>
+                        </div>
+                    {{/wb-md-content-toolbar}}
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Double tag</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-double-tag
+                leftLabel="RECALL"
+                rightLabel="APPROVER"
+                color="white"
+                background="blue-500"
+            }}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+             {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-double-tag
+    leftLabel="RECALL"
+    rightLabel="APPROVER"
+    color="white"
+    background="blue-500"
+}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>leftLabel</span></code> - Set first label text</li>
+                        <li><code><span>rightLabel</span></code> - Set second label text</li>
+                        <li><code><span>color</span></code> - Set first label text color.</li>
+                        <li><code><span>background</span></code> - Set background (color of second label same as background).</li>
+                    </ul>
+                   <p>
+                       All color's and background's present on <a href="//material.io/guidelines/style/color.html#color-color-palette">material color palette</a>.
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null"}}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Action indicator</div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{wb-md-action-indicator
+                value="NEW"
+                color="green-500"
+            }}
+        </div>
+        <!--Ember Chapter-->
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+             {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-action-indicator
+    value="NEW"
+    color="green-500"
+}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>value</span></code> - Set value</li>
+                        <li><code><span>color</span></code> - Set text color.</li>
+                    </ul>
+                   <p>
+                       All color's properties present on <a href="//material.io/guidelines/style/color.html#color-color-palette">material color palette</a>.
+                   </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

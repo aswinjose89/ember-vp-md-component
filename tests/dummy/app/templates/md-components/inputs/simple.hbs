@@ -1,0 +1,177 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Inputs</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        {{wb-md-input type="text" required=true label="Project Name" enterAction='enterAction'}}
+        <h3 class="guideline-block__chapter-title">Single Line Input</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input type="text" maxLength=10 onFocusIn='inputFocusIn' onFocusOut='inputFocusOut' leftIconName='chat' required=isRequired max=10 label="Project Name" enterAction='enterAction'}}
+            {{wb-md-button label='Toggle Required Field' type='primary' color='blue' action=(action toggleProperty 'isRequired')}}
+        </div>
+        <h3 class="guideline-block__chapter-title">Muti Line Input</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input label="Enter your comments" multiline=true maxLength=40000 leftIconName="comment" required=true enterAction=(action 'enterClosureAction' 'firstArgument')
+            showMoreAction='showGuidance'
+            helpText="Liabilities for HTTP/1 users. In the final part of this series, we’ll talk about the performance implications of such a strategy and how build tools can help you manage HTTP/1- and HTTP/2-specific assets"}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-input type="text" leftIconName='chat' required=true max=10 label="Project Name"}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>label</span></code> - Sets input label</li>
+                        <li><code><span>value</span></code> - Holds the actual value of the component</li>
+                        <li><code><span>helpText</span></code> - Pass the helptext for the input components</li>
+                        <li><code><span>required default:false</span></code> - Enable required field validaiton</li>
+                        <li><code><span>multiline default:false</span></code> - Enable textarea behaviour</li>
+                        <li><code><span>maxLength</span></code> - Set max length for the component</li>
+                        <li><code><span>hideTextCount default:false</span></code> - Set this property to true to hide the text count</li>
+                        <li><code><span>leftIconName</span></code> - Sets the left icon to the input component</li>
+                        <li><code><span>rightIconName</span></code> - Sets the right icon to the input component</li>
+                        <li><code><span>disabled default:false</span></code> - Enable disable the component</li>
+                        <li><code><span>disableDecimal default:false</span></code> -  Disable the deimal input in number field</li>
+                        <li><code><span>isFormatted default:false</span></code> -  Enable comma format input in number field</li>
+                        <li><code><span>isNegative default:false</span></code> -  Enable negative number</li>
+                        <li><code><span>enterAction</span></code> - Takes a normal action name or closure action. This action will be invoked on pressing enter key</li>
+                        <li><code><span>validationPattern</span></code> - Pass a RegExp string to restrict the input to a regular expression pattern</li>
+                        <li><code><span>type</span></code> - Sets the type of input component</li>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>text</th>
+                                <th>number</th>
+                                <th>password</th>
+                                <th>email</th>
+                                <th>datepicker</th>
+                                <th>select</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <li><code><span>precision</span></code> - Precision for decimal number input</li>
+                        <li><code><span>block</span></code> - Setting this property to true will enable the component to take full width and label positioning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Events &amp; Actions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>onFocusIn(label, value, event)</td>
+                                <td>This action is fired whenever the input component is focused in</td>
+                            </tr>
+                            <tr>
+                                <td>showMoreAction()</td>
+                                <td>This action is fired whenever the helpText is truncated and more button is clicked</td>
+                            </tr>
+                            <tr>
+                                <td>onFocusOut(label, value, event)</td>
+                                <td>This action is fired whenever the input component is focused out</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <h3 class="guideline-block__chapter-title">Number Input Type</h3>
+        {{wb-md-input type='number' label='Number Input' onFocusOut='inputFocusOut' precision=2 max=100 leftIconName="looks_one" required=true helpText='Max Value is 100'}}
+        <h3 class="guideline-block__chapter-title">Formatted Number Input Type</h3>
+        {{wb-md-input type='number' value=formattedValue label='Number Input' onFocusOut='inputFocusOut' precision=2 isFormatted=true min=2 leftIconName="looks_one" required=true helpText='Min 2'}}
+        <h3 class="guideline-block__chapter-title">Negative Number</h3>
+        {{wb-md-input type='number' label='Number Input' isNegative=true onFocusOut='inputFocusOut' precision=2 max=100 leftIconName="looks_one" required=true helpText='Max Value is 100'}}
+        <h3 class="guideline-block__chapter-title">Formatted Negative Number</h3>
+        {{wb-md-input type='number' value=formattedValue2 isNegative=true label='Number Input' onFocusOut='inputFocusOut' precision=2 isFormatted=true min=2 max=100 leftIconName="looks_one" required=true helpText='Min 2, Max Value is 100'}}
+        <h3 class="guideline-block__chapter-title">Formatted Non Decimal Values</h3>
+        {{wb-md-input type='number' label='Non-Decimal Number' disableDecimal=true isFormatted=true max=100 leftIconName="looks_one" required=true helpText='Max Value is 100'}}
+        <h3 class="guideline-block__chapter-title">Without Decimal Values</h3>
+        {{wb-md-input type='number' label='Non-Decimal Number' disableDecimal=true max=100 leftIconName="looks_one" required=true helpText='Max Value is 100'}}
+        <h3 class="guideline-block__chapter-title">Password Input</h3>
+        {{wb-md-input type='password' label="Enter Password" leftIconName="padlock" required=true}}
+        <h3 class="guideline-block__chapter-title">Block Multiline Input</h3>
+    </div>
+    {{wb-md-input placeholder="Enter Call Subject" block=true multiline=true maxLength=500 leftIconName="perm_phone_msg" required=true}}
+    <div class="guideline-block">
+        <h3 class="guideline-block__chapter-title">Disabled Input</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input type="text" value="Workbench" leftIconName='chat' disabled=true required=true max=10 label="Project Name"}}
+        </div>
+    </div>
+    <div class="guideline-block">
+        <h3 class="guideline-block__chapter-title">Read Only Input</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input type="text" value="Workbench" isReadOnly=true leftIconName='chat' required=true max=10 label="Project Name"}}
+        </div>
+    </div>
+    <div class="guideline-block">
+        <h3 class="guideline-block__chapter-title">Custom Validation</h3>
+        <div class="guideline-block__example">
+            {{wb-md-input type="text" value=model.firstName leftIconName='chat' helpText='Only Alphabets are allowed' required=true label="First Name" errorMessage=model.errors.firstName.firstObject}}
+        </div>
+    </div>
+{{/wb-md-card}}
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Input Search</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: stable
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            {{#wb-md-content-toolbar color="blue" pad="full"}}
+                {{wb-md-input type="search" value=searchKey clearIcon=true searchAction='triggerSearchAction'}}
+            {{/wb-md-content-toolbar}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars"}}
+                &#123;{wb-md-input type="search" value=searchKey clearIcon=true}}
+            {{/wb-md-code-highlight}}
+        </div>
+        <div class="guideline-block__chapter-inner">
+            <div class="guideline-block__description">
+                <h3 class="guideline-block__chapter-title">Settings</h3>
+                <ul>
+                    <li><code><span>clearIcon</span></code> - show icon for clear value</li>
+                    <li><code><span>value</span></code> - value of input</li>
+                    <li><code><span>debounceTime default:500</span></code> - On user input, waits for the given time in Miliseconds before triggering the component's search action</li>
+                    <li><code><span>action</span></code>
+                        <ul>
+                            <li><code><span>searchAction</span></code> - Takes a closure action or normal action, which will trigger with the entered search key</li>
+                            <li><code><span>onChange</span></code></li>
+                            <li><code><span>onFocusIn</span></code></li>
+                            <li><code><span>onFocusOut</span></code></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}

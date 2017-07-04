@@ -1,0 +1,17 @@
+.global-file-upload {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  @include flex(flex, column, nowrap, flex-start, stretch, flex-start);
+}
+@import "__footer/global-file-upload__footer";
+@import "__content/global-file-upload__content";
+@import "__tutorial/global-file-upload__tutorial";
+@import "__form-info/global-file-upload__form-info";
+@import "__form-file/global-file-upload__form-file";
+@import "__icon/global-file-upload__icon";
+@import "__form-file/form-file-name/global-file-upload_form-file-name";
+@import "__form-file/form-file-icon/global-file-upload__form-file-icon";
+@import "__form-file/form-file-fluid/global-file-upload_form-file-fluid";
+@import "__form-file/form-file-percent/global-file-upload_form-file-percent";
+@import "__form-file/form-file-size/global-file-upload__form-file-size";

@@ -1,0 +1,80 @@
+<div class="static-info__label {{if iconName "static-info__label_icon"}}" {{action "showToolTip" label on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>
+    {{#if label}}
+        {{label}}
+    {{else}}
+        -
+    {{/if}}
+</div>
+<div class="static-info__inline">
+    {{#if iconName}}
+        <div class="static-info__icon">{{wb-md-icon iconName=iconName iconColor=iconColor ripple=false}}</div>
+    {{/if}}
+    <div class="static-info__content">
+        {{#if (or value list content component)}}
+            {{#if value}}
+                <div class="static-info__value" {{action "showToolTip" value on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>{{value}}</div>
+            {{/if}}
+            {{#if (and list (not listLimit))}}
+                <ul class="static-info__list {{if inlineList ' static-info__list_inline'}}">
+                {{#each list as |listLine|}}
+                    <li {{action "showToolTip" listLine on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>{{{listLine}}}</li>
+                {{/each}}
+                </ul>
+            {{/if}}
+            {{#if showListLimitedArray}}
+            <ul class="static-info__list">
+                {{#each listLimitArray as |listLine index|}}
+                    {{#if (and (eq index listLimitLastIndex) (not isEmptyList))}}
+                        <li>
+                            <div class="global-overflow">
+                                <div class="global-overflow__fluid"{{action "showToolTip" listLine on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>
+                                    {{{listLine}}}
+                                </div>
+                                <div class="global-overflow__static">
+                                    <a href="#"{{action toggleProperty 'showListFull'}}>{{listLimitNum}}</a>
+                                </div>
+                            </div>
+                        </li>
+                    {{else}}
+                        <li {{action "showToolTip" listLine on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>{{{listLine}}}</li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            {{/if}}
+            {{#if content}}
+                {{#if (and showMore isContentHidden)}}
+                    {{#if showTrigger}}
+                        {{{new-line-to-br content}}}
+                    {{else}}
+                        {{{truncate (new-line-to-br content) limit=showLength visibleLines=visibleLines}}}
+                    {{/if}}
+                    <div class="static-info__length-trigger" {{action toggleProperty 'showTrigger'}}>
+                        {{#if showTrigger}}
+                            Show less
+                        {{else}}
+                            Show more
+                        {{/if}}
+                    </div>
+                {{else}}
+                    {{{new-line-to-br content}}}
+                {{/if}}
+            {{/if}}
+        {{else}}
+            <div class="static-info__value">-</div>
+        {{/if}}
+        {{#if component}}
+            {{component component.name config=component.config}}
+        {{/if}}
+    </div>
+    {{#if (and showListLimitedArray showListFull)}}
+        {{#ember-wormhole to="MDContainer"}}
+            <div class="static-info__modal{{if modalAnimationTop " static-info__modal_top-show"}}{{if modalAnimationBottom " static-info__modal_bottom-show"}}" id="{{elementId}}-dropdown">
+                <ul>
+                    {{#each list as |listLine|}}
+                    <li {{action "showToolTip" listLine on="mouseEnter"}}{{action "hideToolTip" on="mouseLeave"}}>{{{listLine}}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/ember-wormhole}}
+    {{/if}}
+</div>

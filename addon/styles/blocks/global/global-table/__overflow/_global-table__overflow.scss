@@ -1,0 +1,7 @@
+.global-table__overflow {
+    @extend %text-overflow;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+}
+
+@import "global-table__overflow-element";
+@import "global-table__overflow-static";

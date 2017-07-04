@@ -1,0 +1,19 @@
+.global-tabs__element_status_active {
+    .global-tabs__label {
+        color: $indigo_500
+    }
+}
+.global-tabs__element_status_active.global-tabs__element_type_button {
+    .global-tabs__label {
+        color: $white;
+    }
+    .global-tabs__value {
+        color: change-color($white, $alpha: .5);
+    }
+}
+.tab-content{
+    display: none;
+}
+.tab-content.active{
+    display: block;
+}

@@ -1,0 +1,6 @@
+.global-file-upload__form-info {
+  padding: 20px;
+  line-height: $smallLineHeight;
+  font-size: $smallFontSize;
+  color: change-color($baseColor, $alpha: .7);
+}

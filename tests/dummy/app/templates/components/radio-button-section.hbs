@@ -1,0 +1,54 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Radio Buttons</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__example">
+            <h3 class="guideline-block__chapter-title">Radio Button Group</h3>
+            {{wb-md-radio-group helpText='Some help text' helpModalTitle='Help' config=radioButtonConfig value=value onChange=(action "radioAction")}}
+            {{wb-md-button action="changeSelected" label="Change Selection" type="primary" disabled=(if value false true)}}
+        </div>
+        <div class="guideline-block__example">
+            <h3 class="guideline-block__chapter-title">InlineRadio Button Group</h3>
+            {{wb-md-radio-group config=InlineRadioButtonConfig selectedItem=selectedItem2 onChange=(action "radioAction")}}
+        </div>
+        <div class="guideline-block__chapter">
+            <h3 class="guideline-block__chapter-title">Ember component</h3>
+            {{#wb-md-code-highlight type="handlebars" }}
+                &#123;{wb-md-radio-group config=radioButtonConfig value=selectedBooleanValue selectedItem=answerModel onChange=(action "radioAction")}}
+            {{/wb-md-code-highlight}}
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Settings</h3>
+                    <ul>
+                        <li><code><span>content</span></code> - The array of items to render the radio button</li>
+                        <li><code><span>title</span></code> - Radio group title</li>
+                        <li><code><span>number</span></code> - add number before title</li>
+                        <li><code><span>description</span></code> - Radio group description</li>
+                        <li><code><span>optionLabelPath default:name</span></code> - Same as input select this holds the property name from which the label will be referenced</li>
+                        <li><code><span>optionValuePath default:value</span></code> - Same as input select this holds the property name from which the value will be referenced</li>
+                        <li><code><span>value</span></code> - Holds value of the selected item</li>
+                        <li><code><span>selectedItem</span></code> - Holds the object of the current selected item in the radio group</li>
+                        <li><code><span>isError</span></code> set true globaly or per item</li>
+                        <li><code><span>helpText</span></code> set help text</li>
+                        <li><code><span>helpLinkTitle</span></code> set help text title to custom value</li>
+                        <li><code><span>helpModalTitle</span></code> set help modal title to custom value</li>
+                        <li><code><span>errorMessage</span></code> - error text, show on description place</li>
+                        <li><code><span>onChange() returns value, selectedItem</span></code> - Closure action, on change of the radio button the current <code>value</code> and <code>selectedItem</code> will be returned</li>
+                    </ul>
+                    <h4>Note:You can provide <code>value</code> or <code>selectedItem</code> parameter.If both will be provided,then <code>value</code> will take presedence over <code>selectedItem</code></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+

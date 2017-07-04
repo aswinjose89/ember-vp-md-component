@@ -1,0 +1,10 @@
+.static-status-list {
+    @include flex(flex, row, wrap, flex-start, flex-start, flex-start);
+    position: relative;
+    z-index: 0;
+}
+
+//import mods
+@import "__label/static-status-list__label";
+@import "__data/static-status-list__data";
+@import "__row/static-status-list__row";

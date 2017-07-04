@@ -1,0 +1,16 @@
+.content-toolbar__list_inline {
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    li ~ li {
+        &:before {
+            width: 4px;
+            height: 4px;
+            content: '';
+            display: inline-block;
+            vertical-align: top;
+            background: $black;
+            border-radius: 50%;
+            margin: 4px 10px 0 10px;
+        }
+    }
+
+}

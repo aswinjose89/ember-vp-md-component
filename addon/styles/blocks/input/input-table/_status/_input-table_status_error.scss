@@ -1,0 +1,11 @@
+.input-table_status_error {
+    .input-table__input {
+        color: $red_500;
+        input {
+            color: $red_500;
+            @include placeholder {
+                color: $red_500;
+            }
+        }
+    }
+}

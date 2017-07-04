@@ -1,0 +1,12 @@
+[class*=global-table__inner_highlight] {
+    position: relative;
+    z-index: 0;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+    }
+}

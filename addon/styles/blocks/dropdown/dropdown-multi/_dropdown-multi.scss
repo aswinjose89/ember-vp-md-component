@@ -1,0 +1,23 @@
+.dropdown-multi {
+    color: $grayLabel;
+    a {
+        font-weight: 500;
+    }
+}
+
+.dropdown-multi+.dropdown-multi {
+    border-top: 1px solid $baseBorderColor;
+}
+
+@import "__avatar/dropdown-multi__avatar";
+@import "__name/dropdown-multi__name";
+@import "__info/dropdown-multi__info";
+@import "__info-element/dropdown-multi__info-element";
+@import "__tags/dropdown-multi__tags";
+@import "__row/dropdown-multi__row";
+@import "_color/dropdown-multi_color";
+@import "__user-icon/dropdown-multi__user-icon";
+@import "__content/dropdown-multi__content";
+@import "__header/dropdown-multi__header";
+@import "__header/__header-title/dropdown-multi__header-title";
+@import "__actions/dropdown-multi__actions";

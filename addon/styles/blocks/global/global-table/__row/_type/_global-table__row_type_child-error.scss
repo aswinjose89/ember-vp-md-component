@@ -1,0 +1,7 @@
+.global-table__row_type_child-error {
+   td:first-child {
+       &:before {
+           background: $red_500;
+       }
+   }
+}

@@ -1,0 +1,4 @@
+.header-inline-bottom {
+  @include flex(flex, row, nowrap, space-between, center, flex-start);
+  color: $white;
+}

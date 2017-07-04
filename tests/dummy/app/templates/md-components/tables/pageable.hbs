@@ -1,0 +1,94 @@
+{{#wb-md-card}}
+    <div class="guideline-block">
+        {{#wb-md-content-toolbar pad="null" }}
+            <div class="content-toolbar__row">
+                <div class="content-toolbar__element">
+                    <div class="content-toolbar__title content-toolbar__title_color_blue">Pageable Table</div>
+                </div>
+                <div class="content-toolbar__element">
+                    <div class="guideline-block__status guideline-block__status_stable">
+                        DEV READY: beta
+                    </div>
+                </div>
+            </div>
+        {{/wb-md-content-toolbar}}
+        <div class="guideline-block__chapter">
+            <div class="guideline-block__chapter-inner">
+                <div class="guideline-block__description">
+                    <h3 class="guideline-block__chapter-title">Addtional Settings</h3>
+                    <ul>
+                        <li><code><span>pageable</span></code> - Enables the pagination</li>
+                        <li><code><span>pageType deafult:default</span></code> - Sets pagination type. Available types are <code>default</code>, <code>loadmore</code> and <code>infinite</code></li>
+                        <li><code><span>pageSize</span></code> - Sets the page size</li>
+                        <li><code><span>rowsPerPage</span></code> - if <code>pageType:default</code>, this property takes array of number for the rows per page dropdown</li>
+                        <li><code><span>sortable</span></code> - Enables sorting for the columns</li>
+                        <li><code><span>filterable</span></code> - Enables column level filteration</li>
+                        <li><code><span>filterConditions</span></code> - Takes array of filter condintions</li>
+                        <li>
+                            <code><span>columns</span></code> - List of columns to map for the content array
+                            <ul>
+                                <li><code><span>isFilterable default:true if filterable true</span></code> - Disable filter for a the column</li>
+                                <li><code><span>isSortable default:true if sortable true</span></code> - Disable sorting for a the column</li>
+                                <li><code><span>showAlways  default:false</span></code>- If manage columns is enable setting this to true will always show the column</li>
+                                <li><code><span>isHidden  default:false</span></code>- If manage columns is enable setting this to true will hide the column</li>
+                                <li><code><span>filterType  default:null</span></code>- Types of filters
+                                    <ul>
+                                        <li><code><span>dropdown</span></code> - The column will have a dropdown filter</li>
+                                        <li><code><span>custom</span></code> Use this filter type to have a custom filters</li>
+                                    </ul>
+                                </li>
+                                <li><code><span>filterConfig</span></code> - Holds the config for the filter dropdown
+                                    <ul>
+                                        <li><code><span>isMultiselect deafult:false</span></code> - Enables multiselect behaviour for the filter dropdown</li>
+                                        <li><code><span>content</span></code> Content for the dropdown filter</li>
+                                        <li><code><span>filterValuePath</span></code> Set variable name for the dropdown and custom filters, default for dropdown filter is 'value'</li>
+                                        <li><code><span>optionLabelPath</span></code> - Same as in wb-md-input type='select'</li>
+                                        <li><code><span>optionValuePath</span></code> - Same as in wb-md-input type='select'</li>
+                                        <li><code><span>items</span></code> - The array of items with configurations for the wb-ui-md-input components, 
+                                        the passed config and coresponding values will be applied as the filter for the column. Sample implementation is 
+                                        implemented for created date column in default pageable table</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code><span>maxColumnCount</span></code> -If Manage Columns is enabled, this sets the maximum column to show</li>
+                        <li><code><span>minColumnCount</span></code> - If Manage Columns is enabled, this sets the minimum number of columns to show</li>
+                        <li><code><span>headerToolBar</span></code> - Holds the properties for the table's header toolbar</li>
+                        <li>
+                            <ul>
+                                <li><code><span>disableTableSearch default:false</span></code> - Set true to disable table search</li>
+                                <li><code><span>tableSearchTooltip</span></code> - Sets the tooltip for the search icon</li>
+                                <li><code><span>disableTableDownload default:false</span></code> - Set true to disable table download</li>
+                                <li><code><span>downloadAction</span></code> - Sets action for the download icon</li>
+                                <li><code><span>isDownloadDisabled</span></code> - Enable/Disable the download icon</li>
+                                <li><code><span>downloadTooltip</span></code> - Sets the tooltip for the download icon</li>
+                                <li><code><span>enableShowHideColumn default:false</span></code> - Enables column show hide behaviour</li>
+                                <li><code><span>dropdowns</span></code> - Holds the array of dropdown items in the table toolbar
+                                    <ul>
+                                        <li><code><span>action</span></code> - The action to be invoked, when seletion changes</li>
+                                        <li><code><span>iconName</span></code> - The icon name to disaplyed for the dropdown</li>
+                                        <li><code><span>placeholder</span></code> - The placeholder for the dropdown</li>
+                                        <li><code><span>value</span></code> - Holds value for the current selection(s)</li>
+                                        <li><code><span>disableResetSelection</span></code> - Prevents toggle deselection</li>
+                                        <li><code><span>multiSelect default: false</span></code> - Set true for multi select dropdown</li>
+                                        <li><code><span>optionLabelPath</span></code> - Same as input type select</li>
+                                        <li><code><span>optionValuePath</span></code> - Same as input type select</li>
+                                        <li><code><span>content</span></code> - Takes the array of items for the dropdwon</li>
+                                    </ul>
+                                </li>
+                                <li><code><span>items</span></code> - Holds the action menu items for the toolbar
+                                    <ul>
+                                        <li><code><span>iconName</span></code> - takes icon name for menu item</li>
+                                        <li><code><span>action</span></code> - Takes the action name, which will be triggered on menu item click</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/wb-md-card}}
+{{wb-md-tabs config=pageableTabsConfig}}
+{{outlet}}

@@ -1,0 +1,15 @@
+.dropdown-list__row+.dropdown-list__row {
+    margin-top: 10px;
+}
+
+.dropdown-list__row {
+    z-index: 1;
+    position: relative;
+    &:hover {
+        z-index: 2;
+    }
+}
+
+@import "dropdown-list__row_disabled";
+@import "dropdown-list__row_active";
+@import "dropdown-list__row_highlight";

@@ -1,0 +1,7 @@
+.dropdown-list__row_highlight {
+    background: change-color($black, $alpha: 0.04);
+}
+
+.dropdown-list__row_highlight.dropdown-list__row_active {
+    background: change-color($black, $alpha: 0.08);
+}

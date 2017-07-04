@@ -1,0 +1,12 @@
+.card-question {
+  @include flex(flex, row, nowrap, space-between, stretch, flex-start);
+}
+@import "__description/card__description";
+@import "__external-links/card-question__external-links";
+@import "__guidance/card-question__guidance";
+@import "__title/card-question__title";
+@import "__content/card-question__content";
+@import "__additions/card-question__additions";
+@import "__additions/__additions-row/card-question__additions-row";
+@import "__tools/card-question__tools";
+@import "__tools-element/card-question__tools-element";

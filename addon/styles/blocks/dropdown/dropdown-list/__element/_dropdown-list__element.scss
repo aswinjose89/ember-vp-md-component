@@ -1,0 +1,17 @@
+.dropdown-list__element {
+    font-size: $baseFontSize;
+    padding: 4px 40px 4px 20px;
+    transition: box-shadow .4s $baseTransition, background-color .4s $baseTransition;
+    cursor: pointer;
+    user-select: none;
+    @include flex(flex, row, nowrap, flex-start, center, flex-start);
+    min-height: 32px;
+    z-index: 2;
+    position: relative;
+    color: $baseColor;
+    line-height: 1;
+}
+
+@import "dropdown-list__element_parent";
+@import "dropdown-list__element_prompt";
+@import "_dropdown-list__element_nowrap.scss";

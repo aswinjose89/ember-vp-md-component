@@ -1,0 +1,1 @@
+export { default, sliderClass } from 'wb-ui-md-components/helpers/slider-class';

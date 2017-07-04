@@ -1,0 +1,12 @@
+.global-login__sidebar {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: $white;
+    z-index: 2;
+    min-width: 640px;
+    min-height: 570px;
+    @include flex(flex, column, nowrap, space-between, stretch, flex-start);
+}

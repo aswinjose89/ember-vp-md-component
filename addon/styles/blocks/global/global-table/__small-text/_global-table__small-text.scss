@@ -1,0 +1,5 @@
+.global-table__small-text {
+  color: change-color($baseColor, $alpha: .7);
+  font-size: $smallFontSize;
+}
+@import "global-table__small-text_margin-bottom";

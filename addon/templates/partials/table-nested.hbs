@@ -1,0 +1,129 @@
+<tr class="global-table__row">
+    <td colspan="{{visibleColumnCount}}" class="global-table__cell_type_nested">
+        <div class="global-table__nested_before" data-nested-row-card-colors={{nestedTableRowsCardColor}}></div>
+        {{#wb-md-card}}
+            {{#wb-md-content-toolbar pad="full" color=nestedTableToolBarColor}}
+                <div class="content-toolbar__row">
+                {{#if isMultiSelect}}
+                    <div class="content-toolbar__element{{if (or (get filteredItem isDisabled) (get filteredItem disableSelectField)) ' global-table__text_status_disabled'}}">
+                        {{#if enableModelSelection}}
+                            {{wb-md-checkbox disabled=(get filteredItem isDisabled) checked=(mut (get filteredItem isChecked)) onChange=(action 'triggerSendAction' multiSelectAction filteredItem)}}
+                        {{else}}
+                            {{wb-md-checkbox disabled=(get filteredItem isDisabled) checked=(mut (get (object-at array=selectedIds id=(get filteredItem uniqueColumn)) 'isChecked')) onChange=(action 'triggerSendAction' multiSelectAction filteredItem)}}
+                        {{/if}}
+                    </div>
+                {{/if}}
+                    {{#each columns as | column | }}
+                        {{#if (is-equal entityConfigField column.field)}}
+                            <div class="content-toolbar__element">
+                                {{component column.componentName disabled=(get filteredItem isDisabled) config=(get filteredItem column.field) click=(action 'triggerSendAction' column.action filteredItem)}}
+                            </div>
+                        {{/if}}
+                        {{#if (is-equal entityNameField column.field)}}
+                            <div class="content-toolbar__element">
+                                {{wb-md-static-info label=column.title value=(get filteredItem column.field)}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                    <div class="content-toolbar__element">
+                        <div class="content-toolbar__title">{{get filteredItem rowHeaderField}}</div>
+                    </div>
+                </div>
+                <div class="content-toolbar__row">
+                    {{#each columns as | column | }}
+                        {{#unless (or column.isHidden (is-equal column.type 'component') (is-equal entityNameField column.field))}}
+                            <div class="content-toolbar__element">
+                                {{wb-md-static-info label=column.title value=(get filteredItem column.field) size=(if column.isPriorityWidth 'medium')}}
+                            </div>
+                        {{/unless}}
+                    {{/each}}
+                    <div class="content-toolbar__element">
+                        {{wb-md-icon-toolbar config=iconToolbarConfig toggledProperty=(mut (get filteredItem 'toggledProperty'))}}
+                    </div>
+                </div>
+            {{/wb-md-content-toolbar}}
+            {{#each (get filteredItem nestedRowsConfig.nestedRowsField) as |nestedRow|}}
+                {{#wb-md-content-toolbar pad="full" highlight=(get nestedRow 'highlight') color=(get nestedRow 'color') class=(unless nestedRow.toggledProperty 'content-toolbar_border_bottom' (get nestedRow 'cardColorClass'))}}
+                    <div class="content-toolbar__row">
+                        {{#if (get nestedRow 'isMultiSelect')}}
+                        <div class="content-toolbar__element{{if (or (get nestedRow isDisabled) (get nestedRow nestedRowsConfig.disableSelectField)) ' global-table__text_status_disabled'}}">
+                            {{#if enableModelSelection}}
+                                {{wb-md-checkbox checked=(mut (get nestedRow isChecked)) onChange=(action 'triggerRowSelection' multiSelectAction nestedRow parentRecord)}}
+                            {{else}}
+                                {{wb-md-checkbox checked=(mut (get (object-at array=selectedIds id=(get nestedRow uniqueColumn)) 'isChecked')) onChange=(action 'triggerRowSelection' multiSelectAction nestedRow parentRecord)}}
+                            {{/if}}
+                        </div>
+                        {{/if}}
+                        <div class="content-toolbar__element"></div>
+                        {{#if (get nestedRow nestedRowsConfig.enityConfigField)}}
+                        <div class="content-toolbar__element">
+                            {{wb-md-entity-icon config=(get nestedRow nestedRowsConfig.enityConfigField)}}
+                        </div>
+                        {{/if}}
+                        <div class="content-toolbar__element"></div>
+
+                        <div class="content-toolbar__element">
+                            <div class="content-toolbar__title">{{get nestedRow  nestedRowsConfig.name}}</div>
+                        </div>
+                        {{#if nestedRow.statusConfig}}
+                            <div class="content-toolbar__element">
+                                {{component nestedRow.statusConfig.componentName config=nestedRow.statusConfig.componentConfig}}
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div class="content-toolbar__row">
+                        {{#if nestedRow.showActionMenu}}
+                            {{wb-md-action-menu config=nestedRow.actionMenuConfig onClick=(action "handleRowAction" nestedRow)}}
+                        {{else if (get nestedRow nestedRowsConfig.action)}}
+                            <div class="content-toolbar__element">
+                                <a href="#" class="global-table__overflow-element" {{action 'triggerSendAction' (get nestedRow nestedRowsConfig.action) nestedRow}}>
+                                    {{get nestedRow nestedRowsConfig.label}}
+                                </a>
+                            </div>
+                        {{/if}}
+                        {{#if (get nestedRow nestedRowsConfig.tableConfigField)}}
+                            <div class="content-toolbar__element">
+                                {{wb-md-icon-toolbar click=(action 'triggerSendAction' (get nestedRow nestedRowsConfig.handleNestedRowExpandAction) (get filteredItem nestedRowsConfig.nestedRowsField) nestedRow) config=nestedRowsConfig.iconToolbarConfig toggleExist=true toggledProperty=(mut nestedRow.toggledProperty)}}
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/wb-md-content-toolbar}}
+                {{#if nestedRow.toggledProperty}}
+                    <div class="global-table__inner{{get nestedRow 'cardColorClass'}} global-table__inner_highlight_{{get nestedRow 'highlight'}}">
+                        {{#wb-md-card}}
+                            {{wb-md-table
+                                content=(get nestedRow nestedRowsConfig.tableContent)
+                                enableModelSelection=true
+                                parentRecord=nestedRow
+                                noBorder=true
+                                isNestedChildTable=true
+                                triggerSendAction="triggerSendAction"
+                                handleRowAction="handleRowAction"
+                                config=(get nestedRow nestedRowsConfig.tableConfigField)
+                                queryAction=(action computedNestedRowQueryAction)
+                            }}
+                        {{/wb-md-card}}
+                    </div>
+                {{/if}}
+            {{/each}}
+            {{#if config.nestedTableConfig.tableHeading}}
+                {{#wb-md-content-toolbar pad="full" color="{{nestedTableToolBarColor}}" border="bottom"}}
+                    <div class="content-toolbar__row">
+                        <div class="content-toolbar__element">
+                            <div class="content-toolbar__title content-toolbar__title_color_blue">{{nestedTableConfig.tableHeading}}</div>
+                        </div>
+                    </div>
+                {{/wb-md-content-toolbar}}
+            {{/if}}
+            {{wb-md-table config=nestedTableConfig
+                content=nestedTableConfig.content
+                parentRecord=filteredItem
+                isNestedChildTable=true triggerSendAction="triggerSendAction"
+                handleRowAction="handleRowAction"
+                handleRowExpandAction="handleRowExpandAction"
+                queryAction=(action customQueryAction)
+            }}
+        {{/wb-md-card}}
+        <div class="global-table__nested_after"></div>
+    </td>
+</tr>

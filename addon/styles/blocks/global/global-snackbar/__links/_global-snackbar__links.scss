@@ -1,0 +1,6 @@
+.global-snackbar__links {
+    margin-left: 60px;
+    font-weight: 500;
+    cursor: pointer;
+    @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+}

@@ -1,0 +1,6 @@
+.card-selection-group-header__description {
+    font-size: $smallFontSize;
+    line-height: $smallLineHeight;
+    color: change-color($baseColor, $alpha: .7);
+    margin-top: 10px;
+}

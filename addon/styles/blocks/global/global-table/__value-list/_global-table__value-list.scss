@@ -1,0 +1,16 @@
+.global-table__value-list {
+    color: change-color($baseColor, $alpha: .7);
+    font-size: $smallFontSize;
+    line-height: $smallLineHeight;
+    padding-top: 10px;
+    li {
+        height: 13px;
+        & + li {
+            margin-top: 9px;
+        }
+    }
+    strong {
+        font-weight: 500;
+    }
+}
+@import "__value-list-value/global-table__value-list-value";

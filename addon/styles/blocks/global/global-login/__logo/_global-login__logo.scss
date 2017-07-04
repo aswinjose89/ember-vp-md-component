@@ -1,0 +1,7 @@
+.global-login__logo {
+  @include icon_login-logo;
+  position: absolute;
+  left: 40px;
+  top: 33px;
+  z-index: 3;
+}

@@ -1,0 +1,15 @@
+.checkbox-menu {
+    @include flex(inline-flex, row, nowrap, flex-start, flex-start, flex-start);
+    padding: 6px;
+    transition: background 0.25s $baseTransition;
+    border-radius: $baseBorderRadius;
+    position: relative;
+    z-index: 4;
+    &:hover {
+        background-color: change-color($black, $alpha: 0.03);
+    }
+}
+
+@import "__modal/global-menu__modal";
+@import "__modal-element/checkbox-menu__modal-element";
+@import "checkbox-menu_open";

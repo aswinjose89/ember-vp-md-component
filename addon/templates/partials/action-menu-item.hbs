@@ -1,0 +1,17 @@
+<div class="dropdown-list__row{{if item.isDisabled ' dropdown-list__row_disabled'}}{{if item.isHighLight ' dropdown-list__row_highlight'}}"
+    onmouseenter={{action 'setDropItemHighLight' item}}
+    onmouseleave={{action 'unSetDropItemHighLight' item}}
+>
+    <div class="dropdown-list__element dropdown-list__element_nowrap button-ripple" {{action 'triggerSendAction' item.action item}}>
+        {{#if (or item.iconName item.isToggleSelection)}}
+            <div class="dropdown-list__icon dropdown-list__icon_readonly">
+                {{#if item.iconName}}
+                    {{wb-md-icon iconName=item.iconName}}
+                {{else if item.isSelected}}
+                    {{wb-md-icon iconName="check" ripple=false}}
+                {{/if}}
+            </div>
+        {{/if}}
+        {{item.label}}
+    </div>
+</div>

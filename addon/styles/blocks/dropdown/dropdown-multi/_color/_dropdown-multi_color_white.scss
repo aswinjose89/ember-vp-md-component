@@ -1,0 +1,13 @@
+.dropdown-multi_color_white {
+    color: $white;
+    .dropdown-multi__info-element ~ .dropdown-multi__info-element {
+        &:before {
+            background: change-color($white, $alpha: .7);
+        }
+    }
+    .dropdown-multi__row {
+        &:hover {
+            background: transparent;
+        }
+    }
+}

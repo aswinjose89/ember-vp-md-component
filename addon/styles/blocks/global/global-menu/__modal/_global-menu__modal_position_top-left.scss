@@ -1,0 +1,5 @@
+.global-menu__modal_position_top-left {
+  bottom: calc(100% + 12px);
+  left: 0;
+  @extend  %global-effect_position_bottom_left;
+}

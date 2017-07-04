@@ -1,0 +1,21 @@
+.input-row__textarea {
+  padding: 1px 0;
+  textarea {
+    resize: none;
+    overflow: hidden;
+    width: 100%;
+    background: none;
+    border: 0;
+    line-height: 22px;
+    font-size: $baseFontSize;
+    font-family: $baseFont;
+    padding: 0;
+    vertical-align: top;
+    color: $baseColor;
+    transform: translateY(-2px);
+    &:empty {
+      line-height: 22px;
+      height: 22px;
+    }
+  }
+}

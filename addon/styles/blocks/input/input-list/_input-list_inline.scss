@@ -1,0 +1,12 @@
+.input-list_inline {
+    .input-list__group {
+        @include flex(flex, row, nowrap, flex-start, flex-start, flex-start);
+    }
+    .input-list__element {
+        & ~ .input-list__element {
+            margin-left: 20px;
+        }
+    }
+}
+
+@import "__element/input-list__element";

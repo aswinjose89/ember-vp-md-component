@@ -1,0 +1,26 @@
+.global-login__background {
+    background-position: 50% 50%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    transition: all 2s ease-in-out;
+    min-width: 1280px;
+    min-height: 570px;
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-size: auto 100%;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAALQCAYAAABR6BoqAAAAd0lEQVR4Ae2VgQbGMBCD7+793/l+9SM4shI1nQyRTPYNFc3ujikWi8WynoSrpfV3iONd1yyjV7Oi8RA3ebM8KwKvKD5ozM3POKBVHtwRXigV7gQeosC7fB+cl+RHr+yjwfvKPsDzPu64P+r5yELneR/eB+KpffwAweKXTahMhn0AAAAASUVORK5CYII=')
+    }
+}
+
+@import "global-login__background_active";

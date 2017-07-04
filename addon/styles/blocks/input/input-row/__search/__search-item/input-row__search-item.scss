@@ -1,0 +1,20 @@
+.input-row__search-item {
+    background: $indigo_50;
+    border-radius: 11px;
+    white-space: nowrap;
+    user-select: none;
+    font-size: $baseFontSize;
+    color: $baseColor;
+    padding: 3px 24px 4px 8px;
+    position: relative;
+    z-index: 1;
+    line-height: $baseLineHeight;
+    margin: 6px 5px;
+    height: 22px;
+    max-width: calc(100% - 80px);
+    @extend %text-overflow;
+    &_readonly {
+        pointer-events: none;
+        padding-right: 8px;
+    }
+}

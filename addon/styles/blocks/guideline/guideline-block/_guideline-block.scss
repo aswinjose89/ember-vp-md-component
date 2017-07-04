@@ -1,0 +1,12 @@
+//import elements
+.guideline-block {
+  padding: 20px;
+}
+@import "__header/guideline__header";
+@import "__status/guideline__status";
+@import "__title/guideline__title";
+@import "__example/guideline-block__example";
+@import "__chapter/guideline-block__chapter";
+@import "__chapter-inner/guideline-block__chapter-inner";
+@import "__description/guideline-block__description";
+@import "__chapter-title/guideline-block__chater-title";
